@@ -1,0 +1,18 @@
+.Login-header {
+	background-color: blue;
+}
+
+input[type="email"] {
+	border: 0;
+	padding: 0.625rem;
+	margin-top: 0.3125rem;
+}
+
+input[type="submit"] {
+	background-color: blue;
+	color: black;
+	cursor: pointer;
+	border: 0;
+	padding: 0.625rem 0.9375rem;
+	margin-top: 0.3125rem;
+}

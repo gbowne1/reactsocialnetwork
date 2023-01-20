@@ -1,0 +1,35 @@
+.Footer-container {
+	background-color: beige;
+}
+
+.Footer-body {
+	height: 120px;
+	width: 1884px;
+	background-color: grey;
+	color: black;
+	flex-wrap: wrap;
+	float: end;
+}
+
+.Footer a {
+	text-decoration: none;
+	color: #eee;
+}
+
+.Footer-title {
+	color: #fff;
+	font-family: "Roboto", serif;
+}
+
+.Footer-footer {
+	margin-top: 10px;
+	height: 60px;
+	width: 1884px;
+	background-color: #333;
+	color: #bbb;
+}
+
+a {
+	float: left;
+	margin-top: 18px
+}

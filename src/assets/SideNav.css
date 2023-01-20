@@ -1,0 +1,50 @@
+.Side-navigation {
+	height: 100%;
+	max-height: 804px;
+	width: 250px;
+	position: absolute;
+	z-index: 1;
+	bottom: 0;
+	top: 0;
+	left: 0;
+	background-color: #1c2234;
+	overflow-x: hidden;
+	transition: 0.5s;
+	padding-top: 60px;
+	float: left;
+	overflow: hidden;
+	-webkit-transition: all 0.1s ease-in-out;
+	-moz-transition: all 0.1s ease-in-out;
+	transition: all 0.1s ease-in-out;
+}
+
+.Side-navigation a {
+	padding: 8px 8px 8px 32px;
+	text-decoration: none;
+	font-size: 25px;
+	color: #818181;
+	display: block;
+	transition: 0.3s;
+}
+
+.Side-navigation a li {
+	height: 46px;
+	width: 250px;
+}
+
+
+.Side-navigation a:hover {
+	color: #f1f1f1;
+}
+
+.Side-navigation span {
+	max-height: 30px;
+}
+
+.Side-navigation closeBtn {
+	position: absolute;
+	top: 0;
+	right: 25px;
+	font-size: 36px;
+	margin-left: 50px;
+}

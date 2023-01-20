@@ -1,0 +1,12 @@
+.UserProfile-image {
+	background-image: url(/Images/user.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	width: 40px;
+	height: 40px
+}
+
+.UserProfile-header {
+	margin-top: 70px;
+	padding-top: 70px;
+}
