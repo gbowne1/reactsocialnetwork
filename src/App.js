@@ -45,7 +45,7 @@ export default class App extends Component {
                   role="searchbox"
                   aria-labelledby="search"
                   aria-describedby="search"></input>
-                <IconButton>
+                <IconButton className='search-button' >
                   <SearchIcon
                     aria-label="search"
                     aria-labelledby="search"

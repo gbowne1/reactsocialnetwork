@@ -27,9 +27,14 @@
 	align-items: center;
 	margin-top: 10px;
 	height: 40px;
-	width: 750px;
+	width: 450px;
 	border-radius: 5px;
 	padding: auto;
+}
+.App-header .search-button{
+	margin-left: 0px;
+	width: 54px;
+	background-color: #555;
 }
 
 .App-link {
@@ -42,7 +47,7 @@
 .App-header button {
 	display: inline-block;
 	height: 40px;
-	width: 60px;
+	width: 100px;
 	margin-left: 5px;
 	border-radius: 5px;
 }
