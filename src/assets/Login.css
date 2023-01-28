@@ -1,6 +1,14 @@
 .Login-header {
 	background-color: blue;
 }
+.Login-button {
+	align-items: right;
+	background-color: aqua;
+	float: right;
+	margin-top: 10px;
+	margin-right: 5px;
+	padding-right: 5px;
+}
 
 input[type="email"] {
 	border: 0;

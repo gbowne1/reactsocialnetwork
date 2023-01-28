@@ -7,3 +7,9 @@
 	background-color: white;
 	color: black
 }
+.Register-button {
+	align-items: right;
+	background-color: aqua;
+	float: right;
+	margin-top: 10px;
+}
