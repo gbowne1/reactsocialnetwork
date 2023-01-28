@@ -1,163 +1,207 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
-
 .App {
-	background-color: #1c1e21;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	color: #8C8C8C;
-	text-align: center;
-	/* text-shadow: black 0.25em 0.25em 0.25em; */
-	position: relative;
-	z-index: +1;
-	overflow: hidden;
+    background-color: #1c1e21;
+    display: block;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #8C8C8C;
+    text-align: center;
+    /* text-shadow: black 0.25em 0.25em 0.25em; */
+    position: relative;
+    z-index: +1;
+    overflow: hidden;
 }
 
 .App-header {
-	/* background-color: #212529; */
-	background-color: #8C8C8C;
-	min-height: 60px;
-	max-height: 60px;
-	color: #8C8C8C;
-	text-shadow: black 0.3em 0.3em 0.3em;
-	z-index: -1;
+    /* background-color: #212529; */
+    background-color: #8C8C8C;
+    min-height: 60px;
+    max-height: 60px;
+    color: #8C8C8C;
+    text-shadow: black 0.3em 0.3em 0.3em;
+    z-index: -1;
 }
 
 .App-header input {
-	align-items: center;
-	margin-top: 10px;
-	height: 40px;
-	width: 450px;
-	border-radius: 5px;
-	padding: auto;
+    align-items: center;
+    margin-top: 10px;
+    height: 40px;
+    width: 450px;
+    border-radius: 5px;
+    padding: auto;
 }
-.App-header .search-button{
-	margin-left: 0px;
-	width: 54px;
-	background-color: #555;
+
+.App-header .search-button {
+    margin-left: 0px;
+    width: 54px;
+    background-color: #555;
 }
 
 .App-link {
-	justify-content: flex-start;
-	float: inline-start;
-	padding-left: 75px;
-	align-items: center;
+    justify-content: flex-start;
+    float: inline-start;
+    padding-left: 75px;
+    align-items: center;
 }
 
 .App-header button {
-	display: inline-block;
-	height: 40px;
-	width: 100px;
-	margin-left: 5px;
-	border-radius: 5px;
+    display: inline-block;
+    height: 40px;
+    width: 100px;
+    margin-left: 5px;
+    border-radius: 5px;
 }
 
 .App-header form-control {
-	align-items: center;
-	margin-top: 10px;
-	height: 40px;
-	width: 750px;
+    align-items: center;
+    margin-top: 10px;
+    height: 40px;
+    width: 750px;
 }
 
 .App-logo img {
-	margin-top: 10px;
-	margin-left: 10px;
-	justify-content: center;
-	float: left;
-	height: 40px;
-	width: 40px;
-	align-items: center;
+    margin-top: 10px;
+    margin-left: 10px;
+    justify-content: center;
+    float: left;
+    height: 40px;
+    width: 40px;
+    align-items: center;
 }
 
 .Main-app {
-	background-color: lightslategrey;
+    background-color: lightslategrey;
+}
+
+.Section-app {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Section-container {
+    width: 90%;
+    min-height: 700px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border: 1.5px solid black;
+    margin: 10px auto;
 }
 
 h1 {
-	align-items: center;
+    align-items: center;
 }
 
 h2 {
-	padding-top: 30px;
+    padding-top: 30px;
 }
 
 * {
-	box-sizing: border-box;
-	font-family: "Roboto", sans-serif;
-	margin: 0;
-	padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 ul {
-	list-style: none;
-	padding-left: 0;
+    list-style: none;
+    padding-left: 0;
 }
 
 .img {
-	padding-left: 15px;
+    padding-left: 15px;
 }
 
 input {
-	margin-top: 0.5rem;
+    margin-top: 0.5rem;
 }
 
 input::placeholder {
-	margin-left: 5px;
-	padding-left: 5px;
+    margin-left: 5px;
+    padding-left: 5px;
 }
 
 a:hover {
-	text-decoration: underline;
+    text-decoration: underline;
 }
 
+<<<<<<< HEAD
+.Login-button {
+    align-items: right;
+    background-color: aqua;
+    float: right;
+    margin-top: 10px;
+    margin-right: 5px;
+    padding-right: 5px;
+}
+
+.Register-button {
+    align-items: right;
+    background-color: aqua;
+    float: right;
+    margin-top: 10px;
+}
+=======
 
 
 
+>>>>>>> adb10aaa1e3bd2baf23e3ee9416a4a85dffaec3a
 
 span .hamburger {
-	color: #fff !important;
-	position: absolute;
-	left: 0 !important;
-	font-size: 30px;
-	cursor: pointer
+    color: #fff !important;
+    position: absolute;
+    left: 0 !important;
+    font-size: 30px;
+    cursor: pointer
 }
 
 .form {
-	display: flex;
-	flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 input[type="submit"] {
-	background-color: blue;
-	color: black;
-	cursor: pointer;
-	border: 0;
-	padding: 0.625rem 0.9375rem;
-	margin-top: 0.3125rem;
+    background-color: blue;
+    color: black;
+    cursor: pointer;
+    border: 0;
+    padding: 0.625rem 0.9375rem;
+    margin-top: 0.3125rem;
 }
 
+
 /* 1884 x 905 */
+
 @media screen and (min-width: 1884px) {}
 
 @media screen and (max-height: 905px) {}
 
+
 /* 1920 x 1080 */
+
 @media screen and (max-width: 1920px) {}
 
 @media screen and (max-height: 1080px) {}
 
+
 /* 1366 x 768 */
+
 @media screen and (max-width: 1366px) {}
 
 @media screen and (max-height: 768px) {}
 
+
 /* 375 x 667*/
+
 @media screen and (max-width: 375px) {}
 
 @media screen and (max-height: 667px) {}
 
+
 /* 360 x 640 */
+
 @media screen and (max-width: 360px) {}
 
 @media screen and (max-height: 640px) {}

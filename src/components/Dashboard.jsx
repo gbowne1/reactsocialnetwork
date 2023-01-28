@@ -10,7 +10,7 @@ import '../assets/Dashboard.css';
 function Dashboard({toggle}) {
   
     return (
-      <div className={`Dashboard-container  ${toggle?"light-mode":"dark-mode"}`}>
+      <div className={`Section-container  ${toggle?"light-mode":"dark-mode"}`}>
         <div className={`Dashboard-header  ${toggle?"light-mode-header":"dark-mode-header"}`}>
           <h3 className="Dashboard-title">Dashboard</h3>
         </div>

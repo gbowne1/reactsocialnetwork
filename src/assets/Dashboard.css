@@ -1,68 +1,62 @@
 .Dashboard-header {
-	max-width: 1384px;
-	height: 60px;
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
-	border: 1.5px black;
+    max-width: 1384px;
+    height: 60px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border: 1.5px black;
 }
-.dark-mode-header{
-	background-color:#bbb;
-   }
-   .light-mode-header{
-	background-color: rgb(201, 199, 199);
-   }
-   .dark-mode{
-   background-color: beige;
-   }
-   .light-mode{
-	   background-color: rgb(201, 199, 199);
-	   background-color: #ffffff;
-   }
 
-.Dashboard-container {
-	margin-left: 250px;
-	width: 1384px;
-	height: 700px;
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
-	border: 2.5px solid black;
-	margin-top: 2px;
+.dark-mode-header {
+    background-color: #bbb;
+}
+
+.light-mode-header {
+    background-color: rgb(201, 199, 199);
+}
+
+.dark-mode {
+    background-color: beige;
+}
+
+.light-mode {
+    background-color: rgb(201, 199, 199);
+    background-color: #ffffff;
 }
 
 .Close-button {
-	height: 40px;
-	width: 60px;
-	background-color: blue;
+    height: 40px;
+    width: 60px;
+    background-color: blue;
 }
 
 h1 {
-	float: left;
-	padding-top: 19px;
-	height: 45px;
-	width: 250px;
+    float: left;
+    padding-top: 19px;
+    height: 45px;
+    width: 250px;
 }
 
 h2 {
-	float: left;
-	padding-top: 19px;
-	height: 45px;
-	width: 250px;
+    float: left;
+    padding-top: 19px;
+    height: 45px;
+    width: 250px;
 }
 
 h3 {
-	float: left;
-	padding-top: 19px;
-	height: 45px;
-	width: 250px;
+    float: left;
+    padding-top: 19px;
+    height: 45px;
+    width: 250px;
 }
 
 h4 {
-	float: left;
-	padding-top: 19px;
-	height: 45px;
-	width: 250px;
+    float: left;
+    padding-top: 19px;
+    height: 45px;
+    width: 250px;
 }
 
 table {
-	margin-top: 15px;
+    margin-top: 15px;
 }
