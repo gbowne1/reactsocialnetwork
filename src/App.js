@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { useState } from 'react';
 // import logo from "./logo.svg";
 import './App.css';
 import Switch from '@mui/material/Switch';
@@ -23,8 +24,8 @@ import HelpIcon from '@mui/icons-material/Help';
 // import NotFound from './pages/NotFound';
 // import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
-export default class App extends Component {
-  render() {
+ const App =()=> {
+ const [toggle,setToggle]=useState(true);
     return (
       <div className="App">
         <div className="container-fluid">
@@ -92,7 +93,7 @@ export default class App extends Component {
                     />
                   </IconButton>
                 </Tooltip>
-                <Switch />
+                <Switch onClick={()=>setToggle(!toggle)}/>
                 <IconButton>
                   <AccountCircleIcon
                     aria-label="account of current user"
@@ -107,24 +108,25 @@ export default class App extends Component {
           <div>
             <Router>
               <Routes>
-                <Route exact path="/settings" element={<Settings />} />
+                <Route exact path="/settings" element={<Settings/>} />
                 <Route exact path="/profile" element={<UserProfile />} />
-                <Route exact path="/dashboard" element={<Dashboard />} />
+                <Route exact path="/dashboard" element={<Dashboard/>} />
                 <Route exact path="/terms" element={<Dashboard />} />
               </Routes>
             </Router>
             <main className="Main-app">
               <section className="Section-app">
-                <UserProfile />
-                <Dashboard />
-                <Settings />
-                <Dashboard />
+                <UserProfile toggle={toggle}/>
+                <Dashboard toggle={toggle}/>
+                <Settings toggle={toggle}/>
+                <Dashboard toggle={toggle}/>
               </section>
             </main>
-            <Footer />
+            <Footer toggle={toggle}/>
           </div>
         </div>
       </div>
     );
   }
-}
+ 
+  export default App

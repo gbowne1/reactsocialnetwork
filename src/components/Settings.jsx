@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import '../assets/Settings.css';
 
-class Settings extends React.Component {
-  render() {
+function Settings({toggle}){
+  
     return (
-      <div className="Settings-container">
-        <div className="Settings-header">
+      <div className={`Settings-container ${toggle?"light-mode":"dark-mode"}`}>
+        <div className={`Settings-header ${toggle?"light-mode-header":"dark-mode-header"}`}>
           <h3 className="Settings-title">Settings</h3>
         </div>
         <h3 className="">Notifications Settings</h3>
@@ -19,5 +20,9 @@ class Settings extends React.Component {
       </div>
     );
   }
-}
+ 
+  Settings.propTypes = {
+   toggle: PropTypes.bool
+  };
+  
 export default Settings;
