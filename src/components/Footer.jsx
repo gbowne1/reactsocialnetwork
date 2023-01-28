@@ -1,8 +1,8 @@
 import React from 'react';
 import '../assets/Footer.css';
 
-class Footer extends React.Component {
-  render() {
+
+function Footer(){
     return (
       <footer className="Footer-body">
         Footer
@@ -21,7 +21,6 @@ class Footer extends React.Component {
         </section>
       </footer>
     );
-  }
 }
 
 export default Footer;

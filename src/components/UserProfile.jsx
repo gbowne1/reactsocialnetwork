@@ -1,16 +1,19 @@
 import React from 'react';
 import '../assets/UserProfile.css';
+import PropTypes from 'prop-types';
 
-class UserProfile extends React.Component {
-  render() {
+function UserProfile({toggle}){
     return (
-      <div className="Userprofile-container">
-        <div className="Userprofile-header">
+      <div className={`Userprofile-container ${toggle?"light-mode":"dark-mode"}`}>
+        <div className={`Userprofile-header ${toggle?"light-mode-header":"dark-mode-header"}`}>
           <h3 className="Userprofile-title">Userprofile</h3>
         </div>
       </div>
     );
-  }
+  
 }
+UserProfile.propTypes = {
+  toggle: PropTypes.bool
+ };
 
 export default UserProfile;

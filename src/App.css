@@ -8,14 +8,15 @@
 	justify-content: center;
 	color: #8C8C8C;
 	text-align: center;
-	text-shadow: black 0.25em 0.25em 0.25em;
+	/* text-shadow: black 0.25em 0.25em 0.25em; */
 	position: relative;
 	z-index: +1;
 	overflow: hidden;
 }
 
 .App-header {
-	background-color: #212529;
+	/* background-color: #212529; */
+	background-color: #8C8C8C;
 	min-height: 60px;
 	max-height: 60px;
 	color: #8C8C8C;
