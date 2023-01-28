@@ -11,6 +11,7 @@ import UserProfile from './components/UserProfile';
 import Dashboard from './components/Dashboard';
 import Settings from './components/Settings';
 import Footer from './components/Footer';
+import NotFound from './components/NotFound';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
@@ -112,6 +113,7 @@ import HelpIcon from '@mui/icons-material/Help';
                 <Route exact path="/profile" element={<UserProfile />} />
                 <Route exact path="/dashboard" element={<Dashboard/>} />
                 <Route exact path="/terms" element={<Dashboard />} />
+                <Route path="*" element={<NotFound />} />
               </Routes>
             </Router>
             <main className="Main-app">
