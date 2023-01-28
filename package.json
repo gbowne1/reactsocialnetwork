@@ -41,10 +41,6 @@
 			"plugin:react/recommended"
 		]
 	},
-	"engines": {
-		"node": "^14.17.3",
-		"npm": "^8.7.0"
-	},
 	"proxy": "",
 	"browserslist": {
 		"production": [

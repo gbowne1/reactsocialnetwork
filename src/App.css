@@ -29,7 +29,6 @@
     height: 40px;
     width: 450px;
     border-radius: 5px;
-    padding: auto;
 }
 
 .App-header .search-button {
@@ -126,28 +125,6 @@ input::placeholder {
 a:hover {
     text-decoration: underline;
 }
-
-<<<<<<< HEAD
-.Login-button {
-    align-items: right;
-    background-color: aqua;
-    float: right;
-    margin-top: 10px;
-    margin-right: 5px;
-    padding-right: 5px;
-}
-
-.Register-button {
-    align-items: right;
-    background-color: aqua;
-    float: right;
-    margin-top: 10px;
-}
-=======
-
-
-
->>>>>>> adb10aaa1e3bd2baf23e3ee9416a4a85dffaec3a
 
 span .hamburger {
     color: #fff !important;
