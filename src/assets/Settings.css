@@ -7,7 +7,8 @@
 }
 
 .dark-mode-header {
-    background-color: #333;
+    background-color: #393E46;
+    color: #FFD369;
 }
 
 .light-mode-header {
@@ -15,7 +16,8 @@
 }
 
 .dark-mode {
-    background-color: beige;
+    background-color: #EEEEEE;
+    color: #393E46;
 }
 
 .light-mode {
