@@ -30,7 +30,7 @@
 	height: 40px;
 	width: 450px;
 	border-radius: 5px;
-	padding: auto;
+	padding: none;
 }
 .App-header .search-button{
 	margin-left: 0px;

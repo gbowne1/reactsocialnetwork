@@ -8,7 +8,7 @@
 	background-color: grey;
 	color: black;
 	flex-wrap: wrap;
-	float: end;
+	float: inline-end;
 }
 	
 
