@@ -4,11 +4,11 @@
 
 .Footer-body {
 	height: 120px;
-	width: 1884px;
-	background-color: grey;
-	color: black;
-	flex-wrap: wrap;
-	float: inline-end;
+    width: 100%;
+    background-color: grey;
+    color: black;
+    flex-wrap: wrap;
+    float: initial;
 }
 	
 
