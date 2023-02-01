@@ -31,6 +31,11 @@
 	width: 450px;
 	border-radius: 5px;
 	padding: none;
+	align-items: center;
+    margin-top: 10px;
+    height: 40px;
+    width: 450px;
+    border-radius: 5px;
 }
 .App-header .search-button{
 	margin-left: 0px;
