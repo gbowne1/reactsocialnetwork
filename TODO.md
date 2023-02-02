@@ -16,7 +16,7 @@
 - [ ] Add Chatroom to Website
 - [ ] Add Favicon
 - [ ] Add a Logo
-- [ ] Create a .drawio file with UML and sitemap 
+- [ ] Create a .drawio file with UML and sitemap
 - [ ] Figma Design?
 - [ ] Fix minor CSS issues
 - [ ] Test with Google Lighthouse in Chrome
@@ -26,14 +26,12 @@
 - [ ] Create a Social Media Preview image for this repository (This image is: 640×320px (1280×640px))
 - [ ] Create a cookie accept flow
 - [ ] Fix contrast issues and make sure forms and field and icon elements have ARIA text labels.
- 
-### In Progress
 
+### In Progress
 
 ### Done ✓
 
 - [ ] Initial UI work
-
 
 ## Content
 
@@ -45,7 +43,7 @@ Tasks related to new content.
 ## Release
 
 - [x] Init project repository
-      http://github.com/gbowne1/reactsocialnetwork
+      <http://github.com/gbowne1/reactsocialnetwork>
 
 - [ ] Publish project on some particular host to be decided on
 
@@ -53,6 +51,6 @@ Tasks related to new content.
 
 - [ ]
 
-# Backlog
+## Backlog
 
-- [ ] 
+- [ ]

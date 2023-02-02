@@ -4,20 +4,26 @@ If you make a pull request, please also add your name here in the alphabetical o
 
 ## Original Creator & Maintainer
 
-
 Gregory K. Bowne @gbowne1
 
 ## Notable Bug Reporters
 
 
+
 ## Code Contributors
 
+@cidrokp1 Kevin Lourenço
+@tarunsamanta2k20 Tarun Samanta
+@elmehdi1212
+@UjjawalTyagi123 Ujjawal Tyagi
+@MihirRajChowdhury
+@Heini-Maria Heini-Maria Kotipelto
 
 ## Documenters
 
-Released under the MIT License
+Released under the GNU GPL v3 License
 
-Copyright (c) 2010 Gregory K. Bowne
+Copyright (c) 2023 Gregory K. Bowne
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
