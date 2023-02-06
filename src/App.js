@@ -12,6 +12,7 @@ import Dashboard from './components/Dashboard';
 import Settings from './components/Settings';
 import Footer from './components/Footer';
 import NotFound from './components/NotFound';
+import SideNav from './components/SideNav';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
@@ -99,7 +100,7 @@ import HelpIcon from '@mui/icons-material/Help';
                   <AccountCircleIcon
                     aria-label="account of current user"
                     aria-controls="menu-account"
-                    aria-haspopup="true"
+                    aria-haspopup="menu"
                     sx={{ color: '#fff' }}
                   />
                 </IconButton>
@@ -112,8 +113,8 @@ import HelpIcon from '@mui/icons-material/Help';
                 <Route exact path="/settings" element={<Settings/>} />
                 <Route exact path="/profile" element={<UserProfile />} />
                 <Route exact path="/dashboard" element={<Dashboard/>} />
-                <Route exact path="/terms" element={<Dashboard />} />
-                <Route path="*" element={<NotFound />} />
+                <Route exact path="/terms" element={<NotFound/>} />
+                <Route path="*" element={<SideNav />} />
               </Routes>
             </Router>
             <main className="Main-app">
@@ -121,7 +122,6 @@ import HelpIcon from '@mui/icons-material/Help';
                 <UserProfile toggle={toggle}/>
                 <Dashboard toggle={toggle}/>
                 <Settings toggle={toggle}/>
-                <Dashboard toggle={toggle}/>
               </section>
             </main>
             <Footer toggle={toggle}/>

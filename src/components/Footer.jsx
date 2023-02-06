@@ -5,9 +5,9 @@ import '../assets/Footer.css';
 function Footer(){
     return (
       <footer className="Footer-body">
-        Footer
         <div className="row">
-          <div className="col"></div>
+          <div className="col">
+          </div>
         </div>
         <section className="Footer-footer">
           <ul>

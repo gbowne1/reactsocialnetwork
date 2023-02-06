@@ -4,7 +4,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 // import routes from "./routes";
 import * as serviceWorker from './serviceWorker';
-// import 'bootstrap/dist/css/bootstap.css';
+// import 'bootstrap/dist/css/bootstrap.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

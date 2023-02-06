@@ -2,7 +2,7 @@ var path = require("path");
 var webpack = require("webpack");
 
 module.exports = {
-  devtool: "eval",
+  devtool: "source-map",
   entry: ["./src/App.js"],
   output: {
     path: __dirname,
@@ -16,4 +16,8 @@ module.exports = {
       },
     ],
   },
+  externals: {
+    "react": "React",
+    "react-dom": "ReactDOM"
+  }
 };

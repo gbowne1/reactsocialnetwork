@@ -16,14 +16,14 @@ class Register extends React.Component {
         <input
           type="password"
           className="Register-input"
-          placeholder="username"
+          placeholder="password"
           required>
           Password
         </input>
         <input
           type="password"
           className="Register-input"
-          placeholder="username"
+          placeholder="password"
           required>
           Password Confirmation
         </input>
