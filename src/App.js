@@ -33,12 +33,7 @@ const App = () => {
       <div className="container-fluid">
         <header className="App-header">
           <nav className="App-logo">
-            <img
-              src="../public/logo512.png"
-              width="192"
-              height="192"
-              alt="logo"
-            ></img>
+            <img src="./logo512.png" width="192" height="192" alt="logo"></img>
             <form className="d-flex">
               <input
                 className="form-control"
