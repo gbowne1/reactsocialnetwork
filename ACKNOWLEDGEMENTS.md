@@ -9,15 +9,19 @@ Gregory K. Bowne @gbowne1
 ## Notable Bug Reporters
 
 
-
 ## Code Contributors
 
-@cidrokp1 Kevin Lourenço
-@tarunsamanta2k20 Tarun Samanta
-@elmehdi1212
-@UjjawalTyagi123 Ujjawal Tyagi
-@MihirRajChowdhury
-@Heini-Maria Heini-Maria Kotipelto
+- @cidrokp1 Kevin Lourenço
+
+- @tarunsamanta2k20 Tarun Samanta
+
+- @elmehdi1212
+
+- @UjjawalTyagi123 Ujjawal Tyagi
+
+- @MihirRajChowdhury
+
+- @Heini-Maria Heini-Maria Kotipelto
 
 ## Documenters
 

@@ -19,7 +19,6 @@ your report. After the initial reply to your report, the owners will
 endeavor to keep you informed of the progress towards a fix and full
 announcement, and may ask for additional information or guidance.
 
-
 ## Supported Versions
 
 | Version   | Supported          |

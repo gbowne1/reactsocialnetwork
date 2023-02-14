@@ -1,6 +1,13 @@
-# TODO.md
+# React Social Network
 
-## To Do
+This project will be made to bootstrap the Social Media site for Seniors with a dating and groups section.
+
+### Column Name
+
+- [ ] Task title ~3d #type @name yyyy-mm-dd  
+  - [ ] Sub-task or description  
+
+### Completed Column ✓
 
 - [ ] Add a Privacy Policy and Terms and Conditions
 - [ ] Create User Profile Page

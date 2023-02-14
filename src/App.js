@@ -8,8 +8,10 @@ import Tooltip from "@mui/material/Tooltip";
 // import MenuIcon from '@mui/icons-material/Menu';
 import LoginIcon from "@mui/icons-material/Login";
 import UserProfile from "./components/UserProfile";
+import Profile from "./components/Profile";
 import Dashboard from "./components/Dashboard";
 import Settings from "./components/Settings";
+import Friends from "./components/Friends";
 import Footer from "./components/Footer";
 import NotFound from "./components/NotFound";
 import SideNav from "./components/SideNav";
@@ -21,6 +23,7 @@ import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import SettingsIcon from "@mui/icons-material/Settings";
 import HelpIcon from "@mui/icons-material/Help";
+import Post from "./components/Post"
 // import IconButton from '@mui/material/IconButton';
 // import Login from "./components/Login";
 // import NotFound from './pages/NotFound';
@@ -121,7 +124,10 @@ const App = () => {
             <section className="Section-app">
               <UserProfile toggle={toggle} />
               <Dashboard toggle={toggle} />
+              <Friends toggle={toggle} />
+              <Profile toggle={toggle} />
               <Settings toggle={toggle} />
+              <Post toggle={toggle} />
             </section>
           </main>
           <Footer toggle={toggle} />

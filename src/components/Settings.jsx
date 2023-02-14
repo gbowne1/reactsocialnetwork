@@ -9,16 +9,21 @@ function Settings({toggle}){
         <div className={`Settings-header ${toggle?"light-mode-header":"dark-mode-header"}`}>
           <h3 className="Settings-title">Settings</h3>
         </div>
-
-
-        
-        <h3 className="">Notifications Settings</h3>
+        <h3 className=''>Notifications Settings</h3>
+        <div className='Notifications-tab'>Email Notifications</div>
+        <div className='Notifications-tab'>Push Notifications</div>
         <hr />
-        <h3 className="">Security</h3>
+        <h3 className=''>Security</h3>
+        <div className='Notifications-tab'>Email Notifications</div>
+        <div className='Notifications-tab'>Push Notifications</div>
         <hr />
-        <h3 className="">Unusual Activity Settings</h3>
+        <h3 className=''>Unusual Activity Settings</h3>
+        <div className='Notifications-tab'>Email Notifications</div>
+        <div className='Notifications-tab'>Push Notifications</div>
         <hr />
-        <h3 className="">Alerts Settings</h3>
+        <h3 className=''>Alerts Settings</h3>
+        <div className='Notifications-tab'>Email Notifications</div>
+        <div className='Notifications-tab'>Push Notifications</div>
         <hr />
       </div>
     );

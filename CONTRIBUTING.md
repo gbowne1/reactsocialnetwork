@@ -3,9 +3,12 @@
 We welcome Pull Requests (PR's) as well as having people working on fixing it's current issues. If you are coming to this project new.
 If you notice an issue with this app, please feel free to open an issue.
 
-A lot of developers prefer asking if they could contribute or be assigned a task as a reply to a .  This is great.  I have a strict no gatekeeping policy in any of these projects.  
+A lot of developers prefer asking if they could contribute or be assigned a task as a reply to a reported issue in the Issues tab.  This is great.  We have a strict no gate-keeping policy in any of these projects.  You are welcome to work on any task/issue, just let us know that you are going to work on the an issue.
+If you are unsure of the style and design, there is an issue here: <https://github.com/gbowne1/reactsocialnetwork/discussions/36>. Typically, if you think it will take you longer than 72 hours after having been assigned, to submit a PR, let us know that way issues do not go stale.
 
-Some tasks may not be beginner friendly even if tagged `good first issue`.. so try and judge the task accordingly.  If you are a beginner, there are smaller tasks a beginner can work on such as style issues.
+Some tasks may not be beginner friendly even if tagged `good first issue`.. so try and judge the task accordingly. If you are a beginner, there are smaller tasks a beginner can work on such as style issues.
+
+You should already be familiar with React 17 and or 18, JavaScript ES5/ES6/ES7.
 
 ## Style
 
@@ -15,18 +18,18 @@ The layout is a 3 column layout, starting with desktop view with a 200-250px lef
 
 ## Development
 
-If you are not sure what to work on, review the issues list.  There are also TODO's listed in the TODO.md file.
+If you are not sure what to work on, review the issues list.  There are also TODO's listed in the included TODO.md file.
 
 ### PR's
 
-    When you do a PR on GitHub, Please make sure you complete the section on the right, Assignees, Reviewers, Labels, Projects, Milestone(s) and Development before you submit the PR.  
+  When you do a PR on GitHub, Please make sure you complete the section on the right, Assignees, Reviewers, Labels, Projects, Milestone(s) and Development before you submit the PR.  Please also share a screenshot or show the working fix in the Pull Request message and a brief description of what you fixed.  Blank issues and descriptions may not get merged.
 
 - Link an issue to Development that the PR will close
 - Make sure that you tag a reviewer i.e. @gbowne1
-- Pick labels from Labels
+- Pick appropriate labels from Labels
 - Make sure you are the assignee to the PR.
 - Milestone, choose Frontend or Backend (more may come later on)
-
+  
 ### Issues
 
   @gbowne1 will assign users to issues on a first come, first serve basis. In the future I would like a minimum of 2 people doing Frontend and 2 people doing Backend, then we can assign specific groups of people taking care of things like CSS, Components, etc.
@@ -71,3 +74,5 @@ Our branches follow GitFlow / GitHub Flow as a general rule.
 - Feature Branch # of feature - {feature}
 - [bugfix - { fixed bug }]
 - [hotfix - { fix }]
+
+Use a test branch to commit/push code that you believe should work but is not completely tested.
