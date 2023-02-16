@@ -19,6 +19,7 @@
 		"babel-loader": "^9.1.0",
 		"babel-preset-react": "^6.24.1",
 		"react": "^18.2.0",
+		"react-burger-menu": "^3.0.9",
 		"react-dom": "^18.2.0",
 		"react-router": "^6.4.5",
 		"react-router-dom": "^6.4.5",

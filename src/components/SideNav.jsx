@@ -1,5 +1,6 @@
 import React from 'react';
-import { NavLink as Link } from 'react-router-dom';
+//import { NavLink as Link } from 'react-router-dom';
+import { slide as Menu } from 'react-burger-menu';
 import '../assets/SideNav.css';
 
 class SideNav extends React.Component {
@@ -26,20 +27,22 @@ class SideNav extends React.Component {
 
   render() {
     return (
-      <div className="Side-navigation" id="">
-        <div className="container-fluid">
-          <Link to="/"></Link>
-          <Link to="/groups">
-          <button className='button'>Groups</button>
-          </Link>
-          <Link to="/events">
-          <button className='button'>Events</button>
-          </Link>
-          <Link to="/friends">
-            <button className='button'>Friends</button>
-          </Link>
-        </div>
-      </div>
+      <Menu>
+          <a className="menu-item" href="/groups">
+          Groups 
+          </a>
+          <a className="menu-item" href="/events">
+          Event
+        </a>
+
+        <a className="menu-item" href="/friends">
+          Friends
+        </a>
+        
+      
+      </Menu>
+
+      
     );
   }
 }
