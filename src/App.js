@@ -110,7 +110,7 @@ const App = () => {
             </form>
           </nav>
         </header>
-        <div>
+        <div className="Main-app-container">
           <Router>
             <Routes>
               <Route exact path="/settings" element={<Settings />} />
