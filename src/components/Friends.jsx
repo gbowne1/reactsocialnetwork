@@ -12,6 +12,8 @@ import '../assets/Friends.css';
 // import Login from './Login';
 
 function Friends({toggle}) {
+
+  console.log(toggle)
   
     return (
       <div
@@ -41,7 +43,6 @@ function Friends({toggle}) {
               <CardContent>
                 <Typography
                   sx={{ fontSize: 14 }}
-                  color="text.[primary]"
                   gutterBottom
                 >
                   Friends
