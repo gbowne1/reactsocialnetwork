@@ -12,8 +12,6 @@ import '../assets/Friends.css';
 // import Login from './Login';
 
 function Friends({toggle}) {
-
-  console.log(toggle)
   
     return (
       <div
