@@ -41,7 +41,6 @@ function Friends({toggle}) {
               <CardContent>
                 <Typography
                   sx={{ fontSize: 14 }}
-                  color="text.[primary]"
                   gutterBottom
                 >
                   Friends
