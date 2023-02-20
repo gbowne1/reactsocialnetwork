@@ -28,3 +28,94 @@ h3 {
     height: 45px;
     width: 180px;
 }
+
+.Post-create {
+    margin: 10px;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.Post-create.dark-mode {
+    background-color: #8C8C8C;
+}
+
+.Post-basics {
+    width: 100%;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.Post-avatar {
+    margin: auto;
+    height: 100%;
+}
+
+.Post-empty-avatar {
+    padding: 0;
+    margin: 0;
+    margin-block: auto;
+    font-size: 36px;
+    line-height: 100%;
+}
+
+.Post-text {
+    background-color: #555;
+    margin: 0;
+    padding: 10px 15px;
+    border-radius: 50px;
+    border: none;
+    flex: 1;
+}
+
+.Post-text.dark-mode::placeholder {
+    color: #a4a4a4;
+}
+
+.Post-text.dark-mode {
+    color: #a4a4a4;
+}
+
+.Post-submit {
+    margin: 0;
+    padding: 10px 15px;
+    border-radius: 50px;
+    border: none;
+}
+
+.Post-submit.dark-mode {
+    color:#FFD369;
+    background-color: #555555;
+}
+
+.Post-uploads {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    width: 100%;
+}
+
+.Post-uploads button {
+    padding: 0;
+}
+
+.Post-icon-label {
+    margin-left: 10px;
+    font-size: 14px;
+}
+
+.Post-icon-label.dark-mode {
+    background-color: transparent;
+    color: aliceblue;
+}
+
+
