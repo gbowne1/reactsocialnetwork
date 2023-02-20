@@ -6,7 +6,8 @@ import InsertPhotoIcon from '@mui/icons-material/InsertPhoto';
 import VideoFileIcon from '@mui/icons-material/VideoFile';
 import MoodIcon from '@mui/icons-material/Mood';
 import SendIcon from '@mui/icons-material/Send';
-import { IconButton } from '@mui/material';
+import {IconButton } from '@mui/material';
+
 // import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 // import Home from './Home';
 // import Settings from './Settings';
@@ -76,32 +77,39 @@ function Post({toggle, userAvatar, userName = ""}) {
           <div className='Post-uploads'>
 
             <IconButton 
-              className="Post-add-photo" 
-              aria-label="add-photo"
+              className="Post-upload-btn" 
+              aria-label="upload picture"
+              component="label"
             >
+              <input hidden accept="image/*" multiple type="file" />
               <InsertPhotoIcon
                 fontSize='inherit'
-                aria-label="add photo"
-                aria-labelledby="add photo"
+                aria-label="upload picture"
+                aria-labelledby="upload picture"
                 sx={{ color: "#054a91" }}
               />
               <span className={`Post-icon-label ${theme}`}>Add Photo</span>
             </IconButton>
+
             <IconButton 
-              className="Post-add-video" 
-              aria-label="add-video"
+              className="Post-upload-btn" 
+              aria-label="upload video"
+              component="label"
             >
+              <input hidden accept="video/*" multiple type="file" />
               <VideoFileIcon
                 fontSize='inherit'
-                aria-label="add video"
-                aria-labelledby="add video"
+                aria-label="upload video"
+                aria-labelledby="upload video"
                 sx={{ color: "#931621" }}
               />
               <span className={`Post-icon-label ${theme}`}>Add Video</span>
             </IconButton>
+
             <IconButton 
-              className="Post-add-mood" 
-              aria-label="add-mood"
+              className="Post-upload-btn" 
+              aria-label="add mood"
+              component="label"
             >
               <MoodIcon
                 fontSize='inherit'

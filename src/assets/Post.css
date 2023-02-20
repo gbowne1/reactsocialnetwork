@@ -130,6 +130,10 @@ h3 {
     padding: 0;
 }
 
+.Post-upload-btn:hover {
+    border-radius: 5px;
+}
+
 .Post-icon-label {
     margin-left: 10px;
     font-size: 14px;
