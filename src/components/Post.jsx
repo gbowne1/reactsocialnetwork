@@ -5,6 +5,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import InsertPhotoIcon from '@mui/icons-material/InsertPhoto';
 import VideoFileIcon from '@mui/icons-material/VideoFile';
 import MoodIcon from '@mui/icons-material/Mood';
+import SendIcon from '@mui/icons-material/Send';
 import { IconButton } from '@mui/material';
 // import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 // import Home from './Home';
@@ -46,6 +47,7 @@ function Post({toggle, userAvatar, userName = ""}) {
                 </IconButton>
               }
             </div>
+
             <input 
               dir='ltr'
               placeholder='Start a post'
@@ -53,12 +55,21 @@ function Post({toggle, userAvatar, userName = ""}) {
               aria-label='Area to write post'
               className={`Post-text ${theme}`} 
               type="text" 
-              autoComplete='off'/>
-            <input 
-              className={`Post-submit  ${theme}`} 
-              type="submit" 
-              value="Public"
+              autoComplete='off'
             />
+
+            <IconButton 
+              className={`Post-submit  ${theme}`} 
+              aria-label="search-button"
+              type='submit'
+            >
+              <SendIcon
+                fontSize='inherit'
+                aria-label="submit"
+                aria-labelledby="submit"
+                sx={{ color: "inherit" }}
+              />
+            </IconButton>
 
           </div>
 
