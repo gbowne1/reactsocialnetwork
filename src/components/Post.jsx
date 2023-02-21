@@ -53,7 +53,7 @@ function Post({toggle, userAvatar, userName = ""}) {
               dir='ltr'
               placeholder='Start a post'
               aria-invalid="false"
-              aria-label='Area to write post'
+              aria-label='Post text input'
               className={`Post-text ${theme}`} 
               type="text" 
               autoComplete='off'
@@ -61,13 +61,13 @@ function Post({toggle, userAvatar, userName = ""}) {
 
             <IconButton 
               className={`Post-submit  ${theme}`} 
-              aria-label="search-button"
+              aria-label="search button"
               type='submit'
             >
               <SendIcon
                 fontSize='inherit'
-                aria-label="submit"
-                aria-labelledby="submit"
+                aria-label="submit post"
+                aria-labelledby="submit post"
                 sx={{ color: "inherit" }}
               />
             </IconButton>

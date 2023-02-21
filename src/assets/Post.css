@@ -1,10 +1,27 @@
+:root {
+    --bg-dark: #393E46;
+    --bg-light: #C9C7C7;
+    --bg-grey: #555;
+    --text-dark: #393E46;
+    --text-light: #a4a4a4;
+    --clr-dark-mode-accent: #FFD369;
+    --clr-light-mode-accent: #30489f;
+}
+
 .Post-header {
-    background-color: #555;
     max-width: 1384px;
     height: 60px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     border: 1.5px black;
+}
+
+.Post-header.dark-mode {
+    background-color: var(--bg-dark);
+}
+
+.Post-header.light-mode {
+    background-color: var(--bg-light);
 }
 
 .Post-container {
@@ -42,11 +59,11 @@ h3 {
 }
 
 .Post-create.dark-mode {
-    background-color: #8C8C8C;
+    background-color: var(--bg-dark);
 }
 
 .Post-create.light-mode {
-    background-color: #e9e9e9;
+    background-color: var(--bg-light);
 }
 
 .Post-basics {
@@ -85,21 +102,20 @@ h3 {
 }
 
 .Post-text.dark-mode::placeholder {
-    color: #a4a4a4;
+    color: var(--text-light);
 }
 
 .Post-text.dark-mode {
-    color: #a4a4a4;
-    background-color: #555;
+    color: var(--text-light);
+    background-color: var(--bg-grey);
 }
 
 .Post-text.light-mode::placeholder {
-    color: #363537;
+    color: var(--text-dark);
 }
 
 .Post-text.light-mode {
-    color: #363537;
-    background-color: #FFF;
+    color: var(--text-dark);
 }
 
 .Post-submit {
@@ -110,11 +126,11 @@ h3 {
 }
 
 .Post-submit.dark-mode {
-    color:#FFD369;
+    color:var(--clr-dark-mode-accent);
 }
 
 .Post-submit.light-mode {
-    color:#555555;
+    color:var(--clr-light-mode-accent);
 }
 
 .Post-uploads {
@@ -141,12 +157,12 @@ h3 {
 
 .Post-icon-label.dark-mode {
     background-color: transparent;
-    color: aliceblue;
+    color: var(--text-light);
 }
 
 .Post-icon-label.light-mode {
     background-color: transparent;
-    color: #555;
+    color: var(--text-dark);
 }
 
 
