@@ -1,10 +1,27 @@
+:root {
+    --bg-dark: #393E46;
+    --bg-light: #C9C7C7;
+    --bg-grey: #555;
+    --text-dark: #393E46;
+    --text-light: #a4a4a4;
+    --clr-dark-mode-accent: #FFD369;
+    --clr-light-mode-accent: #30489f;
+}
+
 .Post-header {
-    background-color: #555;
     max-width: 1384px;
     height: 60px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     border: 1.5px black;
+}
+
+.Post-header.dark-mode {
+    background-color: var(--bg-dark);
+}
+
+.Post-header.light-mode {
+    background-color: var(--bg-light);
 }
 
 .Post-container {
@@ -28,3 +45,124 @@ h3 {
     height: 45px;
     width: 180px;
 }
+
+.Post-create {
+    margin: 10px;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.Post-create.dark-mode {
+    background-color: var(--bg-dark);
+}
+
+.Post-create.light-mode {
+    background-color: var(--bg-light);
+}
+
+.Post-basics {
+    width: 100%;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.Post-avatar {
+    margin: auto;
+    height: 100%;
+}
+
+.Post-avatar button {
+    font-size: 36px;
+    padding: 0;
+    line-height: 100%;
+}
+
+.Post-empty-avatar {
+    padding: 0;
+    margin: 0;
+    margin-block: auto;
+    font-size: 36px;
+    line-height: 100%;
+}
+
+.Post-text {
+    margin: 0;
+    padding: 10px 15px;
+    border-radius: 50px;
+    border: none;
+    flex: 1;
+}
+
+.Post-text.dark-mode::placeholder {
+    color: var(--text-light);
+}
+
+.Post-text.dark-mode {
+    color: var(--text-light);
+    background-color: var(--bg-grey);
+}
+
+.Post-text.light-mode::placeholder {
+    color: var(--text-dark);
+}
+
+.Post-text.light-mode {
+    color: var(--text-dark);
+}
+
+.Post-submit {
+    margin: 0;
+    padding: 10px 15px;
+    border-radius: 50px;
+    border: none;
+}
+
+.Post-submit.dark-mode {
+    color:var(--clr-dark-mode-accent);
+}
+
+.Post-submit.light-mode {
+    color:var(--clr-light-mode-accent);
+}
+
+.Post-uploads {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    width: 100%;
+}
+
+.Post-uploads button {
+    padding: 0;
+}
+
+.Post-upload-btn:hover {
+    border-radius: 5px;
+}
+
+.Post-icon-label {
+    margin-left: 10px;
+    font-size: 14px;
+}
+
+.Post-icon-label.dark-mode {
+    background-color: transparent;
+    color: var(--text-light);
+}
+
+.Post-icon-label.light-mode {
+    background-color: transparent;
+    color: var(--text-dark);
+}
+
+
