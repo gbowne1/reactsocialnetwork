@@ -1,3 +1,12 @@
+:root {
+    --header-bg-dark-mode: #393E46;
+    --header-bg-light-mode: #c9c7c7;
+    --section-bg-dark-mode: #EEEEEE;
+    --section-bg-light-mode: #FFFFFF;
+    --text-dark: #393E46;
+    --clr-accent-dark-mode: #FFD369;
+}
+
 .Settings-header {
     max-width: 1384px;
     height: 60px;
@@ -6,23 +15,52 @@
     border: 1.5px black;
 }
 
+.Settings-tab-groups-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.Settings-tab-group-header {
+    text-align: left;
+    height: 100%;
+    padding-block: 10px;
+}
+
+.Settings-tab-group-tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.Settings-tab-group-tabs div{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.Settings-tab-group-tabs input{
+    margin-block: auto;
+}
+
 .dark-mode-header {
-    background-color: #393E46;
-    color: #FFD369;
+    background-color: var(--header-bg-dark);
+    color: var(--clr-accent-dark-mode);
 }
 
 .light-mode-header {
-    background-color: rgb(201, 199, 199);
+    background-color: var(--header-bg-light-mode);
 }
 
 .dark-mode {
-    background-color: #EEEEEE;
-    color: #393E46;
+    background-color: var(--section-bg-dark-mode);
+    color: var(--text-dark);
 }
 
 .light-mode {
-    background-color: rgb(201, 199, 199);
-    background-color: #ffffff;
+    background-color: var(--section-bg-light-mode);
 }
 
 .Close-button {
