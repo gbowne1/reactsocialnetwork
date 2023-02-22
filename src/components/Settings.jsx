@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import '../assets/Settings.css';
+import { FormControlLabel, FormGroup, Switch } from '@mui/material';
 
 function Settings({toggle}){
 
@@ -15,64 +16,53 @@ function Settings({toggle}){
 
           <div className='Settings-tab-group'>
             <h3 className='Settings-tab-group-header'>Notifications Settings</h3>
-            <div className='Settings-tab-group-tabs'>
-              <div>
-                <input type="checkbox" id='email-notifications' className='Notifications-tab'/>
-                <label htmlFor='email-notifications'>Email Notifications</label>
-              </div>
-              <div>
-                <input type="checkbox" id='push-notifications' className='Notifications-tab'/>
-                <label htmlFor='push-notifications'>Push Notifications</label>
-              </div>
-            </div>
+            <FormGroup className='Settings-tab-group-tabs'>
+              <FormControlLabel 
+                control={
+                  <Switch 
+                    size='small' 
+                    className='Settings-switch'/>
+                  } 
+                label="Email Notifications" 
+                className='Settings-switch-wrapper'
+              />
+              <FormControlLabel 
+                control={
+                  <Switch 
+                    size='small' 
+                    className='Settings-switch'/>
+                  } 
+                label="Push Notifications" 
+                className='Settings-switch-wrapper'
+              />
+            </FormGroup>
           </div>
 
           <hr />
 
           <div className='Settings-tab-group'>
             <h3 className='Settings-tab-group-header'>Security</h3>
-            <div className='Settings-tab-group-tabs'>
-              <div>
-                <input type="checkbox" id='email-notifications' className='Notifications-tab'/>
-                <label htmlFor='email-notifications'>Email Notifications</label>
-              </div>
-              <div>
-                <input type="checkbox" id='push-notifications' className='Notifications-tab'/>
-                <label htmlFor='push-notifications'>Push Notifications</label>
-              </div>
-            </div>
+            <FormGroup className='Settings-tab-group-tabs'>
+              {/* Place for Security tabs */}
+            </FormGroup>
           </div>
 
           <hr />
 
           <div className='Settings-tab-group'>
             <h3 className='Settings-tab-group-header'>Unusual Activity Settings</h3>
-            <div className='Settings-tab-group-tabs'>
-              <div>
-                <input type="checkbox" id='email-notifications' className='Notifications-tab'/>
-                <label htmlFor='email-notifications'>Email Notifications</label>
-              </div>
-              <div>
-                <input type="checkbox" id='push-notifications' className='Notifications-tab'/>
-                <label htmlFor='push-notifications'>Push Notifications</label>
-              </div>
-            </div>
+            <FormGroup className='Settings-tab-group-tabs'>
+              {/* Place for Unusual Activity Settings tabs */}
+            </FormGroup>
           </div>
 
           <hr />
 
           <div className='Settings-tab-group'>
             <h3 className='Settings-tab-group-header'>Alerts Settings</h3>
-            <div className='Settings-tab-group-tabs'>
-              <div>
-                <input type="checkbox" id='email-notifications' className='Notifications-tab'/>
-                <label htmlFor='email-notifications'>Email Notifications</label>
-              </div>
-              <div>
-                <input type="checkbox" id='push-notifications' className='Notifications-tab'/>
-                <label htmlFor='push-notifications'>Push Notifications</label>
-              </div>
-            </div>
+            <FormGroup className='Settings-tab-group-tabs'>
+              {/* Place for Alerts Settings tabs */}
+            </FormGroup>
           </div>
 
           <hr />

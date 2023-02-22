@@ -31,18 +31,12 @@
     display: flex;
     flex-direction: column;
     gap: 5px;
+    padding-left: 100px;
 }
 
-.Settings-tab-group-tabs div{
-    display: flex;
-    flex-direction: row;
-    gap: 5px;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.Settings-tab-group-tabs input{
-    margin-block: auto;
+/* Font size for mui switch labels */
+.Settings-switch-wrapper span {
+    font-size: 12px;
 }
 
 .dark-mode-header {
