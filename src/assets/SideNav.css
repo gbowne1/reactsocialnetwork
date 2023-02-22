@@ -74,3 +74,9 @@
 .bm-item:hover {
   color: #B2B2B2;
 }
+
+/* Side Nav Icons */
+.side-nav-icon {
+    transform: scale(1.8);
+    padding-right: 0.5rem;
+}
