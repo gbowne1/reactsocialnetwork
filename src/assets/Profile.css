@@ -9,7 +9,8 @@
 
 .Profile-container {
     background-color: beige;
-    width: 90%;
+    width: 70%;
+    max-width: 1400px;
     height: 700px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
