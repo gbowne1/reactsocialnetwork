@@ -90,7 +90,8 @@
 }
 
 .Section-container {
-    width: 90%;
+    width: 70%;
+    max-width: 1400px;
     min-height: 700px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
