@@ -5,6 +5,16 @@
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     border: 1.5px black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.icon {
+    font-size: 25px;
+    margin-top: 15px;
+    margin-right: 15px;
+    cursor: pointer;
 }
 
 .Profile-container {

@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import { Card } from '@mui/material';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import { Container } from '@mui/material';
 import '../assets/Friends.css';
+import { VscChromeClose } from "react-icons/vsc";
 // import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 // import Home from './Home';
 // import Settings from './Settings';
@@ -12,8 +13,15 @@ import '../assets/Friends.css';
 // import Login from './Login';
 
 function Friends({toggle}) {
+  const [isOpen, setIsOpen] = useState(true)
+
+  function handleClose() {
+    setIsOpen(false);
+  }
   
     return (
+      <>      
+      { isOpen && (
       <div
         className={`Section-container  ${toggle ? "light-mode" : "dark-mode"}`}
       >
@@ -22,7 +30,9 @@ function Friends({toggle}) {
             toggle ? "light-mode-header" : "dark-mode-header"
           }`}
         >
+          {" "}
           <h3 className="Friends-title">Friends</h3>
+          <VscChromeClose className="icon" onClick={handleClose} />
         </div>
         <h4>Here are your Friends!</h4>
         <input
@@ -39,10 +49,7 @@ function Friends({toggle}) {
           <Container maxWidth="lg">
             <Card variant="outlined" sx={{ minWidth: 275 }}>
               <CardContent>
-                <Typography
-                  sx={{ fontSize: 14 }}
-                  gutterBottom
-                >
+                <Typography sx={{ fontSize: 14 }} gutterBottom>
                   Friends
                 </Typography>
               </CardContent>
@@ -53,7 +60,9 @@ function Friends({toggle}) {
           </span>
         </div>
       </div>
-    );
+        )}
+        </>
+        );
   
 }
 Friends.propTypes = {
