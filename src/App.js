@@ -10,7 +10,8 @@ import Dashboard from "./components/Dashboard";
 import Settings from "./components/Settings";
 import Friends from "./components/Friends";
 import Footer from "./components/Footer";
-import NotFound from "./components/NotFound";
+// import NotFound from "./components/NotFound";
+import Terms from "./components/Terms";
 import SideNav from "./components/SideNav";
 import Post from "./components/Post"
 import TopNav from "./components/TopNav";
@@ -49,12 +50,18 @@ const App = () => {
           </Router>
           <main className="Main-app">
             <section className="Section-app">
-              <UserProfile toggle={toggle} />
-              <Dashboard toggle={toggle} />
-              <Friends toggle={toggle} />
-              <Profile toggle={toggle} />
-              <Settings toggle={toggle} />
-              <Post toggle={toggle} />
+              <Router>
+                <Routes>
+                  <Route exact path="/" element={<Dashboard />} />
+                  <Route exact path="/dashboard" element={<Dashboard />} />
+                  <Route exact path="/settings" element={<Settings />} />
+                  <Route exact path="/profile" element={<UserProfile />} />
+                  <Route exact path="/friends" element={<Friends />} />
+                  <Route exact path="/profile" element={<Profile />} />
+                  <Route exact path="/post" element={<Post />} />
+                  <Route exact path="/terms" element={<Terms />} />
+                </Routes>
+              </Router>
             </section>
           </main>
           <Footer toggle={toggle} />
