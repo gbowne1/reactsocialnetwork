@@ -1,5 +1,8 @@
 /* Position and sizing of burger button */
 .bm-burger-button {
+  /* Instead default button, menu would be open by TopNav hamburger */
+  display: none; 
+  
 	position: fixed;
 	width: 36px;
 	height: 30px;

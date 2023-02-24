@@ -5,6 +5,7 @@
     --section-bg-light-mode: #FFFFFF;
     --text-dark: #393E46;
     --clr-accent-dark-mode: #FFD369;
+    --clr-accent-light-mode: #30489f;
 }
 
 .Settings-header {
@@ -46,6 +47,7 @@
 
 .light-mode-header {
     background-color: var(--header-bg-light-mode);
+    color: var(--clr-accent-light-mode);
 }
 
 .dark-mode {
