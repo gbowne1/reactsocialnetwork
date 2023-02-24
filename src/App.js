@@ -40,14 +40,6 @@ const App = () => {
 
         <div className="Main-app-container">
           <SideNav isSideNavVisible={isSideNavVisible} />
-          <Router>
-            <Routes>
-              <Route exact path="/settings" element={<Settings />} />
-              <Route exact path="/profile" element={<UserProfile />} />
-              <Route exact path="/dashboard" element={<Dashboard />} />
-              <Route exact path="/terms" element={<NotFound />} />
-            </Routes>
-          </Router>
           <main className="Main-app">
             <section className="Section-app">
               <Router>
@@ -60,6 +52,7 @@ const App = () => {
                   <Route exact path="/profile" element={<Profile />} />
                   <Route exact path="/post" element={<Post />} />
                   <Route exact path="/terms" element={<Terms />} />
+                  <Route exact path="*" element={<NotFound />} />
                 </Routes>
               </Router>
             </section>
