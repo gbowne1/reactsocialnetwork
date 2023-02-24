@@ -5,17 +5,15 @@
 }
 
 body {
-	background: #007aff;
 	color: #fff;
 	font-size: 75%;
 	line-height: 1.5;
 	font-family: "Roboto", sans-serif;
 	text-align: center;
-	margin: 30px;
-	overflow: hidden;
 }
 
-.fa-5, h2 {
+.fa-5,
+h2 {
 	font-size: 12em;
 	font-weight: 600;
 	display: inline-block;
@@ -43,7 +41,6 @@ body {
 }
 
 a {
-	position: fixed;
 	bottom: 10px;
 	right: 10px;
 	color: #ddd;

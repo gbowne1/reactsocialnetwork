@@ -1,13 +1,13 @@
 import React from 'react';
 import '../assets/Footer.css';
 
-class Footer extends React.Component {
-  render() {
+
+function Footer(){
     return (
       <footer className="Footer-body">
-        Footer
         <div className="row">
-          <div className="col"></div>
+          <div className="col">
+          </div>
         </div>
         <section className="Footer-footer">
           <ul>
@@ -21,7 +21,6 @@ class Footer extends React.Component {
         </section>
       </footer>
     );
-  }
 }
 
 export default Footer;

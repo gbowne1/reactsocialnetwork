@@ -1,35 +1,40 @@
 .Footer-container {
-	background-color: beige;
+    background-color: beige;
 }
 
 .Footer-body {
-	height: 120px;
-	width: 1884px;
-	background-color: grey;
-	color: black;
-	flex-wrap: wrap;
-	float: end;
+    height: 120px;
+    width: 100%;
+    background-color: grey;
+    color: black;
+    flex-wrap: wrap;
+    float: initial;
 }
 
 .Footer a {
-	text-decoration: none;
-	color: #eee;
+    text-decoration: none;
+    color: #eee;
+}
+
+.Footer-footer ul {
+    display: flex;
+    justify-content: space-around;
 }
 
 .Footer-title {
-	color: #fff;
-	font-family: "Roboto", serif;
+    color: #fff;
+    font-family: "Roboto", serif;
 }
 
 .Footer-footer {
-	margin-top: 10px;
-	height: 60px;
-	width: 1884px;
-	background-color: #333;
-	color: #bbb;
+    margin-top: 10px;
+    height: 60px;
+    width: 100%;
+    background-color: #333;
+    color: #bbb;
 }
 
 a {
-	float: left;
-	margin-top: 18px
+    float: left;
+    margin-top: 18px
 }

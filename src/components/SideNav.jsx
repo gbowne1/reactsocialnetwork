@@ -1,26 +1,35 @@
 import React from 'react';
-import { NavLink as Link } from 'react-router-dom';
+//import { NavLink as Link } from 'react-router-dom';
+import { slide as Menu } from 'react-burger-menu';
 import '../assets/SideNav.css';
+import GroupsIcon from '@mui/icons-material/Groups';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 
 class SideNav extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isVisible: true
+    };
+  }
+
   render() {
     return (
-      <div className="Side-navigation" id="">
-        <div className="container-fluid">
-          <button
-            href="/src/assets/scripts/closeNav.js"
-            className="button"
-            onClick="closeNav()">
-            &times;
-          </button>
-          <Link to="/" />
-          <Link to="/users" />
-          <Link to="/blog" />
-          <Link to="/chat" />
-          <Link to="/settings" />
-          <span onClick="openNav()">&#9776; Open</span>
-        </div>
-      </div>
+      <Menu>
+        <a className="menu-item" href="/groups">
+          <GroupsIcon className="side-nav-icon" />
+          Groups 
+        </a>
+        <a className="menu-item" href="/events">
+          <CalendarMonthIcon className="side-nav-icon" />
+          Events
+        </a>
+        <a className="menu-item" href="/friends">
+        <PeopleAltIcon className="side-nav-icon" />
+          Friends
+        </a>
+      </Menu>
     );
   }
 }

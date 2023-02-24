@@ -1,4 +1,4 @@
-.Userprofile-header {
+.Friends-header {
     max-width: 1384px;
     height: 60px;
     border-top-left-radius: 5px;
@@ -17,7 +17,7 @@
 }
 
 .dark-mode-header {
-    background-color: #222831;
+    background-color: #393E46;
     color: #FFD369;
 }
 
@@ -41,8 +41,34 @@
     background-color: blue;
 }
 
-h3 {
+h1 {
+    float: left;
     padding-top: 19px;
     height: 45px;
-    width: 180px;
+    width: 250px;
+}
+
+h2 {
+    float: left;
+    padding-top: 19px;
+    height: 45px;
+    width: 250px;
+}
+
+h3 {
+    float: left;
+    padding-top: 19px;
+    height: 45px;
+    width: 250px;
+}
+
+h4 {
+    float: left;
+    padding-top: 19px;
+    height: 45px;
+    width: 250px;
+}
+
+table {
+    margin-top: 15px;
 }

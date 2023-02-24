@@ -1,16 +1,30 @@
-import React from 'react';
+import React, {useState} from 'react';
 import '../assets/UserProfile.css';
+import PropTypes from 'prop-types';
+import { VscChromeClose } from 'react-icons/vsc';
 
-class UserProfile extends React.Component {
-  render() {
+function UserProfile({toggle}){
+const [isOpen, setIsOpen] = useState(true);
+
+function handleClose() {
+  setIsOpen(false);
+}
     return (
-      <div className="Userprofile-container">
-        <div className="Userprofile-header">
+      <>
+      { isOpen && (
+      <div className={`Section-container ${toggle?"light-mode":"dark-mode"}`}>
+        <div className={`Userprofile-header ${toggle?"light-mode-header":"dark-mode-header"}`}>
           <h3 className="Userprofile-title">Userprofile</h3>
+          <VscChromeClose className='icon' onClick={handleClose} />
         </div>
       </div>
+    )}
+    </>
     );
-  }
+  
 }
+UserProfile.propTypes = {
+  toggle: PropTypes.bool
+ };
 
 export default UserProfile;
