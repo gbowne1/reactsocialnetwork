@@ -13,7 +13,8 @@ import Dashboard from "./components/Dashboard";
 import Settings from "./components/Settings";
 import Friends from "./components/Friends";
 import Footer from "./components/Footer";
-import NotFound from "./components/NotFound";
+// import NotFound from "./components/NotFound";
+import Terms from "./components/Terms";
 import SideNav from "./components/SideNav";
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
@@ -23,7 +24,7 @@ import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import SettingsIcon from "@mui/icons-material/Settings";
 import HelpIcon from "@mui/icons-material/Help";
-import Post from "./components/Post"
+import Post from "./components/Post";
 // import IconButton from '@mui/material/IconButton';
 // import Login from "./components/Login";
 // import NotFound from './pages/NotFound';
@@ -36,7 +37,15 @@ const App = () => {
       <div className="container-fluid">
         <header className="App-header">
           <nav className="App-logo">
-            <img src="./logo512.png" width="192" height="192" alt="logo"></img>
+            <a href="/">
+              <img
+                src="./logo512.png"
+                width="192"
+                height="192"
+                alt="logo"
+              ></img>
+            </a>
+
             <form className="d-flex">
               <input
                 className="form-control"
@@ -78,13 +87,15 @@ const App = () => {
                 </IconButton>
               </Tooltip>
               <Tooltip title="Settings">
-                <IconButton aria-label="settings-button">
-                  <SettingsIcon
-                    aria-label="user settings"
-                    aria-labelledby="settings"
-                    sx={{ color: "#fff" }}
-                  />
-                </IconButton>
+                <a href="/settings">
+                  <IconButton aria-label="settings-button">
+                    <SettingsIcon
+                      aria-label="user settings"
+                      aria-labelledby="settings"
+                      sx={{ color: "#fff" }}
+                    />
+                  </IconButton>
+                </a>
               </Tooltip>
               <Tooltip title="Help">
                 <IconButton aria-label="help-button">
@@ -99,35 +110,35 @@ const App = () => {
                 onClick={() => setToggle(!toggle)}
                 inputProps={{ "aria-label": "Toggle theme" }}
               />
-              <IconButton aria-label="account-management-button">
-                <AccountCircleIcon
-                  aria-label="account of current user"
-                  aria-controls="menu-account"
-                  aria-haspopup="menu"
-                  sx={{ color: "#fff" }}
-                />
-              </IconButton>
+              <a href="/profile">
+                <IconButton aria-label="account-management-button">
+                  <AccountCircleIcon
+                    aria-label="account of current user"
+                    aria-controls="menu-account"
+                    aria-haspopup="menu"
+                    sx={{ color: "#fff" }}
+                  />
+                </IconButton>
+              </a>
             </form>
           </nav>
         </header>
         <div className="Main-app-container">
-          <Router>
-            <Routes>
-              <Route exact path="/settings" element={<Settings />} />
-              <Route exact path="/profile" element={<UserProfile />} />
-              <Route exact path="/dashboard" element={<Dashboard />} />
-              <Route exact path="/terms" element={<NotFound />} />
-              <Route path="*" element={<SideNav />} />
-            </Routes>
-          </Router>
+          <SideNav />
           <main className="Main-app">
             <section className="Section-app">
-              <UserProfile toggle={toggle} />
-              <Dashboard toggle={toggle} />
-              <Friends toggle={toggle} />
-              <Profile toggle={toggle} />
-              <Settings toggle={toggle} />
-              <Post toggle={toggle} />
+              <Router>
+                <Routes>
+                  <Route exact path="/" element={<Dashboard />} />
+                  <Route exact path="/dashboard" element={<Dashboard />} />
+                  <Route exact path="/settings" element={<Settings />} />
+                  <Route exact path="/profile" element={<UserProfile />} />
+                  <Route exact path="/friends" element={<Friends />} />
+                  <Route exact path="/profile" element={<Profile />} />
+                  <Route exact path="/post" element={<Post />} />
+                  <Route exact path="/terms" element={<Terms />} />
+                </Routes>
+              </Router>
             </section>
           </main>
           <Footer toggle={toggle} />
