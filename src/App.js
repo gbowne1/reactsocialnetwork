@@ -10,7 +10,7 @@ import Dashboard from "./components/Dashboard";
 import Settings from "./components/Settings";
 import Friends from "./components/Friends";
 import Footer from "./components/Footer";
-// import NotFound from "./components/NotFound";
+import NotFound from "./components/NotFound";
 import Terms from "./components/Terms";
 import SideNav from "./components/SideNav";
 import Post from "./components/Post"
@@ -39,13 +39,13 @@ const App = () => {
         </header>
 
         <div className="Main-app-container">
+          <SideNav isSideNavVisible={isSideNavVisible} />
           <Router>
             <Routes>
               <Route exact path="/settings" element={<Settings />} />
               <Route exact path="/profile" element={<UserProfile />} />
               <Route exact path="/dashboard" element={<Dashboard />} />
               <Route exact path="/terms" element={<NotFound />} />
-              <Route path="*" element={<SideNav isSideNavVisible={isSideNavVisible} />} />
             </Routes>
           </Router>
           <main className="Main-app">
