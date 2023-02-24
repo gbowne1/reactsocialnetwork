@@ -3,33 +3,39 @@
 This project will be made to bootstrap the Social Media site for Seniors with a dating and groups section.
 
 App | UI Components
-- [ ] Add a Privacy Policy and Terms and Conditions
-- [ ] Finish Post.jsx component with field
+
+- [ ] Add a Privacy Policy and Terms and Conditions and 
+- [x] Finish Post.jsx component with field
+  -[ ] 
 
 App | UI / UX:
+
 - [ ] Create User Profile Page
   - [ ] Create a method to Edit/Update User Profile
-  - 
+  -
 - [ ] Create component to show user analytics data on users dashboard or profile.
-- [ ] Add a chat 
+- [ ] Add a chat
 - [ ] Add/Create an Event component/page with
 
 App | User Management
+
 - [ ] Complete Login component
 - [ ] Create Signup / Register component
 - [ ] Create Admin panel component for mod and admin
 - ability to ban, remove messages, etc.
 
 CSS | Theme:
+
 - [ ] Create theme using a theme.js
 - [ ] Fix light mode || dark with colors
 - [ ] Choose colors for both modes
 
 App | CSS & A11y
+
 - [ ] Accessibility testing with Lighthouse, etc.
 - [ ] Testing with various browsers
 - [ ] Media Queries with breakpoints
-- [ ] Fix elememts which cause `overflow`
+- [ ] Fix elements which cause `overflow`
 
 Backend || Database:
 
@@ -39,6 +45,7 @@ Hosting:
 Planned on self hosting but could deploy somewhere
 
 Testing:
+
 - [ ] Unit testing with Jest and Testing Library
 - [ ] Performance Testing
 
@@ -47,10 +54,12 @@ Testing:
 - [ ] Create and Add a Logo
 
 Design:
+
 - [ ] Create a .drawio file with UML and sitemap
 - [ ] Figma Design?
 
 GitHub:
+
 - [ ] Create a Social Media Preview image for this repository (This image is: 640×320px (1280×640px))
 
 ### In Progress
