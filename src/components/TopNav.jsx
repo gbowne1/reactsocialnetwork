@@ -18,7 +18,7 @@ import MailIcon from '@mui/icons-material/Mail';
 import ChatIcon from '@mui/icons-material/Chat';
 import {Input, Switch } from '@mui/material';
 
-export default function TopNav({toggle, setToggle}) {
+export default function TopNav({toggle, setToggle, setIsSideNavVisible, isSideNavVisible}) {
 
   const theme = toggle ? "light-mode" : "dark-mode";
   const themeAccentColor = theme === "light-mode" ? "#30489f" : "#FFD369";
@@ -51,6 +51,10 @@ export default function TopNav({toggle, setToggle}) {
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
+
+  const handleSideNavOpen = () => {
+    setIsSideNavVisible(!isSideNavVisible)
+  }
 
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
@@ -152,6 +156,7 @@ export default function TopNav({toggle, setToggle}) {
             color="inherit"
             aria-label="open drawer"
             sx={{ mr: 2 }}
+            onClick={handleSideNavOpen}
           >
             <MenuIcon />
           </IconButton>
@@ -245,6 +250,8 @@ export default function TopNav({toggle, setToggle}) {
 TopNav.propTypes = {
   toggle: PropTypes.bool,
   setToggle: PropTypes.func,
+  setIsSideNavVisible: PropTypes.func,
+  isSideNavVisible: PropTypes.bool,
  };
 
 // import React from "react";

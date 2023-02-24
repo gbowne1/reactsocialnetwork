@@ -20,13 +20,21 @@ import TopNav from "./components/TopNav";
 // import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 const App = () => {
+
   const [toggle, setToggle] = useState(false);
+  const [isSideNavVisible, setIsSideNavVisible] = useState(false);
+
   return (
     <div className="App">
       <div className="container-fluid">
 
         <header className="App-header">
-          <TopNav setToggle={setToggle} toggle={toggle}/>
+          <TopNav 
+            setToggle={setToggle} 
+            toggle={toggle} 
+            setIsSideNavVisible={setIsSideNavVisible} 
+            isSideNavVisible={isSideNavVisible}
+          />
         </header>
 
         <div className="Main-app-container">
@@ -36,7 +44,7 @@ const App = () => {
               <Route exact path="/profile" element={<UserProfile />} />
               <Route exact path="/dashboard" element={<Dashboard />} />
               <Route exact path="/terms" element={<NotFound />} />
-              <Route path="*" element={<SideNav />} />
+              <Route path="*" element={<SideNav isSideNavVisible={isSideNavVisible} />} />
             </Routes>
           </Router>
           <main className="Main-app">
