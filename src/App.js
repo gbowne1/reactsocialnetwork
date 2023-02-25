@@ -44,15 +44,15 @@ const App = () => {
             <section className="Section-app">
               <Router>
                 <Routes>
-                  <Route exact path="/" element={<Dashboard />} />
-                  <Route exact path="/dashboard" element={<Dashboard />} />
-                  <Route exact path="/settings" element={<Settings />} />
-                  <Route exact path="/profile" element={<UserProfile />} />
-                  <Route exact path="/friends" element={<Friends />} />
-                  <Route exact path="/profile" element={<Profile />} />
-                  <Route exact path="/post" element={<Post />} />
-                  <Route exact path="/terms" element={<Terms />} />
-                  <Route exact path="*" element={<NotFound />} />
+                  <Route exact path="/" element={<Dashboard toggle={toggle}/>} />
+                  <Route exact path="/dashboard" element={<Dashboard toggle={toggle}/>} />
+                  <Route exact path="/settings" element={<Settings toggle={toggle}/>} />
+                  <Route exact path="/profile" element={<UserProfile toggle={toggle}/>} />
+                  <Route exact path="/friends" element={<Friends toggle={toggle}/>} />
+                  <Route exact path="/profile" element={<Profile toggle={toggle}/>} />
+                  <Route exact path="/post" element={<Post toggle={toggle}/>} />
+                  <Route exact path="/terms" element={<Terms toggle={toggle}/>} />
+                  <Route exact path="*" element={<NotFound toggle={toggle}/>} />
                 </Routes>
               </Router>
             </section>
