@@ -1,21 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+@import url('./variables.css');
 
 .App {
-    background-color: #1c1e21;
     display: block;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: #4c4b4b;
     text-align: center;
-    /* text-shadow: black 0.25em 0.25em 0.25em; */
     position: relative;
     z-index: +1;
     overflow: hidden;
 }
 
-.Main-app {
-    background-color: #1a1111;
+.App.light-mode {
+    background-color: var(--bg-light-500);
+}
+
+.App.dark-mode {
+    background-color: var(--bg-dark-500);
+}
+
+.Main-app-dark-mode{
+    background-color: var(--bg-dark-500);
+}
+
+.Main-app-light-mode{
+    background-color: var(--bg-light-500);
 }
 
 .Main-app-container {
@@ -23,20 +33,40 @@
     top: 60px;
 }
 
+.Main-app-container.dark-mode {
+    background-color: var(--bg-dark-500);
+    position: relative;
+    top: 60px;
+}
+
+.Main-app-container.light-mode {
+    background-color: var(--bg-light-500);
+    position: relative;
+    top: 60px;
+}
+
 .Section-app {
+    padding-top: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
+.Section-app.dark-mode {
+    background-color: var(--bg-dark-500);
+}
+
+.Section-app.light-mode {
+    background-color: var(--bg-light-500);
+}
+
 .Section-container {
     width: 70%;
     max-width: 1400px;
     min-height: 700px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    border: 1.5px solid black;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
     margin: 10px auto;
 }
 

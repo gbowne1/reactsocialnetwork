@@ -1,3 +1,5 @@
+@import url("../variables.css");
+
 .Settings-header {
     background-color: #555;
     max-width: 1384px;

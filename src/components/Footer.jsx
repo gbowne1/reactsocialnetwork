@@ -1,26 +1,33 @@
 import React from 'react';
 import '../assets/Footer.css';
+import PropTypes from 'prop-types';
 
+function Footer({toggle}){
 
-function Footer(){
-    return (
-      <footer className="Footer-body">
-        <div className="row">
-          <div className="col">
-          </div>
+  const theme = toggle ? "light-mode" : "dark-mode"
+  
+  return (
+    <footer className={`Footer-body ${theme}`}>
+      <div className="row">
+        <div className="col">
         </div>
-        <section className="Footer-footer">
-          <ul>
-            <li>
-              <a href="/terms">Terms & Conditions</a>
-            </li>
-            <li>
-              <a href="/terms">Privacy Policy</a>
-            </li>
-          </ul>
-        </section>
-      </footer>
-    );
+      </div>
+      <section className={`Footer-footer ${theme}`}>
+        <ul>
+          <li>
+            <a href="/terms">Terms & Conditions</a>
+          </li>
+          <li>
+            <a href="/terms">Privacy Policy</a>
+          </li>
+        </ul>
+      </section>
+    </footer>
+  );
 }
+
+Footer.propTypes = {
+  toggle: PropTypes.bool
+ };
 
 export default Footer;

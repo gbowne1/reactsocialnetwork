@@ -19,15 +19,15 @@ function Post({toggle, userAvatar, userName = ""}) {
   const theme = toggle ? "light-mode" : "dark-mode";
   
     return (
-      <div className={`Section-container  ${theme}`}>
+      <div className={`Post ${theme}`}>
 
-        <div className={`Post-header  ${theme+"-header"}`}>
+        <div className={`Post-header ${theme}`}>
           <h3 className="Post-title">Post</h3>
         </div>
 
         <h4>Welcome to your Post {userName}!</h4>
 
-        <form className={`Post-create  ${theme}`}>
+        <form className={`Post-create ${theme}`}>
 
           <div className='Post-basics'>
 

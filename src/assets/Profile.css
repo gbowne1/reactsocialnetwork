@@ -1,3 +1,5 @@
+@import url("../variables.css");
+
 .Profile-header {
     background-color: #555;
     max-width: 1384px;

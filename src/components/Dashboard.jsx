@@ -11,6 +11,8 @@ import { VscChromeClose } from "react-icons/vsc";
 function Dashboard({toggle}) {
   const [isOpen, setIsOpen] = useState(true);
 
+  const theme = toggle ? "light-mode" : "dark-mode";
+
   function handleClose() {
     setIsOpen(false);
   }
@@ -18,11 +20,14 @@ function Dashboard({toggle}) {
     return (
       <>
       { isOpen && (
-      <div className={`Section-container  ${toggle?"light-mode":"dark-mode"}`}>
-        <div className={`Dashboard-header  ${toggle?"light-mode-header":"dark-mode-header"}`}>
+      <div className={`Dashboard ${theme}`}>
+        <div className={`Dashboard-header ${theme}`}>
           <h3 className="Dashboard-title">Dashboard</h3>
             <VscChromeClose className='icon' onClick={handleClose} />
         </div>
+        <section className={`Dashboard-content ${theme}`}>
+
+        </section>
         <h4>Welcome to your dashboard!</h4>
       </div>
       )}

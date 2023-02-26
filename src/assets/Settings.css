@@ -1,13 +1,3 @@
-:root {
-    --header-bg-dark-mode: #393E46;
-    --header-bg-light-mode: #c9c7c7;
-    --section-bg-dark-mode: #EEEEEE;
-    --section-bg-light-mode: #FFFFFF;
-    --text-dark: #393E46;
-    --clr-accent-dark-mode: #FFD369;
-    --clr-accent-light-mode: #30489f;
-}
-
 .Settings-header {
     max-width: 1384px;
     height: 60px;

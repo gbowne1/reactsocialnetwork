@@ -1,3 +1,7 @@
+@import url("../variables.css");
+
+/* TODO: Update colors according to variables.css */
+
 .Login-header {
 	background-color: blue;
 }
