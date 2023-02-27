@@ -18,6 +18,12 @@ import MailIcon from '@mui/icons-material/Mail';
 import ChatIcon from '@mui/icons-material/Chat';
 import {Input, Switch } from '@mui/material';
 
+import SettingsIcon from "@mui/icons-material/Settings";
+import HelpIcon from "@mui/icons-material/Help";
+import FeedbackIcon from "@mui/icons-material/Feedback";
+import LogoutIcon from "@mui/icons-material/Logout";
+import AccountBoxIcon from "@mui/icons-material/AccountBox";
+
 export default function TopNav({toggle, setToggle, setIsSideNavVisible, isSideNavVisible}) {
 
   const theme = toggle ? "light-mode" : "dark-mode";
@@ -56,26 +62,91 @@ export default function TopNav({toggle, setToggle, setIsSideNavVisible, isSideNa
     setIsSideNavVisible(!isSideNavVisible)
   }
 
+  const handleSettingsClicked = () => {
+    window.location.href = "/settings";
+  };
+
+  const handleHelpClicked = () => {
+    window.location.href = "/help";
+  };
+
+  const handleFeedbackClicked = () => {
+    window.location.href = "/feedback";
+  };
+
+  const handleLogoutClicked = () => {
+    window.location.href = "/";
+  }
+
+  const handleMyAccountClicked = () => {
+    window.location.href = "/profile";
+  }
+
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
     <Menu
-      anchorEl={anchorEl}
-      anchorOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
-      }}
-      id={menuId}
-      keepMounted
-      transformOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
-      }}
-      open={isMenuOpen}
-      onClose={handleMenuClose}
-    >
-      <MenuItem onClick={handleMenuClose}>{isUserLoggedIn ? "Log In" : "Log out"}</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-    </Menu>
+    anchorEl={anchorEl}
+    anchorOrigin={{
+      vertical: "top",
+      horizontal: "right",
+    }}
+    id={menuId}
+    keepMounted
+    transformOrigin={{
+      vertical: "top",
+      horizontal: "right",
+    }}
+    open={isMenuOpen}
+    onClose={handleMenuClose}
+  >
+    <MenuItem onClick={handleSettingsClicked}>
+      <SettingsIcon
+        color="action"
+        sx={{
+          marginRight: "5px",
+          color: "",
+        }}
+      />{" "}
+      Settings
+    </MenuItem>
+    <MenuItem onClick={handleHelpClicked}>
+      <HelpIcon
+        color="action"
+        sx={{
+          marginRight: "5px",
+        }}
+      />{" "}
+      Help
+    </MenuItem>
+    <MenuItem onClick={handleFeedbackClicked}>
+      <FeedbackIcon
+        color="action"
+        sx={{
+          marginRight: "5px",
+        }}
+      />{" "}
+      Feedback
+    </MenuItem>
+
+    <MenuItem onClick={handleLogoutClicked}>
+      <LogoutIcon
+        color="action"
+        sx={{
+          marginRight: "5px",
+        }}
+      />
+      {isUserLoggedIn ? "Log In" : "Log out"}
+    </MenuItem>
+    <MenuItem onClick={handleMyAccountClicked}>
+      <AccountBoxIcon
+        color="action"
+        sx={{
+          marginRight: "5px",
+        }}
+      />
+      My account
+    </MenuItem>
+  </Menu>
   );
 
   const mobileMenuId = 'primary-search-account-menu-mobile';
