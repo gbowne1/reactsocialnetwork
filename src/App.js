@@ -13,7 +13,7 @@ import Footer from "./components/Footer";
 import NotFound from "./components/NotFound";
 import Terms from "./components/Terms";
 import SideNav from "./components/SideNav";
-import Post from "./components/Post"
+import Post from "./components/Post";
 import TopNav from "./components/TopNav";
 // import IconButton from '@mui/material/IconButton';
 // import Login from "./components/Login";
@@ -21,7 +21,6 @@ import TopNav from "./components/TopNav";
 // import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 const App = () => {
-
   const [toggle, setToggle] = useState(false);
 
   const theme = toggle ? "light-mode" : "dark-mode";
@@ -31,12 +30,11 @@ const App = () => {
   return (
     <div className={`App ${theme}`}>
       <div className="container-fluid">
-
         <header className="App-header">
-          <TopNav 
-            setToggle={setToggle} 
-            toggle={toggle} 
-            setIsSideNavVisible={setIsSideNavVisible} 
+          <TopNav
+            setToggle={setToggle}
+            toggle={toggle}
+            setIsSideNavVisible={setIsSideNavVisible}
             isSideNavVisible={isSideNavVisible}
           />
         </header>
@@ -47,15 +45,51 @@ const App = () => {
             <section className={`Section-app ${theme}`}>
               <Router>
                 <Routes>
-                  <Route exact path="/" element={<Dashboard toggle={toggle}/>} />
-                  <Route exact path="/dashboard" element={<Dashboard toggle={toggle}/>} />
-                  <Route exact path="/settings" element={<Settings toggle={toggle}/>} />
-                  <Route exact path="/profile" element={<UserProfile toggle={toggle}/>} />
-                  <Route exact path="/friends" element={<Friends toggle={toggle}/>} />
-                  <Route exact path="/profile" element={<Profile toggle={toggle}/>} />
-                  <Route exact path="/post" element={<Post toggle={toggle}/>} />
-                  <Route exact path="/terms" element={<Terms toggle={toggle}/>} />
-                  <Route exact path="*" element={<NotFound toggle={toggle}/>} />
+                  <Route
+                    exact
+                    path="/"
+                    element={<Dashboard toggle={toggle} />}
+                  />
+                  <Route
+                    exact
+                    path="/dashboard"
+                    element={<Dashboard toggle={toggle} />}
+                  />
+                  <Route
+                    exact
+                    path="/settings"
+                    element={<Settings toggle={toggle} />}
+                  />
+                  <Route
+                    exact
+                    path="/user-profile"
+                    element={<UserProfile toggle={toggle} />}
+                  />
+                  <Route
+                    exact
+                    path="/friends"
+                    element={<Friends toggle={toggle} />}
+                  />
+                  <Route
+                    exact
+                    path="/profile"
+                    element={<Profile toggle={toggle} />}
+                  />
+                  <Route
+                    exact
+                    path="/post"
+                    element={<Post toggle={toggle} />}
+                  />
+                  <Route
+                    exact
+                    path="/terms"
+                    element={<Terms toggle={toggle} />}
+                  />
+                  <Route
+                    exact
+                    path="*"
+                    element={<NotFound toggle={toggle} />}
+                  />
                 </Routes>
               </Router>
             </section>
