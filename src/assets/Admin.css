@@ -1,5 +1,7 @@
 @import url("../variables.css");
 
+/* TODO: Update colors and fonts according to variables.css */
+
 .Settings-header {
     background-color: #555;
     max-width: 1384px;

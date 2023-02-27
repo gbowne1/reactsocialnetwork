@@ -8,8 +8,8 @@ function Settings({toggle}){
   const theme = toggle ? "light-mode" : "dark-mode";
   
     return (
-      <div className={`Section-container ${theme}`}>
-        <div className={`Settings-header ${theme + "-header"}`}>
+      <div className={`Settings ${theme}`}>
+        <div className={`Settings-header ${theme}`}>
           <h3 className="Settings-title">Settings</h3>
         </div>
         <div className='Settings-tab-groups-container'>

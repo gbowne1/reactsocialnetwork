@@ -1,14 +1,21 @@
 @import url("../variables.css");
 
-.Userprofile-header {
-    max-width: 1384px;
-    height: 60px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    border: 1.5px black;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+.Userprofile {
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    min-width: 70%;
+    max-width: 1400px;
+    min-height: 700px;
+}
+
+.Userprofile.light-mode {
+    background-color: var(--bg-light-100);
+    color: var(--text-dark-500);
+}
+
+.Userprofile.dark-mode {
+    background-color: var(--bg-dark-100);
+    color: var(--text-light-500);
 }
 
 .icon {
@@ -18,23 +25,32 @@
     cursor: pointer;
 }
 
-.dark-mode-header {
-    background-color: #222831;
-    color: #FFD369;
+.Userprofile-header {
+    max-width: 1384px;
+    height: 60px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
-.light-mode-header {
-    background-color: rgb(201, 199, 199);
+
+.Userprofile-header.dark-mode {
+    background-color: var(--bg-dark-900);
+    color: var(--clr-dark-mode-accent-500);
 }
 
-.dark-mode {
-    background-color: #EEEEEE;
-    color: #393E46;
+.Userprofile-header.light-mode {
+    background-color: var(--bg-light-900);
+    color: var(--clr-light-mode-accent-500);
 }
 
-.light-mode {
-    background-color: rgb(201, 199, 199);
-    background-color: #ffffff;
+.icon {
+    font-size: 25px;
+    margin-top: 15px;
+    margin-right: 15px;
+    cursor: pointer;
 }
 
 .Close-button {

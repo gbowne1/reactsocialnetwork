@@ -42,7 +42,7 @@ const App = () => {
         </header>
 
         <div className={`Main-app-container ${theme}`}>
-          <SideNav isSideNavVisible={isSideNavVisible} />
+          <SideNav isSideNavVisible={isSideNavVisible} toggle={toggle} />
           <main className={`Main-app ${theme}`}>
             <section className={`Section-app ${theme}`}>
               <Router>
