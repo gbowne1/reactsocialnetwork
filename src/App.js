@@ -23,10 +23,13 @@ import TopNav from "./components/TopNav";
 const App = () => {
 
   const [toggle, setToggle] = useState(false);
+
+  const theme = toggle ? "light-mode" : "dark-mode";
+
   const [isSideNavVisible, setIsSideNavVisible] = useState(false);
 
   return (
-    <div className="App">
+    <div className={`App ${theme}`}>
       <div className="container-fluid">
 
         <header className="App-header">
@@ -38,10 +41,10 @@ const App = () => {
           />
         </header>
 
-        <div className="Main-app-container">
-          <SideNav isSideNavVisible={isSideNavVisible} />
-          <main className="Main-app">
-            <section className="Section-app">
+        <div className={`Main-app-container ${theme}`}>
+          <SideNav isSideNavVisible={isSideNavVisible} toggle={toggle} />
+          <main className={`Main-app ${theme}`}>
+            <section className={`Section-app ${theme}`}>
               <Router>
                 <Routes>
                   <Route exact path="/" element={<Dashboard toggle={toggle}/>} />

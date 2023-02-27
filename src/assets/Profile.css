@@ -1,10 +1,12 @@
+@import url("../variables.css");
+
+/* TODO: Update colors and fonts according to variables.css */
 .Profile-header {
     background-color: #555;
     max-width: 1384px;
     height: 60px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    border: 1.5px black;
     display: flex;
     flex-direction: row;
     justify-content: space-between;

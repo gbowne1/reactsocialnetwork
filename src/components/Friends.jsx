@@ -15,6 +15,8 @@ import { VscChromeClose } from "react-icons/vsc";
 function Friends({toggle}) {
   const [isOpen, setIsOpen] = useState(true)
 
+  const theme = toggle ? "light-mode" : "dark-mode";
+
   function handleClose() {
     setIsOpen(false);
   }
@@ -23,12 +25,10 @@ function Friends({toggle}) {
       <>      
       { isOpen && (
       <div
-        className={`Section-container  ${toggle ? "light-mode" : "dark-mode"}`}
+        className={`Friends ${theme}`}
       >
         <div
-          className={`Friends-header  ${
-            toggle ? "light-mode-header" : "dark-mode-header"
-          }`}
+          className={`Friends-header ${theme}`}
         >
           {" "}
           <h3 className="Friends-title">Friends</h3>

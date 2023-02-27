@@ -4,23 +4,25 @@ import PropTypes from 'prop-types';
 import { VscChromeClose } from 'react-icons/vsc';
 
 function UserProfile({toggle}){
-const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(true);
 
-function handleClose() {
-  setIsOpen(false);
-}
+  const theme = toggle ? "light-mode" : "dark-mode";
+
+  function handleClose() {
+    setIsOpen(false);
+  }
     return (
       <>
       { isOpen && (
-      <div className={`Section-container ${toggle?"light-mode":"dark-mode"}`}>
-        <div className={`Userprofile-header ${toggle?"light-mode-header":"dark-mode-header"}`}>
+      <div className={`Userprofile ${theme}`}>
+        <div className={`Userprofile-header ${theme}`}>
           <h3 className="Userprofile-title">Userprofile</h3>
           <VscChromeClose className='icon' onClick={handleClose} />
         </div>
       </div>
     )}
     </>
-    );
+  );
   
 }
 UserProfile.propTypes = {

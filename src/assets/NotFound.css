@@ -1,11 +1,19 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,100,300,500);
+@import url("../variables.css");
 
 *:focus {
 	outline: none;
 }
 
+.NotFound-container.light-mode {
+	color: var(--text-dark-500);
+}
+
+.NotFound-container.dark-mode {
+	color: var(--text-light-500);
+}
+
 body {
-	color: #fff;
 	font-size: 75%;
 	line-height: 1.5;
 	font-family: "Roboto", sans-serif;

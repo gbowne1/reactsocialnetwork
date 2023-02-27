@@ -7,18 +7,21 @@ import GroupsIcon from '@mui/icons-material/Groups';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 
-const SideNav = ({isSideNavVisible}) => {
+const SideNav = ({isSideNavVisible, toggle}) => {
+
+  const theme = toggle ? "light-mode" : "dark-mode";
+
   return (
-    <Menu isOpen={isSideNavVisible}>
-      <a className="menu-item" href="/groups">
+    <Menu isOpen={isSideNavVisible} className={`${theme}`}>
+      <a className={`menu-item ${theme}`} href="/groups">
         <GroupsIcon className="side-nav-icon" />
         Groups 
       </a>
-      <a className="menu-item" href="/events">
+      <a className={`menu-item ${theme}`} href="/events">
         <CalendarMonthIcon className="side-nav-icon" />
         Events
       </a>
-      <a className="menu-item" href="/friends">
+      <a className={`menu-item ${theme}`} href="/friends">
       <PeopleAltIcon className="side-nav-icon" />
         Friends
       </a>
@@ -29,6 +32,7 @@ const SideNav = ({isSideNavVisible}) => {
 
 SideNav.propTypes = {
   isSideNavVisible: PropTypes.bool,
+  toggle: PropTypes.bool,
  };
 
 export default SideNav;

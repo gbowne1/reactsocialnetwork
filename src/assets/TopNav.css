@@ -1,27 +1,17 @@
-:root {
-    --bg-dark-mode: #393E46;
-    --bg-light-mode: #c9c7c7;
-    --text-dark: #393E46;
-    --text-light: #c3c1c1;
-    --clr-accent-dark-mode: #FFD369;
-    --clr-accent-light-mode: #30489f;
-
-    --input-bg-dark-mode: #484d55;
-    --input-bg-light-mode: #c0bbbb;
-}
+@import url("../variables.css");
 
 .Top-nav {
     
 }
 
 .Top-nav.dark-mode {
-    background-color: var(--bg-dark-mode);
-    color: var(--text-light);
+    background-color: var(--bg-dark-900);
+    color: var(--text-light-500);
 }
 
 .Top-nav.light-mode {
-    background-color: var(--bg-light-mode);
-    color: var(--text-dark);
+    background-color: var(--bg-light-900);
+    color: var(--text-dark-900);
 }
 
 .Top-nav-search {
@@ -31,14 +21,10 @@
     border: none;
 }
 
-.MuiInputBase-root.MuiInput-root {
-
-}
-
 .Top-nav-search.dark-mode {
-    background-color: var(--input-bg-dark-mode);
+    background-color: var(--bg-dark-500);
 }
 
 .Top-nav-search.light-mode {
-    background-color: var(--input-bg-light-mode);
+    background-color: var(--bg-light-500);
 }

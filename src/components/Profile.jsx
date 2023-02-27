@@ -6,6 +6,8 @@ import { VscChromeClose } from "react-icons/vsc";
 function Profile({toggle}){
   const [isOpen, setIsOpen] = useState(true)
 
+  const theme = toggle ? "light-mode" : "dark-mode";
+
   const handleClose = () => {
     setIsOpen(!isOpen)
   }
@@ -14,12 +16,10 @@ function Profile({toggle}){
     <>
       {isOpen && (
         <div
-          className={`Profile-container ${toggle ? "light-mode" : "dark-mode"}`}
+          className={`Profile-container ${theme}`}
         >
           <div
-            className={`Profile-header ${
-              toggle ? "light-mode-header" : "dark-mode-header"
-            }`}
+            className={`Profile-header ${theme}`}
           >
             <h3 className="Userprofile-title">Userprofile</h3>
             <VscChromeClose className="icon" onClick={handleClose} />
