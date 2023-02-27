@@ -6,6 +6,8 @@
     color: black;
     flex-wrap: wrap;
     float: initial;
+    position: relative;
+    bottom: 0;
 }
 
 .Footer-body.light-mode {

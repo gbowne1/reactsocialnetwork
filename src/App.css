@@ -10,6 +10,7 @@
     position: relative;
     z-index: +1;
     overflow: hidden;
+    min-height: 100vh;
 }
 
 .App.light-mode {
@@ -30,7 +31,11 @@
 
 .Main-app-container {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     top: 60px;
+    min-height: 100vh;
 }
 
 .Main-app-container.dark-mode {
