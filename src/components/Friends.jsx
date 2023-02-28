@@ -6,6 +6,9 @@ import Typography from '@mui/material/Typography';
 import { Container } from '@mui/material';
 import '../assets/Friends.css';
 import { VscChromeClose } from "react-icons/vsc";
+import { CardMedia } from '@mui/material';
+import { CardActions } from '@mui/material';
+import { Button } from '@mui/material';
 // import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 // import Home from './Home';
 // import Settings from './Settings';
@@ -42,8 +45,9 @@ function Friends({toggle}) {
           aria-label="Label for text input"
           className="search"
           type="text"
-          value="Search"
-        ></input>
+          value="Search">
+        </input>
+        <br />
         <br />
         <div>
           <Container maxWidth="lg">
@@ -55,9 +59,44 @@ function Friends({toggle}) {
               </CardContent>
             </Card>
           </Container>
-          <span className="" dir="auto">
-            <span className="">Friend Requests</span>
-          </span>
+          <br/>
+          <Container maxWidth="lg">
+            <Card variant="outlined" sx={{ minWidth: 275 }}>
+              <CardContent>
+                <Typography sx={{ fontSize: 14 }} gutterBottom>
+                  Friend Requests
+                </Typography>
+              </CardContent>
+            </Card>
+          </Container>
+          <br/>
+          <Container maxWidth="lg">
+            <Card variant="outlined" sx={{ minWidth: 200 }}>
+              <CardContent>
+                <Typography sx={{ fontSize: 14 }} gutterBottom>
+                  Suggested Friends
+                </Typography>
+                <Card sx={{ maxWidth: 200, maxHeight: 350 }}>
+                <CardMedia
+                  sx={{ height: 100 }}
+                  image="/static/images/cards/contemplative-reptile.jpg"
+                  title="green iguana"
+                   />
+                <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                Random John Friend
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  Here is a random cool person you can add as your friend.
+                </Typography>
+                </CardContent>
+                <CardActions>
+                <Button size="small">Add Friend</Button>
+                </CardActions>
+                </Card>
+              </CardContent>
+            </Card>
+          </Container>
         </div>
       </div>
         )}
