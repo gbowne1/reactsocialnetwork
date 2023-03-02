@@ -15,17 +15,26 @@ import Terms from "./components/Terms";
 import SideNav from "./components/SideNav";
 import Post from "./components/Post";
 import TopNav from "./components/TopNav";
+import Login from "./components/Login";
+
+import { loadFromLocalStorage } from "./utils";
 // import IconButton from '@mui/material/IconButton';
-// import Login from "./components/Login";
 // import NotFound from './pages/NotFound';
 // import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 const App = () => {
+  const lastLoginCredentials = loadFromLocalStorage("lastLoginCredentials");
+  const [loginToken, setLoginToken] = useState(lastLoginCredentials);
+
   const [toggle, setToggle] = useState(false);
 
   const theme = toggle ? "light-mode" : "dark-mode";
 
   const [isSideNavVisible, setIsSideNavVisible] = useState(false);
+
+  if (!loginToken) {
+    return <Login setLoginToken={setLoginToken} />;
+  }
 
   return (
     <div className={`App ${theme}`}>
