@@ -9,6 +9,7 @@ import {
   FormControlLabel,
   IconButton,
   TextField,
+  Switch,
   FormHelperText,
   Typography,
   OutlinedInput,
@@ -16,11 +17,18 @@ import {
   InputAdornment,
   Stack,
 } from "@mui/material";
-import { Visibility, VisibilityOff } from "@mui/icons-material";
+import {
+  LightMode,
+  DarkMode,
+  Visibility,
+  VisibilityOff,
+} from "@mui/icons-material";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import YupPassword from "yup-password";
+
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 import CustomAlert from "./CustomAlert";
 import { loadFromLocalStorage, saveToLocalStorage } from "../utils";
@@ -31,7 +39,7 @@ const TEST_USERNAME = "testuser1";
 const TEST_EMAIL = "testuser@gmail.com";
 const TEST_PASSWORD = "Testpass1!";
 
-const Login = ({ setLoginToken }) => {
+const Login = ({ setLoginToken, toggle, setToggle }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoginView, setLoginView] = useState(true);
   const [userData, setUserData] = useState({
@@ -44,6 +52,16 @@ const Login = ({ setLoginToken }) => {
   const [open, setOpen] = useState(false);
   const [alertOptions, setAlertOptions] = useState({});
   const [showLoadingSpinner, setShowLoadingSpinner] = useState(false);
+
+  const theme = createTheme({
+    palette: {
+      mode: toggle ? "light" : "dark",
+    },
+  });
+
+  const lightDividerColor = "rgba(0, 0, 0, 0.3)";
+  const darkDividerColor = "rgba(255, 255, 255, 0.3)";
+  const dividerColor = toggle ? lightDividerColor : darkDividerColor;
 
   const inputChangeHandler = (value) => {
     setUserData(value);
@@ -173,173 +191,203 @@ const Login = ({ setLoginToken }) => {
   });
 
   return (
-    <Container
-      sx={{
-        marginTop: "200px",
-      }}
-    >
-      {showLoadingSpinner ? (
+    <ThemeProvider theme={theme}>
+      <Container
+        sx={{
+          marginTop: "200px",
+        }}
+      >
         <Box
+          id="theme-mode-switch"
           sx={{
-            position: "relative",
-            top: "100px",
             display: "flex",
             justifyContent: "center",
-            mx: "auto",
+            alignItems: "center",
+            border: `1px solid ${dividerColor}`,
+            borderRadius: "10px",
+            width: "fit-content",
+            padding: "5px 10px",
+            margin: "0 auto 20px",
           }}
         >
-          <CircularProgress size={60} />
+          <LightMode />
+
+          <Switch
+            onClick={() => setToggle(!toggle)}
+            inputProps={{ "aria-label": "Toggle theme" }}
+          />
+          <DarkMode />
         </Box>
-      ) : (
-        <Box
-          component="form"
-          sx={{
-            mx: "auto",
-            maxWidth: "500px",
-          }}
-        >
-          <Stack spacing={2}>
-            <CustomAlert
-              severity={alertOptions.severity}
-              message={alertOptions.message}
-              open={open}
-              setOpen={setOpen}
-            />
 
-            <TextField
-              id="username"
-              placeholder="Enter username"
-              label="Username"
-              variant="outlined"
-              required
-              {...register("username")}
-              error={errors.username ? true : false}
-              helperText={errors.username?.message}
-              onChange={(event) =>
-                inputChangeHandler({
-                  ...userData,
-                  username: event.target.value,
-                })
-              }
-            />
+        {showLoadingSpinner ? (
+          <Box
+            sx={{
+              position: "relative",
+              top: "100px",
+              display: "flex",
+              justifyContent: "center",
+              mx: "auto",
+            }}
+          >
+            <CircularProgress size={60} />
+          </Box>
+        ) : (
+          <Box
+            component="form"
+            sx={{
+              border: `1px solid ${dividerColor}`,
+              borderRadius: "10px",
+              mx: "auto",
+              maxWidth: "600px",
+              padding: "20px",
+            }}
+          >
+            <Stack spacing={2}>
+              <CustomAlert
+                severity={alertOptions.severity}
+                message={alertOptions.message}
+                open={open}
+                setOpen={setOpen}
+              />
 
-            <TextField
-              id="email"
-              placeholder="Enter email"
-              label="Email"
-              variant="outlined"
-              required
-              {...register("email")}
-              error={errors.email ? true : false}
-              helperText={errors.email?.message}
-              onChange={(event) =>
-                inputChangeHandler({ ...userData, email: event.target.value })
-              }
-            />
-
-            <FormControl required={true} error={errors.password ? true : false}>
-              <InputLabel htmlFor="outlined-adornment-password">
-                Password
-              </InputLabel>
-
-              <OutlinedInput
-                id="password"
-                type={showPassword ? "text" : "password"}
-                label="Password"
-                placeholder="Enter password"
-                {...register("password")}
-                endAdornment={
-                  <InputAdornment position="end">
-                    <IconButton
-                      aria-label="toggle password visibility"
-                      onClick={showPasswordClickedHandler}
-                      onMouseDown={handleMouseDownPassword}
-                      edge="end"
-                    >
-                      {showPassword ? <VisibilityOff /> : <Visibility />}
-                    </IconButton>
-                  </InputAdornment>
-                }
+              <TextField
+                id="username"
+                placeholder="Enter username"
+                label="Username"
+                variant="outlined"
+                required
+                {...register("username")}
+                error={errors.username ? true : false}
+                helperText={errors.username?.message}
                 onChange={(event) =>
                   inputChangeHandler({
                     ...userData,
-                    password: event.target.value,
+                    username: event.target.value,
                   })
                 }
               />
-              <FormHelperText>{errors.password?.message}</FormHelperText>
-            </FormControl>
 
-            <FormControlLabel
-              control={
-                <Checkbox
-                  checked={rememberMe}
-                  onChange={(event) => {
-                    setRememberMe(event.target.checked);
-                  }}
-                />
-              }
-              label="Remember me"
-            />
+              <TextField
+                id="email"
+                placeholder="Enter email"
+                label="Email"
+                variant="outlined"
+                required
+                {...register("email")}
+                error={errors.email ? true : false}
+                helperText={errors.email?.message}
+                onChange={(event) =>
+                  inputChangeHandler({ ...userData, email: event.target.value })
+                }
+              />
 
-            <Box>
-              <Button
-                variant="contained"
-                style={{
-                  margin: "10px auto 20px",
-                  width: "200px",
-                  backgroundColor: "#ffc93d",
-                }}
-                onClick={handleSubmit(
-                  isLoginView
-                    ? loginButtonClickedHandler
-                    : registerButtonClickedHandler
-                )}
+              <FormControl
+                required={true}
+                error={errors.password ? true : false}
               >
-                {isLoginView ? "Login" : "Register"}
-              </Button>
+                <InputLabel htmlFor="outlined-adornment-password">
+                  Password
+                </InputLabel>
 
-              {isLoginView ? (
-                <p onClick={() => toggleViewClickedHandler(false)}>
-                  <Typography align="center">
-                    You don&apos;t have an account?{" "}
-                    <span
-                      style={{
-                        fontWeight: "bold",
-                        color: "orange",
-                        cursor: "pointer",
-                      }}
-                    >
-                      Register here!
-                    </span>
-                  </Typography>
-                </p>
-              ) : (
-                <p onClick={() => toggleViewClickedHandler(true)}>
-                  <Typography align="center">
-                    You already have an account?{" "}
-                    <span
-                      style={{
-                        fontWeight: "bold",
-                        color: "orange",
-                        cursor: "pointer",
-                      }}
-                    >
-                      Login here!
-                    </span>
-                  </Typography>
-                </p>
-              )}
-            </Box>
-          </Stack>
-        </Box>
-      )}
-    </Container>
+                <OutlinedInput
+                  id="password"
+                  type={showPassword ? "text" : "password"}
+                  label="Password"
+                  placeholder="Enter password"
+                  {...register("password")}
+                  endAdornment={
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="toggle password visibility"
+                        onClick={showPasswordClickedHandler}
+                        onMouseDown={handleMouseDownPassword}
+                        edge="end"
+                      >
+                        {showPassword ? <VisibilityOff /> : <Visibility />}
+                      </IconButton>
+                    </InputAdornment>
+                  }
+                  onChange={(event) =>
+                    inputChangeHandler({
+                      ...userData,
+                      password: event.target.value,
+                    })
+                  }
+                />
+                <FormHelperText>{errors.password?.message}</FormHelperText>
+              </FormControl>
+
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={rememberMe}
+                    onChange={(event) => {
+                      setRememberMe(event.target.checked);
+                    }}
+                  />
+                }
+                label="Remember me"
+              />
+
+              <Box>
+                <Button
+                  variant="contained"
+                  style={{
+                    margin: "10px auto 20px",
+                    width: "200px",
+                    backgroundColor: "#ffc93d",
+                  }}
+                  onClick={handleSubmit(
+                    isLoginView
+                      ? loginButtonClickedHandler
+                      : registerButtonClickedHandler
+                  )}
+                >
+                  {isLoginView ? "Login" : "Register"}
+                </Button>
+
+                {isLoginView ? (
+                  <p onClick={() => toggleViewClickedHandler(false)}>
+                    <Typography align="center">
+                      You don&apos;t have an account?{" "}
+                      <span
+                        style={{
+                          fontWeight: "bold",
+                          cursor: "pointer",
+                        }}
+                      >
+                        Register here!
+                      </span>
+                    </Typography>
+                  </p>
+                ) : (
+                  <p onClick={() => toggleViewClickedHandler(true)}>
+                    <Typography align="center">
+                      You already have an account?{" "}
+                      <span
+                        style={{
+                          fontWeight: "bold",
+                          cursor: "pointer",
+                        }}
+                      >
+                        Login here!
+                      </span>
+                    </Typography>
+                  </p>
+                )}
+              </Box>
+            </Stack>
+          </Box>
+        )}
+      </Container>
+    </ThemeProvider>
   );
 };
 
 Login.propTypes = {
   setLoginToken: PropTypes.func,
+  toggle: PropTypes.bool,
+  setToggle: PropTypes.func,
 };
 
 export default Login;

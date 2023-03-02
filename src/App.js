@@ -25,15 +25,20 @@ import { loadFromLocalStorage } from "./utils";
 const App = () => {
   const lastLoginCredentials = loadFromLocalStorage("lastLoginCredentials");
   const [loginToken, setLoginToken] = useState(lastLoginCredentials);
-
-  const [toggle, setToggle] = useState(false);
-
+  const [toggle, setToggle] = useState(true);
   const theme = toggle ? "light-mode" : "dark-mode";
-
   const [isSideNavVisible, setIsSideNavVisible] = useState(false);
 
   if (!loginToken) {
-    return <Login setLoginToken={setLoginToken} />;
+    return (
+      <div className={`App ${theme}`}>
+        <Login
+          setLoginToken={setLoginToken}
+          toggle={toggle}
+          setToggle={setToggle}
+        />
+      </div>
+    );
   }
 
   return (
