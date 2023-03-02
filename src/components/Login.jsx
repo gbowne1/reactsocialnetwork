@@ -347,7 +347,7 @@ const Login = ({ setLoginToken, toggle, setToggle }) => {
                 </Button>
 
                 {isLoginView ? (
-                  <p onClick={() => toggleViewClickedHandler(false)}>
+                  <span onClick={() => toggleViewClickedHandler(false)}>
                     <Typography align="center">
                       You don&apos;t have an account?{" "}
                       <span
@@ -359,9 +359,9 @@ const Login = ({ setLoginToken, toggle, setToggle }) => {
                         Register here!
                       </span>
                     </Typography>
-                  </p>
+                  </span>
                 ) : (
-                  <p onClick={() => toggleViewClickedHandler(true)}>
+                  <span onClick={() => toggleViewClickedHandler(true)}>
                     <Typography align="center">
                       You already have an account?{" "}
                       <span
@@ -373,7 +373,7 @@ const Login = ({ setLoginToken, toggle, setToggle }) => {
                         Login here!
                       </span>
                     </Typography>
-                  </p>
+                  </span>
                 )}
               </Box>
             </Stack>
