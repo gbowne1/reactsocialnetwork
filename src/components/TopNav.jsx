@@ -24,6 +24,8 @@ import FeedbackIcon from "@mui/icons-material/Feedback";
 import LogoutIcon from "@mui/icons-material/Logout";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
 
+import { saveToLocalStorage } from "../utils";
+
 export default function TopNav({toggle, setToggle, setIsSideNavVisible, isSideNavVisible}) {
 
   const theme = toggle ? "light-mode" : "dark-mode";
@@ -75,6 +77,7 @@ export default function TopNav({toggle, setToggle, setIsSideNavVisible, isSideNa
   };
 
   const handleLogoutClicked = () => {
+    saveToLocalStorage("lastLoginCredentials", null);
     window.location.href = "/";
   }
 
