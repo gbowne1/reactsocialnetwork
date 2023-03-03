@@ -1,44 +1,60 @@
-import {React, useState} from 'react';
-import PropTypes from 'prop-types';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import '../assets/TopNav.css';
-import Badge from '@mui/material/Badge';
-import MenuItem from '@mui/material/MenuItem';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import SearchIcon from '@mui/icons-material/Search';
-import AccountCircle from '@mui/icons-material/AccountCircle';
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import MoreIcon from '@mui/icons-material/MoreVert';
-import MailIcon from '@mui/icons-material/Mail';
-import ChatIcon from '@mui/icons-material/Chat';
-import {Input, Switch } from '@mui/material';
+import { React, useState } from "react";
+import PropTypes from "prop-types";
+import {
+  AppBar,
+  Badge,
+  Box,
+  IconButton,
+  Input,
+  MenuItem,
+  Menu,
+  Switch,
+  Toolbar,
+  Typography,
+} from "@mui/material/";
+import {
+  AccountBoxIcon,
+  AccountCircle,
+  ChatIcon,
+  FeedbackIcon,
+  HelpIcon,
+  LogoutIcon,
+  MailIcon,
+  MenuIcon,
+  MoreIcon,
+  SearchIcon,
+  SettingsIcon,
+} from "@mui/icons-material";
 
-import SettingsIcon from "@mui/icons-material/Settings";
-import HelpIcon from "@mui/icons-material/Help";
-import FeedbackIcon from "@mui/icons-material/Feedback";
-import LogoutIcon from "@mui/icons-material/Logout";
-import AccountBoxIcon from "@mui/icons-material/AccountBox";
-
+import NotificationBell from "./NotificationBell";
 import { saveToLocalStorage } from "../utils";
+import "../assets/TopNav.css";
 
-export default function TopNav({toggle, setToggle, setIsSideNavVisible, isSideNavVisible}) {
-
+export default function TopNav({
+  toggle,
+  setToggle,
+  setIsSideNavVisible,
+  isSideNavVisible,
+}) {
   const theme = toggle ? "light-mode" : "dark-mode";
   const themeAccentColor = theme === "light-mode" ? "#30489f" : "#FFD369";
 
   // Those variables are hardcoded but would be fetched from database i guess
   const newMessagesCount = 0;
-  const notificationsCount = 0;
+  const notifications = [
+    {
+      id: 0,
+      label: "This is your first notification!",
+    },
+    {
+      id: 1,
+      label: "This is your second notification!",
+    },
+  ];
   const isUserLoggedIn = false;
-  
+
   const [anchorEl, setAnchorEl] = useState(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
-    useState(null);
+  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -61,8 +77,8 @@ export default function TopNav({toggle, setToggle, setIsSideNavVisible, isSideNa
   };
 
   const handleSideNavOpen = () => {
-    setIsSideNavVisible(!isSideNavVisible)
-  }
+    setIsSideNavVisible(!isSideNavVisible);
+  };
 
   const handleSettingsClicked = () => {
     window.location.href = "/settings";
@@ -79,98 +95,102 @@ export default function TopNav({toggle, setToggle, setIsSideNavVisible, isSideNa
   const handleLogoutClicked = () => {
     saveToLocalStorage("lastLoginCredentials", null);
     window.location.href = "/";
-  }
+  };
 
   const handleMyAccountClicked = () => {
     window.location.href = "/profile";
-  }
+  };
 
-  const menuId = 'primary-search-account-menu';
+  const menuId = "primary-search-account-menu";
   const renderMenu = (
     <Menu
-    anchorEl={anchorEl}
-    anchorOrigin={{
-      vertical: "top",
-      horizontal: "right",
-    }}
-    id={menuId}
-    keepMounted
-    transformOrigin={{
-      vertical: "top",
-      horizontal: "right",
-    }}
-    open={isMenuOpen}
-    onClose={handleMenuClose}
-  >
-    <MenuItem onClick={handleSettingsClicked}>
-      <SettingsIcon
-        color="action"
-        sx={{
-          marginRight: "5px",
-          color: "",
-        }}
-      />{" "}
-      Settings
-    </MenuItem>
-    <MenuItem onClick={handleHelpClicked}>
-      <HelpIcon
-        color="action"
-        sx={{
-          marginRight: "5px",
-        }}
-      />{" "}
-      Help
-    </MenuItem>
-    <MenuItem onClick={handleFeedbackClicked}>
-      <FeedbackIcon
-        color="action"
-        sx={{
-          marginRight: "5px",
-        }}
-      />{" "}
-      Feedback
-    </MenuItem>
+      anchorEl={anchorEl}
+      anchorOrigin={{
+        vertical: "top",
+        horizontal: "right",
+      }}
+      id={menuId}
+      keepMounted
+      transformOrigin={{
+        vertical: "top",
+        horizontal: "right",
+      }}
+      open={isMenuOpen}
+      onClose={handleMenuClose}
+    >
+      <MenuItem onClick={handleSettingsClicked}>
+        <SettingsIcon
+          color="action"
+          sx={{
+            marginRight: "5px",
+            color: "",
+          }}
+        />{" "}
+        Settings
+      </MenuItem>
+      <MenuItem onClick={handleHelpClicked}>
+        <HelpIcon
+          color="action"
+          sx={{
+            marginRight: "5px",
+          }}
+        />{" "}
+        Help
+      </MenuItem>
+      <MenuItem onClick={handleFeedbackClicked}>
+        <FeedbackIcon
+          color="action"
+          sx={{
+            marginRight: "5px",
+          }}
+        />{" "}
+        Feedback
+      </MenuItem>
 
-    <MenuItem onClick={handleLogoutClicked}>
-      <LogoutIcon
-        color="action"
-        sx={{
-          marginRight: "5px",
-        }}
-      />
-      {isUserLoggedIn ? "Log In" : "Log out"}
-    </MenuItem>
-    <MenuItem onClick={handleMyAccountClicked}>
-      <AccountBoxIcon
-        color="action"
-        sx={{
-          marginRight: "5px",
-        }}
-      />
-      My account
-    </MenuItem>
-  </Menu>
+      <MenuItem onClick={handleLogoutClicked}>
+        <LogoutIcon
+          color="action"
+          sx={{
+            marginRight: "5px",
+          }}
+        />
+        {isUserLoggedIn ? "Log In" : "Log out"}
+      </MenuItem>
+      <MenuItem onClick={handleMyAccountClicked}>
+        <AccountBoxIcon
+          color="action"
+          sx={{
+            marginRight: "5px",
+          }}
+        />
+        My account
+      </MenuItem>
+    </Menu>
   );
 
-  const mobileMenuId = 'primary-search-account-menu-mobile';
+  const mobileMenuId = "primary-search-account-menu-mobile";
   const renderMobileMenu = (
     <Menu
       anchorEl={mobileMoreAnchorEl}
       anchorOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
+        vertical: "top",
+        horizontal: "right",
       }}
       id={mobileMenuId}
       keepMounted
       transformOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
+        vertical: "top",
+        horizontal: "right",
       }}
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
       <MenuItem>
-        <IconButton size="large" aria-label={`show chat with ${newMessagesCount} new messages`} color="inherit">
+        <IconButton
+          size="large"
+          aria-label={`show chat with ${newMessagesCount} new messages`}
+          color="inherit"
+        >
           <Badge badgeContent={newMessagesCount} color="error">
             <MailIcon />
           </Badge>
@@ -186,15 +206,11 @@ export default function TopNav({toggle, setToggle, setIsSideNavVisible, isSideNa
       </MenuItem>
 
       <MenuItem>
-        <IconButton
-          size="large"
-          aria-label={`show ${notificationsCount} new notifications`}
-          color="inherit"
-        >
-          <Badge badgeContent={notificationsCount} color="error">
-            <NotificationsIcon />
-          </Badge>
-        </IconButton>
+        <NotificationBell
+          notifications={notifications}
+          setOpen={null}
+          iconColor="action"
+        />
         <p>Notifications</p>
       </MenuItem>
 
@@ -210,20 +226,13 @@ export default function TopNav({toggle, setToggle, setIsSideNavVisible, isSideNa
         </IconButton>
         <p>Profile</p>
       </MenuItem>
-
-
-      
     </Menu>
   );
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar 
-        className={`Top-nav ${theme}`}
-        position="fixed" 
-      >
+      <AppBar className={`Top-nav ${theme}`} position="fixed">
         <Toolbar>
-
           <IconButton
             size="large"
             edge="start"
@@ -239,27 +248,37 @@ export default function TopNav({toggle, setToggle, setIsSideNavVisible, isSideNa
             variant="h6"
             noWrap
             component="div"
-            sx={{ display: { xs: 'none', sm: 'block' } }}
+            sx={{ display: { xs: "none", sm: "block" } }}
           >
             LOGO
           </Typography>
 
-          <Box sx={{ display: { xs: 'none', md: 'flex', alignItems:"center", gap: "5px" }, ml: 2 }}>
+          <Box
+            sx={{
+              display: {
+                xs: "none",
+                md: "flex",
+                alignItems: "center",
+                gap: "5px",
+              },
+              ml: 2,
+            }}
+          >
             <Input
-              className={`Top-nav-search ${theme}`}   
-              sx={{':after': { borderBottomColor: themeAccentColor }}}
-            >
-            </Input>
-            <SearchIcon
-              sx={{color: themeAccentColor}}
-            />
+              className={`Top-nav-search ${theme}`}
+              sx={{ ":after": { borderBottomColor: themeAccentColor } }}
+            ></Input>
+            <SearchIcon sx={{ color: themeAccentColor }} />
           </Box>
 
           <Box sx={{ flexGrow: 1 }} />
 
-          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-
-            <IconButton size="large" aria-label={`show chat with ${newMessagesCount} new messages`} color="inherit">
+          <Box sx={{ display: { xs: "none", md: "flex" } }}>
+            <IconButton
+              size="large"
+              aria-label={`show chat with ${newMessagesCount} new messages`}
+              color="inherit"
+            >
               <Badge badgeContent={newMessagesCount} color="error">
                 <MailIcon />
               </Badge>
@@ -269,16 +288,11 @@ export default function TopNav({toggle, setToggle, setIsSideNavVisible, isSideNa
               <ChatIcon />
             </IconButton>
 
-            <IconButton
-              size="large"
-              aria-label={`show ${notificationsCount} new notifications`}
-              color="inherit"
-            >
-              <Badge badgeContent={notificationsCount} color="error">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
-
+            <NotificationBell
+              notifications={notifications}
+              setOpen={null}
+              iconColor="action"
+            />
             <IconButton
               size="large"
               edge="end"
@@ -290,10 +304,9 @@ export default function TopNav({toggle, setToggle, setIsSideNavVisible, isSideNa
             >
               <AccountCircle />
             </IconButton>
-
           </Box>
 
-          <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
               aria-label="show more"
@@ -306,13 +319,12 @@ export default function TopNav({toggle, setToggle, setIsSideNavVisible, isSideNa
             </IconButton>
           </Box>
 
-          <Box sx={{ml: 2}}>
+          <Box sx={{ ml: 2 }}>
             <Switch
               onClick={() => setToggle(!toggle)}
               inputProps={{ "aria-label": "Toggle theme" }}
             />
           </Box>
-          
         </Toolbar>
       </AppBar>
       {renderMobileMenu}
@@ -326,4 +338,4 @@ TopNav.propTypes = {
   setToggle: PropTypes.func,
   setIsSideNavVisible: PropTypes.func,
   isSideNavVisible: PropTypes.bool,
- };
+};
