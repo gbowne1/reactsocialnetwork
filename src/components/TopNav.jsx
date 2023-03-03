@@ -12,19 +12,18 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material/";
-import {
-  AccountBoxIcon,
-  AccountCircle,
-  ChatIcon,
-  FeedbackIcon,
-  HelpIcon,
-  LogoutIcon,
-  MailIcon,
-  MenuIcon,
-  MoreIcon,
-  SearchIcon,
-  SettingsIcon,
-} from "@mui/icons-material";
+
+import MenuIcon from "@mui/icons-material/Menu";
+import SearchIcon from "@mui/icons-material/Search";
+import AccountCircle from "@mui/icons-material/AccountCircle";
+import MoreIcon from "@mui/icons-material/MoreVert";
+import MailIcon from "@mui/icons-material/Mail";
+import ChatIcon from "@mui/icons-material/Chat";
+import SettingsIcon from "@mui/icons-material/Settings";
+import HelpIcon from "@mui/icons-material/Help";
+import FeedbackIcon from "@mui/icons-material/Feedback";
+import LogoutIcon from "@mui/icons-material/Logout";
+import AccountBoxIcon from "@mui/icons-material/AccountBox";
 
 import NotificationBell from "./NotificationBell";
 import { saveToLocalStorage } from "../utils";
