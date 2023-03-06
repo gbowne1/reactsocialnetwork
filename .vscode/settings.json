@@ -53,7 +53,15 @@
       "editor.defaultFormatter": "redhat.vscode-yaml",
     },
     "[javascriptreact]": {
-
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.formatOnSave": false
     },
-    "liveServer.settings.port": 5500
+    "liveServer.settings.port": 5500,
+    "files.associations": {
+      "*.jsx": "javascriptreact",
+      "*.js": "javascript"
+    },
+    "emmet.includeLanguages": {
+      "javascriptreact": "javascriptreact"
+    }
   }
