@@ -4,16 +4,12 @@ import { Card } from '@mui/material';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import { Container } from '@mui/material';
-import '../assets/Friends.css';
-import { VscChromeClose } from "react-icons/vsc";
 import { CardMedia } from '@mui/material';
 import { CardActions } from '@mui/material';
 import { Button } from '@mui/material';
-// import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-// import Home from './Home';
-// import Settings from './Settings';
-// import Admin from './Admin';
-// import Login from './Login';
+import CloseButton from "./CloseButton";
+
+import '../assets/Friends.css';
 
 function Friends({toggle}) {
   const [isOpen, setIsOpen] = useState(true)
@@ -35,7 +31,8 @@ function Friends({toggle}) {
         >
           {" "}
           <h3 className="Friends-title">Friends</h3>
-          <VscChromeClose className="icon" onClick={handleClose} />
+
+          <CloseButton handleClose={handleClose} />
         </div>
         <h4>Here are your Friends!</h4>
         <input

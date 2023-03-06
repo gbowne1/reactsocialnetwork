@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import '../assets/Profile.css';
 import PropTypes from "prop-types";
-import { VscChromeClose } from "react-icons/vsc";
+import CloseButton from "./CloseButton";
+import '../assets/Profile.css';
 
 function Profile({toggle}){
   const [isOpen, setIsOpen] = useState(true)
@@ -22,7 +22,7 @@ function Profile({toggle}){
             className={`Profile-header ${theme}`}
           >
             <h3 className="Userprofile-title">Userprofile</h3>
-            <VscChromeClose className="icon" onClick={handleClose} />
+            <CloseButton handleClose={handleClose} />
           </div>
           <div className="container-fluid">
             <h2 className="">User Profile</h2>
