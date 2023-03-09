@@ -8,7 +8,8 @@ import UserProfile from "./components/UserProfile";
 import Profile from "./components/Profile";
 import Dashboard from "./components/Dashboard";
 import Settings from "./components/Settings";
-import Friends from "./components/Friends";
+import Friends from "./components/Friends"
+import Events from "./components/Events";
 import Footer from "./components/Footer";
 import NotFound from "./components/NotFound";
 import Terms from "./components/Terms";
@@ -83,6 +84,11 @@ const App = () => {
                     exact
                     path="/friends"
                     element={<Friends toggle={toggle} />}
+                  />
+                  <Route
+                    exact
+                    path="/events"
+                    element={<Events toggle={toggle} />}
                   />
                   <Route
                     exact
