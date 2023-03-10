@@ -18,7 +18,8 @@ import Post from "./components/Post";
 import TopNav from "./components/TopNav";
 import Login from "./components/Login";
 
-import { loadFromLocalStorage } from "./utils";
+import { loadFromLocalStorage, saveToLocalStorage } from "./utils";
+import getFromLocalStorage from "./helpers/getFromLocalStorage";
 // import IconButton from '@mui/material/IconButton';
 // import NotFound from './pages/NotFound';
 // import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
@@ -26,95 +27,106 @@ import { loadFromLocalStorage } from "./utils";
 const App = () => {
   const lastLoginCredentials = loadFromLocalStorage("lastLoginCredentials");
   const [loginToken, setLoginToken] = useState(lastLoginCredentials);
-  const [toggle, setToggle] = useState(true);
-  const theme = toggle ? "light-mode" : "dark-mode";
+  const [themeMode, setThemeMode] = useState(
+    getFromLocalStorage("isThemeLightMode") ||
+    (() => {
+      saveToLocalStorage("isThemeLightMode", "light-mode");
+      return getFromLocalStorage("isThemeLightMode");
+    }
+  ));
   const [isSideNavVisible, setIsSideNavVisible] = useState(false);
+
+  const handleThemeModeChange = () => {
+    const newTheme = themeMode === "light-mode" ? "dark-mode" : "light-mode";
+    saveToLocalStorage("isThemeLightMode", newTheme);
+    setThemeMode(newTheme)
+  }
 
   if (!loginToken) {
     return (
-      <div className={`App ${theme}`}>
+      <div className={`App ${themeMode}`}>
         <Login
           setLoginToken={setLoginToken}
-          toggle={toggle}
-          setToggle={setToggle}
+          themeMode={themeMode}
+          handleThemeModeChange={handleThemeModeChange}
         />
       </div>
     );
   }
 
   return (
-    <div className={`App ${theme}`}>
+    <div className={`App ${themeMode}`}>
       <div className="container-fluid">
         <header className="App-header">
           <TopNav
-            setToggle={setToggle}
-            toggle={toggle}
+            handleThemeModeChange={handleThemeModeChange}
+            themeMode={themeMode}
             setIsSideNavVisible={setIsSideNavVisible}
             isSideNavVisible={isSideNavVisible}
           />
         </header>
 
-        <div className={`Main-app-container ${theme}`}>
-          <SideNav isSideNavVisible={isSideNavVisible} toggle={toggle} />
-          <main className={`Main-app ${theme}`}>
-            <section className={`Section-app ${theme}`}>
+        <div className={`Main-app-container ${themeMode}`}>
+          <SideNav isSideNavVisible={isSideNavVisible} themeMode={themeMode} />
+          <main className={`Main-app ${themeMode}`}>
+            <section className={`Section-app ${themeMode}`}>
               <Router>
                 <Routes>
                   <Route
                     exact
                     path="/"
-                    element={<Dashboard toggle={toggle} />}
+                    element={<Dashboard themeMode={themeMode} />}
                   />
                   <Route
                     exact
                     path="/dashboard"
-                    element={<Dashboard toggle={toggle} />}
+                    element={<Dashboard themeMode={themeMode} />}
                   />
                   <Route
                     exact
                     path="/settings"
-                    element={<Settings toggle={toggle} />}
+                    element={<Settings themeMode={themeMode} />}
                   />
                   <Route
                     exact
                     path="/user-profile"
-                    element={<UserProfile toggle={toggle} />}
+                    element={<UserProfile themeMode={themeMode} />}
                   />
                   <Route
                     exact
                     path="/friends"
-                    element={<Friends toggle={toggle} />}
+                    element={<Friends themeMode={themeMode} />}
                   />
                   <Route
                     exact
                     path="/events"
-                    element={<Events toggle={toggle} />}
+                    element={<Events themeMode={themeMode} />}
                   />
                   <Route
                     exact
                     path="/profile"
-                    element={<Profile toggle={toggle} />}
+                    element={<Profile themeMode={themeMode} />}
                   />
                   <Route
                     exact
                     path="/post"
-                    element={<Post toggle={toggle} />}
+                    element={<Post themeMode={themeMode} />}
                   />
                   <Route
                     exact
                     path="/terms"
-                    element={<Terms toggle={toggle} />}
+                    element={<Terms themeMode={themeMode} />}
                   />
                   <Route
                     exact
                     path="*"
-                    element={<NotFound toggle={toggle} />}
+                    element={<NotFound themeMode={themeMode} />}
                   />
                 </Routes>
               </Router>
             </section>
           </main>
-          <Footer toggle={toggle} />
+          <Footer themeMode={themeMode} />
         </div>
       </div>
     </div>

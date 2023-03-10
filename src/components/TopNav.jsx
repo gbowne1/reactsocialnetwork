@@ -30,13 +30,13 @@ import { saveToLocalStorage } from "../utils";
 import "../assets/TopNav.css";
 
 export default function TopNav({
-  toggle,
-  setToggle,
+  themeMode,
+  handleThemeModeChange,
   setIsSideNavVisible,
   isSideNavVisible,
 }) {
-  const theme = toggle ? "light-mode" : "dark-mode";
-  const themeAccentColor = theme === "light-mode" ? "#30489f" : "#FFD369";
+  
+  const themeAccentColor = themeMode === "light-mode" ? "#30489f" : "#FFD369";
 
   // Those variables are hardcoded but would be fetched from database i guess
   const newMessagesCount = 0;
@@ -230,7 +230,7 @@ export default function TopNav({
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar className={`Top-nav ${theme}`} position="fixed">
+      <AppBar className={`Top-nav ${themeMode}`} position="fixed">
         <Toolbar>
           <IconButton
             size="large"
@@ -264,7 +264,7 @@ export default function TopNav({
             }}
           >
             <Input
-              className={`Top-nav-search ${theme}`}
+              className={`Top-nav-search ${themeMode}`}
               sx={{ ":after": { borderBottomColor: themeAccentColor } }}
             ></Input>
             <SearchIcon sx={{ color: themeAccentColor }} />
@@ -320,7 +320,7 @@ export default function TopNav({
 
           <Box sx={{ ml: 2 }}>
             <Switch
-              onClick={() => setToggle(!toggle)}
+              onClick={() => handleThemeModeChange()}
               inputProps={{ "aria-label": "Toggle theme" }}
             />
           </Box>
@@ -333,8 +333,8 @@ export default function TopNav({
 }
 
 TopNav.propTypes = {
-  toggle: PropTypes.bool,
-  setToggle: PropTypes.func,
+  themeMode: PropTypes.bool,
+  handleThemeModeChange: PropTypes.func,
   setIsSideNavVisible: PropTypes.func,
   isSideNavVisible: PropTypes.bool,
 };

@@ -12,14 +12,14 @@ export const theme = createTheme({
 export const lightTheme = {
   body: '#FFF',
   text: '#363537',
-  toggleBorder: '#FFF',
+  themeModeBorder: '#FFF',
   background: '#363537',
   color: '#e5e5e5'
 };
 export const darkTheme = {
   body: '#363537',
   text: '#FAFAFA',
-  toggleBorder: '#6B8096',
+  themeModeBorder: '#6B8096',
   background: '#999',
   /* background-color: '#15181f', */
   color: '#e5e5e5'

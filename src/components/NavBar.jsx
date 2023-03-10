@@ -7,7 +7,6 @@ class NavBar extends React.Component {
     this.setState({
       clicked: !this.state.clicked
     });
-    console.log('Navbar toggle happened');
   };
 
   render() {

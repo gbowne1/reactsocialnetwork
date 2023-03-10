@@ -11,10 +11,10 @@ import CloseButton from "./CloseButton";
 
 import '../assets/Friends.css';
 
-function Friends({toggle}) {
+function Friends({themeMode}) {
   const [isOpen, setIsOpen] = useState(true)
 
-  const theme = toggle ? "light-mode" : "dark-mode";
+  
 
   function handleClose() {
     setIsOpen(false);
@@ -24,10 +24,10 @@ function Friends({toggle}) {
       <>      
       { isOpen && (
       <div
-        className={`Friends ${theme}`}
+        className={`Friends ${themeMode}`}
       >
         <div
-          className={`Friends-header ${theme}`}
+          className={`Friends-header ${themeMode}`}
         >
           {" "}
           <h3 className="Friends-title">Friends</h3>
@@ -102,7 +102,7 @@ function Friends({toggle}) {
   
 }
 Friends.propTypes = {
-  toggle: PropTypes.bool
+  themeMode: PropTypes.bool
  };
 
 export default Friends;

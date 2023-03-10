@@ -2,9 +2,9 @@ import React from 'react';
 import '../assets/Footer.css';
 import PropTypes from 'prop-types';
 
-function Footer({toggle}){
+function Footer({themeMode}){
 
-  const theme = toggle ? "light-mode" : "dark-mode"
+  const theme = themeMode ? "light-mode" : "dark-mode"
   
   return (
     <footer className={`Footer-body ${theme}`}>
@@ -27,7 +27,7 @@ function Footer({toggle}){
 }
 
 Footer.propTypes = {
-  toggle: PropTypes.bool
+  themeMode: PropTypes.bool
  };
 
 export default Footer;
