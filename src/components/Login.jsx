@@ -386,7 +386,7 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
 
 Login.propTypes = {
   setLoginToken: PropTypes.func,
-  themeMode: PropTypes.bool,
+  themeMode: PropTypes.string,
   handleThemeModeChange: PropTypes.func,
 };
 
