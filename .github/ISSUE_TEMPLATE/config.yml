@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📱 Slack
+    url: https://join.slack.com/t/reactsocialmediadev/shared_invite/zt-1qxkurpk1-xP5wRx3oaCauIXBmt1ToVA
+    about: Join the discussion on our Slack channel
+  - name: ❔Questions & Discussions
+    url: https://github.com/gbowne1/reactsocialnetwork/discussions
+    about: Use GitHub discussions for message-board style questions and discussions.
