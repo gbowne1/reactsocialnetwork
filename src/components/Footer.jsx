@@ -2,17 +2,15 @@ import React from 'react';
 import '../assets/Footer.css';
 import PropTypes from 'prop-types';
 
-function Footer({toggle}){
-
-  const theme = toggle ? "light-mode" : "dark-mode"
+function Footer({themeMode}){
   
   return (
-    <footer className={`Footer-body ${theme}`}>
+    <footer className={`Footer-body ${themeMode}`}>
       <div className="row">
         <div className="col">
         </div>
       </div>
-      <section className={`Footer-footer ${theme}`}>
+      <section className={`Footer-footer ${themeMode}`}>
         <ul>
           <li>
             <a href="/terms">Terms & Conditions</a>
@@ -27,7 +25,7 @@ function Footer({toggle}){
 }
 
 Footer.propTypes = {
-  toggle: PropTypes.bool
+  themeMode: PropTypes.string
  };
 
 export default Footer;
