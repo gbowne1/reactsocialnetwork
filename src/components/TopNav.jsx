@@ -83,25 +83,29 @@ export default function TopNav({
   };
 
   const handleSettingsClicked = () => {
-    window.location.href = "/settings";
+    navigate("/settings", {state: window.location.pathname});
+    handleMenuClose();
   };
 
   const handleHelpClicked = () => {
-    window.location.href = "/help";
+    navigate("/help", {state: window.location.pathname});
+    handleMenuClose();
   };
 
   const handleFeedbackClicked = () => {
-    // window.location.href = "/feedback";
     navigate("/feedback", {state: window.location.pathname});
+    handleMenuClose();
   };
 
   const handleLogoutClicked = () => {
     saveToLocalStorage("lastLoginCredentials", null);
-    window.location.href = "/";
+    navigate("/", {state: window.location.pathname});
+    handleMenuClose();
   };
 
   const handleMyAccountClicked = () => {
-    window.location.href = "/profile";
+    navigate("/profile", {state: window.location.pathname});
+    handleMenuClose();
   };
 
   const menuId = "primary-search-account-menu";
