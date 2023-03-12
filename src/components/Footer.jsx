@@ -3,8 +3,6 @@ import '../assets/Footer.css';
 import PropTypes from 'prop-types';
 
 function Footer({themeMode}){
-
-  const theme = themeMode ? "light-mode" : "dark-mode"
   
   return (
     <footer className={`Footer-body ${themeMode}`}>
