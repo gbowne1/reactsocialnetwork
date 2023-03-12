@@ -4,10 +4,10 @@ import { FormControlLabel, FormGroup, Switch } from "@mui/material";
 import CloseButton from "./CloseButton";
 import "../assets/Settings.css";
 
-function Settings({ toggle }) {
+function Settings({ themeMode }) {
   const [isOpen, setIsOpen] = useState(true);
 
-  const theme = toggle ? "light-mode" : "dark-mode";
+  
 
   function handleClose() {
     setIsOpen(false);
@@ -16,8 +16,8 @@ function Settings({ toggle }) {
   return (
     <>
       {isOpen && (
-        <div className={`Settings ${theme}`}>
-          <div className={`Settings-header ${theme}`}>
+        <div className={`Settings ${themeMode}`}>
+          <div className={`Settings-header ${themeMode}`}>
             <h3 className="Settings-title">Settings</h3>
             <CloseButton handleClose={handleClose} />
           </div>
@@ -78,7 +78,7 @@ function Settings({ toggle }) {
 }
 
 Settings.propTypes = {
-  toggle: PropTypes.bool,
+  themeMode: PropTypes.bool,
 };
 
 export default Settings;

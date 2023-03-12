@@ -14,20 +14,20 @@ import {IconButton } from '@mui/material';
 // import Admin from './Admin';
 // import Login from './Login';
 
-function Post({toggle, userAvatar, userName = ""}) {
+function Post({themeMode, userAvatar, userName = ""}) {
 
-  const theme = toggle ? "light-mode" : "dark-mode";
+  
   
     return (
-      <div className={`Post ${theme}`}>
+      <div className={`Post ${themeMode}`}>
 
-        <div className={`Post-header ${theme}`}>
+        <div className={`Post-header ${themeMode}`}>
           <h3 className="Post-title">Post</h3>
         </div>
 
         <h4>Welcome to your Post {userName}!</h4>
 
-        <form className={`Post-create ${theme}`}>
+        <form className={`Post-create ${themeMode}`}>
 
           <div className='Post-basics'>
 
@@ -54,13 +54,13 @@ function Post({toggle, userAvatar, userName = ""}) {
               placeholder='Start a post'
               aria-invalid="false"
               aria-label='Post text input'
-              className={`Post-text ${theme}`} 
+              className={`Post-text ${themeMode}`} 
               type="text" 
               autoComplete='off'
             />
 
             <IconButton 
-              className={`Post-submit  ${theme}`} 
+              className={`Post-submit ${themeMode}`} 
               aria-label="search button"
               type='submit'
             >
@@ -88,7 +88,7 @@ function Post({toggle, userAvatar, userName = ""}) {
                 aria-labelledby="upload picture"
                 sx={{ color: "#054a91" }}
               />
-              <span className={`Post-icon-label ${theme}`}>Add Photo</span>
+              <span className={`Post-icon-label ${themeMode}`}>Add Photo</span>
             </IconButton>
 
             <IconButton 
@@ -103,7 +103,7 @@ function Post({toggle, userAvatar, userName = ""}) {
                 aria-labelledby="upload video"
                 sx={{ color: "#931621" }}
               />
-              <span className={`Post-icon-label ${theme}`}>Add Video</span>
+              <span className={`Post-icon-label ${themeMode}`}>Add Video</span>
             </IconButton>
 
             <IconButton 
@@ -117,7 +117,7 @@ function Post({toggle, userAvatar, userName = ""}) {
                 aria-labelledby="add mood"
                 sx={{ color: "#FFD369" }}
               />
-              <span className={`Post-icon-label ${theme}`}>Add Mood</span>
+              <span className={`Post-icon-label ${themeMode}`}>Add Mood</span>
             </IconButton>
 
           </div>
@@ -128,7 +128,7 @@ function Post({toggle, userAvatar, userName = ""}) {
   
 }
 Post.propTypes = {
-  toggle: PropTypes.bool,
+  themeMode: PropTypes.bool,
   // I think avatar could be passed as an image src
   userAvatar: PropTypes.node,
   userName: PropTypes.string
