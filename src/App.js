@@ -20,6 +20,7 @@ import Login from "./components/Login";
 
 import { loadFromLocalStorage, saveToLocalStorage } from "./utils";
 import getFromLocalStorage from "./helpers/getFromLocalStorage";
+import Feedback from "./components/Feedback";
 // import IconButton from '@mui/material/IconButton';
 // import NotFound from './pages/NotFound';
 // import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
@@ -56,21 +57,21 @@ const App = () => {
 
   return (
     <div className={`App ${themeMode}`}>
-      <div className="container-fluid">
-        <header className="App-header">
-          <TopNav
-            handleThemeModeChange={handleThemeModeChange}
-            themeMode={themeMode}
-            setIsSideNavVisible={setIsSideNavVisible}
-            isSideNavVisible={isSideNavVisible}
-          />
-        </header>
+      <Router>
+        <div className="container-fluid">
+          <header className="App-header">
+            <TopNav
+              handleThemeModeChange={handleThemeModeChange}
+              themeMode={themeMode}
+              setIsSideNavVisible={setIsSideNavVisible}
+              isSideNavVisible={isSideNavVisible}
+            />
+          </header>
 
-        <div className={`Main-app-container ${themeMode}`}>
-          <SideNav isSideNavVisible={isSideNavVisible} themeMode={themeMode} />
-          <main className={`Main-app ${themeMode}`}>
-            <section className={`Section-app ${themeMode}`}>
-              <Router>
+          <div className={`Main-app-container ${themeMode}`}>
+            <SideNav isSideNavVisible={isSideNavVisible} themeMode={themeMode} />
+            <main className={`Main-app ${themeMode}`}>
+              <section className={`Section-app ${themeMode}`}>
                 <Routes>
                   <Route
                     exact
@@ -119,16 +120,21 @@ const App = () => {
                   />
                   <Route
                     exact
+                    path="/feedback"
+                    element={<Feedback themeMode={themeMode} />}
+                  />
+                  <Route
+                    exact
                     path="*"
                     element={<NotFound themeMode={themeMode} />}
                   />
                 </Routes>
-              </Router>
-            </section>
-          </main>
-          <Footer themeMode={themeMode} />
+              </section>
+            </main>
+            <Footer themeMode={themeMode} />
+          </div>
         </div>
-      </div>
+      </Router>
     </div>
   );
 };

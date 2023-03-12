@@ -26,7 +26,7 @@ function Dashboard({ themeMode }) {
   );
 }
 Dashboard.propTypes = {
-  themeMode: PropTypes.bool,
+  themeMode: PropTypes.string,
 };
 
 export default Dashboard;

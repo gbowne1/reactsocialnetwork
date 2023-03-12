@@ -17,7 +17,7 @@ const NotFound = ({themeMode}) => {
 }
 
 NotFound.propTypes = {
-  themeMode: PropTypes.bool
+  themeMode: PropTypes.string
  };
 
 export default NotFound;

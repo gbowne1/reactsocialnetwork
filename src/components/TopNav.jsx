@@ -28,6 +28,7 @@ import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import NotificationBell from "./NotificationBell";
 import { saveToLocalStorage } from "../utils";
 import "../assets/TopNav.css";
+import {useNavigate } from "react-router";
 
 export default function TopNav({
   themeMode,
@@ -36,6 +37,8 @@ export default function TopNav({
   isSideNavVisible,
 }) {
   
+  let navigate = useNavigate(); 
+
   const themeAccentColor = themeMode === "light-mode" ? "#30489f" : "#FFD369";
 
   // Those variables are hardcoded but would be fetched from database i guess
@@ -88,7 +91,8 @@ export default function TopNav({
   };
 
   const handleFeedbackClicked = () => {
-    window.location.href = "/feedback";
+    // window.location.href = "/feedback";
+    navigate("/feedback", {state: window.location.pathname});
   };
 
   const handleLogoutClicked = () => {
@@ -333,7 +337,7 @@ export default function TopNav({
 }
 
 TopNav.propTypes = {
-  themeMode: PropTypes.bool,
+  themeMode: PropTypes.string,
   handleThemeModeChange: PropTypes.func,
   setIsSideNavVisible: PropTypes.func,
   isSideNavVisible: PropTypes.bool,

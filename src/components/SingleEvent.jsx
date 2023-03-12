@@ -54,7 +54,7 @@ const SingleEvent = ({
 };
 
 SingleEvent.propTypes = {
-  themeMode: PropTypes.bool,
+  themeMode: PropTypes.string,
   eventData: PropTypes.object,
   eventKey: PropTypes.number,
   interested: PropTypes.object,

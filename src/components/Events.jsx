@@ -83,7 +83,7 @@ const Events = ({ themeMode }) => {
 };
 
 Events.propTypes = {
-  themeMode: PropTypes.bool,
+  themeMode: PropTypes.string,
 };
 
 export default Events;
