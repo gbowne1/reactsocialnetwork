@@ -6,8 +6,8 @@ import SingleEvent from "./SingleEvent";
 
 import "../assets/Events.css";
 
-const Events = ({ toggle }) => {
-  const theme = toggle ? "light-mode" : "dark-mode";
+const Events = ({ themeMode }) => {
+  
   const [isOpen, setIsOpen] = useState(true);
   const [interested, setInterested] = useState({});
 
@@ -55,17 +55,17 @@ const Events = ({ toggle }) => {
   return (
     <>
       {isOpen && (
-        <Box className={`Events ${theme}`}>
-          <Box className={`Events-header ${theme}`}>
+        <Box className={`Events ${themeMode}`}>
+          <Box className={`Events-header ${themeMode}`}>
             <h3 className="Events-title">Your Events</h3>
             <CloseButton handleClose={handleClose} />
           </Box>
-          <Box className={`Events-content ${theme}`}>
-            <Stack spacing={2} className={`events-stack ${theme}`}>
+          <Box className={`Events-content ${themeMode}`}>
+            <Stack spacing={2} className={`events-stack ${themeMode}`}>
               {events.map((event, i) => {
                 return (
                   <SingleEvent
-                    toggle={toggle}
+                    themeMode={themeMode}
                     key={i}
                     eventKey={i}
                     eventData={event}
@@ -83,7 +83,7 @@ const Events = ({ toggle }) => {
 };
 
 Events.propTypes = {
-  toggle: PropTypes.bool,
+  themeMode: PropTypes.bool,
 };
 
 export default Events;

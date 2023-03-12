@@ -3,10 +3,10 @@ import PropTypes from "prop-types";
 import CloseButton from "./CloseButton";
 import "../assets/UserProfile.css";
 
-function UserProfile({ toggle }) {
+function UserProfile({ themeMode }) {
   const [isOpen, setIsOpen] = useState(true);
 
-  const theme = toggle ? "light-mode" : "dark-mode";
+  
 
   function handleClose() {
     setIsOpen(false);
@@ -14,8 +14,8 @@ function UserProfile({ toggle }) {
   return (
     <>
       {isOpen && (
-        <div className={`Userprofile ${theme}`}>
-          <div className={`Userprofile-header ${theme}`}>
+        <div className={`Userprofile ${themeMode}`}>
+          <div className={`Userprofile-header ${themeMode}`}>
             <h3 className="Userprofile-title">Userprofile</h3>
             <CloseButton handleClose={handleClose} />
           </div>
@@ -25,7 +25,7 @@ function UserProfile({ toggle }) {
   );
 }
 UserProfile.propTypes = {
-  toggle: PropTypes.bool,
+  themeMode: PropTypes.bool,
 };
 
 export default UserProfile;

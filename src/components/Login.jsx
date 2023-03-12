@@ -39,7 +39,7 @@ const TEST_USERNAME = "testuser1";
 const TEST_EMAIL = "testuser@gmail.com";
 const TEST_PASSWORD = "Testpass1!";
 
-const Login = ({ setLoginToken, toggle, setToggle }) => {
+const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoginView, setLoginView] = useState(true);
   const [userData, setUserData] = useState({
@@ -55,13 +55,13 @@ const Login = ({ setLoginToken, toggle, setToggle }) => {
 
   const theme = createTheme({
     palette: {
-      mode: toggle ? "light" : "dark",
+      mode: themeMode ? "light" : "dark",
     },
   });
 
   const lightDividerColor = "rgba(0, 0, 0, 0.3)";
   const darkDividerColor = "rgba(255, 255, 255, 0.3)";
-  const dividerColor = toggle ? lightDividerColor : darkDividerColor;
+  const dividerColor = themeMode === "light-mode" ? lightDividerColor : darkDividerColor;
 
   const inputChangeHandler = (value) => {
     setUserData(value);
@@ -71,7 +71,7 @@ const Login = ({ setLoginToken, toggle, setToggle }) => {
     event.preventDefault();
   };
 
-  const toggleViewClickedHandler = (bool) => {
+  const themeModeViewClickedHandler = (bool) => {
     setLoginView(bool);
   };
 
@@ -213,7 +213,7 @@ const Login = ({ setLoginToken, toggle, setToggle }) => {
           <LightMode />
 
           <Switch
-            onClick={() => setToggle(!toggle)}
+            onClick={() => handleThemeModeChange()}
             inputProps={{ "aria-label": "Toggle theme" }}
           />
           <DarkMode />
@@ -298,7 +298,7 @@ const Login = ({ setLoginToken, toggle, setToggle }) => {
                   endAdornment={
                     <InputAdornment position="end">
                       <IconButton
-                        aria-label="toggle password visibility"
+                        aria-label="themeMode password visibility"
                         onClick={showPasswordClickedHandler}
                         onMouseDown={handleMouseDownPassword}
                         edge="end"
@@ -347,7 +347,7 @@ const Login = ({ setLoginToken, toggle, setToggle }) => {
                 </Button>
 
                 {isLoginView ? (
-                  <span onClick={() => toggleViewClickedHandler(false)}>
+                  <span onClick={() => themeModeViewClickedHandler(false)}>
                     <Typography align="center">
                       You don&apos;t have an account?{" "}
                       <span
@@ -361,7 +361,7 @@ const Login = ({ setLoginToken, toggle, setToggle }) => {
                     </Typography>
                   </span>
                 ) : (
-                  <span onClick={() => toggleViewClickedHandler(true)}>
+                  <span onClick={() => themeModeViewClickedHandler(true)}>
                     <Typography align="center">
                       You already have an account?{" "}
                       <span
@@ -386,8 +386,8 @@ const Login = ({ setLoginToken, toggle, setToggle }) => {
 
 Login.propTypes = {
   setLoginToken: PropTypes.func,
-  toggle: PropTypes.bool,
-  setToggle: PropTypes.func,
+  themeMode: PropTypes.string,
+  handleThemeModeChange: PropTypes.func,
 };
 
 export default Login;

@@ -5,13 +5,13 @@ import { Button } from "@mui/material";
 import "../assets/SingleEvent.css";
 
 const SingleEvent = ({
-  toggle,
+  themeMode,
   eventData,
   eventKey,
   interested,
   setInterested,
 }) => {
-  const theme = toggle ? "light-mode" : "dark-mode";
+  
 
   const interestedClickedHandler = (elementKey) => {
     setInterested({
@@ -22,8 +22,8 @@ const SingleEvent = ({
   };
 
   return (
-    <div className={`event ${theme}`} key={eventKey}>
-      <img className="event-image" src={eventData.imageUrl} />
+    <div className={`event ${themeMode}`} key={eventKey}>
+      <img className="event-image" src={eventData.imageUrl} alt="event" />
       <div className="event-text">
         <p>Today at 8pm</p>
         <p className="event-title">{eventData.title}</p>
@@ -37,7 +37,7 @@ const SingleEvent = ({
       <div className="event-button-panel">
         <Button
           variant="contained"
-          className={`interested-button ${theme}`}
+          className={`interested-button ${themeMode}`}
           style={{
             backgroundColor: "#ffc93d"
           }}
@@ -54,7 +54,7 @@ const SingleEvent = ({
 };
 
 SingleEvent.propTypes = {
-  toggle: PropTypes.bool,
+  themeMode: PropTypes.bool,
   eventData: PropTypes.object,
   eventKey: PropTypes.number,
   interested: PropTypes.object,

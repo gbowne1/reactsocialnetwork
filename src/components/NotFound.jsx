@@ -3,12 +3,12 @@ import '../assets/NotFound.css';
 import PropTypes from 'prop-types';
 
 
-const NotFound = ({toggle}) => {
+const NotFound = ({themeMode}) => {
   
-  const theme = toggle ? "light-mode" : "dark-mode";
+  
 
   return (
-    <div className={`NotFound-container ${theme}`}>
+    <div className={`NotFound-container ${themeMode}`}>
       <div className="NotFound-header">
         <h3 className="NotFound-title"><b>404 NotFound</b></h3>
       </div>
@@ -17,7 +17,7 @@ const NotFound = ({toggle}) => {
 }
 
 NotFound.propTypes = {
-  toggle: PropTypes.bool
+  themeMode: PropTypes.bool
  };
 
 export default NotFound;
