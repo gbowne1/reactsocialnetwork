@@ -25,7 +25,7 @@ function UserProfile({ themeMode }) {
   );
 }
 UserProfile.propTypes = {
-  themeMode: PropTypes.bool,
+  themeMode: PropTypes.string,
 };
 
 export default UserProfile;

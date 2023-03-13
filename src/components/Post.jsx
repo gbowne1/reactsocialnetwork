@@ -128,7 +128,7 @@ function Post({themeMode, userAvatar, userName = ""}) {
   
 }
 Post.propTypes = {
-  themeMode: PropTypes.bool,
+  themeMode: PropTypes.string,
   // I think avatar could be passed as an image src
   userAvatar: PropTypes.node,
   userName: PropTypes.string

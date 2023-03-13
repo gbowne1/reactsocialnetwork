@@ -78,7 +78,7 @@ function Settings({ themeMode }) {
 }
 
 Settings.propTypes = {
-  themeMode: PropTypes.bool,
+  themeMode: PropTypes.string,
 };
 
 export default Settings;

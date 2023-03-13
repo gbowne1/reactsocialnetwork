@@ -102,7 +102,7 @@ function Friends({themeMode}) {
   
 }
 Friends.propTypes = {
-  themeMode: PropTypes.bool
+  themeMode: PropTypes.string
  };
 
 export default Friends;

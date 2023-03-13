@@ -34,7 +34,7 @@ function Profile({themeMode}){
 }
 
 Profile.propTypes = {
-  themeMode: PropTypes.bool,
+  themeMode: PropTypes.string,
 };
   
 

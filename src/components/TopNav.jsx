@@ -28,6 +28,7 @@ import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import NotificationBell from "./NotificationBell";
 import { saveToLocalStorage } from "../utils";
 import "../assets/TopNav.css";
+import {useNavigate } from "react-router";
 
 export default function TopNav({
   themeMode,
@@ -36,6 +37,8 @@ export default function TopNav({
   isSideNavVisible,
 }) {
   
+  let navigate = useNavigate(); 
+
   const themeAccentColor = themeMode === "light-mode" ? "#30489f" : "#FFD369";
 
   // Those variables are hardcoded but would be fetched from database i guess
@@ -80,24 +83,29 @@ export default function TopNav({
   };
 
   const handleSettingsClicked = () => {
-    window.location.href = "/settings";
+    navigate("/settings", {state: window.location.pathname});
+    handleMenuClose();
   };
 
   const handleHelpClicked = () => {
-    window.location.href = "/help";
+    navigate("/help", {state: window.location.pathname});
+    handleMenuClose();
   };
 
   const handleFeedbackClicked = () => {
-    window.location.href = "/feedback";
+    navigate("/feedback", {state: window.location.pathname});
+    handleMenuClose();
   };
 
   const handleLogoutClicked = () => {
     saveToLocalStorage("lastLoginCredentials", null);
-    window.location.href = "/";
+    navigate("/", {state: window.location.pathname});
+    handleMenuClose();
   };
 
   const handleMyAccountClicked = () => {
-    window.location.href = "/profile";
+    navigate("/profile", {state: window.location.pathname});
+    handleMenuClose();
   };
 
   const menuId = "primary-search-account-menu";
@@ -333,7 +341,7 @@ export default function TopNav({
 }
 
 TopNav.propTypes = {
-  themeMode: PropTypes.bool,
+  themeMode: PropTypes.string,
   handleThemeModeChange: PropTypes.func,
   setIsSideNavVisible: PropTypes.func,
   isSideNavVisible: PropTypes.bool,

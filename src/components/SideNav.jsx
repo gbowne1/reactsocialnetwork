@@ -32,7 +32,7 @@ const SideNav = ({isSideNavVisible, themeMode}) => {
 
 SideNav.propTypes = {
   isSideNavVisible: PropTypes.bool,
-  themeMode: PropTypes.bool,
+  themeMode: PropTypes.string,
  };
 
 export default SideNav;
