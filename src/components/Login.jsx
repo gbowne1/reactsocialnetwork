@@ -32,6 +32,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 import CustomAlert from "./CustomAlert";
 import { loadFromLocalStorage, saveToLocalStorage } from "../utils";
+import "../assets/Login.css";
 
 YupPassword(yup);
 
@@ -58,10 +59,6 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
       mode: themeMode ? "light" : "dark",
     },
   });
-
-  const lightDividerColor = "rgba(0, 0, 0, 0.3)";
-  const darkDividerColor = "rgba(255, 255, 255, 0.3)";
-  const dividerColor = themeMode === "light-mode" ? lightDividerColor : darkDividerColor;
 
   const inputChangeHandler = (value) => {
     setUserData(value);
@@ -192,23 +189,10 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Container
-        sx={{
-          marginTop: "200px",
-        }}
-      >
+      <Container className={`Login__container`}>
         <Box
           id="theme-mode-switch"
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            border: `1px solid ${dividerColor}`,
-            borderRadius: "10px",
-            width: "fit-content",
-            padding: "5px 10px",
-            margin: "0 auto 20px",
-          }}
+          className={`Login__theme-mode-switch ${themeMode}`}
         >
           <LightMode />
 
@@ -220,28 +204,11 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
         </Box>
 
         {showLoadingSpinner ? (
-          <Box
-            sx={{
-              position: "relative",
-              top: "100px",
-              display: "flex",
-              justifyContent: "center",
-              mx: "auto",
-            }}
-          >
+          <Box className={`Login_loading-spinner`}>
             <CircularProgress size={60} />
           </Box>
         ) : (
-          <Box
-            component="form"
-            sx={{
-              border: `1px solid ${dividerColor}`,
-              borderRadius: "10px",
-              mx: "auto",
-              maxWidth: "600px",
-              padding: "20px",
-            }}
-          >
+          <Box component="form" className={`Login__form ${themeMode}`}>
             <Stack spacing={2}>
               <CustomAlert
                 severity={alertOptions.severity}
@@ -252,6 +219,7 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
 
               <TextField
                 id="username"
+                className={`Login__textfield ${themeMode}`}
                 placeholder="Enter username"
                 label="Username"
                 variant="outlined"
@@ -269,6 +237,7 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
 
               <TextField
                 id="email"
+                className={`Login__textfield ${themeMode}`}
                 placeholder="Enter email"
                 label="Email"
                 variant="outlined"
@@ -282,6 +251,7 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
               />
 
               <FormControl
+                className={`Login__textfield ${themeMode}`}
                 required={true}
                 error={errors.password ? true : false}
               >
@@ -329,14 +299,9 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
                 label="Remember me"
               />
 
-              <Box>
+              <Box className={`Login__form-panel`}>
                 <Button
                   variant="contained"
-                  style={{
-                    margin: "10px auto 20px",
-                    width: "200px",
-                    backgroundColor: "#ffc93d",
-                  }}
                   onClick={handleSubmit(
                     isLoginView
                       ? loginButtonClickedHandler
@@ -350,28 +315,14 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
                   <span onClick={() => themeModeViewClickedHandler(false)}>
                     <Typography align="center">
                       You don&apos;t have an account?{" "}
-                      <span
-                        style={{
-                          fontWeight: "bold",
-                          cursor: "pointer",
-                        }}
-                      >
-                        Register here!
-                      </span>
+                      <span className={`subscribe`}>Register here!</span>
                     </Typography>
                   </span>
                 ) : (
                   <span onClick={() => themeModeViewClickedHandler(true)}>
                     <Typography align="center">
                       You already have an account?{" "}
-                      <span
-                        style={{
-                          fontWeight: "bold",
-                          cursor: "pointer",
-                        }}
-                      >
-                        Login here!
-                      </span>
+                      <span className={`login`}>Login here!</span>
                     </Typography>
                   </span>
                 )}
