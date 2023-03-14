@@ -56,12 +56,12 @@ const Events = ({ themeMode }) => {
     <>
       {isOpen && (
         <Box className={`Events ${themeMode}`}>
-          <Box className={`Events-header ${themeMode}`}>
-            <h3 className="Events-title">Your Events</h3>
+          <Box className={`Events__header ${themeMode}`}>
+            <h3 className="Events__title">Your Events</h3>
             <CloseButton handleClose={handleClose} />
           </Box>
-          <Box className={`Events-content ${themeMode}`}>
-            <Stack spacing={2} className={`events-stack ${themeMode}`}>
+          <Box className={`Events__content ${themeMode}`}>
+            <Stack spacing={2} className={`Events__stack ${themeMode}`}>
               {events.map((event, i) => {
                 return (
                   <SingleEvent
