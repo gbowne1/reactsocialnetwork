@@ -21,6 +21,7 @@ import Login from "./components/Login";
 import { loadFromLocalStorage, saveToLocalStorage } from "./utils";
 import getFromLocalStorage from "./helpers/getFromLocalStorage";
 import Feedback from "./components/Feedback";
+import HelpCenter from "./components/HelpCenter";
 // import IconButton from '@mui/material/IconButton';
 // import NotFound from './pages/NotFound';
 // import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
@@ -122,6 +123,11 @@ const App = () => {
                     exact
                     path="/feedback"
                     element={<Feedback themeMode={themeMode} />}
+                  />
+                  <Route
+                    exact
+                    path="/help"
+                    element={<HelpCenter themeMode={themeMode} />}
                   />
                   <Route
                     exact
