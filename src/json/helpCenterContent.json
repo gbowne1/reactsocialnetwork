@@ -1,0 +1,12 @@
+{
+    "categories": {
+        "userProfile": {
+           "avatar": {
+                "category": "User Profile",
+                "subcategory": "Avatar",
+                "heading": "How to upload Avatar",
+                "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin at libero metus. Aliquam facilisis finibus ex, eu pharetra turpis pharetra non. Nullam posuere semper nisl ut pharetra. Nam ut dolor convallis, porta libero vel, scelerisque ipsum. Ut tristique arcu eget ligula varius accumsan. Cras ac ultricies quam, ac feugiat ante."
+           } 
+        }
+    }
+}

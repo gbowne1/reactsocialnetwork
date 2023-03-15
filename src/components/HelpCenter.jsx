@@ -8,6 +8,7 @@ import { ExpandLess, ExpandMore, StarBorder} from "@mui/icons-material";
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import DraftsIcon from '@mui/icons-material/Drafts';
 import SendIcon from '@mui/icons-material/Send';
+import helpCenterContent from "../json/helpCenterContent.json";
 
 const HelpCenter = () => {
 
@@ -17,6 +18,8 @@ const HelpCenter = () => {
         setOpen(!open);
       };
 
+      console.log(helpCenterContent);
+      
     return (
         <div className="Help-center">
             <div className="Help-center__subject-picker">
@@ -62,7 +65,7 @@ const HelpCenter = () => {
                 </List>
             </div>
             <div className="Help-center__subject-details">
-
+                
             </div>
         </div>
     );
