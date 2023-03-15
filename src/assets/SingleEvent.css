@@ -1,62 +1,100 @@
-.event {
+.Event {
   display: flex;
   align-items: center;
   padding: 10px;
 }
 
-.event.light-mode {
+.Event.light-mode {
   background-color: var(--bg-light-500);
 }
 
-.event.dark-mode {
+.Event.dark-mode {
   background-color: var(--bg-dark-500);
 }
 
-.event-image {
+.Event__image {
   border-radius: 15px;
   max-width: 30%;
   width: 150px;
   height: 100px;
 }
 
-.event-text {
+.Event__text {
   width: 30%;
 }
 
-.event-title {
+.Event__title {
   font-weight: bold;
 }
 
-.event-location > span {
+.Event__location > span {
   font-weight: bold;
 }
 
-.event-location > a {
+.Event__location > a {
   color: grey;
 }
 
-.event-button-panel {
+.Event__button-panel {
   width: 50%;
   display: flex;
-  justify-content: right;
+  justify-content: space-evenly;
 }
 
-.interested-button {
+.Event__attendance-select {
+  height: 40px;
+  width: 150px;
+}
+
+.Event__attendance-select.light-mode {
+  color: var(--text-dark-500) !important;
+}
+
+.Event__attendance-select.dark-mode {
+  color: var(--text-light-500) !important;
+}
+
+.Event__attendance-select fieldset {
+  border-color: #ffc93d !important;
+}
+
+.Event__attendance-icon {
+  position: relative;
+  top: 5px;
+  right: 5px;
+}
+
+.Event__attendance-icon.light-mode {
+  color: var(--clr-dark-mode-accent-900) !important;
+}
+.Event__attendance-icon.dark-mode {
+  color: var(--clr-dark-mode-accent-900) !important;
+}
+
+.Event__share-button {
   display: flex;
   text-align: center;
-  width: 140px;
+  height: 40px !important;
 }
 
-.interested-button.light-mode {
+.Event__share-button.light-mode {
+  background-color: var(--clr-dark-mode-accent-500) !important;
+}
+
+.Event__share-button.dark-mode {
+  background-color: var(--clr-dark-mode-accent-900) !important;
+}
+
+.Event__share-button.light-mode {
+  color: var(--text-dark-100);
+}
+
+.Event__share-button.dark-mode {
   color: var(--text-light-100);
 }
 
-.interested-button.dark-mode {
-  color: var(--text-dark-900);
-}
-
-.interested-button-icon {
-  position: relative;
-  top: -2px;
-  left: -3px;
+.Event__share-button-icon {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  font-size: 30px !important;
 }
