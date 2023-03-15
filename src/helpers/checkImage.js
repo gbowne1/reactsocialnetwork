@@ -9,9 +9,13 @@
  */
 
 const checkImage = (imageUrl, setImageUrl, placeholderImageUrl) => {
-  console.log(`Calling checkImage on imageUrl ${new URL(imageUrl).pathname}!`);
+  if (!imageUrl) imageUrl = placeholderImageUrl;
+
+  console.log(`Calling checkImage on imageUrl ${imageUrl}`);
 
   var image = new Image();
+  image.src = imageUrl || placeholderImageUrl;
+
   image.onload = function () {
     if (this.width > 0) {
       console.log("image exists");
@@ -22,7 +26,6 @@ const checkImage = (imageUrl, setImageUrl, placeholderImageUrl) => {
     console.log("image doesn't exist");
     setImageUrl(placeholderImageUrl);
   };
-  image.src = imageUrl;
 };
 
 export default checkImage;
