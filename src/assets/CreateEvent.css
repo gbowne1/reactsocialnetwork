@@ -1,0 +1,19 @@
+.CreateEvent {
+  margin: 0 auto;
+}
+
+.CreateEvent__title {
+  width: 500px;
+  padding: 10px;
+}
+
+.CreateEvent__content {
+}
+
+.CreateEvent__inputs {
+  padding: 10px 20px;
+}
+
+.CreateEvent__button {
+  margin: 0 auto;
+}
