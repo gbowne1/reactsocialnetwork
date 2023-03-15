@@ -3,8 +3,8 @@
 .Events {
   border-top-right-radius: 15px;
   border-top-left-radius: 15px;
-  min-width: 70%;
-  max-width: 1400px;
+  min-width: 50%;
+  max-width: 1000px;
   min-height: 700px;
 }
 
@@ -22,6 +22,18 @@
   color: var(--text-light-500);
 }
 
+.Events__drawer {
+  width: 240px !important;
+}
+
+.Events__drawer-heading {
+
+}
+
+.Events__drawer-stack {
+  padding: 10px
+}
+
 .icon {
   font-size: 25px;
   margin-top: 15px;
@@ -30,7 +42,6 @@
 }
 
 .Events__header {
-  max-width: 1384px;
   height: 60px;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
