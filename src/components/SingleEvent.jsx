@@ -14,6 +14,7 @@ import ReplyIcon from "@mui/icons-material/Reply";
 import saveToLocalStorage from "../helpers/saveToLocalStorage";
 import placeholderImageUrl from "../data/placeholderImageUrl";
 import checkImage from "../helpers/checkImage";
+import formatDate from "../helpers/formatDate";
 
 import "../assets/SingleEvent.css";
 
@@ -26,20 +27,6 @@ const SingleEvent = ({ themeMode, eventData, eventKey, events }) => {
     eventData["attendance"] = attendance;
     setAttendance(attendance);
     saveToLocalStorage("events", events);
-  };
-
-  const formatDate = (dateString) => {
-    let dateObj;
-    if (dateString) {
-      dateObj = new Date(dateString);
-    } else {
-      const todayDateObj = new Date();
-      dateObj = todayDateObj;
-    }
-    const formattedDate = `${dateObj.getDate()}/${
-      dateObj.getMonth() + 1
-    }/${dateObj.getFullYear()}`;
-    return formattedDate;
   };
 
 
