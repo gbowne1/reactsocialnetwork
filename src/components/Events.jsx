@@ -52,6 +52,17 @@ const Events = ({ themeMode }) => {
     }
   };
 
+  useEffect(() => {
+    if (eventsFilterValue === "Home") {
+      setFilteredEvents(events);
+    } else {
+      const filteredEvents = events.filter((event) => {
+        return event.attendance === eventsFilterValue;
+      });
+      setFilteredEvents(filteredEvents);
+    }
+  }, [events]);
+
   return (
     <>
       <CreateEventModal
