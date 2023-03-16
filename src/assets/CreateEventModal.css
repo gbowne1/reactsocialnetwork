@@ -1,0 +1,19 @@
+.CreateEventModal {
+  margin: 0 auto;
+}
+
+.CreateEventModal__title {
+  width: 500px;
+  padding: 10px;
+}
+
+.CreateEventModal__content {
+}
+
+.CreateEventModal__inputs {
+  padding: 10px 20px;
+}
+
+.CreateEventModal__button {
+  margin: 0 auto;
+}
