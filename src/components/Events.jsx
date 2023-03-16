@@ -1,14 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import {
-  Box,
-  Button,
-  Divider,
-  Drawer,
-  Stack,
-  Toolbar,
-  Typography,
-} from "@mui/material";
+import { Box, Button, MenuItem, Select, Stack } from "@mui/material";
 
 import CloseButton from "./CloseButton";
 import SingleEvent from "./SingleEvent";
@@ -60,9 +52,8 @@ const eventsData = [
 
 const Events = ({ themeMode }) => {
   const [isOpen, setIsOpen] = useState(true);
-
-  const [yourEventsOpen, setYourEventsOpen] = useState(false);
   const [createEventOpen, setCreateEventOpen] = useState(false);
+  const [eventsFilterValue, setEventsFilterValue] = useState("Home");
 
   const [events, setEvents] = useState(
     getFromLocalStorage("events") || eventsData
@@ -85,15 +76,15 @@ const Events = ({ themeMode }) => {
     setCreateEventOpen(false);
   };
 
-  const handleYourEventsClicked = () => {
-    setYourEventsOpen(!yourEventsOpen);
-  };
-
   const handleCreateEventClicked = () => {
     setCreateEventOpen(true);
   };
 
-  const handleEventFilterClicked = (eventType) => {
+  const handleEventFilterClicked = (event) => {
+    const eventType = event.target.value;
+    setEventsFilterValue(eventType);
+
+    console.log(eventType);
     if (eventType === "Home") {
       setFilteredEvents(events);
     } else {
@@ -104,8 +95,6 @@ const Events = ({ themeMode }) => {
     }
   };
 
-  const eventTypes = ["Home", "Going", "Interested", "Not Going"];
-
   return (
     <>
       <CreateEvent
@@ -115,43 +104,6 @@ const Events = ({ themeMode }) => {
         setEvents={setEvents}
       />
 
-      <Drawer variant="permanent">
-        <Toolbar className={`Events__drawer`} disableGutters={true}>
-          <Typography
-            variant="h4"
-            className={`Events__drawer-heading`}
-            align="left"
-            gutterBottom
-          >
-            Events
-          </Typography>
-        </Toolbar>
-        <Divider />
-        <Stack spacing={2} className={`Events__drawer-stack`}>
-          <Button variant="outlined" onClick={handleYourEventsClicked}>
-            Your Events
-          </Button>
-          {yourEventsOpen && (
-            <Stack spacing={2} sx={{ padding: "10px" }}>
-              {eventTypes.map((eventType) => {
-                return (
-                  <Button
-                    variant="text"
-                    key={eventType}
-                    onClick={() => handleEventFilterClicked(eventType)}
-                  >
-                    {eventType}
-                  </Button>
-                );
-              })}
-            </Stack>
-          )}
-          <Button variant="outlined" onClick={handleCreateEventClicked}>
-            Create new event
-          </Button>
-        </Stack>
-      </Drawer>
-
       {isOpen && (
         <Box className={`Events ${themeMode}`}>
           <Box className={`Events__header ${themeMode}`}>
@@ -159,6 +111,24 @@ const Events = ({ themeMode }) => {
             <CloseButton handleClose={handleClose} />
           </Box>
           <Box className={`Events__content ${themeMode}`}>
+            <Box className={`Events__button-panel`}>
+              <Button variant="contained" onClick={handleCreateEventClicked}>
+                Create new event
+              </Button>
+              <Select
+                variant="outlined"
+                id="attendance-select"
+                label="Attendance"
+                value={eventsFilterValue}
+                onChange={handleEventFilterClicked}
+              >
+                <MenuItem value={"Home"}>Home</MenuItem>
+                <MenuItem value={"Going"}>Going</MenuItem>
+                <MenuItem value={"Interested"}>Interested</MenuItem>
+                <MenuItem value={"Not Going"}>Not Going</MenuItem>
+              </Select>
+            </Box>
+
             <Stack spacing={2} className={`Events__stack ${themeMode}`}>
               {filteredEvents.map((event, i) => {
                 return (
