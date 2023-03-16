@@ -4,55 +4,16 @@ import { Box, Button, MenuItem, Select, Stack } from "@mui/material";
 
 import CloseButton from "./CloseButton";
 import SingleEvent from "./SingleEvent";
-import CreateEvent from "./CreateEvent";
+import CreateEventModal from "./CreateEventModal";
 
 import saveToLocalStorage from "../helpers/saveToLocalStorage";
 import getFromLocalStorage from "../helpers/getFromLocalStorage";
+import eventsData from "../data/eventsData";
 import "../assets/Events.css";
-
-const eventsData = [
-  {
-    title: "Cinema Night!",
-    locationName: "Cinema32",
-    locationUrl: "#",
-    imageUrl:
-      "https://www.shutterstock.com/image-photo/02-august-2018bucharest-romania-people-260nw-1148998826.jpg",
-    attendance: null,
-
-    participation: {
-      interested: 46,
-      going: 27,
-    },
-  },
-  {
-    title: "Pub Crawl",
-    locationName: "Bulldog Bar",
-    locationUrl: "#",
-    imageUrl:
-      "https://www.shutterstock.com/image-photo/happy-friends-cheering-drinking-cocktails-260nw-1109615582.jpg",
-    attendance: null,
-    participation: {
-      interested: 52,
-      going: 38,
-    },
-  },
-  {
-    title: "Mini golf!",
-    locationName: "Mini golf park",
-    locationUrl: "#",
-    imageUrl:
-      "https://www.shutterstock.com/image-photo/group-smiling-friends-enjoying-together-260nw-1814772797.jpg",
-    attendance: null,
-    participation: {
-      interested: 106,
-      going: 78,
-    },
-  },
-];
 
 const Events = ({ themeMode }) => {
   const [isOpen, setIsOpen] = useState(true);
-  const [createEventOpen, setCreateEventOpen] = useState(false);
+  const [createEventModalOpen, setCreateEventModalOpen] = useState(false);
   const [eventsFilterValue, setEventsFilterValue] = useState("Home");
 
   const [events, setEvents] = useState(
@@ -64,32 +25,28 @@ const Events = ({ themeMode }) => {
     saveToLocalStorage("events", events);
   }, [events]);
 
-  useEffect(() => {
-    console.log(filteredEvents);
-  }, [filteredEvents]);
-
   const handleClose = () => {
     setIsOpen(false);
   };
 
   const handleCreateEventClose = () => {
-    setCreateEventOpen(false);
+    setCreateEventModalOpen(false);
   };
 
   const handleCreateEventClicked = () => {
-    setCreateEventOpen(true);
+    setCreateEventModalOpen(true);
   };
 
   const handleEventFilterClicked = (event) => {
-    const eventType = event.target.value;
-    setEventsFilterValue(eventType);
+    const eventFilterValue = event.target.value;
+    setEventsFilterValue(eventFilterValue);
 
-    console.log(eventType);
-    if (eventType === "Home") {
+    console.log(eventFilterValue);
+    if (eventFilterValue === "Home") {
       setFilteredEvents(events);
     } else {
       const filteredEvents = events.filter((event) => {
-        return event.attendance === eventType;
+        return event.attendance === eventFilterValue;
       });
       setFilteredEvents(filteredEvents);
     }
@@ -97,9 +54,9 @@ const Events = ({ themeMode }) => {
 
   return (
     <>
-      <CreateEvent
-        createEventOpen={createEventOpen}
-        handleCreateEventClose={handleCreateEventClose}
+      <CreateEventModal
+        isOpen={createEventModalOpen}
+        handleClose={handleCreateEventClose}
         events={events}
         setEvents={setEvents}
       />
