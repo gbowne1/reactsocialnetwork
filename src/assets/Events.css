@@ -64,6 +64,14 @@
   padding: 10px;
 }
 
+.Events__button-panel {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px auto 40px;
+  width: 100%;
+  height: 50px;
+}
+
 .Close-button {
   height: 40px;
   width: 60px;
@@ -71,7 +79,6 @@
 }
 
 .Events__stack {
-  padding-top: 100px;
 }
 
 h1 {
