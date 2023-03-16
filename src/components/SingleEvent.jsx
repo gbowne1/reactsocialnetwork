@@ -10,6 +10,7 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import CancelIcon from "@mui/icons-material/Cancel";
 import ReplyIcon from "@mui/icons-material/Reply";
 
+
 import saveToLocalStorage from "../helpers/saveToLocalStorage";
 import placeholderImageUrl from "../data/placeholderImageUrl";
 import checkImage from "../helpers/checkImage";
@@ -27,6 +28,22 @@ const SingleEvent = ({ themeMode, eventData, eventKey, events }) => {
     saveToLocalStorage("events", events);
   };
 
+  const formatDate = (dateString) => {
+    let dateObj;
+    if (dateString) {
+      dateObj = new Date(dateString);
+    } else {
+      const todayDateObj = new Date();
+      dateObj = todayDateObj;
+    }
+    const formattedDate = `${dateObj.getDate()}/${
+      dateObj.getMonth() + 1
+    }/${dateObj.getFullYear()}`;
+    return formattedDate;
+  };
+
+
+
   useEffect(() => {
     checkImage(eventData.imageUrl, setImageUrl, placeholderImageUrl);
   }, [eventData.imageUrl]);
@@ -39,7 +56,7 @@ const SingleEvent = ({ themeMode, eventData, eventKey, events }) => {
     <div className={`SingleEvent ${themeMode}`} key={eventKey}>
       <img className="SingleEvent__image" src={imageUrl} alt="event" />
       <div className="SingleEvent__text">
-        <p>Today at 8pm</p>
+        <p>{formatDate(eventData.date)}</p>
         <p className="SingleEvent__title">{eventData.title}</p>
         <p className="SingleEvent__location">
           <span>at:</span> <a href="#">{eventData.locationName}</a>
@@ -68,7 +85,9 @@ const SingleEvent = ({ themeMode, eventData, eventKey, events }) => {
             Interested
           </MenuItem>
           <MenuItem value={"Not Going"}>
-            <CancelIcon className={`SingleEvent__attendance-icon ${themeMode}`} />
+            <CancelIcon
+              className={`SingleEvent__attendance-icon ${themeMode}`}
+            />
             Not Going
           </MenuItem>
         </Select>
