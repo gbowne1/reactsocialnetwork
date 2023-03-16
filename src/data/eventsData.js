@@ -1,5 +1,6 @@
 export default [
   {
+    date: new Date(),
     title: "Cinema Night!",
     locationName: "Cinema32",
     locationUrl: "#",
@@ -13,6 +14,7 @@ export default [
     },
   },
   {
+    date: new Date(),
     title: "Pub Crawl",
     locationName: "Bulldog Bar",
     locationUrl: "#",
@@ -25,6 +27,7 @@ export default [
     },
   },
   {
+    date: new Date(),
     title: "Mini golf!",
     locationName: "Mini golf park",
     locationUrl: "#",
