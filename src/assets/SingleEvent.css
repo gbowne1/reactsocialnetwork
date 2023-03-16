@@ -1,99 +1,99 @@
-.Event {
+.SingleEvent {
   display: flex;
   align-items: center;
   padding: 10px;
 }
 
-.Event.light-mode {
+.SingleEvent.light-mode {
   background-color: var(--bg-light-500);
 }
 
-.Event.dark-mode {
+.SingleEvent.dark-mode {
   background-color: var(--bg-dark-500);
 }
 
-.Event__image {
+.SingleEvent__image {
   border-radius: 15px;
   max-width: 30%;
   width: 150px;
   height: 100px;
 }
 
-.Event__text {
+.SingleEvent__text {
   width: 30%;
 }
 
-.Event__title {
+.SingleEvent__title {
   font-weight: bold;
 }
 
-.Event__location > span {
+.SingleEvent__location > span {
   font-weight: bold;
 }
 
-.Event__location > a {
+.SingleEvent__location > a {
   color: grey;
 }
 
-.Event__button-panel {
+.SingleEvent__button-panel {
   width: 50%;
   display: flex;
   justify-content: space-evenly;
 }
 
-.Event__attendance-select {
+.SingleEvent__attendance-select {
   height: 40px;
   width: 150px;
 }
 
-.Event__attendance-select.light-mode {
+.SingleEvent__attendance-select.light-mode {
   color: var(--text-dark-500) !important;
 }
 
-.Event__attendance-select.dark-mode {
+.SingleEvent__attendance-select.dark-mode {
   color: var(--text-light-500) !important;
 }
 
-.Event__attendance-select fieldset {
+.SingleEvent__attendance-select fieldset {
   border-color: #ffc93d !important;
 }
 
-.Event__attendance-icon {
+.SingleEvent__attendance-icon {
   position: relative;
   top: 5px;
   right: 5px;
 }
 
-.Event__attendance-icon.light-mode {
+.SingleEvent__attendance-icon.light-mode {
   color: var(--clr-dark-mode-accent-900) !important;
 }
-.Event__attendance-icon.dark-mode {
+.SingleEvent__attendance-icon.dark-mode {
   color: var(--clr-dark-mode-accent-900) !important;
 }
 
-.Event__share-button {
+.SingleEvent__share-button {
   display: flex;
   text-align: center;
   height: 40px !important;
 }
 
-.Event__share-button.light-mode {
+.SingleEvent__share-button.light-mode {
   background-color: var(--clr-dark-mode-accent-500) !important;
 }
 
-.Event__share-button.dark-mode {
+.SingleEvent__share-button.dark-mode {
   background-color: var(--clr-dark-mode-accent-900) !important;
 }
 
-.Event__share-button.light-mode {
+.SingleEvent__share-button.light-mode {
   color: var(--text-dark-100);
 }
 
-.Event__share-button.dark-mode {
+.SingleEvent__share-button.dark-mode {
   color: var(--text-light-100);
 }
 
-.Event__share-button-icon {
+.SingleEvent__share-button-icon {
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
   font-size: 30px !important;
