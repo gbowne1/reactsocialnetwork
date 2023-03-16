@@ -11,46 +11,24 @@ import CancelIcon from "@mui/icons-material/Cancel";
 import ReplyIcon from "@mui/icons-material/Reply";
 
 import saveToLocalStorage from "../helpers/saveToLocalStorage";
-import "../assets/SingleEvent.css";
+import placeholderImageUrl from "../data/placeholderImageUrl";
+import checkImage from "../helpers/checkImage";
 
-const placeholderImageUrl =
-  "https://wiki.tripwireinteractive.com/images/4/47/Placeholder.png";
+import "../assets/SingleEvent.css";
 
 const SingleEvent = ({ themeMode, eventData, eventKey, events }) => {
   const [imageUrl, setImageUrl] = useState(eventData.imageUrl);
   const [attendance, setAttendance] = useState(eventData.attendance);
 
-  const handleChange = (event) => {
+  const handleAttendanceChange = (event) => {
     const attendance = event.target.value;
     eventData["attendance"] = attendance;
     setAttendance(attendance);
     saveToLocalStorage("events", events);
   };
 
-  const checkImage = (imageUrl) => {
-    var image = new Image();
-    image.onload = function () {
-      if (this.width > 0) {
-        console.log("image exists");
-        setImageUrl(imageUrl);
-      }
-    };
-    image.onerror = function () {
-      console.log("image doesn't exist");
-      setImageUrl(placeholderImageUrl);
-    };
-    image.src = imageUrl;
-  };
-
   useEffect(() => {
-    console.log(
-      `Calling checkImage! on imageUrl ${
-        new URL(
-          "https://www.shutterstock.com/image-photo/happy-friends-cheering-drinking-cocktails-260nw-1109615582.jpg"
-        ).pathname
-      }`
-    );
-    checkImage(eventData.imageUrl);
+    checkImage(eventData.imageUrl, setImageUrl, placeholderImageUrl);
   }, [eventData.imageUrl]);
 
   useEffect(() => {
@@ -58,48 +36,48 @@ const SingleEvent = ({ themeMode, eventData, eventKey, events }) => {
   }, [eventData.attendance]);
 
   return (
-    <div className={`Event ${themeMode}`} key={eventKey}>
-      <img className="Event__image" src={imageUrl} alt="event" />
-      <div className="Event__text">
+    <div className={`SingleEvent ${themeMode}`} key={eventKey}>
+      <img className="SingleEvent__image" src={imageUrl} alt="event" />
+      <div className="SingleEvent__text">
         <p>Today at 8pm</p>
-        <p className="Event__title">{eventData.title}</p>
-        <p className="Event__location">
+        <p className="SingleEvent__title">{eventData.title}</p>
+        <p className="SingleEvent__location">
           <span>at:</span> <a href="#">{eventData.locationName}</a>
         </p>
         <p>
           {`${eventData.participation.interested} interested... ${eventData.participation.going} going...`}
         </p>
       </div>
-      <div className="Event__button-panel">
+      <div className="SingleEvent__button-panel">
         <Select
           variant="standard"
           id="attendance-select"
-          className={`Event__attendance-select ${themeMode}`}
+          className={`SingleEvent__attendance-select ${themeMode}`}
           value={attendance}
           label="Attendance"
-          onChange={handleChange}
+          onChange={handleAttendanceChange}
         >
           <MenuItem value={"Going"}>
             <CheckCircleIcon
-              className={`Event__attendance-icon ${themeMode}`}
+              className={`SingleEvent__attendance-icon ${themeMode}`}
             />
             Going
           </MenuItem>
           <MenuItem value={"Interested"}>
-            <StarIcon className={`Event__attendance-icon ${themeMode}`} />
+            <StarIcon className={`SingleEvent__attendance-icon ${themeMode}`} />
             Interested
           </MenuItem>
           <MenuItem value={"Not Going"}>
-            <CancelIcon className={`Event__attendance-icon ${themeMode}`} />
+            <CancelIcon className={`SingleEvent__attendance-icon ${themeMode}`} />
             Not Going
           </MenuItem>
         </Select>
 
         <Button
           variant="outlined"
-          className={`Event__share-button ${themeMode}`}
+          className={`SingleEvent__share-button ${themeMode}`}
         >
-          <ReplyIcon className="Event__share-button-icon" />
+          <ReplyIcon className="SingleEvent__share-button-icon" />
         </Button>
       </div>
     </div>
