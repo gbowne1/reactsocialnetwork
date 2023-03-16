@@ -1,6 +1,7 @@
 @import url("../variables.css");
 
 .Footer-body {
+    margin-top: auto;
     height: 120px;
     width: 100%;
     color: black;

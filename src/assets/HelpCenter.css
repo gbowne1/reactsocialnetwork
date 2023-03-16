@@ -1,0 +1,45 @@
+@import "../variables.css";
+
+.Help-center {
+    min-width: 70%;
+    max-width: 1400px;
+    min-height: 700px;
+    display: flex;
+}
+
+.Help-center.light-mode {
+    background-color: var(--bg-light-100);
+    color: var(--text-dark-500);
+}
+
+.Help-center.dark-mode {
+    background-color: var(--bg-dark-100);
+    color: var(--text-light-500);
+}
+
+.Help-center__subject-picker {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    flex-grow: 1;
+}
+
+.Help-center__categories-subheader {
+    max-width: 1384px;
+    height: 60px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.Help-center__categories-subheader.dark-mode {
+    background-color: var(--bg-dark-900);
+    color: var(--clr-dark-mode-accent-500);
+}
+
+.Help-center__categories-subheader.light-mode {
+    background-color: var(--bg-light-900);
+    color: var(--clr-light-mode-accent-500);
+}

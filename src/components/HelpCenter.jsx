@@ -9,8 +9,10 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import DraftsIcon from '@mui/icons-material/Drafts';
 import SendIcon from '@mui/icons-material/Send';
 import helpCenterContent from "../json/helpCenterContent.json";
+import "../assets/HelpCenter.css";
+import PropTypes from "prop-types";
 
-const HelpCenter = () => {
+const HelpCenter = ({themeMode}) => {
 
     const [open, setOpen] = useState(true);
 
@@ -21,15 +23,19 @@ const HelpCenter = () => {
       console.log(helpCenterContent);
       
     return (
-        <div className="Help-center">
+        <div className={`Help-center ${themeMode}`}>
             <div className="Help-center__subject-picker">
                 <List
-                    sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
+                    className={`Help-center__categories-list ${themeMode}`}
                     component="nav"
-                    aria-labelledby="nested-list-subheader"
+                    aria-labelledby="Help-center__categories-subheader"
                     subheader={
-                        <ListSubheader component="div" id="nested-list-subheader">
-                        Nested List Items
+                        <ListSubheader 
+                            component="div" 
+                            id="Help-center__categories-subheader"
+                            className={`Help-center__categories-subheader ${themeMode}`}
+                        >
+                            Help Center
                         </ListSubheader>
                     }
                 >
@@ -70,5 +76,9 @@ const HelpCenter = () => {
         </div>
     );
 }
+
+HelpCenter.propTypes = {
+    themeMode: PropTypes.string,
+  };
 
 export default HelpCenter

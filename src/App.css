@@ -33,7 +33,6 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     top: 60px;
     min-height: 100vh;
 }
