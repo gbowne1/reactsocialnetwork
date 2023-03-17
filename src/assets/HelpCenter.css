@@ -20,7 +20,10 @@
 .Help-center__subject-picker {
     display: flex;
     flex-direction: row;
-    height: 100%;
+}
+
+.Help-center__categories-list.dark-mode {
+    background-color: var(--bg-dark-900);
     flex-grow: 1;
 }
 
