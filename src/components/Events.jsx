@@ -76,6 +76,7 @@ const Events = ({ themeMode }) => {
         handleClose={handleCreateEventClose}
         events={events}
         setEvents={setEvents}
+        themeMode={themeMode}
       />
 
       {isOpen && (
