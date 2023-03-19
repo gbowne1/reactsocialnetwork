@@ -2,16 +2,57 @@
   margin: 0 auto;
 }
 
+.CreateEventModal__container.light-mode {
+  color: var(--text-dark-500) !important;
+}
+
+.CreateEventModal__container h2 {
+  text-align: center;
+}
+
+.CreateEventModal__container.light-mode,
+.CreateEventModal__container.light-mode h2 {
+  color: var(--text-dark-500) !important;
+  background-color: var(--text-light-100) !important;
+}
+
+.CreateEventModal__container.dark-mode,
+.CreateEventModal__container.dark-mode h2 {
+  color: var(--text-light-100) !important;
+  background-color: var(--text-dark-100) !important;
+}
+
+.CreateEventModal__container.dark-mode {
+  color: var(--text-light-100) !important;
+}
+
+.CreateEventModal__container.light-mode input,
+.CreateEventModal__container.light-mode label,
+.CreateEventModal__container.light-mode p {
+  color: var(--text-dark-500) !important;
+}
+
+.CreateEventModal__container.dark-mode input,
+.CreateEventModal__container.dark-mode label,
+.CreateEventModal__container.dark-mode p {
+  color: var(--text-light-100) !important;
+}
+
 .CreateEventModal__title {
   width: 500px;
   padding: 10px;
 }
 
-.CreateEventModal__content {
-}
-
 .CreateEventModal__inputs {
   padding: 10px 20px;
+}
+
+.CreateEventModal__inputs.light-mode {
+  background-color: var(--text-light-100);
+}
+
+.CreateEventModal__inputs.dark-mode {
+  background-color: var(--text-dark-100);
 }
 
 .CreateEventModal__datepicker {
@@ -20,4 +61,12 @@
 
 .CreateEventModal__button {
   margin: 0 auto;
+}
+
+.CreateEventModal__button.light-mode {
+  background-color: var(--text-dark-100);
+}
+
+.CreateEventModal__button.dark-mode {
+  background-color: var(--clr-dark-mode-accent-900);
 }
