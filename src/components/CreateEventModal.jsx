@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import { Button, TextField } from "@mui/material";
+import { Box, Button, TextField } from "@mui/material";
 
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
-import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 
 import dayjs from "dayjs";
@@ -19,7 +18,13 @@ import "../assets/CreateEventModal.css";
 
 const today = dayjs();
 
-const CreateEventModal = ({ isOpen, handleClose, events, setEvents }) => {
+const CreateEventModal = ({
+  isOpen,
+  handleClose,
+  events,
+  setEvents,
+  themeMode,
+}) => {
   const [eventDate, setEventDate] = useState(today);
   const [eventTitle, setEventTitle] = useState("");
   const [eventLocation, setEventLocation] = useState("");
@@ -111,105 +116,104 @@ const CreateEventModal = ({ isOpen, handleClose, events, setEvents }) => {
         onClose={handleClose}
         className={`CreateEventModal`}
       >
-        <DialogTitle className={`CreateEventModal__title`}>
-          Create Event
-        </DialogTitle>
-        <DialogContent className={`CreateEventModal__content`}>
-          Fill in this form to create a new event.
-        </DialogContent>
-        <form className={"CreateEventModal__inputs"}>
-          <TextField
-            autoFocus
-            margin="dense"
-            id="event-title"
-            label="Event title"
-            type="text"
-            fullWidth
-            variant="standard"
-            required
-            value={eventTitle}
-            onChange={(event) => {
-              setEventTitle(event.target.value);
-              checkForTitleError(event.target.value);
-            }}
-            error={titleError}
-            helperText={
-              "The title of the event has to be at least 6 characters"
-            }
-          />
-          <TextField
-            autoFocus
-            margin="dense"
-            id="event-location"
-            label="Event location"
-            type="text"
-            fullWidth
-            variant="standard"
-            required
-            value={eventLocation}
-            onChange={(event) => {
-              setEventLocation(event.target.value);
-              checkForLocationError(event.target.value);
-            }}
-            error={locationError}
-            helperText={
-              "The location of the event has to be at least 6 characters"
-            }
-          />
-          <TextField
-            autoFocus
-            margin="dense"
-            id="event-location-url"
-            label="Event location url"
-            type="url"
-            fullWidth
-            variant="standard"
-            required
-            value={eventLocationUrl}
-            onChange={(event) => {
-              setEventLocationUrl(event.target.value);
-              checkForLocationUrlError(event.target.value);
-            }}
-            error={locationUrlError}
-            helperText={"The location url must be a valid url"}
-          />
-          <TextField
-            autoFocus
-            margin="dense"
-            id="event-image-url"
-            label="Event image url"
-            type="url"
-            fullWidth
-            variant="standard"
-            required
-            value={eventImageUrl}
-            onChange={(event) => {
-              setEventImageUrl(event.target.value);
-              checkForImageUrlError(event.target.value);
-            }}
-            error={imageUrlError}
-            helperText={"The image url must be a valid url"}
-          />
-          <DatePicker
-            value={eventDate}
-            onChange={(newValue) => setEventDate(newValue)}
-            className={`CreateEventModal__datepicker`}
-            defaultValue={today}
-            disablePast
-          />
-        </form>
-
-        <DialogActions>
-          <Button
-            className={`CreateEventModal__button`}
-            variant="contained"
-            type="submit"
-            onClick={handlCreateEventClicked}
-            disabled={createEventButtonEnabled}
-          >
+        <Box className={`CreateEventModal__container ${themeMode}`}>
+          <DialogTitle className={`CreateEventModal__title ${themeMode}`}>
             Create Event
-          </Button>
-        </DialogActions>
+          </DialogTitle>
+          <form className={`CreateEventModal__inputs ${themeMode}`}>
+            <TextField
+              autoFocus
+              margin="dense"
+              id="event-title"
+              label="Event title"
+              type="text"
+              fullWidth
+              variant="standard"
+              required
+              value={eventTitle}
+              onChange={(event) => {
+                setEventTitle(event.target.value);
+                checkForTitleError(event.target.value);
+              }}
+              error={titleError}
+              helperText={
+                "The title of the event has to be at least 6 characters"
+              }
+            />
+            <TextField
+              autoFocus
+              margin="dense"
+              id="event-location"
+              label="Event location"
+              type="text"
+              fullWidth
+              variant="standard"
+              required
+              value={eventLocation}
+              onChange={(event) => {
+                setEventLocation(event.target.value);
+                checkForLocationError(event.target.value);
+              }}
+              error={locationError}
+              helperText={
+                "The location of the event has to be at least 6 characters"
+              }
+            />
+            <TextField
+              autoFocus
+              margin="dense"
+              id="event-location-url"
+              label="Event location url"
+              type="url"
+              fullWidth
+              variant="standard"
+              required
+              value={eventLocationUrl}
+              onChange={(event) => {
+                setEventLocationUrl(event.target.value);
+                checkForLocationUrlError(event.target.value);
+              }}
+              error={locationUrlError}
+              helperText={"The location url must be a valid url"}
+            />
+            <TextField
+              autoFocus
+              margin="dense"
+              id="event-image-url"
+              label="Event image url"
+              type="url"
+              fullWidth
+              variant="standard"
+              required
+              value={eventImageUrl}
+              onChange={(event) => {
+                setEventImageUrl(event.target.value);
+                checkForImageUrlError(event.target.value);
+              }}
+              error={imageUrlError}
+              helperText={"The image url must be a valid url"}
+            />
+            <DatePicker
+              value={eventDate}
+              onChange={(newValue) => setEventDate(newValue)}
+              className={`CreateEventModal__datepicker`}
+              defaultValue={today}
+              disablePast
+            />
+          </form>
+
+          <DialogActions>
+            <Button
+              className={`CreateEventModal__button ${themeMode}`}
+              variant="contained"
+              type="submit"
+              onClick={handlCreateEventClicked}
+              disabled={createEventButtonEnabled}
+            >
+              Create Event
+            </Button>
+          </DialogActions>
+        </Box>
       </Dialog>
     </LocalizationProvider>
   );
@@ -220,6 +224,7 @@ CreateEventModal.propTypes = {
   handleClose: PropTypes.func,
   events: PropTypes.array,
   setEvents: PropTypes.func,
+  themeMode: PropTypes.string,
 };
 
 export default CreateEventModal;
