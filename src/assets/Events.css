@@ -16,7 +16,6 @@
   color: var(--text-light-100) !important;
 }
 
-
 .Events.light-mode,
 .Events__content.light-mode,
 .Events__stack.light-mode {
@@ -35,12 +34,8 @@
   width: 240px !important;
 }
 
-.Events__drawer-heading {
-
-}
-
 .Events__drawer-stack {
-  padding: 10px
+  padding: 10px;
 }
 
 .icon {
@@ -81,13 +76,18 @@
   height: 50px;
 }
 
+.Events__creat-event-button.light-mode {
+  background-color: #1976d2 !important;
+}
+
+.Events__creat-event-button.dark-mode {
+  background-color: var(--clr-dark-mode-accent-500) !important;
+}
+
 .Close-button {
   height: 40px;
   width: 60px;
   background-color: blue;
-}
-
-.Events__stack {
 }
 
 h1 {
