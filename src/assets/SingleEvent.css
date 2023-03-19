@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   padding: 10px;
+  justify-content: space-between;
 }
 
 .SingleEvent.light-mode {
@@ -12,9 +13,14 @@
   background-color: var(--bg-dark-500);
 }
 
+.SingleEvent__info-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .SingleEvent__image {
   border-radius: 15px;
-  max-width: 30%;
   width: 150px;
   height: 100px;
 }
@@ -37,6 +43,7 @@
 
 .SingleEvent__button-panel {
   width: 50%;
+  max-width: 250px;
   display: flex;
   justify-content: space-evenly;
 }
@@ -60,15 +67,17 @@
 
 .SingleEvent__attendance-icon {
   position: relative;
-  top: 5px;
+  top: 2px;
   right: 5px;
 }
 
 .SingleEvent__attendance-icon.light-mode {
-  color: var(--clr-dark-mode-accent-900) !important;
+  color: #1976d2 !important;
+  background-color: unset;
 }
 .SingleEvent__attendance-icon.dark-mode {
   color: var(--clr-dark-mode-accent-900) !important;
+  background-color: unset;
 }
 
 .SingleEvent__share-button {
@@ -78,7 +87,7 @@
 }
 
 .SingleEvent__share-button.light-mode {
-  background-color: var(--clr-dark-mode-accent-500) !important;
+  background-color: #1976d2 !important;
 }
 
 .SingleEvent__share-button.dark-mode {
@@ -86,7 +95,7 @@
 }
 
 .SingleEvent__share-button.light-mode {
-  color: var(--text-dark-100);
+  color: var(--text-light-100);
 }
 
 .SingleEvent__share-button.dark-mode {
