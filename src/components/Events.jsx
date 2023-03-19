@@ -1,12 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import {
-  Box,
-  Button,
-  MenuItem,
-  Select,
-  Stack,
-} from "@mui/material";
+import { Box, Button, MenuItem, Select, Stack } from "@mui/material";
 
 import CloseButton from "./CloseButton";
 import SingleEvent from "./SingleEvent";
@@ -87,7 +81,11 @@ const Events = ({ themeMode }) => {
           </Box>
           <Box className={`Events__content ${themeMode}`}>
             <Box className={`Events__button-panel`}>
-              <Button variant="contained" onClick={handleCreateEventClicked}>
+              <Button
+                variant="contained"
+                onClick={handleCreateEventClicked}
+                className={`Events__creat-event-button ${themeMode}`}
+              >
                 Create new event
               </Button>
 
