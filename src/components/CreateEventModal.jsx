@@ -36,8 +36,8 @@ const CreateEventModal = ({
   const [locationUrlError, setLocationUrlError] = useState(false);
   const [imageUrlError, setImageUrlError] = useState(false);
 
-  const [createEventButtonEnabled, setCreateEventButtonEnabled] =
-    useState(false);
+  const [createEventButtonDisabled, setCreateEventButtonDisabled] =
+    useState(true);
 
   const handlCreateEventClicked = () => {
     const newEvent = {
@@ -104,10 +104,26 @@ const CreateEventModal = ({
   };
 
   useEffect(() => {
-    setCreateEventButtonEnabled(
-      titleError || locationError || locationUrlError || imageUrlError
+    setCreateEventButtonDisabled(
+      eventTitle.length < 1 ||
+        eventLocation.length < 1 ||
+        eventLocationUrl.length < 1 ||
+        eventImageUrl.length < 1 ||
+        titleError ||
+        locationError ||
+        locationUrlError ||
+        imageUrlError
     );
-  }, [titleError, locationError, locationUrlError, imageUrlError]);
+  }, [
+    eventTitle,
+    eventLocation,
+    eventLocationUrl,
+    eventImageUrl,
+    titleError,
+    locationError,
+    locationUrlError,
+    imageUrlError,
+  ]);
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -208,7 +224,7 @@ const CreateEventModal = ({
               variant="contained"
               type="submit"
               onClick={handlCreateEventClicked}
-              disabled={createEventButtonEnabled}
+              disabled={createEventButtonDisabled}
             >
               Create Event
             </Button>
