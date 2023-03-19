@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import { Box, Button, MenuItem, Select, Stack } from "@mui/material";
+import {
+  Box,
+  Button,
+  MenuItem,
+  Select,
+  Stack,
+} from "@mui/material";
 
 import CloseButton from "./CloseButton";
 import SingleEvent from "./SingleEvent";
@@ -83,10 +89,10 @@ const Events = ({ themeMode }) => {
               <Button variant="contained" onClick={handleCreateEventClicked}>
                 Create new event
               </Button>
+
               <Select
-                variant="outlined"
                 id="attendance-select"
-                label="Attendance"
+                className={`Events__attendance-select ${themeMode}`}
                 value={eventsFilterValue}
                 onChange={handleEventFilterClicked}
               >
@@ -106,6 +112,7 @@ const Events = ({ themeMode }) => {
                     eventKey={i}
                     eventData={event}
                     events={events}
+                    setEvents={setEvents}
                   />
                 );
               })}
