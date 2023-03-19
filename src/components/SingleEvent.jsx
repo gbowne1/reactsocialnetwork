@@ -9,6 +9,7 @@ import StarIcon from "@mui/icons-material/Star";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import CancelIcon from "@mui/icons-material/Cancel";
 import ReplyIcon from "@mui/icons-material/Reply";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 import saveToLocalStorage from "../helpers/saveToLocalStorage";
 import placeholderImageUrl from "../data/placeholderImageUrl";
@@ -17,15 +18,26 @@ import formatDate from "../helpers/formatDate";
 
 import "../assets/SingleEvent.css";
 
-const SingleEvent = ({ themeMode, eventData, eventKey, events }) => {
+const SingleEvent = ({ themeMode, eventData, eventKey, events, setEvents }) => {
   const [imageUrl, setImageUrl] = useState(eventData.imageUrl);
   const [attendance, setAttendance] = useState(eventData.attendance);
 
   const handleAttendanceChange = (event) => {
-    const attendance = event.target.value;
-    eventData["attendance"] = attendance;
-    setAttendance(attendance);
+    eventData["attendance"] = event.target.value;
+    setAttendance(event.target.value);
     saveToLocalStorage("events", events);
+  };
+
+  const handleDeleteButtonClicked = () => {
+    console.log(
+      events.filter((event) => {
+        return event.title !== eventData.title;
+      })
+    );
+    const updatedEvents = events.filter((event) => {
+      return event.title !== eventData.title;
+    });
+    setEvents(updatedEvents);
   };
 
   useEffect(() => {
@@ -85,6 +97,13 @@ const SingleEvent = ({ themeMode, eventData, eventKey, events }) => {
         >
           <ReplyIcon className="SingleEvent__share-button-icon" />
         </Button>
+        <Button
+          variant="outlined"
+          className={`SingleEvent__delete-button ${themeMode}`}
+          onClick={handleDeleteButtonClicked}
+        >
+          <DeleteIcon className="SingleEvent__delete-button-icon" />
+        </Button>
       </div>
     </div>
   );
@@ -95,6 +114,7 @@ SingleEvent.propTypes = {
   eventData: PropTypes.object,
   eventKey: PropTypes.number,
   events: PropTypes.array,
+  setEvents: PropTypes.func
 };
 
 export default SingleEvent;
