@@ -26,15 +26,11 @@
   color: var(--text-light-100) !important;
 }
 
-.CreateEventModal__container.light-mode input,
-.CreateEventModal__container.light-mode label,
-.CreateEventModal__container.light-mode p {
+.CreateEventModal__container.light-mode input {
   color: var(--text-dark-500) !important;
 }
 
-.CreateEventModal__container.dark-mode input,
-.CreateEventModal__container.dark-mode label,
-.CreateEventModal__container.dark-mode p {
+.CreateEventModal__container.dark-mode input {
   color: var(--text-light-100) !important;
 }
 
