@@ -141,6 +141,7 @@ const CreateEventModal = ({
               autoFocus
               margin="dense"
               id="event-title"
+              className={`CreateEventModal__textfield ${themeMode}`}
               label="Event title"
               type="text"
               fullWidth
@@ -160,6 +161,7 @@ const CreateEventModal = ({
               autoFocus
               margin="dense"
               id="event-location"
+              className={`CreateEventModal__textfield ${themeMode}`}
               label="Event location"
               type="text"
               fullWidth
@@ -179,6 +181,7 @@ const CreateEventModal = ({
               autoFocus
               margin="dense"
               id="event-location-url"
+              className={`CreateEventModal__textfield ${themeMode}`}
               label="Event location url"
               type="url"
               fullWidth
@@ -196,6 +199,7 @@ const CreateEventModal = ({
               autoFocus
               margin="dense"
               id="event-image-url"
+              className={`CreateEventModal__textfield ${themeMode}`}
               label="Event image url"
               type="url"
               fullWidth
