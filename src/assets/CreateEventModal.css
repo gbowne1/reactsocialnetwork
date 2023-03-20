@@ -39,6 +39,27 @@
   padding: 10px;
 }
 
+.MuiFormLabel-root,
+.MuiInputLabel-root,
+.MuiFormHelperText-root {
+  color: unset !important;
+}
+
+.MuiFormLabel-root.light-mode,
+.MuiFormHelperText-root.light-mode {
+  color: var(--text-dark-100) !important;
+}
+
+.MuiFormLabel-root.dark-mode,
+.MuiInputLabel-root.dark-mode,
+.MuiFormHelperText-root.dark-mode {
+  color: var(--text-light-100) !important;
+}
+
+.MuiInputLabel-root.Mui-error {
+  color: #d32f2f !important;
+}
+
 .CreateEventModal__inputs {
   padding: 10px 20px;
 }
@@ -49,6 +70,16 @@
 
 .CreateEventModal__inputs.dark-mode {
   background-color: var(--text-dark-100);
+}
+
+.CreateEventModal__textfield.light-mode {
+  background-color: var(--text-light-100) !important;
+  color: var(--text-dark-500) !important;
+}
+
+.CreateEventModal__textfield.dark-mode {
+  background-color: var(--text-dark-100) !important;
+  color: var(--text-light-100) !important;
 }
 
 .CreateEventModal__datepicker {
