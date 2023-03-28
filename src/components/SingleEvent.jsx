@@ -18,7 +18,15 @@ import formatDate from "../helpers/formatDate";
 
 import "../assets/SingleEvent.css";
 
-const SingleEvent = ({ themeMode, eventData, eventKey, events, setEvents }) => {
+const SingleEvent = ({
+  themeMode,
+  eventData,
+  eventKey,
+  events,
+  setEvents,
+  setSnackbarOptions,
+  setOpenSnackbar,
+}) => {
   const [imageUrl, setImageUrl] = useState(eventData.imageUrl);
   const [attendance, setAttendance] = useState(eventData.attendance);
 
@@ -38,6 +46,13 @@ const SingleEvent = ({ themeMode, eventData, eventKey, events, setEvents }) => {
       return event.title !== eventData.title;
     });
     setEvents(updatedEvents);
+
+    setSnackbarOptions({
+      severity: "success",
+      message: "Event successfully deleted!",
+    });
+
+    setOpenSnackbar(true);
   };
 
   useEffect(() => {
@@ -114,7 +129,9 @@ SingleEvent.propTypes = {
   eventData: PropTypes.object,
   eventKey: PropTypes.number,
   events: PropTypes.array,
-  setEvents: PropTypes.func
+  setEvents: PropTypes.func,
+  setSnackbarOptions: PropTypes.func,
+  setOpenSnackbar: PropTypes.func,
 };
 
 export default SingleEvent;
