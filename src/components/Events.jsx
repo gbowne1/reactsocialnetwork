@@ -5,6 +5,7 @@ import { Box, Button, MenuItem, Select, Stack } from "@mui/material";
 import CloseButton from "./CloseButton";
 import SingleEvent from "./SingleEvent";
 import CreateEventModal from "./CreateEventModal";
+import CustomSnackbar from "./CustomSnackbar";
 
 import saveToLocalStorage from "../helpers/saveToLocalStorage";
 import getFromLocalStorage from "../helpers/getFromLocalStorage";
@@ -15,6 +16,9 @@ const Events = ({ themeMode }) => {
   const [isOpen, setIsOpen] = useState(true);
   const [createEventModalOpen, setCreateEventModalOpen] = useState(false);
   const [eventsFilterValue, setEventsFilterValue] = useState("Home");
+
+  const [openSnackbar, setOpenSnackbar] = useState(false);
+  const [snackbarOptions, setSnackbarOptions] = useState({});
 
   const [events, setEvents] = useState(
     getFromLocalStorage("events") || eventsData
@@ -65,12 +69,24 @@ const Events = ({ themeMode }) => {
 
   return (
     <>
+      <CustomSnackbar
+        message={snackbarOptions.message}
+        vertical={"top"}
+        horizontal={"center"}
+        alert={true}
+        severity={snackbarOptions.severity}
+        open={openSnackbar}
+        setOpen={setOpenSnackbar}
+      />
+
       <CreateEventModal
         isOpen={createEventModalOpen}
         handleClose={handleCreateEventClose}
         events={events}
         setEvents={setEvents}
         themeMode={themeMode}
+        setSnackbarOptions={setSnackbarOptions}
+        setOpenSnackbar={setOpenSnackbar}
       />
 
       {isOpen && (
@@ -112,6 +128,8 @@ const Events = ({ themeMode }) => {
                     eventData={event}
                     events={events}
                     setEvents={setEvents}
+                    setSnackbarOptions={setSnackbarOptions}
+                    setOpenSnackbar={setOpenSnackbar}
                   />
                 );
               })}
