@@ -19,11 +19,13 @@ import "../assets/CreateEventModal.css";
 const today = dayjs();
 
 const CreateEventModal = ({
+  themeMode,
   isOpen,
   handleClose,
   events,
   setEvents,
-  themeMode,
+  setSnackbarOptions,
+  setOpenSnackbar,
 }) => {
   const [eventDate, setEventDate] = useState(today);
   const [eventTitle, setEventTitle] = useState("");
@@ -60,6 +62,13 @@ const CreateEventModal = ({
         if (valid) {
           console.log("Saving new event ", newEvent);
           setEvents([...events, newEvent]);
+
+          setSnackbarOptions({
+            severity: "success",
+            message: "Event successfully created!",
+          });
+
+          setOpenSnackbar(true);
         }
 
         setEventDate("");
@@ -240,11 +249,13 @@ const CreateEventModal = ({
 };
 
 CreateEventModal.propTypes = {
+  themeMode: PropTypes.string,
   isOpen: PropTypes.bool,
   handleClose: PropTypes.func,
   events: PropTypes.array,
   setEvents: PropTypes.func,
-  themeMode: PropTypes.string,
+  setSnackbarOptions: PropTypes.func,
+  setOpenSnackbar: PropTypes.func,
 };
 
 export default CreateEventModal;

@@ -1,6 +1,7 @@
-import React, {  forwardRef } from "react";
+import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
-import { Collapse, IconButton } from "@mui/material";
+import Collapse from "@mui/material/Collapse";
+import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import MuiAlert from "@mui/material/Alert";
 
@@ -8,9 +9,18 @@ const Alert = forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
-const CustomAlert = ({severity, message, open, setOpen}) => {
+/**
+ *
+ * @param {string} message to display
+ * @param {string} severity level of the alert, options are: success, info, warning, error
+ *
+ * @param {boolean} open - boolean state use to open or close the alert
+ * @param {function} setOpen - function used to change the state to open and close the alert
+ *
+ * @returns CustomAlert component.
+ */
 
-
+const CustomAlert = ({ severity, message, open, setOpen }) => {
   return (
     <Collapse in={open}>
       <Alert
@@ -39,8 +49,7 @@ CustomAlert.propTypes = {
   severity: PropTypes.string,
   message: PropTypes.string,
   open: PropTypes.bool,
-  setOpen: PropTypes.func
+  setOpen: PropTypes.func,
 };
-
 
 export default CustomAlert;
