@@ -65,7 +65,7 @@ const Events = ({ themeMode }) => {
       });
       setFilteredEvents(filteredEvents);
     }
-  }, [events]);
+  }, [events, eventsFilterValue]);
 
   return (
     <>
