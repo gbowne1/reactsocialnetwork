@@ -1,76 +1,135 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import { Box, Stack } from "@mui/material";
+import { Box, Button, MenuItem, Select, Stack } from "@mui/material";
+
 import CloseButton from "./CloseButton";
 import SingleEvent from "./SingleEvent";
+import CreateEventModal from "./CreateEventModal";
+import CustomSnackbar from "./CustomSnackbar";
 
+import saveToLocalStorage from "../helpers/saveToLocalStorage";
+import getFromLocalStorage from "../helpers/getFromLocalStorage";
+import eventsData from "../data/eventsData";
 import "../assets/Events.css";
 
 const Events = ({ themeMode }) => {
-  
   const [isOpen, setIsOpen] = useState(true);
-  const [interested, setInterested] = useState({});
+  const [createEventModalOpen, setCreateEventModalOpen] = useState(false);
+  const [eventsFilterValue, setEventsFilterValue] = useState("Home");
+
+  const [openSnackbar, setOpenSnackbar] = useState(false);
+  const [snackbarOptions, setSnackbarOptions] = useState({});
+
+  const [events, setEvents] = useState(
+    getFromLocalStorage("events") || eventsData
+  );
+  const [filteredEvents, setFilteredEvents] = useState(events);
+
+  useEffect(() => {
+    saveToLocalStorage("events", events);
+  }, [events]);
 
   const handleClose = () => {
     setIsOpen(false);
   };
 
-  const events = [
-    {
-      title: "Cinema Night!",
-      locationName: "Cinema32",
-      locationUrl: "#",
-      imageUrl:
-        "https://www.shutterstock.com/image-photo/02-august-2018bucharest-romania-people-260nw-1148998826.jpg",
+  const handleCreateEventClose = () => {
+    setCreateEventModalOpen(false);
+  };
 
-      participation: {
-        interested: 46,
-        going: 27,
-      },
-    },
-    {
-      title: "Pub Crawl",
-      locationName: "Bulldog Bar",
-      locationUrl: "#",
-      imageUrl:
-        "https://www.shutterstock.com/image-photo/happy-friends-cheering-drinking-cocktails-260nw-1109615582.jpg",
-      participation: {
-        interested: 52,
-        going: 38,
-      },
-    },
-    {
-      title: "Mini golf!",
-      locationName: "Mini golf park",
-      locationUrl: "#",
-      imageUrl:
-        "https://www.shutterstock.com/image-photo/group-smiling-friends-enjoying-together-260nw-1814772797.jpg",
-      participation: {
-        interested: 106,
-        going: 78,
-      },
-    },
-  ];
+  const handleCreateEventClicked = () => {
+    setCreateEventModalOpen(true);
+  };
+
+  const handleEventFilterClicked = (event) => {
+    const eventFilterValue = event.target.value;
+    setEventsFilterValue(eventFilterValue);
+
+    console.log(eventFilterValue);
+    if (eventFilterValue === "Home") {
+      setFilteredEvents(events);
+    } else {
+      const filteredEvents = events.filter((event) => {
+        return event.attendance === eventFilterValue;
+      });
+      setFilteredEvents(filteredEvents);
+    }
+  };
+
+  useEffect(() => {
+    if (eventsFilterValue === "Home") {
+      setFilteredEvents(events);
+    } else {
+      const filteredEvents = events.filter((event) => {
+        return event.attendance === eventsFilterValue;
+      });
+      setFilteredEvents(filteredEvents);
+    }
+  }, [events, eventsFilterValue]);
 
   return (
     <>
+      <CustomSnackbar
+        message={snackbarOptions.message}
+        vertical={"top"}
+        horizontal={"center"}
+        alert={true}
+        severity={snackbarOptions.severity}
+        open={openSnackbar}
+        setOpen={setOpenSnackbar}
+      />
+
+      <CreateEventModal
+        isOpen={createEventModalOpen}
+        handleClose={handleCreateEventClose}
+        events={events}
+        setEvents={setEvents}
+        themeMode={themeMode}
+        setSnackbarOptions={setSnackbarOptions}
+        setOpenSnackbar={setOpenSnackbar}
+      />
+
       {isOpen && (
         <Box className={`Events ${themeMode}`}>
-          <Box className={`Events-header ${themeMode}`}>
-            <h3 className="Events-title">Your Events</h3>
+          <Box className={`Events__header ${themeMode}`}>
+            <h3 className="Events__title">Your Events</h3>
             <CloseButton handleClose={handleClose} />
           </Box>
-          <Box className={`Events-content ${themeMode}`}>
-            <Stack spacing={2} className={`events-stack ${themeMode}`}>
-              {events.map((event, i) => {
+          <Box className={`Events__content ${themeMode}`}>
+            <Box className={`Events__button-panel`}>
+              <Button
+                variant="contained"
+                onClick={handleCreateEventClicked}
+                className={`Events__creat-event-button ${themeMode}`}
+              >
+                Create new event
+              </Button>
+
+              <Select
+                id="attendance-select"
+                className={`Events__attendance-select ${themeMode}`}
+                value={eventsFilterValue}
+                onChange={handleEventFilterClicked}
+              >
+                <MenuItem value={"Home"}>Home</MenuItem>
+                <MenuItem value={"Going"}>Going</MenuItem>
+                <MenuItem value={"Interested"}>Interested</MenuItem>
+                <MenuItem value={"Not Going"}>Not Going</MenuItem>
+              </Select>
+            </Box>
+
+            <Stack spacing={2} className={`Events__stack ${themeMode}`}>
+              {filteredEvents.map((event, i) => {
                 return (
                   <SingleEvent
                     themeMode={themeMode}
                     key={i}
                     eventKey={i}
                     eventData={event}
-                    interested={interested}
-                    setInterested={setInterested}
+                    events={events}
+                    setEvents={setEvents}
+                    setSnackbarOptions={setSnackbarOptions}
+                    setOpenSnackbar={setOpenSnackbar}
                   />
                 );
               })}

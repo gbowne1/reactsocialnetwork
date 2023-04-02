@@ -14,14 +14,14 @@ import '../assets/Friends.css';
 function Friends({themeMode}) {
   const [isOpen, setIsOpen] = useState(true)
 
-  
+
 
   function handleClose() {
     setIsOpen(false);
   }
-  
+
     return (
-      <>      
+      <>
       { isOpen && (
       <div
         className={`Friends ${themeMode}`}
@@ -47,50 +47,31 @@ function Friends({themeMode}) {
         <br />
         <br />
         <div>
-          <Container maxWidth="lg">
+          <Container maxWidth="xl">
             <Card variant="outlined" sx={{ minWidth: 275 }}>
               <CardContent>
-                <Typography sx={{ fontSize: 14 }} gutterBottom>
+                <Typography sx={{ fontSize: 19 }} gutterBottom>
                   Friends
-                </Typography>
-              </CardContent>
-            </Card>
-          </Container>
-          <br/>
-          <Container maxWidth="lg">
-            <Card variant="outlined" sx={{ minWidth: 275 }}>
-              <CardContent>
-                <Typography sx={{ fontSize: 14 }} gutterBottom>
-                  Friend Requests
-                </Typography>
-              </CardContent>
-            </Card>
-          </Container>
-          <br/>
-          <Container maxWidth="lg">
-            <Card variant="outlined" sx={{ minWidth: 200 }}>
-              <CardContent>
-                <Typography sx={{ fontSize: 14 }} gutterBottom>
-                  Suggested Friends
-                </Typography>
-                <Card sx={{ maxWidth: 200, maxHeight: 350 }}>
-                <CardMedia
-                  sx={{ height: 100 }}
-                  image="/static/images/cards/contemplative-reptile.jpg"
-                  title="green iguana"
-                   />
-                <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                Random John Friend
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  Here is a random cool person you can add as your friend.
-                </Typography>
-                </CardContent>
-                <CardActions>
-                <Button size="small">Add Friend</Button>
-                </CardActions>
-                </Card>
+				</Typography>
+			<Card sx={{ maxWidth: 198 }}>
+			<CardMedia
+				sx={{ height: 198 }}
+				image="/static/images/cards/contemplative-reptile.jpg"
+				title="a super awesome user"
+			/>
+			<CardContent>
+				<Typography gutterBottom variant="h5" component="div">
+				Awesome
+				</Typography>
+				<Typography variant="body2" color="text.secondary">
+				Add this great user
+				</Typography>
+			</CardContent>
+			<CardActions>
+				<Button size="small">Add</Button>
+				<Button size="small">Learn More</Button>
+			</CardActions>
+			</Card>
               </CardContent>
             </Card>
           </Container>
@@ -99,7 +80,7 @@ function Friends({themeMode}) {
         )}
         </>
         );
-  
+
 }
 Friends.propTypes = {
   themeMode: PropTypes.string
