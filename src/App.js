@@ -1,9 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { useState } from "react";
-// import logo from "./logo.svg";
 import "./App.css";
-// import MenuIcon from '@mui/icons-material/Menu';
 import UserProfile from "./components/UserProfile";
 import Profile from "./components/Profile";
 import Dashboard from "./components/Dashboard";
@@ -22,9 +20,7 @@ import { loadFromLocalStorage, saveToLocalStorage } from "./utils";
 import getFromLocalStorage from "./helpers/getFromLocalStorage";
 import Feedback from "./components/Feedback";
 import HelpCenter from "./components/HelpCenter";
-// import IconButton from '@mui/material/IconButton';
-// import NotFound from './pages/NotFound';
-// import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import helpCenterContentCategories from "./data/json/helpCenterContentCategories.json";
 
 const App = () => {
   const lastLoginCredentials = loadFromLocalStorage("lastLoginCredentials");
@@ -125,10 +121,33 @@ const App = () => {
                     element={<Feedback themeMode={themeMode} />}
                   />
                   <Route
-                    exact
-                    path="/help"
-                    element={<HelpCenter themeMode={themeMode} />}
-                  />
+                      exact
+                      path="/help"
+                      element={<HelpCenter themeMode={themeMode} />}
+                  >
+                    {
+                      helpCenterContentCategories.map(category => {
+                        const {categoryId, subcategories} = category;
+
+                          return subcategories.map(subcategory => {
+
+                            const {subcategoryId} = subcategory;
+                            
+                            console.log(`${categoryId}/${subcategoryId}`)
+                            return (
+                              <Route 
+                                  key={`url-${categoryId}-${subcategoryId}`}
+                                  path={`${categoryId}/${subcategoryId}`}
+                                  element={<h1>{subcategoryId}</h1>}
+                              />
+
+                            )
+
+                          })
+                      })
+                    }
+
+                  </Route>
                   <Route
                     exact
                     path="*"
