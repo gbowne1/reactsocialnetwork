@@ -19,8 +19,9 @@ import Login from "./components/Login";
 import { loadFromLocalStorage, saveToLocalStorage } from "./utils";
 import getFromLocalStorage from "./helpers/getFromLocalStorage";
 import Feedback from "./components/Feedback";
-import HelpCenter from "./components/HelpCenter";
+import HelpCenter from "./components/HelpCenter/HelpCenter";
 import helpCenterContentCategories from "./data/json/helpCenterContentCategories.json";
+import SubjectDetails from "./components/HelpCenter/SubjectDetails";
 
 const App = () => {
   const lastLoginCredentials = loadFromLocalStorage("lastLoginCredentials");
@@ -131,16 +132,19 @@ const App = () => {
 
                           return subcategories.map(subcategory => {
 
-                            const {subcategoryId} = subcategory;
+                            const {subcategoryId, header, content} = subcategory;
                             
-                            console.log(`${categoryId}/${subcategoryId}`)
                             return (
                               <Route 
                                   key={`url-${categoryId}-${subcategoryId}`}
                                   path={`${categoryId}/${subcategoryId}`}
-                                  element={<h1>{subcategoryId}</h1>}
+                                  element={
+                                    <SubjectDetails 
+                                      header={header}
+                                      content={content}
+                                    />
+                                  }
                               />
-
                             )
 
                           })
