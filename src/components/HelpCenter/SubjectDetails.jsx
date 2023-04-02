@@ -13,7 +13,7 @@ const SubjectDetails = ({header, content}) => {
 }
 
 SubjectDetails.propTypes = {
-    content: PropTypes.element,
+    content: PropTypes.string,
     header: PropTypes.string
 }
 
