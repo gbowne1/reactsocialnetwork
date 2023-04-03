@@ -1,0 +1,180 @@
+@import url('../../variables.css');
+
+.Post {
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    min-width: 70%;
+    max-width: 1400px;
+    min-height: 700px;
+}
+
+.Post.light-mode {
+    background-color: var(--bg-light-100);
+    color: var(--text-dark-500);
+}
+
+.Post.dark-mode {
+    background-color: var(--bg-dark-100);
+    color: var(--text-light-500);
+}
+
+.Post-header {
+    max-width: 1384px;
+    height: 60px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.Post-header.dark-mode {
+    background-color: var(--bg-dark-900);
+    color: var(--clr-dark-mode-accent-500);
+}
+
+.Post-header.light-mode {
+    background-color: var(--bg-light-900);
+    color: var(--clr-light-mode-accent-500);
+}
+
+.icon {
+    font-size: 25px;
+    margin-top: 15px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.Close-button {
+    height: 40px;
+    width: 60px;
+    background-color: blue;
+}
+
+h3 {
+    padding-top: 19px;
+    height: 45px;
+    width: 180px;
+}
+
+.Post-create {
+    margin: 10px;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.Post-create.dark-mode {
+    background-color: var(--bg-dark-500);
+}
+
+.Post-create.light-mode {
+    background-color: var(--bg-light-500);
+}
+
+.Post-basics {
+    width: 100%;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.Post-avatar {
+    margin: auto;
+    height: 100%;
+}
+
+.Post-avatar button {
+    font-size: 36px;
+    padding: 0;
+    line-height: 100%;
+}
+
+.Post-empty-avatar {
+    padding: 0;
+    margin: 0;
+    margin-block: auto;
+    font-size: 36px;
+    line-height: 100%;
+}
+
+.Post-text {
+    margin: 0;
+    padding: 10px 15px;
+    border-radius: 50px;
+    border: none;
+    flex: 1;
+}
+
+.Post-text.dark-mode::placeholder {
+    color: var(--text-light-100);
+}
+
+.Post-text.dark-mode {
+    color: var(--text-light-900);
+    background-color: var(--bg-dark-100);
+}
+
+.Post-text.light-mode::placeholder {
+    color: var(--text-dark-100);
+}
+
+.Post-text.light-mode {
+    color: var(--text-dark-900);
+    background-color: var(--bg-light-100);
+}
+
+.Post-submit {
+    margin: 0;
+    padding: 10px 15px;
+    border-radius: 50px;
+    border: none;
+}
+
+.Post-submit.dark-mode {
+    color:var(--clr-dark-mode-accent-500);
+}
+
+.Post-submit.light-mode {
+    color:var(--clr-light-mode-accent-500);
+}
+
+.Post-uploads {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    width: 100%;
+}
+
+.Post-uploads button {
+    padding: 0;
+}
+
+.Post-upload-btn:hover {
+    border-radius: 5px;
+}
+
+.Post-icon-label {
+    margin-left: 10px;
+    font-size: 14px;
+}
+
+.Post-icon-label.dark-mode {
+    background-color: transparent;
+    color: var(--text-light-500);
+}
+
+.Post-icon-label.light-mode {
+    background-color: transparent;
+    color: var(--text-dark-500);
+}
+
+

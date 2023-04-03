@@ -4,29 +4,26 @@ import { useState } from "react";
 // import logo from "./logo.svg";
 import "./App.css";
 // import MenuIcon from '@mui/icons-material/Menu';
-import UserProfile from "./components/UserProfile";
-import Profile from "./components/Profile";
-import Dashboard from "./components/Dashboard";
-import Settings from "./components/Settings";
-import Friends from "./components/Friends"
-import Events from "./components/Events";
-import Footer from "./components/Footer";
-import NotFound from "./components/NotFound";
-import Terms from "./components/Terms";
-import SideNav from "./components/SideNav";
-import Post from "./components/Post";
-import TopNav from "./components/TopNav";
-import Login from "./components/Login";
+import UserProfile from "./pages/UserProfile/UserProfile";
+import Profile from "./pages/Profile/Profile";
+import Dashboard from "./pages/Dashboard/Dashboard";
+import Settings from "./pages/Settings/Settings";
+import Friends from "./pages/Friends/Friends"
+import Events from "./pages/Events/Events";
+import Footer from "./layouts/Footer/Footer";
+import NotFound from "./pages/NotFound/NotFound";
+import Terms from "./pages/Terms/Terms";
+import SideNav from "./layouts/SideNav/SideNav";
+import Post from "./pages/Post/Post";
+import TopNav from "./layouts/TopNav/TopNav";
+import Login from "./pages/Login/Login";
 
-import { loadFromLocalStorage, saveToLocalStorage } from "./utils";
-import getFromLocalStorage from "./helpers/getFromLocalStorage";
-import Feedback from "./components/Feedback";
-// import IconButton from '@mui/material/IconButton';
-// import NotFound from './pages/NotFound';
-// import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import getFromLocalStorage from "./utils/getFromLocalStorage";
+import Feedback from "./pages/Feedback/Feedback";
+import saveToLocalStorage from "./utils/saveToLocalStorage";
 
 const App = () => {
-  const lastLoginCredentials = loadFromLocalStorage("lastLoginCredentials");
+  const lastLoginCredentials = getFromLocalStorage("lastLoginCredentials");
   const [loginToken, setLoginToken] = useState(lastLoginCredentials);
   const [themeMode, setThemeMode] = useState(
     getFromLocalStorage("isThemeLightMode") ||

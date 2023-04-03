@@ -1,0 +1,34 @@
+@import url("../../variables.css");
+
+/* TODO: Update colors and fonts according to variables.css */
+
+.Settings-header {
+    background-color: #555;
+    max-width: 1384px;
+    height: 60px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border: 1.5px black;
+}
+
+.Settings-container {
+    background-color: beige;
+    width: 100%;
+    height: 700px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border: 2.5px solid black;
+    margin-top: 2px;
+}
+
+.Close-button {
+    height: 40px;
+    width: 60px;
+    background-color: blue;
+}
+
+h3 {
+    padding-top: 19px;
+    height: 45px;
+    width: 180px;
+}

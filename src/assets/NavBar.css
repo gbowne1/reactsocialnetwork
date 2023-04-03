@@ -1,8 +1,0 @@
-@import url("../variables.css");
-
-.Navbar-container {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	justify-content: right;
-}
