@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { useState } from "react";
-// import logo from "./logo.svg";
 import "./App.css";
 // import MenuIcon from '@mui/icons-material/Menu';
 import UserProfile from "./pages/UserProfile/UserProfile";
@@ -120,6 +119,37 @@ const App = () => {
                     path="/feedback"
                     element={<Feedback themeMode={themeMode} />}
                   />
+                  <Route
+                      exact
+                      path="/help"
+                      element={<HelpCenter themeMode={themeMode} />}
+                  >
+                    {
+                      helpCenterContentCategories.map(category => {
+                        const {categoryId, subcategories} = category;
+
+                          return subcategories.map(subcategory => {
+
+                            const {subcategoryId, header, content} = subcategory;
+                            
+                            return (
+                              <Route 
+                                  key={`url-${categoryId}-${subcategoryId}`}
+                                  path={`${categoryId}/${subcategoryId}`}
+                                  element={
+                                    <SubjectDetails 
+                                      header={header}
+                                      content={content}
+                                    />
+                                  }
+                              />
+                            )
+
+                          })
+                      })
+                    }
+
+                  </Route>
                   <Route
                     exact
                     path="*"

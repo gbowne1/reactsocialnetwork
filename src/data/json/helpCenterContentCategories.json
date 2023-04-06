@@ -1,0 +1,35 @@
+[
+    {
+        "categoryId": "user-profile",
+        "categoryName": "User Profile",
+        "subcategories": [
+            {
+                "subcategoryId": "avatar",
+                "subcategoryName": "Avatar",
+                "header": "How to upload Avatar",
+                "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin at libero metus. Aliquam facilisis finibus ex, eu pharetra turpis pharetra non. Nullam posuere semper nisl ut pharetra. Nam ut dolor convallis, porta libero vel, scelerisque ipsum. Ut tristique arcu eget ligula varius accumsan. Cras ac ultricies quam, ac feugiat ante."
+            },
+            {
+                "subcategoryId": "description",
+                "subcategoryName": "Description",
+                "header": "How to change description",
+                "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin at libero metus. Aliquam facilisis finibus ex, eu pharetra turpis pharetra non. Nullam posuere semper nisl ut pharetra. Nam ut dolor convallis, porta libero vel, scelerisque ipsum. Ut tristique arcu eget ligula varius accumsan. Cras ac ultricies quam, ac feugiat ante."
+            }
+        ]
+
+    },
+    {
+        "categoryId": "friends",
+        "categoryName": "Friends",
+        "subcategories": [
+            {
+                "subcategoryId": "adding-friends",
+                "subcategoryName": "Adding Friends",
+                "header": "How to add new friend",
+                "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin at libero metus. Aliquam facilisis finibus ex, eu pharetra turpis pharetra non. Nullam posuere semper nisl ut pharetra. Nam ut dolor convallis, porta libero vel, scelerisque ipsum. Ut tristique arcu eget ligula varius accumsan. Cras ac ultricies quam, ac feugiat ante."
+            }
+        ]
+    }
+
+
+]
