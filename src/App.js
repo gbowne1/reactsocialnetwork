@@ -16,10 +16,13 @@ import SideNav from "./layouts/SideNav/SideNav";
 import Post from "./pages/Post/Post";
 import TopNav from "./layouts/TopNav/TopNav";
 import Login from "./pages/Login/Login";
+import HelpCenter from "./pages/HelpCenter/HelpCenter";
+import SubjectDetails from './pages/HelpCenter/SubjectDetails';
 
 import getFromLocalStorage from "./utils/getFromLocalStorage";
 import Feedback from "./pages/Feedback/Feedback";
 import saveToLocalStorage from "./utils/saveToLocalStorage";
+import helpCenterContentCategories from "./data/json/helpCenterContentCategories.json"
 
 const App = () => {
   const lastLoginCredentials = getFromLocalStorage("lastLoginCredentials");

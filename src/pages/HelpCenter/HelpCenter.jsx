@@ -5,7 +5,7 @@ import ListItemText from '@mui/material/ListItemText';
 import { Collapse, ListSubheader } from "@mui/material";
 import { ExpandLess, ExpandMore} from "@mui/icons-material";
 import helpCenterContentCategories from "../../data/json/helpCenterContentCategories.json";
-import "../../assets/HelpCenter.css";
+import "./HelpCenter.css";
 import PropTypes from "prop-types";
 import { Box } from "@mui/system";
 import { NavLink, Outlet } from "react-router-dom";

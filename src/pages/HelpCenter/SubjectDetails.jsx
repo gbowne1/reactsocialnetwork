@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "../../assets/SubjectDetails.css";
+import "./SubjectDetails.css";
 
 const SubjectDetails = ({header, content}) => {
     return (
