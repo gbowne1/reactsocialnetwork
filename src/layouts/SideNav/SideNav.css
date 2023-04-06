@@ -1,0 +1,94 @@
+@import url("../../variables.css");
+
+/* Position and sizing of burger button */
+.bm-burger-button {
+  /* Instead default button, menu would be open by TopNav hamburger */
+  display: none; 
+  
+	position: fixed;
+	width: 36px;
+	height: 30px;
+	left: 25px;
+	top: 80px;
+  }
+  
+  /* Color/shape of burger icon bars */
+  .bm-burger-bars {
+	/* background: #373a47; */
+  }
+  
+  /* Color/shape of burger icon bars on hover*/
+  .bm-burger-bars-hover {
+	/* background: #a90000; */
+  }
+  
+  /* Position and sizing of clickable cross button */
+  .bm-cross-button {
+	height: 24px;
+	width: 24px;
+  }
+  
+  /* Color/shape of close button cross */
+  .bm-cross {
+	background: var(--bg-light-900);
+  }
+  
+  /*
+  Sidebar wrapper styles
+  Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
+  */
+  .bm-menu-wrap {
+	position: fixed;
+	height: 100%;
+  }
+  
+  /* General sidebar styles */
+  .bm-menu {
+	padding: 0.7em 1.5em 0;
+	font-size: 30px;
+  }
+
+  .dark-mode {
+    background-color: var(--bg-dark-500);
+    color: var(--text-light-500);
+  }
+
+  .light-mode {
+    background-color: var(--bg-light-500);
+    color: var(--text-dark-900);
+  }
+  
+  /* Morph shape necessary with bubble or elastic */
+  .bm-morph-shape {
+	/* fill: #373a47; */
+  }
+  
+  /* Wrapper for item list */
+  .bm-item-list {
+	padding: 0.8em;
+  }
+  
+  
+  /* Styling of overlay */
+  .bm-overlay {
+	background: rgba(0, 0, 0, 0.3);
+  }
+
+  /* Individual item */
+.bm-item {
+  display: inline-block;
+  margin-bottom: 10px;
+  text-align: left;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.bm-item:hover {
+  opacity: 0.6;
+}
+
+/* Side Nav Icons */
+.side-nav-icon {
+  transform: scale(1.8);
+  padding-right: 0.5rem;
+}

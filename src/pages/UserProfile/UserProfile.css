@@ -1,0 +1,66 @@
+@import url("../../variables.css");
+
+.Userprofile {
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    min-width: 70%;
+    max-width: 1400px;
+    min-height: 700px;
+}
+
+.Userprofile.light-mode {
+    background-color: var(--bg-light-100);
+    color: var(--text-dark-500);
+}
+
+.Userprofile.dark-mode {
+    background-color: var(--bg-dark-100);
+    color: var(--text-light-500);
+}
+
+.icon {
+    font-size: 25px;
+    margin-top: 15px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.Userprofile-header {
+    max-width: 1384px;
+    height: 60px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+.Userprofile-header.dark-mode {
+    background-color: var(--bg-dark-900);
+    color: var(--clr-dark-mode-accent-500);
+}
+
+.Userprofile-header.light-mode {
+    background-color: var(--bg-light-900);
+    color: var(--clr-light-mode-accent-500);
+}
+
+.icon {
+    font-size: 25px;
+    margin-top: 15px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.Close-button {
+    height: 40px;
+    width: 60px;
+    background-color: blue;
+}
+
+h3 {
+    padding-top: 19px;
+    height: 45px;
+    width: 180px;
+}

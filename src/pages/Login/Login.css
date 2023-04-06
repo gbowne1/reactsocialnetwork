@@ -1,0 +1,78 @@
+@import url("../../variables.css");
+
+.Login__container {
+  margin-top: 200px;
+}
+
+.Login_loading-spinner {
+  position: relative;
+  top: 100px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.Login__theme-mode-switch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid;
+  border-radius: 10px;
+  width: fit-content;
+  padding: 5px 10px;
+  margin: 0 auto 20px;
+}
+
+.Login__theme-mode-switch.light-mode {
+  border-color: var(--bg-dark-100);
+}
+
+.Login__theme-mode-switch.dark-mode {
+  border-color: var(--bg-light-100);
+}
+
+.Login__form {
+  border: 1px solid;
+  border-radius: 10px;
+  margin: 0 auto;
+  max-width: 600px;
+  padding: 20px;
+}
+
+.Login__form.light-mode {
+  border-color: var(--bg-dark-100) !important;
+}
+
+.Login__form.dark-mode {
+  border-color: var(--bg-light-100) !important;
+}
+
+.Login__textfield.dark-mode label {
+  color: var(--text-light-100) !important;
+}
+
+.Login__textfield.dark-mode input {
+  color: var(--text-light-100) !important;
+  background-color: var(--bg-dark-100);
+}
+
+.Login__textfield.dark-mode input:-webkit-autofill,
+.Login__textfield.dark-mode input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px var(--bg-light-900) inset;
+}
+
+.Login__textfield.dark-mode fieldset {
+  border-color: var(--bg-light-100) !important;
+}
+
+.Login__form-panel button {
+  margin: 10px auto 20px;
+  width: 200px;
+  background-color: #ffc93d !important;
+}
+
+.Login__form-panel .subscribe,
+.Login__form-panel .login {
+  font-weight: bold;
+  cursor: pointer;
+}

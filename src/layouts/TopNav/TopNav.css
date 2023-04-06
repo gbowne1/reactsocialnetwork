@@ -1,0 +1,30 @@
+@import url("../../variables.css");
+
+.Top-nav {
+    
+}
+
+.Top-nav.dark-mode {
+    background-color: var(--bg-dark-900);
+    color: var(--text-light-500);
+}
+
+.Top-nav.light-mode {
+    background-color: var(--bg-light-900);
+    color: var(--text-dark-900);
+}
+
+.Top-nav-search {
+    width: 200px;
+    height: 90%;
+    border-radius: 5px;
+    border: none;
+}
+
+.Top-nav-search.dark-mode {
+    background-color: var(--bg-dark-500);
+}
+
+.Top-nav-search.light-mode {
+    background-color: var(--bg-light-500);
+}
