@@ -1,0 +1,123 @@
+@import url("../../variables.css");
+
+.Events {
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  min-width: 70%;
+  max-width: 1400px;
+  min-height: 700px;
+}
+
+.Events__attendance-select.light-mode {
+  color: var(--text-dark-900) !important;
+}
+
+.Events__attendance-select.dark-mode {
+  color: var(--text-light-100) !important;
+}
+
+.Events.light-mode,
+.Events__content.light-mode,
+.Events__stack.light-mode {
+  background-color: var(--bg-light-100);
+  color: var(--text-dark-500);
+}
+
+.Events.dark-mode,
+.Events__content.dark-mode,
+.Events__stack.dark-mode {
+  background-color: var(--bg-dark-100);
+  color: var(--text-light-500);
+}
+
+.Events__drawer {
+  width: 240px !important;
+}
+
+.Events__drawer-stack {
+  padding: 10px;
+}
+
+.icon {
+  font-size: 25px;
+  margin-top: 15px;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.Events__header {
+  height: 60px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.Events__header.dark-mode {
+  background-color: var(--bg-dark-900);
+  color: var(--clr-dark-mode-accent-500);
+}
+
+.Events__header.light-mode {
+  background-color: var(--bg-light-900);
+  color: var(--clr-light-mode-accent-500);
+}
+
+.Events__content {
+  padding: 10px;
+}
+
+.Events__button-panel {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px auto 40px;
+  width: 100%;
+  height: 50px;
+}
+
+.Events__creat-event-button.light-mode {
+  background-color: #1976d2 !important;
+}
+
+.Events__creat-event-button.dark-mode {
+  background-color: var(--clr-dark-mode-accent-500) !important;
+}
+
+.Close-button {
+  height: 40px;
+  width: 60px;
+  background-color: blue;
+}
+
+h1 {
+  float: left;
+  padding-top: 19px;
+  height: 45px;
+  width: 250px;
+}
+
+h2 {
+  float: left;
+  padding-top: 19px;
+  height: 45px;
+  width: 250px;
+}
+
+h3 {
+  float: left;
+  padding-top: 19px;
+  height: 45px;
+  width: 250px;
+}
+
+h4 {
+  float: left;
+  padding-top: 19px;
+  height: 45px;
+  width: 250px;
+}
+
+table {
+  margin-top: 15px;
+}

@@ -1,0 +1,19 @@
+@import url("../../variables.css");
+
+/* TODO: Update colors and fonts according to variables.css */
+
+.Register-header {
+	background-color: navy;
+	color: dodgerblue
+}
+
+.Register-input {
+	background-color: white;
+	color: black
+}
+.Register-button {
+	align-items: right;
+	background-color: aqua;
+	float: right;
+	margin-top: 10px;
+}

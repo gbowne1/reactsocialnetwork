@@ -1,0 +1,43 @@
+@import url("../../variables.css");
+
+/* TODO: Update colors and fonts according to variables.css */
+.Profile-header {
+    background-color: #555;
+    max-width: 1384px;
+    height: 60px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.icon {
+    font-size: 25px;
+    margin-top: 15px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.Profile-container {
+    background-color: beige;
+    width: 70%;
+    max-width: 1400px;
+    height: 700px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border: 2.5px solid black;
+    margin-top: 2px;
+}
+
+.Close-button {
+    height: 40px;
+    width: 60px;
+    background-color: blue;
+}
+
+h3 {
+    padding-top: 19px;
+    height: 45px;
+    width: 180px;
+}
