@@ -29,9 +29,13 @@
   }
   
   /* Color/shape of close button cross */
-  .bm-cross {
+   .dark-mode .bm-cross {
 	background: var(--bg-light-900);
   }
+  .light-mode .bm-cross {
+	background: var(--bg-dark-900);
+  }
+  
   
   /*
   Sidebar wrapper styles
