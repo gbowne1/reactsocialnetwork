@@ -211,7 +211,11 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
               />
               <DarkMode />
             </Box>
-            <Box component="form" className={`Login__form ${themeMode}`}>
+            <Box
+              component="form"
+              className={`Login__form ${themeMode}`}
+              data-testid="form"
+            >
               <Stack spacing={2}>
                 <CustomSnackbar
                   message={snackbarOptions.message}
@@ -239,6 +243,7 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
                       username: event.target.value,
                     })
                   }
+                  inputProps={{ "data-testid": "username" }}
                 />
 
                 <TextField
@@ -257,6 +262,7 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
                       email: event.target.value,
                     })
                   }
+                  inputProps={{ "data-testid": "email" }}
                 />
 
                 <FormControl
@@ -292,6 +298,7 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
                         password: event.target.value,
                       })
                     }
+                    inputProps={{ "data-testid": "password" }}
                   />
                   <FormHelperText>{errors.password?.message}</FormHelperText>
                 </FormControl>
@@ -299,6 +306,7 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
                 <FormControlLabel
                   control={
                     <Checkbox
+                      data-testid="remember-me"
                       checked={rememberMe}
                       onChange={(event) => {
                         setRememberMe(event.target.checked);
@@ -310,6 +318,7 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
 
                 <Box className={`Login__form-panel`}>
                   <Button
+                    data-testid="submit"
                     variant="contained"
                     onClick={handleSubmit(
                       isLoginView
