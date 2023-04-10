@@ -68,5 +68,10 @@
 			"last 1 firefox version",
 			"last 1 safari version"
 		]
+	},
+	"devDependencies": {
+		"@testing-library/dom": "^9.2.0",
+		"jest-watch-typeahead": "^0.6.5",
+		"react-test-renderer": "^18.2.0"
 	}
 }
