@@ -70,7 +70,7 @@ describe("Tests Login form is correctly displayed", () => {
   });
 });
 
-describe("Tests Login form correct inital state", () => {
+describe("Tests Login form correct initial state", () => {
   it("should have initial username input value be empty", () => {
     const { getByTestId } = render(<Login />);
     expect(getByTestId("username").value).toBe("");
@@ -93,7 +93,7 @@ describe("Tests Login form correct inital state", () => {
   });
 });
 
-describe("Tests Login form inputs update values corectly", () => {
+describe("Tests Login form inputs update values correctly", () => {
   it("should have updated username value after user input", () => {
     const { getByTestId } = render(<Login />);
     const usernameInput = getByTestId("username");
