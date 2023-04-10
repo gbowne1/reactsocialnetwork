@@ -14,9 +14,10 @@
 }
 
 .SingleEvent__info-panel {
+  min-width: 400px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .SingleEvent__image {
@@ -26,7 +27,8 @@
 }
 
 .SingleEvent__text {
-  width: 30%;
+  min-width: 200px;
+  text-align: left;
 }
 
 .SingleEvent__title {
