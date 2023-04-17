@@ -1,7 +1,14 @@
 {
-    "version": "0.2.1",
-    "tasks": [
-      
-    ]
-  }
-  
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "start",
+      "type": "npm",
+      "script": "start",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
+}
