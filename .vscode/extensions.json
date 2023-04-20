@@ -1,28 +1,28 @@
 {
-    // See https://go.microsoft.com/fwlink/?LinkId=827846
-    // for the documentation about the extensions.json format
-    "recommendations": [
-      "dbaeumer.vscode-eslint",
-      "esbenp.prettier-vscode",
-      "editorconfig.editorconfig",
-      "ritwickdey.liveserver",
-      "ecmel.vscode-html-css",
-      "mohsen1.prettify-json",
-      "ms-vscode.js-debug-nightly",
-      "mgmcdermott.vscode-language-babel",
-      "xabikos.javascriptsnippets",
-      "pranaygp.vscode-css-peek",
-      "zignd.html-css-class-completion",
-      "visualstudioexptteam.vscodeintellicode",
-      "zainchen.json",
-      "firefox-devtools.vscode-firefox-debug",
-      "sidthesloth.html5-boilerplate",
-      "aeschli.vscode-css-formatter",
-      "rvest.vs-code-prettier-eslint",
-      "anseki.vscode-color",
-      "stylelint.vscode-stylelint",
-      "quick-lint.quick-lint-js",
-      "ms-vsliveshare.vsliveshare",
-      "ms-vscode.live-server"
-    ]
-  }
+  // See https://go.microsoft.com/fwlink/?LinkId=827846
+  // for the documentation about the extensions.json format
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "editorconfig.editorconfig",
+    "ritwickdey.liveserver",
+    "ecmel.vscode-html-css",
+    "mohsen1.prettify-json",
+    "ms-vscode.js-debug-nightly",
+    "mgmcdermott.vscode-language-babel",
+    "xabikos.javascriptsnippets",
+    "pranaygp.vscode-css-peek",
+    "zignd.html-css-class-completion",
+    "visualstudioexptteam.vscodeintellicode",
+    "zainchen.json",
+    "firefox-devtools.vscode-firefox-debug",
+    "sidthesloth.html5-boilerplate",
+    "aeschli.vscode-css-formatter",
+    "rvest.vs-code-prettier-eslint",
+    "anseki.vscode-color",
+    "stylelint.vscode-stylelint",
+    "quick-lint.quick-lint-js",
+    "ms-vsliveshare.vsliveshare",
+    "ms-vscode.live-server"
+  ]
+}
