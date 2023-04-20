@@ -25,6 +25,7 @@ import saveToLocalStorage from "./utils/saveToLocalStorage";
 import helpCenterContentCategories from "./data/json/helpCenterContentCategories.json"
 
 const App = () => {
+  
   const lastLoginCredentials = getFromLocalStorage("lastLoginCredentials");
   const [loginToken, setLoginToken] = useState(lastLoginCredentials);
   const [themeMode, setThemeMode] = useState(
