@@ -1,26 +1,24 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { FormControlLabel, FormGroup, Switch } from "@mui/material";
-import CloseButton from "../../components/CloseButton/CloseButton";
+
+
+import Panel from "../../components/Panel/Panel";
 import "./Settings.css";
 
 function Settings({ themeMode }) {
   const [isOpen, setIsOpen] = useState(true);
 
-  
-
-  function handleClose() {
-    setIsOpen(false);
-  }
 
   return (
     <>
       {isOpen && (
-        <div className={`Settings ${themeMode}`}>
-          <div className={`Settings-header ${themeMode}`}>
-            <h3 className="Settings-title">Settings</h3>
-            <CloseButton handleClose={handleClose} />
-          </div>
+        <Panel
+          themeMode={themeMode}
+          titleHeading="Settings"
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+        >
           <div className="Settings-tab-groups-container">
             <div className="Settings-tab-group">
               <h3 className="Settings-tab-group-header">
@@ -71,7 +69,7 @@ function Settings({ themeMode }) {
 
             <hr />
           </div>
-        </div>
+        </Panel>
       )}
     </>
   );
