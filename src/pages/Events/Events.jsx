@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { Box, Button, MenuItem, Select, Stack } from "@mui/material";
 
-import CloseButton from "../../components/CloseButton/CloseButton";
 import SingleEvent from "./SingleEvent/SingleEvent";
 import CreateEventModal from "./CreateEventModal/CreateEventModal";
 import CustomSnackbar from "../../components/CustomSnackbar/CustomSnackbar";
+import Panel from "../../components/Panel/Panel";
 
 import saveToLocalStorage from "../../utils/saveToLocalStorage";
 import getFromLocalStorage from "../../utils/getFromLocalStorage";
@@ -28,10 +28,6 @@ const Events = ({ themeMode }) => {
   useEffect(() => {
     saveToLocalStorage("events", events);
   }, [events]);
-
-  const handleClose = () => {
-    setIsOpen(false);
-  };
 
   const handleCreateEventClose = () => {
     setCreateEventModalOpen(false);
@@ -90,52 +86,52 @@ const Events = ({ themeMode }) => {
       />
 
       {isOpen && (
-        <Box className={`Events ${themeMode}`}>
-          <Box className={`Events__header ${themeMode}`}>
-            <h3 className="Events__title">Your Events</h3>
-            <CloseButton handleClose={handleClose} />
-          </Box>
-          <Box className={`Events__content ${themeMode}`}>
-            <Box className={`Events__button-panel`}>
-              <Button
-                variant="contained"
-                onClick={handleCreateEventClicked}
-                className={`Events__creat-event-button ${themeMode}`}
-              >
-                Create new event
-              </Button>
+        <Panel
+          themeMode={themeMode}
+          titleHeading="Your Events"
+          contentHeading="Events"
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+        >
+          <Box className={`Events__button-panel`}>
+            <Button
+              variant="contained"
+              onClick={handleCreateEventClicked}
+              className={`Events__creat-event-button ${themeMode}`}
+            >
+              Create new event
+            </Button>
 
-              <Select
-                id="attendance-select"
-                className={`Events__attendance-select ${themeMode}`}
-                value={eventsFilterValue}
-                onChange={handleEventFilterClicked}
-              >
-                <MenuItem value={"Home"}>Home</MenuItem>
-                <MenuItem value={"Going"}>Going</MenuItem>
-                <MenuItem value={"Interested"}>Interested</MenuItem>
-                <MenuItem value={"Not Going"}>Not Going</MenuItem>
-              </Select>
-            </Box>
-
-            <Stack spacing={2} className={`Events__stack ${themeMode}`}>
-              {filteredEvents.map((event, i) => {
-                return (
-                  <SingleEvent
-                    themeMode={themeMode}
-                    key={i}
-                    eventKey={i}
-                    eventData={event}
-                    events={events}
-                    setEvents={setEvents}
-                    setSnackbarOptions={setSnackbarOptions}
-                    setOpenSnackbar={setOpenSnackbar}
-                  />
-                );
-              })}
-            </Stack>
+            <Select
+              id="attendance-select"
+              className={`Events__attendance-select ${themeMode}`}
+              value={eventsFilterValue}
+              onChange={handleEventFilterClicked}
+            >
+              <MenuItem value={"Home"}>Home</MenuItem>
+              <MenuItem value={"Going"}>Going</MenuItem>
+              <MenuItem value={"Interested"}>Interested</MenuItem>
+              <MenuItem value={"Not Going"}>Not Going</MenuItem>
+            </Select>
           </Box>
-        </Box>
+
+          <Stack spacing={2} className={`Events__stack ${themeMode}`}>
+            {filteredEvents.map((event, i) => {
+              return (
+                <SingleEvent
+                  themeMode={themeMode}
+                  key={i}
+                  eventKey={i}
+                  eventData={event}
+                  events={events}
+                  setEvents={setEvents}
+                  setSnackbarOptions={setSnackbarOptions}
+                  setOpenSnackbar={setOpenSnackbar}
+                />
+              );
+            })}
+          </Stack>
+        </Panel>
       )}
     </>
   );
