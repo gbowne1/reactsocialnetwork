@@ -1,29 +1,42 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-import CloseButton from "../../components/CloseButton/CloseButton";
-import "./UserProfile.css";
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
+import './UserProfile.css';
 
-function UserProfile({ themeMode }) {
-  const [isOpen, setIsOpen] = useState(true);
+const UserProfile = ({ user }) => {
+  const navigate = useNavigate();
+  const [userData, setUserData] = useState(user);
 
-  function handleClose() {
-    setIsOpen(false);
-  }
+  useEffect(() => {
+    if (!userData) {
+      // Fetch user data from local storage or API here
+      const storedUser = JSON.parse(localStorage.getItem('user'));
+      if (storedUser) {
+        setUserData(storedUser);
+      } else {
+        // Redirect to login page if no user data is found
+        navigate('/login');
+      }
+    }
+  }, [userData, navigate]);
+
   return (
-    <>
-      {isOpen && (
-        <div className={`Userprofile ${themeMode}`}>
-          <div className={`Userprofile-header ${themeMode}`}>
-            <h3 className="Userprofile-title">Userprofile</h3>
-            <CloseButton handleClose={handleClose} />
-          </div>
-        </div>
-      )}
-    </>
+    <div className="user-profile">
+      <header className="user-profile-header">User Profile</header>
+      <div className="user-profile-content">
+        {/* Display user data here */}
+        <p>Name: {userData?.name}</p>
+        <p>Email: {userData?.email}</p>
+      </div>
+    </div>
   );
-}
+};
+
 UserProfile.propTypes = {
-  themeMode: PropTypes.string,
+  user: PropTypes.shape({
+    name: PropTypes.string,
+    email: PropTypes.string,
+  }),
 };
 
 export default UserProfile;

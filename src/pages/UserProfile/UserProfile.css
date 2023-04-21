@@ -64,3 +64,24 @@ h3 {
     height: 45px;
     width: 180px;
 }
+
+.user-profile {
+	width: 1318.8px;
+	height: 700px;
+	margin: 0 auto;
+	padding: 0 250px;
+	box-sizing: border-box;
+	position: relative;
+  }
+
+  .user-profile-header {
+	width: 1318.8px;
+	height: 60px;
+	background-color: gray;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 24px;
+  }
+
+  
