@@ -64,16 +64,30 @@ const SingleEvent = ({
   }, [eventData.attendance]);
 
   return (
-    <div className={`SingleEvent ${themeMode}`} key={eventKey}>
+    <div data-testid="single-event-component" className={`SingleEvent ${themeMode}`} key={eventKey}>
       <div className={`SingleEvent__info-panel`}>
-        <img className="SingleEvent__image" src={imageUrl} alt="event" />
+        <img
+          id="single-event-image"
+          data-testid="single-event-image"
+          className="SingleEvent__image"
+          src={imageUrl}
+          alt="event"
+        />
         <div className="SingleEvent__text">
-          <p>{formatDate(eventData.date)}</p>
-          <p className="SingleEvent__title">{eventData.title}</p>
-          <p className="SingleEvent__location">
-            <span>at:</span> <a href={`https://example.com/events/${eventData.id}`}>{eventData.locationName}</a>
+          <p data-testid="single-event-date">{formatDate(eventData.date)}</p>
+          <p data-testid="single-event-title" className="SingleEvent__title">
+            {eventData.title}
           </p>
-          <p>
+          <p
+            data-testid="single-event-location"
+            className="SingleEvent__location"
+          >
+            <span>at:</span>{" "}
+            <a href={`https://example.com/events/${eventData.id}`}>
+              {eventData.locationName}
+            </a>
+          </p>
+          <p data-testid="single-event-attendance">
             {`${eventData.participation.interested} interested... ${eventData.participation.going} going...`}
           </p>
         </div>
