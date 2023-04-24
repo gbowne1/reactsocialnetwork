@@ -90,7 +90,7 @@ const Events = ({ themeMode }) => {
       />
 
       {isOpen && (
-        <Box className={`Events ${themeMode}`}>
+        <Box className={`Events ${themeMode}`} data-testid="events-component">
           <Box className={`Events__header ${themeMode}`}>
             <h3 className="Events__title">Your Events</h3>
             <CloseButton handleClose={handleClose} />
@@ -101,12 +101,14 @@ const Events = ({ themeMode }) => {
                 variant="contained"
                 onClick={handleCreateEventClicked}
                 className={`Events__creat-event-button ${themeMode}`}
+                data-testid="create-event-button"
               >
                 Create new event
               </Button>
 
               <Select
                 id="attendance-select"
+                data-testid="attendance-select"
                 className={`Events__attendance-select ${themeMode}`}
                 value={eventsFilterValue}
                 onChange={handleEventFilterClicked}
