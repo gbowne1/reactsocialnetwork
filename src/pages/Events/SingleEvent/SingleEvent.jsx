@@ -112,7 +112,7 @@ const SingleEvent = ({
             <StarIcon className={`SingleEvent__attendance-icon ${themeMode}`} />
             Interested
           </MenuItem>
-          <MenuItem value={"Not Going"} data-testid="not-going">
+          <MenuItem value={"Not Going"} data-testid="attendance-not-going">
             <CancelIcon
               className={`SingleEvent__attendance-icon ${themeMode}`}
             />
