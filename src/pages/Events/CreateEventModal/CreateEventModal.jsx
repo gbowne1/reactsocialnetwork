@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Box, Button, TextField } from "@mui/material";
 
@@ -16,8 +16,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import YupPassword from "yup-password";
 YupPassword(yup);
-
-import isValidUrl from "../../../utils/isValidUrl";
 
 import "./CreateEventModal.css";
 
@@ -38,22 +36,15 @@ const CreateEventModal = ({
   const [eventLocationUrl, setEventLocationUrl] = useState("");
   const [eventImageUrl, setEventImageUrl] = useState("");
 
-  const [titleError, setTitleError] = useState(false);
-  const [locationError, setLocationError] = useState(false);
-  const [locationUrlError, setLocationUrlError] = useState(false);
-  const [imageUrlError, setImageUrlError] = useState(false);
-
-  const [createEventButtonDisabled, setCreateEventButtonDisabled] =
-    useState(false);
 
   const handlCreateEventClicked = () => {
     const newEvent = {
-      date: eventDate,
       title: eventTitle,
       locationName: eventLocation,
       locationUrl: eventLocationUrl,
       imageUrl: eventImageUrl,
       attendance: "Going",
+      date: eventDate,
 
       participation: {
         interested: 1,
@@ -61,33 +52,30 @@ const CreateEventModal = ({
       },
     };
 
-    // validationSchema
-    //   .validate(newEvent)
-    //   .then((valid) => {
-    //     if (valid) {
-    //       console.log("Saving new event ", newEvent);
-    //       setEvents([...events, newEvent]);
+    console.log("Saving new event ", newEvent);
+    setEvents([...events, newEvent]);
 
-    //       setSnackbarOptions({
-    //         severity: "success",
-    //         message: "Event successfully created!",
-    //       });
+    setSnackbarOptions({
+      severity: "success",
+      message: "Event successfully created!",
+    });
 
-    //       setOpenSnackbar(true);
-    //     }
+    setOpenSnackbar(true);
 
-    //     setEventDate("");
-    //     setEventTitle("");
-    //     setEventLocation("");
-    //     setEventLocationUrl("");
-    //     setEventImageUrl("");
+    reset({
+      "event-title-input": "",
+      "event-location-input": "",
+      "event-location-url-input": "",
+      "event-image-url-input": "",
+    });
 
-    //     handleClose();
-    //   })
-    //   .catch((err) => {
-    //     console.log(err.name); // ValidationError
-    //     console.log(err.errors); // ['Not a proper email']
-    //   });
+    setEventDate("");
+    setEventTitle("");
+    setEventLocation("");
+    setEventLocationUrl("");
+    setEventImageUrl("");
+
+    handleClose();
   };
 
   const isDateValid = (dateToValidate) => {
@@ -107,8 +95,6 @@ const CreateEventModal = ({
         message: "Invalid Date",
       };
     }
-    console.log(`${dateToday} - ${dateToCheck}`);
-    console.log(dateToday > dateToCheck);
 
     if (dateToday > dateToCheck) {
       return {
@@ -140,58 +126,19 @@ const CreateEventModal = ({
       .string()
       .required("Event image url is required!")
       .url("Not a valid url!"),
-    "date-input": yup
-      .date("Not a valid date!")
-      .required("Event date is required!"),
+    // "date-input": yup
+    //   .date("Not a valid date!")
+    //   .required("Event date is required!"),
   });
 
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(validationSchema),
   });
-
-  console.log(isDateValid(eventDate));
-
-  const checkForTitleError = (title) => {
-    return setTitleError(title.length > 5 ? false : true);
-  };
-
-  const checkForLocationError = (location) => {
-    return setLocationError(location.length > 5 ? false : true);
-  };
-
-  const checkForLocationUrlError = (locationUrl) => {
-    setLocationUrlError(!isValidUrl(locationUrl));
-  };
-
-  const checkForImageUrlError = (imageUrl) => {
-    setImageUrlError(!isValidUrl(imageUrl));
-  };
-
-  // useEffect(() => {
-  //   setCreateEventButtonDisabled(
-  //     eventTitle.length < 1 ||
-  //       eventLocation.length < 1 ||
-  //       eventLocationUrl.length < 1 ||
-  //       eventImageUrl.length < 1 ||
-  //       titleError ||
-  //       locationError ||
-  //       locationUrlError ||
-  //       imageUrlError
-  //   );
-  // }, [
-  //   eventTitle,
-  //   eventLocation,
-  //   eventLocationUrl,
-  //   eventImageUrl,
-  //   titleError,
-  //   locationError,
-  //   locationUrlError,
-  //   imageUrlError,
-  // ]);
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -224,7 +171,6 @@ const CreateEventModal = ({
               helperText={errors["event-title-input"]?.message}
               onChange={(event) => {
                 setEventTitle(event.target.value);
-                checkForTitleError(event.target.value);
               }}
               inputProps={{ "data-testid": "event-title-input" }}
             />
@@ -243,7 +189,6 @@ const CreateEventModal = ({
               helperText={errors["event-location-input"]?.message}
               onChange={(event) => {
                 setEventLocation(event.target.value);
-                checkForLocationError(event.target.value);
               }}
               inputProps={{ "data-testid": "event-location-input" }}
             />
@@ -262,7 +207,6 @@ const CreateEventModal = ({
               helperText={errors["event-location-url-input"]?.message}
               onChange={(event) => {
                 setEventLocationUrl(event.target.value);
-                checkForLocationUrlError(event.target.value);
               }}
               inputProps={{ "data-testid": "event-location-url-input" }}
             />
@@ -281,7 +225,6 @@ const CreateEventModal = ({
               helperText={errors["event-image-url-input"]?.message}
               onChange={(event) => {
                 setEventImageUrl(event.target.value);
-                checkForImageUrlError(event.target.value);
               }}
               inputProps={{ "data-testid": "event-image-url-input" }}
             />
@@ -295,7 +238,7 @@ const CreateEventModal = ({
                   helperText:
                     !isDateValid(eventDate).result &&
                     isDateValid(eventDate).message,
-                  "data-testid": "event-date-input"
+                  "data-testid": "event-date-input",
                 },
               }}
               onChange={(newValue) => setEventDate(newValue)}
@@ -313,7 +256,6 @@ const CreateEventModal = ({
               variant="contained"
               type="submit"
               onClick={handleSubmit(handlCreateEventClicked)}
-              disabled={createEventButtonDisabled}
             >
               Create Event
             </Button>
