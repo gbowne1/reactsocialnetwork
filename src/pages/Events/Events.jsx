@@ -107,9 +107,9 @@ const Events = ({ themeMode }) => {
               </Button>
 
               <Select
-                id="attendance-select"
-                data-testid="attendance-select"
-                className={`Events__attendance-select ${themeMode}`}
+                id="attendance-filter"
+                data-testid="attendance-filter"
+                className={`Events__attendance-filter ${themeMode}`}
                 value={eventsFilterValue}
                 onChange={handleEventFilterClicked}
               >
