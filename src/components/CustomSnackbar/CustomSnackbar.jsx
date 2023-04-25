@@ -36,6 +36,7 @@ const CustomSnackbar = ({
 
   return (
     <Snackbar
+
       anchorOrigin={{ vertical, horizontal }}
       open={open}
       onClose={() => {
@@ -46,6 +47,8 @@ const CustomSnackbar = ({
     >
       {alert && (
         <Alert
+          id="alert-message"
+          data-testid="alert-message"
           severity={severity}
           sx={{ mb: 2 }}
           action={
