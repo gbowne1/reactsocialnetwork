@@ -8,22 +8,27 @@
  * @param {string} image url for a placeholder image to fallback on in case image.onerror is called.
  */
 
-const checkImage = (imageUrl, setImageUrl, placeholderImageUrl) => {
+const checkImage = (
+  imageUrl,
+  setImageUrl,
+  placeholderImageUrl,
+  logs = false
+) => {
   if (!imageUrl) imageUrl = placeholderImageUrl;
 
-  console.log(`Calling checkImage on imageUrl ${imageUrl}`);
+  logs && console.log(`Calling checkImage on imageUrl ${imageUrl}`);
 
   var image = new Image();
   image.src = imageUrl || placeholderImageUrl;
 
   image.onload = function () {
     if (this.width > 0) {
-      console.log("image exists");
+      logs && console.log("image exists");
       setImageUrl(imageUrl);
     }
   };
   image.onerror = function () {
-    console.log("image doesn't exist");
+    logs && console.log("image doesn't exist");
     setImageUrl(placeholderImageUrl);
   };
 };
