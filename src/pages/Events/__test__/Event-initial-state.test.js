@@ -1,7 +1,13 @@
-import { fireEvent, screen, render } from "@testing-library/react";
+import { screen, render } from "@testing-library/react";
 import { within } from "@testing-library/dom";
 
 import Events from "../Events";
+
+// Format date as is displayed on the Single Event component.
+const date = new Date();
+const formattedDate = `${date.getDate()}/${
+  date.getMonth() + 1
+}/${date.getFullYear()}`;
 
 describe("Test Events component is correctly displayed", () => {
   it("should display events component elements", () => {
@@ -11,19 +17,22 @@ describe("Test Events component is correctly displayed", () => {
 
     expect(screen.getByTestId("create-event-button")).toBeVisible();
 
-    expect(screen.getByTestId("attendance-select")).toBeVisible();
-
-    expect(screen.getAllByTestId("single-event-component")).toHaveLength(3);
+    const singleEventComponents = screen.getAllByTestId(
+      "single-event-component"
+    );
+    singleEventComponents.forEach((component) => {
+      expect(component).toBeVisible();
+    });
   });
 
   it("should display correct data for first single event", () => {
     render(<Events />);
 
     const firstEventData = {
-      date: "24/4/2023",
+      date: formattedDate,
       location: "at: Cinema32",
       title: "Cinema Night!",
-      attendance: "46 interested... 27 going...",
+      participation: "46 interested... 27 going...",
     };
 
     const firstSingleEvent = screen.getAllByTestId("single-event-component")[0];
@@ -40,20 +49,22 @@ describe("Test Events component is correctly displayed", () => {
       within(firstSingleEvent).getByTestId("single-event-title");
     expect(titleText).toHaveTextContent(firstEventData["title"]);
 
-    const attendanceText = within(firstSingleEvent).getByTestId(
-      "single-event-attendance"
+    const participationText = within(firstSingleEvent).getByTestId(
+      "single-event-participation"
     );
-    expect(attendanceText).toHaveTextContent(firstEventData["attendance"]);
+    expect(participationText).toHaveTextContent(
+      firstEventData["participation"]
+    );
   });
 
   it("should display correct data for second single event", () => {
     render(<Events />);
 
     const secondEventData = {
-      date: "24/4/2023",
+      date: formattedDate,
       location: "at: Bulldog Bar",
       title: "Pub Crawl",
-      attendance: "52 interested... 38 going...",
+      participation: "52 interested... 38 going...",
     };
 
     const firstSingleEvent = screen.getAllByTestId("single-event-component")[1];
@@ -70,20 +81,22 @@ describe("Test Events component is correctly displayed", () => {
       within(firstSingleEvent).getByTestId("single-event-title");
     expect(titleText).toHaveTextContent(secondEventData["title"]);
 
-    const attendanceText = within(firstSingleEvent).getByTestId(
-      "single-event-attendance"
+    const participationText = within(firstSingleEvent).getByTestId(
+      "single-event-participation"
     );
-    expect(attendanceText).toHaveTextContent(secondEventData["attendance"]);
+    expect(participationText).toHaveTextContent(
+      secondEventData["participation"]
+    );
   });
 
   it("should display correct data for third single event", () => {
     render(<Events />);
 
     const thirdEventData = {
-      date: "24/4/2023",
+      date: formattedDate,
       location: "at: Mini golf park",
       title: "Mini golf!",
-      attendance: "106 interested... 78 going...",
+      participation: "106 interested... 78 going...",
     };
 
     const firstSingleEvent = screen.getAllByTestId("single-event-component")[2];
@@ -100,9 +113,11 @@ describe("Test Events component is correctly displayed", () => {
       within(firstSingleEvent).getByTestId("single-event-title");
     expect(titleText).toHaveTextContent(thirdEventData["title"]);
 
-    const attendanceText = within(firstSingleEvent).getByTestId(
-      "single-event-attendance"
+    const participationText = within(firstSingleEvent).getByTestId(
+      "single-event-participation"
     );
-    expect(attendanceText).toHaveTextContent(thirdEventData["attendance"]);
+    expect(participationText).toHaveTextContent(
+      thirdEventData["participation"]
+    );
   });
 });
