@@ -1,4 +1,4 @@
-import { act, fireEvent, screen, render } from "@testing-library/react";
+import { act, screen, render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 const user = userEvent.setup();
 
