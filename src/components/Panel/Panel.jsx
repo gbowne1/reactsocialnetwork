@@ -24,6 +24,7 @@ const Panel = ({
   contentHeading,
   isOpen,
   setIsOpen,
+  dataTestId,
   children,
 }) => {
   function handleClose() {
@@ -45,6 +46,7 @@ const Panel = ({
     <>
       {isOpen && (
         <div
+          data-testid={dataTestId}
           className={`Panel ${themeMode}  ${getClassNameFromWidthProp(width)}`}
         >
           <div className={`Panel__header ${themeMode}`}>
@@ -70,7 +72,8 @@ Panel.propTypes = {
   contentHeading: PropTypes.string,
   isOpen: PropTypes.bool,
   setIsOpen: PropTypes.func,
-  children: PropTypes.array,
+  dataTestId: PropTypes.string,
+  children: PropTypes.object,
 };
 
 export default Panel;
