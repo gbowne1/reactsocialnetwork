@@ -86,12 +86,14 @@ const Events = ({ themeMode }) => {
       />
 
       {isOpen && (
-
-        <Box className={`Events ${themeMode}`} data-testid="events-component">
-          <Box className={`Events__header ${themeMode}`}>
-            <h3 className="Events__title">Your Events</h3>
-            <CloseButton handleClose={handleClose} />
-          </Box>
+        <Panel
+          themeMode={themeMode}
+          titleHeading="Your Events"
+          contentHeading="Events"
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+          dataTestId="events-component"
+        >
           <Box className={`Events__content ${themeMode}`}>
             <Box className={`Events__button-panel`}>
               <Button
@@ -134,7 +136,7 @@ const Events = ({ themeMode }) => {
               })}
             </Stack>
           </Box>
-        </Box>
+        </Panel>
       )}
     </>
   );
