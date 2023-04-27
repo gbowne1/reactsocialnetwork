@@ -92,45 +92,50 @@ const Events = ({ themeMode }) => {
           contentHeading="Events"
           isOpen={isOpen}
           setIsOpen={setIsOpen}
+          dataTestId="events-component"
         >
-          <Box className={`Events__button-panel`}>
-            <Button
-              variant="contained"
-              onClick={handleCreateEventClicked}
-              className={`Events__creat-event-button ${themeMode}`}
-            >
-              Create new event
-            </Button>
+          <Box className={`Events__content ${themeMode}`}>
+            <Box className={`Events__button-panel`}>
+              <Button
+                variant="contained"
+                onClick={handleCreateEventClicked}
+                className={`Events__creat-event-button ${themeMode}`}
+                data-testid="create-event-button"
+              >
+                Create new event
+              </Button>
 
-            <Select
-              id="attendance-select"
-              className={`Events__attendance-select ${themeMode}`}
-              value={eventsFilterValue}
-              onChange={handleEventFilterClicked}
-            >
-              <MenuItem value={"Home"}>Home</MenuItem>
-              <MenuItem value={"Going"}>Going</MenuItem>
-              <MenuItem value={"Interested"}>Interested</MenuItem>
-              <MenuItem value={"Not Going"}>Not Going</MenuItem>
-            </Select>
+              <Select
+                id="attendance-filter"
+                data-testid="attendance-filter"
+                className={`Events__attendance-filter ${themeMode}`}
+                value={eventsFilterValue}
+                onChange={handleEventFilterClicked}
+              >
+                <MenuItem value={"Home"}>Home</MenuItem>
+                <MenuItem value={"Going"}>Going</MenuItem>
+                <MenuItem value={"Interested"}>Interested</MenuItem>
+                <MenuItem value={"Not Going"}>Not Going</MenuItem>
+              </Select>
+            </Box>
+
+            <Stack spacing={2} className={`Events__stack ${themeMode}`}>
+              {filteredEvents.map((event, i) => {
+                return (
+                  <SingleEvent
+                    themeMode={themeMode}
+                    key={i}
+                    eventKey={i}
+                    eventData={event}
+                    events={events}
+                    setEvents={setEvents}
+                    setSnackbarOptions={setSnackbarOptions}
+                    setOpenSnackbar={setOpenSnackbar}
+                  />
+                );
+              })}
+            </Stack>
           </Box>
-
-          <Stack spacing={2} className={`Events__stack ${themeMode}`}>
-            {filteredEvents.map((event, i) => {
-              return (
-                <SingleEvent
-                  themeMode={themeMode}
-                  key={i}
-                  eventKey={i}
-                  eventData={event}
-                  events={events}
-                  setEvents={setEvents}
-                  setSnackbarOptions={setSnackbarOptions}
-                  setOpenSnackbar={setOpenSnackbar}
-                />
-              );
-            })}
-          </Stack>
         </Panel>
       )}
     </>

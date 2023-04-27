@@ -37,11 +37,6 @@ const SingleEvent = ({
   };
 
   const handleDeleteButtonClicked = () => {
-    console.log(
-      events.filter((event) => {
-        return event.title !== eventData.title;
-      })
-    );
     const updatedEvents = events.filter((event) => {
       return event.title !== eventData.title;
     });
@@ -64,16 +59,34 @@ const SingleEvent = ({
   }, [eventData.attendance]);
 
   return (
-    <div className={`SingleEvent ${themeMode}`} key={eventKey}>
+    <div
+      data-testid="single-event-component"
+      className={`SingleEvent ${themeMode}`}
+      key={eventKey}
+    >
       <div className={`SingleEvent__info-panel`}>
-        <img className="SingleEvent__image" src={imageUrl} alt="event" />
+        <img
+          id="single-event-image"
+          data-testid="single-event-image"
+          className="SingleEvent__image"
+          src={imageUrl}
+          alt="event"
+        />
         <div className="SingleEvent__text">
-          <p>{formatDate(eventData.date)}</p>
-          <p className="SingleEvent__title">{eventData.title}</p>
-          <p className="SingleEvent__location">
-            <span>at:</span> <a href={`https://example.com/events/${eventData.id}`}>{eventData.locationName}</a>
+          <p data-testid="single-event-date">{formatDate(eventData.date)}</p>
+          <p data-testid="single-event-title" className="SingleEvent__title">
+            {eventData.title}
           </p>
-          <p>
+          <p
+            data-testid="single-event-location"
+            className="SingleEvent__location"
+          >
+            <span>at:</span>{" "}
+            <a href={`https://example.com/events/${eventData.id}`}>
+              {eventData.locationName}
+            </a>
+          </p>
+          <p data-testid="single-event-participation">
             {`${eventData.participation.interested} interested... ${eventData.participation.going} going...`}
           </p>
         </div>
@@ -83,22 +96,23 @@ const SingleEvent = ({
         <Select
           variant="standard"
           id="attendance-select"
+          data-testid="attendance-select"
           className={`SingleEvent__attendance-select ${themeMode}`}
           value={attendance}
           label="Attendance"
           onChange={handleAttendanceChange}
         >
-          <MenuItem value={"Going"}>
+          <MenuItem value={"Going"} data-testid="attendance-going">
             <CheckCircleIcon
               className={`SingleEvent__attendance-icon ${themeMode}`}
             />
             Going
           </MenuItem>
-          <MenuItem value={"Interested"}>
+          <MenuItem value={"Interested"} data-testid="attendance-interested">
             <StarIcon className={`SingleEvent__attendance-icon ${themeMode}`} />
             Interested
           </MenuItem>
-          <MenuItem value={"Not Going"}>
+          <MenuItem value={"Not Going"} data-testid="attendance-not-going">
             <CancelIcon
               className={`SingleEvent__attendance-icon ${themeMode}`}
             />
@@ -108,12 +122,16 @@ const SingleEvent = ({
 
         <Button
           variant="outlined"
+          id="share-button"
+          data-testid="share-button"
           className={`SingleEvent__share-button ${themeMode}`}
         >
           <ReplyIcon className="SingleEvent__share-button-icon" />
         </Button>
         <Button
           variant="outlined"
+          id="delete-button"
+          data-testid="delete-button"
           className={`SingleEvent__delete-button ${themeMode}`}
           onClick={handleDeleteButtonClicked}
         >
