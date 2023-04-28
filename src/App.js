@@ -7,7 +7,7 @@ import UserProfile from "./pages/UserProfile/UserProfile";
 import Profile from "./pages/Profile/Profile";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Settings from "./pages/Settings/Settings";
-import Friends from "./pages/Friends/Friends"
+import Friends from "./pages/Friends/Friends";
 import Events from "./pages/Events/Events";
 import Footer from "./layouts/Footer/Footer";
 import NotFound from "./pages/NotFound/NotFound";
@@ -17,12 +17,12 @@ import Post from "./pages/Post/Post";
 import TopNav from "./layouts/TopNav/TopNav";
 import Login from "./pages/Login/Login";
 import HelpCenter from "./pages/HelpCenter/HelpCenter";
-import SubjectDetails from './pages/HelpCenter/SubjectDetails';
+import SubjectDetails from "./pages/HelpCenter/SubjectDetails";
 
 import getFromLocalStorage from "./utils/getFromLocalStorage";
 import Feedback from "./pages/Feedback/Feedback";
 import saveToLocalStorage from "./utils/saveToLocalStorage";
-import helpCenterContentCategories from "./data/json/helpCenterContentCategories.json"
+import helpCenterContentCategories from "./data/json/helpCenterContentCategories.json";
 
 const App = () => {
   
@@ -30,18 +30,18 @@ const App = () => {
   const [loginToken, setLoginToken] = useState(lastLoginCredentials);
   const [themeMode, setThemeMode] = useState(
     getFromLocalStorage("isThemeLightMode") ||
-    (() => {
-      saveToLocalStorage("isThemeLightMode", "light-mode");
-      return getFromLocalStorage("isThemeLightMode");
-    }
-  ));
+      (() => {
+        saveToLocalStorage("isThemeLightMode", "light-mode");
+        return getFromLocalStorage("isThemeLightMode");
+      })
+  );
   const [isSideNavVisible, setIsSideNavVisible] = useState(false);
 
   const handleThemeModeChange = () => {
     const newTheme = themeMode === "light-mode" ? "dark-mode" : "light-mode";
     saveToLocalStorage("isThemeLightMode", newTheme);
-    setThemeMode(newTheme)
-  }
+    setThemeMode(newTheme);
+  };
 
   if (!loginToken) {
     return (
@@ -69,7 +69,10 @@ const App = () => {
           </header>
 
           <div className={`Main-app-container ${themeMode}`}>
-            <SideNav isSideNavVisible={isSideNavVisible} themeMode={themeMode} />
+            <SideNav
+              isSideNavVisible={isSideNavVisible}
+              themeMode={themeMode}
+            />
             <main className={`Main-app ${themeMode}`}>
               <section className={`Section-app ${themeMode}`}>
                 <Routes>
@@ -124,35 +127,30 @@ const App = () => {
                     element={<Feedback themeMode={themeMode} />}
                   />
                   <Route
-                      exact
-                      path="/help"
-                      element={<HelpCenter themeMode={themeMode} />}
+                    exact
+                    path="/help"
+                    element={<HelpCenter themeMode={themeMode} />}
                   >
-                    {
-                      helpCenterContentCategories.map(category => {
-                        const {categoryId, subcategories} = category;
+                    {helpCenterContentCategories.map((category) => {
+                      const { categoryId, subcategories } = category;
 
-                          return subcategories.map(subcategory => {
+                      return subcategories.map((subcategory) => {
+                        const { subcategoryId, header, content } = subcategory;
 
-                            const {subcategoryId, header, content} = subcategory;
-                            
-                            return (
-                              <Route 
-                                  key={`url-${categoryId}-${subcategoryId}`}
-                                  path={`${categoryId}/${subcategoryId}`}
-                                  element={
-                                    <SubjectDetails 
-                                      header={header}
-                                      content={content}
-                                    />
-                                  }
+                        return (
+                          <Route
+                            key={`url-${categoryId}-${subcategoryId}`}
+                            path={`${categoryId}/${subcategoryId}`}
+                            element={
+                              <SubjectDetails
+                                header={header}
+                                content={content}
                               />
-                            )
-
-                          })
-                      })
-                    }
-
+                            }
+                          />
+                        );
+                      });
+                    })}
                   </Route>
                   <Route
                     exact

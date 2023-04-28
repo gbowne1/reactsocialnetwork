@@ -1,66 +1,66 @@
 {
-	"[json]": {
-		"editor.quickSuggestions": {
-			"strings": true,
-			"comments": "on",
-		},
-		"editor.defaultFormatter": "ZainChen.json",
-		"editor.suggest.insertMode": "replace"
-	},
-	"[html]": {
-		"editor.suggest.insertMode": "replace",
-		"editor.defaultFormatter": "vscode.html-language-features",
-	},
-	"[css]": {
-		"editor.suggest.insertMode": "replace",
-		"editor.defaultFormatter": "vscode.css-language-features",
-	},
-	"[javascript]": {
-		"editor.maxTokenizationLineLength": 2500,
-		"editor.defaultFormatter": "esbenp.prettier-vscode",
-	},
-	"[markdown]": {
-		"editor.unicodeHighlight.ambiguousCharacters": false,
-		"editor.unicodeHighlight.invisibleCharacters": false,
-		"editor.wordWrap": "on",
-		"editor.quickSuggestions": {
-			"comments": "off",
-			"strings": "off",
-			"other": "off"
-		},
-		"cSpell.fixSpellingWithRenameProvider": true,
-		"cSpell.advanced.feature.useReferenceProviderWithRename": true,
-		"cSpell.advanced.feature.useReferenceProviderRemove": "/^#+\\s/",
-		"editor.defaultFormatter": "vscode.markdown-language-features",
-	},
-	"[jsonc]": {
-		"editor.quickSuggestions": {
-			"strings": true
-		},
-		"editor.suggest.insertMode": "replace",
-		"editor.defaultFormatter": "vscode.json-language-features",
-	},
-	"[yaml]": {
-		"editor.insertSpaces": true,
-		"editor.tabSize": 2,
-		"editor.autoIndent": "keep",
-		"editor.quickSuggestions": {
-			"other": true,
-			"comments": false,
-			"strings": true
-		},
-		"editor.defaultFormatter": "redhat.vscode-yaml",
-	},
-	"[javascriptreact]": {
-		"editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
-		"editor.formatOnSave": false
-	},
-	"liveServer.settings.port": 5500,
-	"files.associations": {
-		"*.jsx": "javascriptreact",
-		"*.js": "javascript"
-	},
-	"emmet.includeLanguages": {
-		"javascriptreact": "javascriptreact"
-	}
+  "[json]": {
+    "editor.quickSuggestions": {
+      "strings": true,
+      "comments": "on"
+    },
+    "editor.defaultFormatter": "ZainChen.json",
+    "editor.suggest.insertMode": "replace"
+  },
+  "[html]": {
+    "editor.suggest.insertMode": "replace",
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[css]": {
+    "editor.suggest.insertMode": "replace",
+    "editor.defaultFormatter": "vscode.css-language-features"
+  },
+  "[javascript]": {
+    "editor.maxTokenizationLineLength": 2500,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.unicodeHighlight.ambiguousCharacters": false,
+    "editor.unicodeHighlight.invisibleCharacters": false,
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": {
+      "comments": "off",
+      "strings": "off",
+      "other": "off"
+    },
+    "cSpell.fixSpellingWithRenameProvider": true,
+    "cSpell.advanced.feature.useReferenceProviderWithRename": true,
+    "cSpell.advanced.feature.useReferenceProviderRemove": "/^#+\\s/",
+    "editor.defaultFormatter": "vscode.markdown-language-features"
+  },
+  "[jsonc]": {
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    "editor.suggest.insertMode": "replace",
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[yaml]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.autoIndent": "keep",
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": false,
+      "strings": true
+    },
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+    "editor.formatOnSave": false
+  },
+  "liveServer.settings.port": 5500,
+  "files.associations": {
+    "*.jsx": "javascriptreact",
+    "*.js": "javascript"
+  },
+  "emmet.includeLanguages": {
+    "javascriptreact": "javascriptreact"
+  }
 }

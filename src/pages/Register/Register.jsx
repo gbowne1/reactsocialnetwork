@@ -1,5 +1,5 @@
-import React from 'react';
-import './Register.css';
+import React from "react";
+import "./Register.css";
 
 class Register extends React.Component {
   render() {
@@ -10,27 +10,31 @@ class Register extends React.Component {
           type="text"
           className="Register-input"
           placeholder="username"
-          required>
+          required
+        >
           User Name
         </input>
         <input
           type="password"
           className="Register-input"
           placeholder="password"
-          required>
+          required
+        >
           Password
         </input>
         <input
           type="password"
           className="Register-input"
           placeholder="password"
-          required>
+          required
+        >
           Password Confirmation
         </input>
         <button
           type="submit"
           className="Register-button"
-          onClick="handleSubmit">
+          onClick="handleSubmit"
+        >
           Register
         </button>
       </form>

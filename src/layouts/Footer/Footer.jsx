@@ -1,14 +1,12 @@
-import React from 'react';
-import './Footer.css';
-import PropTypes from 'prop-types';
+import React from "react";
+import "./Footer.css";
+import PropTypes from "prop-types";
 
-function Footer({themeMode}){
-  
+function Footer({ themeMode }) {
   return (
     <footer className={`Footer-body ${themeMode}`}>
       <div className="row">
-        <div className="col">
-        </div>
+        <div className="col"></div>
       </div>
       <section className={`Footer-footer ${themeMode}`}>
         <ul>
@@ -25,7 +23,7 @@ function Footer({themeMode}){
 }
 
 Footer.propTypes = {
-  themeMode: PropTypes.string
- };
+  themeMode: PropTypes.string,
+};
 
 export default Footer;

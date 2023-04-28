@@ -8,7 +8,6 @@ Gregory K. Bowne @gbowne1
 
 ## Notable Bug Reporters
 
-
 ## Code Contributors
 
 - @cidrokp1 Kevin Lourenço

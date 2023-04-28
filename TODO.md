@@ -11,7 +11,7 @@ App | UI / UX:
 
 - [ ] Create User Profile Page
   - [ ] Create a method to Edit/Update User Profile
-  - [ ] Add method to update 
+  - [ ] Add method to update
 - [ ] Create component to show user analytics data on users dashboard or profile.
 - [ ] Add a chat
 - [ ] Add/Create an Event component/page with

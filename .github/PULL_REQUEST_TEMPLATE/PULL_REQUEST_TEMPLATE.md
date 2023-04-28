@@ -17,7 +17,7 @@ Fixes # (issue)
 
 ## How Has This Been Tested?
 
-Please describe the tests that you ran to verify your changes. Provide instructions so we can reproduce. Please also list any relevant details for your test configuration.  If you can, also describe your test and any test libraries for instance, Jest or Mocha for Javascript.
+Please describe the tests that you ran to verify your changes. Provide instructions so we can reproduce. Please also list any relevant details for your test configuration. If you can, also describe your test and any test libraries for instance, Jest or Mocha for Javascript.
 
 - [ ] Test A
 - [ ] Test B

@@ -1,5 +1,5 @@
-import React from 'react';
-import './Terms.css';
+import React from "react";
+import "./Terms.css";
 
 class Terms extends React.Component {
   render() {

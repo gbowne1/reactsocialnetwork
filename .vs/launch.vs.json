@@ -1,7 +1,5 @@
 {
-    "version": "0.2.1",
-    "defaults": {},
-    "configurations": [
-
-    ]
+  "version": "0.2.1",
+  "defaults": {},
+  "configurations": []
 }
