@@ -71,7 +71,7 @@ const SingleEvent = ({
           <p>{formatDate(eventData.date)}</p>
           <p className="SingleEvent__title">{eventData.title}</p>
           <p className="SingleEvent__location">
-          <span>at:</span> <a href={`https://example.com/events/${eventData.id}`}>{eventData.locationName}</a>
+            <span>at:</span> <a href={`https://example.com/events/${eventData.id}`}>{eventData.locationName}</a>
           </p>
           <p>
             {`${eventData.participation.interested} interested... ${eventData.participation.going} going...`}
