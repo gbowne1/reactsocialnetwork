@@ -3,17 +3,25 @@
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
-    "plugin:prettier/recommended",
-    "prettier/react"
+    "plugin:prettier/recommended"
   ],
-  "plugins": ["react", "prettier"],
+  "plugins": [
+    "react",
+    "prettier"
+  ],
   "rules": {
     "prettier/prettier": "error",
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
-    "no-console": "warn", //new rule
-    "semi": ["error", "always"],
-    "quotes": ["error", "double"]
+    "no-console": "warn",
+    "semi": [
+      "error",
+      "always"
+    ],
+    "quotes": [
+      "error",
+      "double"
+    ]
   },
   "settings": {
     "react": {
