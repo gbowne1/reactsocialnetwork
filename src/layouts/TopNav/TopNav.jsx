@@ -27,7 +27,7 @@ import AccountBoxIcon from "@mui/icons-material/AccountBox";
 
 import NotificationBell from "./NotificationBell/NotificationBell";
 import "./TopNav.css";
-import {useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 import saveToLocalStorage from "../../utils/saveToLocalStorage";
 
 export default function TopNav({
@@ -36,8 +36,7 @@ export default function TopNav({
   setIsSideNavVisible,
   isSideNavVisible,
 }) {
-  
-  let navigate = useNavigate(); 
+  let navigate = useNavigate();
 
   const themeAccentColor = themeMode === "light-mode" ? "#30489f" : "#FFD369";
 
@@ -83,29 +82,29 @@ export default function TopNav({
   };
 
   const handleSettingsClicked = () => {
-    navigate("/settings", {state: window.location.pathname});
+    navigate("/settings", { state: window.location.pathname });
     handleMenuClose();
   };
 
   const handleHelpClicked = () => {
-    navigate("/help", {state: window.location.pathname});
+    navigate("/help", { state: window.location.pathname });
     handleMenuClose();
   };
 
   const handleFeedbackClicked = () => {
-    navigate("/feedback", {state: window.location.pathname});
+    navigate("/feedback", { state: window.location.pathname });
     handleMenuClose();
   };
 
   const handleLogoutClicked = () => {
     saveToLocalStorage("lastLoginCredentials", null);
-    navigate("/", {state: window.location.pathname});
+    navigate("/", { state: window.location.pathname });
     window.location.reload();
     handleMenuClose();
   };
 
   const handleMyAccountClicked = () => {
-    navigate("/profile", {state: window.location.pathname});
+    navigate("/profile", { state: window.location.pathname });
     handleMenuClose();
   };
 

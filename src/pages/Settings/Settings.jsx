@@ -2,13 +2,11 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { FormControlLabel, FormGroup, Switch } from "@mui/material";
 
-
 import Panel from "../../components/Panel/Panel";
 import "./Settings.css";
 
 function Settings({ themeMode }) {
   const [isOpen, setIsOpen] = useState(true);
-
 
   return (
     <>

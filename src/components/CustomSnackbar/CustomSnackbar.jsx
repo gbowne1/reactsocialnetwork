@@ -36,7 +36,6 @@ const CustomSnackbar = ({
 
   return (
     <Snackbar
-
       anchorOrigin={{ vertical, horizontal }}
       open={open}
       onClose={() => {

@@ -16,7 +16,7 @@ body:
     attributes:
       label: Describe the Bug
       description: A clear and concise description of what the bug is and the expected behaviour
-    validations: 
+    validations:
       required: true
   - type: textarea
     attributes:
@@ -34,9 +34,9 @@ body:
       label: Screenshots
       description: If applicable, add screenshots to help explain your problem
       placeholder: |
-       Drag and drop image here
-                        OR
-       Click the textarea then "Attach files"
+        Drag and drop image here
+                         OR
+        Click the textarea then "Attach files"
     validations:
       required: false
   - type: markdown

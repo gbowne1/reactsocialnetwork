@@ -1,7 +1,7 @@
 # Security Policy
 
 If you discover any security issues, do not use the issue tracker.
-We take all security bugs seriously. 
+We take all security bugs seriously.
 
 Thank you for taking the time to help us improve our security by submitting a security issue. We appreciate your efforts and
 responsible disclosure and will make every effort to acknowledge your contributions.
@@ -21,9 +21,9 @@ announcement, and may ask for additional information or guidance.
 
 ## Supported Versions
 
-| Version   | Supported          |
-| -------   | ------------------ |
-|           |                    |
+| Version | Supported |
+| ------- | --------- |
+|         |           |
 
 ## Reporting a Vulnerability
 

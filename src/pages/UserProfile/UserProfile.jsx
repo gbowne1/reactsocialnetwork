@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { useNavigate } from 'react-router-dom';
-import './UserProfile.css';
+import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
+import "./UserProfile.css";
 
 const UserProfile = ({ user }) => {
   const navigate = useNavigate();
@@ -10,12 +10,12 @@ const UserProfile = ({ user }) => {
   useEffect(() => {
     if (!userData) {
       // Fetch user data from local storage or API here
-      const storedUser = JSON.parse(localStorage.getItem('user'));
+      const storedUser = JSON.parse(localStorage.getItem("user"));
       if (storedUser) {
         setUserData(storedUser);
       } else {
         // Redirect to login page if no user data is found
-        navigate('/login');
+        navigate("/login");
       }
     }
   }, [userData, navigate]);

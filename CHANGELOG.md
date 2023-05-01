@@ -15,8 +15,8 @@ See Unreleased
 
 ### Added
 
-  Initial commit includes files for initial work.
-  
+Initial commit includes files for initial work.
+
 ### Changed
 
 ### Removed
@@ -24,5 +24,4 @@ See Unreleased
 ### Fixed
 
 [Unreleased]: (link)
-
 [0.0.1]: (link)

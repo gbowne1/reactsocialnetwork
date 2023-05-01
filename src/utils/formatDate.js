@@ -1,11 +1,10 @@
 /**
  *  Takes a date string of the format 2023-03-16T19:06:40.751Z
  *  and returns a string with the format dd/mm/yyyy
- * 
- * @param {*} dateString 
+ *
+ * @param {*} dateString
  * @returns string
  */
-
 
 const formatDate = (dateString) => {
   let dateObj;

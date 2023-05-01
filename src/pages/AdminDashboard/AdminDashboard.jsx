@@ -1,17 +1,39 @@
-import React, { useState, useEffect, useLayoutEffect, useMemo, useCallback } from 'react';
-import PropTypes from 'prop-types';
-import { useHistory, useLocation, useNavigate, useParams, Navigate, Outlet, Link } from 'react-router-dom';
-import { Box, Button, IconButton, Pagination, Typography, TextField, Breadcrumbs} from '@mui/material';
-import CloseIcon from '@mui/icons-material/Close';
-import HeartIcon from '@mui/icons-material/Favorite';
-import ThumbUpIcon from '@mui/icons-material/ThumbUp';
-import ThumbDownIcon from '@mui/icons-material/ThumbDown';
-import TagIcon from '@mui/icons-material/LocalOffer';
-import { isAuthenticated } from '../helper/auth';
+import React, {
+  useState,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useCallback,
+} from "react";
+import PropTypes from "prop-types";
+import {
+  useHistory,
+  useLocation,
+  useNavigate,
+  useParams,
+  Navigate,
+  Outlet,
+  Link,
+} from "react-router-dom";
+import {
+  Box,
+  Button,
+  IconButton,
+  Pagination,
+  Typography,
+  TextField,
+  Breadcrumbs,
+} from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
+import HeartIcon from "@mui/icons-material/Favorite";
+import ThumbUpIcon from "@mui/icons-material/ThumbUp";
+import ThumbDownIcon from "@mui/icons-material/ThumbDown";
+import TagIcon from "@mui/icons-material/LocalOffer";
+import { isAuthenticated } from "../helper/auth";
 
-import './AdminDashboard.css';
+import "./AdminDashboard.css";
 
-const AdminDashboard = ({ }) => {
+const AdminDashboard = ({}) => {
   const history = useHistory();
   const location = useLocation();
   const navigate = useNavigate();
@@ -20,8 +42,11 @@ const AdminDashboard = ({ }) => {
   // Your useState, useEffect, and other hooks here
 
   return (
-    <Box className="AdminDashboard" sx={{ minWidth: '1318.8px', minHeight: '700px' }}>
-      <Box className="AdminDashboard-header" sx={{ minHeight: '60px' }}>
+    <Box
+      className="AdminDashboard"
+      sx={{ minWidth: "1318.8px", minHeight: "700px" }}
+    >
+      <Box className="AdminDashboard-header" sx={{ minHeight: "60px" }}>
         <IconButton>
           <CloseIcon />
         </IconButton>
@@ -58,7 +83,7 @@ const AdminDashboard = ({ }) => {
         </Button>
 
         {/* Text area */}
-        <Box sx={{ display: 'flex', flexDirection: 'column', mt: 2 }}>
+        <Box sx={{ display: "flex", flexDirection: "column", mt: 2 }}>
           <Typography variant="h6">Write a post:</Typography>
           <TextField
             multiline
@@ -66,7 +91,7 @@ const AdminDashboard = ({ }) => {
             variant="outlined"
             placeholder="Write your post here..."
           />
-          <Box sx={{ display: 'flex', justifyContent: 'flex-end', mt: 1 }}>
+          <Box sx={{ display: "flex", justifyContent: "flex-end", mt: 1 }}>
             <Button variant="contained" color="primary">
               Post
             </Button>
@@ -74,7 +99,7 @@ const AdminDashboard = ({ }) => {
         </Box>
 
         {/* Pagination and breadcrumb */}
-        <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 3 }}>
+        <Box sx={{ display: "flex", justifyContent: "space-between", mt: 3 }}>
           <Breadcrumbs>
             <Link color="inherit" href="/">
               Home
