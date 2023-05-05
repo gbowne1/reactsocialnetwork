@@ -1,5 +1,5 @@
 {
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
@@ -9,6 +9,9 @@
     "react",
     "prettier"
   ],
+  "parserOptions": {
+    "requireConfigFile": true
+  },
   "rules": {
     "prettier/prettier": "error",
     "react/jsx-uses-react": "off",
