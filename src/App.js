@@ -1,4 +1,3 @@
-import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { useState } from "react";
 import "./App.css";
@@ -25,7 +24,6 @@ import saveToLocalStorage from "./utils/saveToLocalStorage";
 import helpCenterContentCategories from "./data/json/helpCenterContentCategories.json";
 
 const App = () => {
-  
   const lastLoginCredentials = getFromLocalStorage("lastLoginCredentials");
   const [loginToken, setLoginToken] = useState(lastLoginCredentials);
   const [themeMode, setThemeMode] = useState(
