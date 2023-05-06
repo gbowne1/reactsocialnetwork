@@ -1,49 +1,10 @@
-import { act, screen, render, fireEvent } from "@testing-library/react";
+import { screen, fireEvent } from "@testing-library/react";
 import { within } from "@testing-library/dom";
-
-import SingleEvent from "../SingleEvent";
-
-const eventData = {
-  date: new Date(),
-  title: "Cinema Night!",
-  locationName: "Cinema32",
-  locationUrl: "#",
-  imageUrl:
-    "https://www.shutterstock.com/image-photo/02-august-2018bucharest-romania-people-260nw-1148998826.jpg",
-  attendance: "Not Going",
-
-  participation: {
-    interested: 46,
-    going: 27,
-  },
-};
-const themeMode = "light-theme";
-const mockKey = 1;
-const events = [];
-const mockSetEvents = jest.fn((data) => console.log(data));
-const mockSetSnackbarOptions = jest.fn((data) => console.log(data));
-const mockSetOpenSnackbar = jest.fn((data) => console.log(data));
-
-const renderComponent = () => {
-  act(() => {
-    render(
-      <SingleEvent
-        themeMode={themeMode}
-        key={mockKey}
-        eventKey={mockKey}
-        eventData={eventData}
-        events={events}
-        setEvents={mockSetEvents}
-        setSnackbarOptions={mockSetSnackbarOptions}
-        setOpenSnackbar={mockSetOpenSnackbar}
-      />
-    );
-  });
-};
+import { renderSingleEvent } from "../../../../utils/renderComponent";
 
 describe("Test SingleEvent component functionality", () => {
   it("should have attendance filter working correctly", async () => {
-    renderComponent();
+    const { eventData } = renderSingleEvent();
 
     // Check initial value of attendance filter.
     let attendanceFilter = screen.getByTestId("attendance-select");
@@ -78,7 +39,8 @@ describe("Test SingleEvent component functionality", () => {
   it.skip("should have share button working correctly", () => {});
 
   it("should have delete button working correctly", () => {
-    renderComponent();
+    const { mockSetEvents, mockSetSnackbarOptions, mockSetOpenSnackbar } =
+      renderSingleEvent();
 
     const deleteButton = screen.getByTestId("delete-button");
     fireEvent.click(deleteButton);
