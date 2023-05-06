@@ -1,38 +1,11 @@
-import { act, fireEvent, screen, render } from "@testing-library/react";
+import { act, fireEvent, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 const user = userEvent.setup();
-
-import CreateEventModal from "../CreateEventModal";
-
-const renderComponent = () => {
-  const mockIsOpen = true;
-  const mockHandleClose = jest.fn((data) => console.log(data));
-
-  const events = [];
-  const mockSetEvents = jest.fn((data) => console.log(data));
-
-  const themeMode = "light-mode";
-  const mockSetSnackbarOptions = jest.fn((data) => console.log(data));
-  const mockSetOpenSnackbar = jest.fn((data) => console.log(data));
-
-  act(() => {
-    render(
-      <CreateEventModal
-        isOpen={mockIsOpen}
-        handleClose={mockHandleClose}
-        events={events}
-        setEvents={mockSetEvents}
-        themeMode={themeMode}
-        setSnackbarOptions={mockSetSnackbarOptions}
-        setOpenSnackbar={mockSetOpenSnackbar}
-      />
-    );
-  });
-};
+import { renderCreateEventModal } from "../../../../utils/renderComponent";
 
 describe("Test CreateEventModal validation", () => {
   it("should display error labels when leaving required fields empty", async () => {
-    renderComponent();
+    renderCreateEventModal();
 
     fireEvent.click(screen.getByTestId("create-event-button"));
     const eventTitleHelperText = await screen.findByText(
@@ -55,7 +28,7 @@ describe("Test CreateEventModal validation", () => {
   });
 
   it("should display error label when event title is less than 6 characters", async () => {
-    renderComponent();
+    renderCreateEventModal();
 
     const eventTitleInput = screen.getByTestId("event-title-input");
 
@@ -71,7 +44,7 @@ describe("Test CreateEventModal validation", () => {
   });
 
   it("should display error label when event location is less than 6 characters", async () => {
-    renderComponent();
+    renderCreateEventModal();
 
     const eventLocationInput = screen.getByTestId("event-location-input");
 
@@ -89,7 +62,7 @@ describe("Test CreateEventModal validation", () => {
   });
 
   it("should display error label when event location url is not a valid url", async () => {
-    renderComponent();
+    renderCreateEventModal();
 
     const eventLocationUrlInput = screen.getByTestId(
       "event-location-url-input"
@@ -107,7 +80,7 @@ describe("Test CreateEventModal validation", () => {
   });
 
   it("should display error label when event image url is not a valid url", async () => {
-    renderComponent();
+    renderCreateEventModal();
 
     const eventImageUrlInput = screen.getByTestId("event-image-url-input");
 
@@ -123,7 +96,7 @@ describe("Test CreateEventModal validation", () => {
   });
 
   it("should display error label when leaving event date empty", async () => {
-    renderComponent();
+    renderCreateEventModal();
 
     const eventDateInput = screen.getByLabelText("Event date");
     fireEvent.change(eventDateInput, { target: { value: "04/24/2022" } });
@@ -137,7 +110,7 @@ describe("Test CreateEventModal validation", () => {
   });
 
   it("should display error label when event date in in the past", async () => {
-    renderComponent();
+    renderCreateEventModal();
 
     const eventDateInput = screen.getByLabelText("Event date");
     fireEvent.change(eventDateInput, { target: { value: "" } });
