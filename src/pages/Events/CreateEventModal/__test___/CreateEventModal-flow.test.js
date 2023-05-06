@@ -1,36 +1,12 @@
-import { act, screen, render } from "@testing-library/react";
+import { act, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 const user = userEvent.setup();
-
-import CreateEventModal from "../CreateEventModal";
-
-const mockIsOpen = true;
-const mockHandleClose = jest.fn((data) => console.log(data));
-const events = [];
-const mockSetEvents = jest.fn((data) => console.log(data));
-const themeMode = "light-mode";
-const mockSetSnackbarOptions = jest.fn((data) => console.log(data));
-const mockSetOpenSnackbar = jest.fn((data) => console.log(data));
-
-const renderComponent = () => {
-  act(() => {
-    render(
-      <CreateEventModal
-        isOpen={mockIsOpen}
-        handleClose={mockHandleClose}
-        events={events}
-        setEvents={mockSetEvents}
-        themeMode={themeMode}
-        setSnackbarOptions={mockSetSnackbarOptions}
-        setOpenSnackbar={mockSetOpenSnackbar}
-      />
-    );
-  });
-};
+import { renderCreateEventModal } from "../../../../utils/renderComponent";
 
 describe("Test CreateEventModal flow", () => {
   it("should fill out CreateEventModal succesfully and reset form after submit", async () => {
-    renderComponent();
+    const { mockSetEvents, mockSetSnackbarOptions, mockSetOpenSnackbar } =
+      renderCreateEventModal();
 
     const newEvent = {
       title: "Beach Volleyball",
@@ -41,7 +17,7 @@ describe("Test CreateEventModal flow", () => {
     };
 
     // Check modal is visible.
-    let modal = screen.getByTestId("create-event-modal");
+    const modal = screen.getByTestId("create-event-modal");
     expect(modal).toBeVisible();
 
     const eventTitleInput = screen.getByTestId("event-title-input");
@@ -76,6 +52,6 @@ describe("Test CreateEventModal flow", () => {
     expect(eventLocationInput).toHaveValue("");
     expect(eventLocationUrlInput).toHaveValue("");
     expect(eventImageUrlInput).toHaveValue("");
-    expect(eventDateInput).toHaveValue("MM / DD / YYYY");
+    expect(eventDateInput).toHaveValue("MM/DD/YYYY");
   });
 });
