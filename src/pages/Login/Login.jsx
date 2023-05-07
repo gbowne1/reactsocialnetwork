@@ -124,7 +124,6 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
           return handleAuthentication();
         }
 
-        console.log(filteredUsers);
       }
 
       setSnackbarOptions({
@@ -145,24 +144,13 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
     const foundUsers = savedUsers.find((user) => user.email === userData.email);
 
     if (foundUsers) {
-      console.log(
-        `User with email ${userData.email} already found on localStorage!`
-      );
-
       setSnackbarOptions({
         severity: "warning",
         message: "A user with that email is already registered!",
       });
     } else {
-      console.log(
-        `User with email ${userData.email} NOT found on localStorage, registering!`
-      );
       savedUsers.push(userData);
       saveToLocalStorage("users", savedUsers);
-
-      console.log("User successfully registered!");
-      console.log("Current localStorage users: ");
-      console.log(getFromLocalStorage("users"));
 
       setSnackbarOptions({
         severity: "info",
