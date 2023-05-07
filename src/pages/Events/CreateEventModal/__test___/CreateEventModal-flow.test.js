@@ -27,6 +27,7 @@ describe("Test CreateEventModal flow", () => {
     );
     const eventImageUrlInput = screen.getByTestId("event-image-url-input");
     const eventDateInput = screen.getByLabelText("Event date");
+    const createEventButton = screen.getByTestId("create-event-button");
 
     await act(async () => {
       await user.type(eventTitleInput, newEvent["title"]);
@@ -35,7 +36,7 @@ describe("Test CreateEventModal flow", () => {
       await user.type(eventImageUrlInput, newEvent["imageUrl"]);
       await user.type(eventDateInput, newEvent["date"]);
 
-      await user.click(screen.getByTestId("create-event-button"));
+      await user.click(createEventButton);
     });
 
     // Check that mock functions were called.
