@@ -52,7 +52,6 @@ const CreateEventModal = ({
       },
     };
 
-    console.log("Saving new event ", newEvent);
     setEvents([...events, newEvent]);
 
     setSnackbarOptions({
