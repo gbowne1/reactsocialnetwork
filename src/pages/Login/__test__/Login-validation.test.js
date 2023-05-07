@@ -8,7 +8,9 @@ describe("Tests Login form input validation", () => {
   it("should display error label when leaving username empty", async () => {
     render(<Login />);
 
-    fireEvent.click(screen.getByText(/LOGIN/i));
+    const loginButton = screen.getByText(/LOGIN/i);
+    fireEvent.click(loginButton);
+
     const helperText = await screen.findByText("username is a required field");
     expect(helperText).toBeVisible();
   });
@@ -19,12 +21,15 @@ describe("Tests Login form input validation", () => {
     });
 
     const usernameInput = screen.getByTestId("username");
+    const loginButton = screen.getByText(/LOGIN/i);
 
     await act(async () => {
       await user.type(usernameInput, "ABCDE");
       expect(usernameInput.value).toBe("ABCDE");
-      await user.click(screen.getByText(/LOGIN/i));
+
+      await user.click(loginButton);
     });
+
     const helperText = document.querySelector("#username-helper-text");
     expect(helperText).toHaveTextContent(
       "Username must be at least 6 characters"
@@ -34,7 +39,9 @@ describe("Tests Login form input validation", () => {
   it("should display error label when leaving email empty", async () => {
     render(<Login />);
 
-    fireEvent.click(screen.getByText(/LOGIN/i));
+    const loginButton = screen.getByText(/LOGIN/i);
+    fireEvent.click(loginButton);
+
     const helperText = await screen.findByText("email is a required field");
     expect(helperText).toBeVisible();
   });
@@ -45,11 +52,12 @@ describe("Tests Login form input validation", () => {
     });
 
     const emailInput = screen.getByTestId("email");
+    const loginButton = screen.getByText(/LOGIN/i);
 
     await act(async () => {
       await user.type(emailInput, "notValidEmail");
       expect(emailInput.value).toBe("notValidEmail");
-      await user.click(screen.getByText(/LOGIN/i));
+      await user.click(loginButton);
     });
     const helperText = document.querySelector("#email-helper-text");
     expect(helperText).toHaveTextContent("email must be a valid email");
@@ -58,7 +66,9 @@ describe("Tests Login form input validation", () => {
   it("should display error label if password doens't have at least 8 characters", async () => {
     render(<Login />);
 
-    fireEvent.click(screen.getByText(/LOGIN/i));
+    const loginButton = screen.getByText(/LOGIN/i);
+    fireEvent.click(loginButton);
+
     const helperText = await screen.findByText(
       "password must be at least 8 characters"
     );
@@ -71,11 +81,13 @@ describe("Tests Login form input validation", () => {
     });
 
     const passwordInput = screen.getByTestId("password");
+    const loginButton = screen.getByText(/LOGIN/i);
 
     await act(async () => {
       await user.type(passwordInput, "passwordnouppercase");
       expect(passwordInput.value).toBe("passwordnouppercase");
-      await user.click(screen.getByText(/LOGIN/i));
+
+      await user.click(loginButton);
     });
     const helperText = document.querySelector("#password-helper-text");
     expect(helperText).toHaveTextContent(
@@ -89,11 +101,13 @@ describe("Tests Login form input validation", () => {
     });
 
     const passwordInput = screen.getByTestId("password");
+    const loginButton = screen.getByText(/LOGIN/i);
 
     await act(async () => {
       await user.type(passwordInput, "PASSWORDNOLOWERCASE");
       expect(passwordInput.value).toBe("PASSWORDNOLOWERCASE");
-      await user.click(screen.getByText(/LOGIN/i));
+
+      await user.click(loginButton);
     });
     const helperText = document.querySelector("#password-helper-text");
     expect(helperText).toHaveTextContent(
@@ -107,11 +121,12 @@ describe("Tests Login form input validation", () => {
     });
 
     const passwordInput = screen.getByTestId("password");
+    const loginButton = screen.getByText(/LOGIN/i);
 
     await act(async () => {
       await user.type(passwordInput, "passwordWithNoNumber");
       expect(passwordInput.value).toBe("passwordWithNoNumber");
-      await user.click(screen.getByText(/LOGIN/i));
+      await user.click(loginButton);
     });
     const helperText = document.querySelector("#password-helper-text");
     expect(helperText).toHaveTextContent(
@@ -125,11 +140,13 @@ describe("Tests Login form input validation", () => {
     });
 
     const passwordInput = screen.getByTestId("password");
+    const loginButton = screen.getByText(/LOGIN/i);
 
     await act(async () => {
       await user.type(passwordInput, "passwordWithNoSymbols1");
       expect(passwordInput.value).toBe("passwordWithNoSymbols1");
-      await user.click(screen.getByText(/LOGIN/i));
+
+      await user.click(loginButton);
     });
     const helperText = document.querySelector("#password-helper-text");
     expect(helperText).toHaveTextContent(
@@ -146,13 +163,15 @@ describe("Tests Login form input validation", () => {
     expect(passwordInput.type).toBe("password");
 
     await act(async () => {
-      await user.click(screen.getByTestId("show-password"));
+      const showPasswordButton = screen.getByTestId("show-password");
+      await user.click(showPasswordButton);
     });
 
     expect(passwordInput.type).toBe("text");
 
     await act(async () => {
-      await user.click(screen.getByTestId("show-password"));
+      const showPasswordButton = screen.getByTestId("show-password");
+      await user.click(showPasswordButton);
     });
 
     expect(passwordInput.type).toBe("password");
