@@ -41,7 +41,6 @@ const Events = ({ themeMode }) => {
     const eventFilterValue = event.target.value;
     setEventsFilterValue(eventFilterValue);
 
-    console.log(eventFilterValue);
     if (eventFilterValue === "Home") {
       setFilteredEvents(events);
     } else {
