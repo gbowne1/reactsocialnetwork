@@ -58,7 +58,6 @@ describe("Test Events component attendance filter", () => {
     );
     expect(currentEventsDisplayed).toHaveLength(1);
     // It should have the data of the event mentioned before.
-    console.log(currentEventsDisplayed[0].textContent);
     expect(currentEventsDisplayed[0].textContent).toContain(dateText);
     expect(currentEventsDisplayed[0].textContent).toContain(titleText);
     expect(currentEventsDisplayed[0].textContent).toContain(locationText);
@@ -119,7 +118,6 @@ describe("Test Events component attendance filter", () => {
     );
     expect(currentEventsDisplayed).toHaveLength(1);
     // It should have the data of the event mentioned before.
-    console.log(currentEventsDisplayed[0].textContent);
     expect(currentEventsDisplayed[0].textContent).toContain(dateText);
     expect(currentEventsDisplayed[0].textContent).toContain(titleText);
     expect(currentEventsDisplayed[0].textContent).toContain(locationText);
@@ -180,7 +178,6 @@ describe("Test Events component attendance filter", () => {
     );
     expect(currentEventsDisplayed).toHaveLength(3);
     // It should have the data of the event mentioned before.
-    console.log(currentEventsDisplayed[0].textContent);
     expect(currentEventsDisplayed[0].textContent).toContain(dateText);
     expect(currentEventsDisplayed[0].textContent).toContain(titleText);
     expect(currentEventsDisplayed[0].textContent).toContain(locationText);
