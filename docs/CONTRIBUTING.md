@@ -20,6 +20,9 @@ The layout is a 3 column layout, starting with desktop view with a 200-250px lef
 
 If you are not sure what to work on, review the issues list. There are also TODO's listed in the included TODO.md file.
 
+**Note:** In case you need to build an UI you can use one of our [reusable-components](REUSABLE_COMPONENTS) (located under [src/components](../src/components) ), in order
+to not have to reivent the wheel.
+
 ### PR's
 
 When you do a PR on GitHub, Please make sure you complete the section on the right, Assignees, Reviewers, Labels, Projects, Milestone(s) and Development before you submit the PR. Please also share a screenshot or show the working fix in the Pull Request message and a brief description of what you fixed. Blank issues and descriptions may not get merged.

@@ -8,7 +8,7 @@ Typical 3 column layout including mobile, laptop and tablet views.
 
 ## Contributing
 
-If you would like to contribute to this repository, please read [Contributing](CONTRIBUTING.md).
+If you would like to contribute to this repository, please read [Contributing](docs/CONTRIBUTING.md).
 
 If you are not sure what to work on, there are Issues and a TODO.md file which has quite a few things that need worked on.
 
