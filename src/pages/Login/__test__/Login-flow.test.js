@@ -13,6 +13,7 @@ describe("Tests Login flow", () => {
     const usernameInput = screen.getByTestId("username");
     const emailInput = screen.getByTestId("email");
     const passwordInput = screen.getByTestId("password");
+    const loginButton = screen.getByText(/LOGIN/i);
 
     await act(async () => {
       await user.type(usernameInput, "testuser1");
@@ -24,7 +25,7 @@ describe("Tests Login flow", () => {
       await user.type(passwordInput, "Testpass1!");
       expect(passwordInput.value).toBe("Testpass1!");
 
-      await user.click(screen.getByText(/LOGIN/i));
+      await user.click(loginButton);
     });
 
     const alertMessage = screen.getByTestId("alert-message");
@@ -53,6 +54,7 @@ describe("Tests Login flow", () => {
     const usernameInput = screen.getByTestId("username");
     const emailInput = screen.getByTestId("email");
     const passwordInput = screen.getByTestId("password");
+    const registerButton = screen.getByText(/REGISTER/i);
 
     await act(async () => {
       await user.type(usernameInput, newUser["username"]);
@@ -64,7 +66,7 @@ describe("Tests Login flow", () => {
       await user.type(passwordInput, newUser["password"]);
       expect(passwordInput.value).toBe("Testuser99!");
 
-      await user.click(screen.getByText(/REGISTER/i));
+      await user.click(registerButton);
     });
 
     const alertMessage = screen.getByTestId("alert-message");

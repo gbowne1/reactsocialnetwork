@@ -13,9 +13,11 @@ describe("Test Events component is correctly displayed", () => {
   it("should display events component elements", () => {
     render(<Events />);
 
-    expect(screen.getByTestId("events-component")).toBeVisible();
+    const eventsComponent = screen.getByTestId("events-component");
+    const createEventButton = screen.getByTestId("create-event-button");
 
-    expect(screen.getByTestId("create-event-button")).toBeVisible();
+    expect(eventsComponent).toBeVisible();
+    expect(createEventButton).toBeVisible();
 
     const singleEventComponents = screen.getAllByTestId(
       "single-event-component"
