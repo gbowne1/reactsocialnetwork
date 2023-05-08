@@ -154,7 +154,7 @@ export default function TopNav({
         Feedback
       </MenuItem>
 
-      <MenuItem onClick={handleLogoutClicked}>
+      <MenuItem onClick={handleLogoutClicked} data-testid="logout-button">
         <LogoutIcon
           color="action"
           sx={{
@@ -301,6 +301,7 @@ export default function TopNav({
               iconColor="action"
             />
             <IconButton
+              data-testid="user-menu"
               size="large"
               edge="end"
               aria-label="account of current user"
