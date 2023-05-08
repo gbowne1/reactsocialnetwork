@@ -1,5 +1,32 @@
 /// <reference types="cypress" />
 describe("Login component tests", () => {
+  const submitUserData = (username, email, pass) => {
+    // Input username
+    cy.get('[data-testid="username"]')
+      .type(username)
+      .should("have.value", username);
+
+    // Input email
+    cy.get('[data-testid="email"]').type(email).should("have.value", email);
+
+    // Input password
+    cy.get('[data-testid="password"]').type(pass).should("have.value", pass);
+
+    // Click on submit
+    cy.get('[data-testid="submit"]').click();
+  };
+
+  const checkHomepage = (exists = true) => {
+    // Toolbar is visible
+    cy.get(".MuiToolbar-root").should(exists ? "be.visible" : "not.exist");
+
+    // Section app is visible
+    cy.get(".Section-app").should(exists ? "be.visible" : "not.exist");
+
+    // Dashboard panel is visble
+    cy.get(".Panel").should(exists ? "be.visible" : "not.exist");
+  };
+
   it("should login with hardcoded testuser credentials", () => {
     const TEST_USERNAME = "testuser1";
     const TEST_EMAIL = "testuser@gmail.com";
@@ -10,23 +37,7 @@ describe("Login component tests", () => {
     // Close cookie modal
     cy.get("[data-testid=cookie-modal-close-button]").click();
 
-    // Input username
-    cy.get('[data-testid="username"]')
-      .type(TEST_USERNAME)
-      .should("have.value", TEST_USERNAME);
-
-    // Input username
-    cy.get('[data-testid="email"]')
-      .type(TEST_EMAIL)
-      .should("have.value", TEST_EMAIL);
-
-    // Input username
-    cy.get('[data-testid="password"]')
-      .type(TEST_PASSWORD)
-      .should("have.value", TEST_PASSWORD);
-
-    // Click on submit
-    cy.get('[data-testid="submit"]').click();
+    submitUserData(TEST_USERNAME, TEST_EMAIL, TEST_PASSWORD);
 
     // Check login successful snackbar appears
     cy.get('[data-testid="alert-message"]')
@@ -37,15 +48,7 @@ describe("Login component tests", () => {
     cy.get('[data-testid="loading-spinner"]').should("be.visible");
 
     // Check we are on homepage (dashboard page)
-
-    // Toolbar is visible
-    cy.get(".MuiToolbar-root").should("be.visible");
-
-    // Section app is visible
-    cy.get(".Section-app").should("be.visible");
-
-    // Dashboard panel is visble
-    cy.get(".Panel").should("be.visible");
+    checkHomepage();
   });
 
   it("should NOT login with un-registed credentials", () => {
@@ -58,23 +61,11 @@ describe("Login component tests", () => {
     // Close cookie modal
     cy.get("[data-testid=cookie-modal-close-button]").click();
 
-    // Input username
-    cy.get('[data-testid="username"]')
-      .type(UNREGISTERED_USERNAME)
-      .should("have.value", UNREGISTERED_USERNAME);
-
-    // Input username
-    cy.get('[data-testid="email"]')
-      .type(UNREGISTERED_EMAIL)
-      .should("have.value", UNREGISTERED_EMAIL);
-
-    // Input username
-    cy.get('[data-testid="password"]')
-      .type(UNREGISTERED_PASSWORD)
-      .should("have.value", UNREGISTERED_PASSWORD);
-
-    // Click on submit
-    cy.get('[data-testid="submit"]').click();
+    submitUserData(
+      UNREGISTERED_USERNAME,
+      UNREGISTERED_EMAIL,
+      UNREGISTERED_PASSWORD
+    );
 
     // Check alert message is visible
     cy.get('[data-testid="alert-message"]')
@@ -95,26 +86,10 @@ describe("Login component tests", () => {
     // Close cookie modal
     cy.get("[data-testid=cookie-modal-close-button]").click();
 
-    // Input username
-    cy.get('[data-testid="username"]')
-      .type(NEW_USERNAME)
-      .should("have.value", NEW_USERNAME);
-
-    // Input username
-    cy.get('[data-testid="email"]')
-      .type(NEW_EMAIL)
-      .should("have.value", NEW_EMAIL);
-
-    // Input username
-    cy.get('[data-testid="password"]')
-      .type(NEW_PASSWORD)
-      .should("have.value", NEW_PASSWORD);
-
     // Click on register here!
     cy.get(".subscribe").click();
 
-    // Click on submit
-    cy.get('[data-testid="submit"]').click();
+    submitUserData(NEW_USERNAME, NEW_EMAIL, NEW_PASSWORD);
 
     // Check login successful snackbar appears
     cy.get('[data-testid="alert-message"]')
@@ -125,15 +100,7 @@ describe("Login component tests", () => {
     cy.get('[data-testid="loading-spinner"]').should("be.visible");
 
     // Check we are on homepage (dashboard page)
-
-    // Toolbar is visible
-    cy.get(".MuiToolbar-root").should("be.visible");
-
-    // Section app is visible
-    cy.get(".Section-app").should("be.visible");
-
-    // Dashboard panel is visble
-    cy.get(".Panel").should("be.visible");
+    checkHomepage();
 
     // Logout
     cy.get("[data-testid=user-menu]").click();
@@ -142,45 +109,10 @@ describe("Login component tests", () => {
     // Remove cookie popup again
     cy.get("[data-testid=cookie-modal-close-button]").click();
 
-    // Type new credentials
-    // Input username
-    cy.get('[data-testid="username"]')
-      .type(NEW_USERNAME)
-      .should("have.value", NEW_USERNAME);
-
-    // Input username
-    cy.get('[data-testid="email"]')
-      .type(NEW_EMAIL)
-      .should("have.value", NEW_EMAIL);
-
-    // Input username
-    cy.get('[data-testid="password"]')
-      .type(NEW_PASSWORD)
-      .should("have.value", NEW_PASSWORD);
-
-    // Click on submit
-    cy.get('[data-testid="submit"]').click();
+    submitUserData(NEW_USERNAME, NEW_EMAIL, NEW_PASSWORD);
 
     // Check we are on homepage (dashboard page)
-
-    // Toolbar is visible
-    cy.get(".MuiToolbar-root").should("be.visible");
-
-    // Section app is visible
-    cy.get(".Section-app").should("be.visible");
-
-    // Dashboard panel is visble
-    cy.get(".Panel")
-      .should("be.visible")
-      .then(() => {
-        console.log(localStorage);
-        console.log(localStorage.getItem("users"));
-      });
-
-    cy.then((some) => {
-      window.localStorage.setItem("A", { a: "a" });
-      console.log(window.localStorage);
-    });
+    checkHomepage();
   });
 
   it("should NOT register a new user with already existing credentials", () => {
@@ -205,26 +137,10 @@ describe("Login component tests", () => {
     // Close cookie modal
     cy.get("[data-testid=cookie-modal-close-button]").click();
 
-    // Input username
-    cy.get('[data-testid="username"]')
-      .type(EXISTING_USERNAME)
-      .should("have.value", EXISTING_USERNAME);
-
-    // Input username
-    cy.get('[data-testid="email"]')
-      .type(EXISTING_EMAIL)
-      .should("have.value", EXISTING_EMAIL);
-
-    // Input username
-    cy.get('[data-testid="password"]')
-      .type(EXISTING_PASSWORD)
-      .should("have.value", EXISTING_PASSWORD);
-
     // Click on register here!
     cy.get(".subscribe").click();
 
-    // Click on submit
-    cy.get('[data-testid="submit"]').click();
+    submitUserData(EXISTING_USERNAME, EXISTING_EMAIL, EXISTING_PASSWORD);
 
     // Check alert message is visible
     cy.get('[data-testid="alert-message"]')
@@ -232,14 +148,102 @@ describe("Login component tests", () => {
       .and("have.text", "A user with that email is already registered!");
 
     // Check we are NOT on homepage (dashboard page)
+    checkHomepage(false);
+  });
 
-    // Toolbar is visible
-    cy.get(".MuiToolbar-root").should("not.exist");
+  it("should display error labels when leaving required inputs empty or on validation errors", () => {
+    cy.visit("http://localhost:3000/");
 
-    // Section app is visible
-    cy.get(".Section-app").should("not.exist");
+    // Close cookie modal
+    cy.get("[data-testid=cookie-modal-close-button]").click();
 
-    // Dashboard panel is visble
-    cy.get(".Panel").should("not.exist");
+    // Click on submit
+    cy.get('[data-testid="submit"]').click();
+
+    // Check username helper text
+    cy.get("#username-helper-text")
+      .should("be.visible")
+      .and("have.text", "username is a required field");
+
+    // Check email helper text
+    cy.get("#email-helper-text")
+      .should("be.visible")
+      .and("have.text", "email is a required field");
+
+    // Check password helper text
+    cy.get("#password-helper-text")
+      .should("be.visible")
+      .and("have.text", "password must be at least 8 characters");
+
+    // Add a username with less than 6 characters
+    cy.get('[data-testid="username"]')
+      .type("ABCDE")
+      .should("have.value", "ABCDE");
+
+    // Add an invalid email
+    cy.get('[data-testid="email"]')
+      .type("invalidEmail.com")
+      .should("have.value", "invalidEmail.com");
+
+    cy.get('[data-testid="submit"]').click();
+
+    // Check username helper text
+    cy.get("#username-helper-text")
+      .should("be.visible")
+      .and("have.text", "username must be at least 6 characters");
+
+    // Check email helper text
+    cy.get("#email-helper-text")
+      .should("be.visible")
+      .and("have.text", "email must be a valid email");
+
+    // Add a password with just 8 characters
+    cy.get('[data-testid="password"]')
+      .type("football")
+      .should("have.value", "football");
+
+    cy.get('[data-testid="submit"]').click();
+
+    // Check password helper text
+    cy.get("#password-helper-text")
+      .should("be.visible")
+      .and("have.text", "password must contain at least 1 uppercase letter");
+
+    // Add a password with just 8 characters and 1 uppercase letter
+    cy.get('[data-testid="password"]')
+      .clear()
+      .type("Football")
+      .should("have.value", "Football");
+
+    cy.get('[data-testid="submit"]').click();
+
+    // Check password helper text
+    cy.get("#password-helper-text")
+      .should("be.visible")
+      .and("have.text", "password must contain at least 1 number");
+
+    // Add a password with just 8 characters and 1 uppercase letter and 1 number
+    cy.get('[data-testid="password"]')
+      .clear()
+      .type("Football1")
+      .should("have.value", "Football1");
+
+    cy.get('[data-testid="submit"]').click();
+
+    // Check password helper text
+    cy.get("#password-helper-text")
+      .should("be.visible")
+      .and("have.text", "password must contain at least 1 symbol");
+
+    // Add a password with just 8 characters and 1 uppercase letter and 1 number and 1 symbol
+    cy.get('[data-testid="password"]')
+      .clear()
+      .type("Football1!")
+      .should("have.value", "Football1!");
+
+    cy.get('[data-testid="submit"]').click();
+
+    // Check password helper text is not visible
+    cy.get("#password-helper-text").should("not.be.visible");
   });
 });
