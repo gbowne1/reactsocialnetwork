@@ -55,7 +55,7 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setOpen(true);
-    }, 3000);
+    }, 1000);
 
     return () => clearTimeout(timeout);
   }, []);
@@ -208,6 +208,7 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
             <CardHeader title="Our Website Uses Cookies" />
             <HighlightOffIcon
               className="closeIcon"
+              data-testid="cookie-modal-close-button"
               onClick={() => {
                 setOpen(false);
               }}
@@ -260,7 +261,7 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
       <ThemeProvider theme={theme}>
         <Container className={`Login__container`}>
           {showLoadingSpinner ? (
-            <Box className={`Login_loading-spinner`}>
+            <Box data-testid="loading-spinner" className={`Login_loading-spinner`}>
               <CircularProgress size={60} />
             </Box>
           ) : (
