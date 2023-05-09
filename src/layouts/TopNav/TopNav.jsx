@@ -241,6 +241,7 @@ export default function TopNav({
       <AppBar className={`Top-nav ${themeMode}`} position="fixed">
         <Toolbar>
           <IconButton
+            data-testid="burger-menu-button"
             size="large"
             edge="start"
             color="inherit"
