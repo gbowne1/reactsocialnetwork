@@ -4,24 +4,6 @@
   margin-top: 200px;
 }
 
-.Login_loading-spinner {
-  position: relative;
-  top: 100px;
-  display: flex;
-  justify-content: center;
-  margin: 0 auto;
-}
-
-.Login__theme-mode-switch {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid;
-  border-radius: 10px;
-  width: fit-content;
-  padding: 5px 10px;
-  margin: 0 auto 20px;
-}
 
 .Login__theme-mode-switch.light-mode {
   border-color: var(--bg-dark-100);
@@ -90,12 +72,14 @@
   width: 30vw;
   position: relative;
 }
+
 .cookies-card-bottom {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
 }
+
 .card-footer {
   width: 100vw;
   display: flex;
@@ -103,6 +87,7 @@
   align-items: center;
   gap: 10px;
 }
+
 .necessarybtn,
 .acceptallbtn {
   width: 48%;
@@ -123,6 +108,7 @@
   top: 5%;
   right: 3%;
 }
+
 .closeIcon:hover {
   cursor: pointer;
 }
