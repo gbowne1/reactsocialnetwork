@@ -45,14 +45,6 @@ const TEST_EMAIL = "testuser@gmail.com";
 const TEST_PASSWORD = "Testpass1!";
 
 const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
-  const [open, setOpen] = useState(false);
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setOpen(true);
-    }, 1000);
-
-    return () => clearTimeout(timeout);
-  }, []);
   const [showPassword, setShowPassword] = useState(false);
   const [isLoginView, setLoginView] = useState(true);
   const [userData, setUserData] = useState({
@@ -165,7 +157,7 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
       setShowLoadingSpinner(true);
       setTimeout(() => {
         // Show the app.
-        setLoginToken(true);
+        setLoginToken && setLoginToken(true);
       }, 1000);
     }, 1000);
   };
@@ -173,9 +165,9 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
   const validationSchema = yup.object().shape({
     username: yup
       .string()
-      .required()
-      .min(6, "username must be at least 6 characters"),
-    email: yup.string().required().email(),
+      .required("Username is a required field")
+      .min(6, "Username must be at least 6 characters"),
+    email: yup.string().required("Email is a required field").email("Email must be a valid email"),
     password: yup.string().password().required(),
   });
 
