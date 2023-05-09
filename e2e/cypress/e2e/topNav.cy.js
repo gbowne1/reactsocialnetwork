@@ -85,19 +85,15 @@ describe("Top Nav tests", () => {
     cy.get('[data-testid="user-menu"]').click();
 
     cy.get('[data-testid="menu-my-account"]').should("be.visible");
-
     cy.get('[data-testid="menu-my-account"]').click();
 
     // Check theme switch is visible, click on it and check app has dark-mode class
     cy.get('[data-testid="theme-switch"]').should("be.visible");
-
     cy.get('[data-testid="theme-switch"]').click();
-
     cy.get(".App").should("have.class", "dark-mode");
 
     // Click on theme switch again and check app now has light-mode class
     cy.get('[data-testid="theme-switch"]').click();
-
     cy.get(".App").should("have.class", "light-mode");
 
     // Click user profile icon
