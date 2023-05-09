@@ -1,5 +1,6 @@
 /// <reference types="cypress" />
-describe("Login component tests", () => {
+
+describe("Login tests", () => {
   const submitUserData = (username, email, pass) => {
     // Input username
     cy.get('[data-testid="username"]')
@@ -54,7 +55,7 @@ describe("Login component tests", () => {
   it("should NOT login with un-registed credentials", () => {
     const UNREGISTERED_USERNAME = "SomeUsername";
     const UNREGISTERED_EMAIL = "SomeEmail@mail.com";
-    const UNREGISTERED_PASSWORD = "SomePassword123!";
+    const UNREGISTERED_PASSWORD = "Somepassword123!";
 
     cy.visit("http://localhost:3000/");
 
@@ -163,12 +164,12 @@ describe("Login component tests", () => {
     // Check username helper text
     cy.get("#username-helper-text")
       .should("be.visible")
-      .and("have.text", "username is a required field");
+      .and("have.text", "Username is a required field");
 
     // Check email helper text
     cy.get("#email-helper-text")
       .should("be.visible")
-      .and("have.text", "email is a required field");
+      .and("have.text", "Email is a required field");
 
     // Check password helper text
     cy.get("#password-helper-text")
@@ -190,12 +191,12 @@ describe("Login component tests", () => {
     // Check username helper text
     cy.get("#username-helper-text")
       .should("be.visible")
-      .and("have.text", "username must be at least 6 characters");
+      .and("have.text", "Username must be at least 6 characters");
 
     // Check email helper text
     cy.get("#email-helper-text")
       .should("be.visible")
-      .and("have.text", "email must be a valid email");
+      .and("have.text", "Email must be a valid email");
 
     // Add a password with just 8 characters
     cy.get('[data-testid="password"]')
