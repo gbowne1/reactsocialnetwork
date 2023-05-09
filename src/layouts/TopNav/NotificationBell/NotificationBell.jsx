@@ -20,6 +20,7 @@ const NotificationBell = ({ notifications, setOpen }) => {
       title={notifications.length ? newNotifications : noNewNotifications}
     >
       <IconButton
+        data-testid="notification-bell"
         size="large"
         color="inherit"
         aria-label={`show ${notifications.length} new notifications`}
