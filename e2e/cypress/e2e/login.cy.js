@@ -105,7 +105,7 @@ describe("Login tests", () => {
 
     // Logout
     cy.get("[data-testid=user-menu]").click();
-    cy.get("[data-testid=logout-button]").click();
+    cy.get("[data-testid=menu-logout]").click();
 
     // Remove cookie popup again
     cy.get("[data-testid=cookie-modal-close-button]").click();
