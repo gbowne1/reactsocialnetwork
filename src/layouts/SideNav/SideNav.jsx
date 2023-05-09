@@ -9,7 +9,7 @@ import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
 
 const SideNav = ({ isSideNavVisible, themeMode }) => {
   return (
-    <Menu isOpen={isSideNavVisible} className={`${themeMode}`}>
+    <Menu isOpen={isSideNavVisible} className={`${themeMode}`} data-testid="side-nav">
       <a className={`menu-item ${themeMode}`} href="/groups">
         <GroupsIcon className="side-nav-icon" />
         Groups
