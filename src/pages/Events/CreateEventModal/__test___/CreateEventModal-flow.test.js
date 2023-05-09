@@ -27,7 +27,7 @@ describe("Test CreateEventModal flow", () => {
     );
     const eventImageUrlInput = screen.getByTestId("event-image-url-input");
     const eventDateInput = screen.getByLabelText("Event date");
-    const createEventButton = screen.getByTestId("create-event-button");
+    const createEventButton = screen.getByTestId("create-event-modal-button");
 
     await act(async () => {
       await user.type(eventTitleInput, newEvent["title"]);
