@@ -20,7 +20,7 @@ The layout is a 3 column layout, starting with desktop view with a 200-250px lef
 
 If you are not sure what to work on, review the issues list. There are also TODO's listed in the included TODO.md file.
 
-**Note:** In case you need to build an UI you can use one of our [reusable-components](REUSABLE_COMPONENTS) (located under [src/components](../src/components) ), in order
+**Note:** In case you need to build an UI you can use one of our [reusable-components](REUSABLE_COMPONENTS.md) (located under [src/components](../src/components) ), in order
 to not have to reivent the wheel.
 
 ### PR's
