@@ -16,15 +16,7 @@
     "prettier/prettier": "error",
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
-    "no-console": "warn",
-    "semi": [
-      "error",
-      "always"
-    ],
-    "quotes": [
-      "error",
-      "double"
-    ]
+    "no-console": "warn"
   },
   "settings": {
     "react": {

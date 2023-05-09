@@ -1,5 +1,5 @@
 {
-	"name": "reactsocialnetwork",
+ 	"name": "reactsocialnetwork",
 	"version": "0.1.0",
 	"private": true,
 	"description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
@@ -47,6 +47,9 @@
     "test:cypress": "cd e2e/ && npx cypress run",
     "test:cypress:open": "cd e2e/ && npx cypress open",
 		"eject": "react-scripts eject"
+		"eject": "react-scripts eject",
+		"format": "npx prettier --write ."
+
 	},
 	"eslintConfig": {
 		"extends": [
