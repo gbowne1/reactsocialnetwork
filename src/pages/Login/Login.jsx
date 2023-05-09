@@ -1,15 +1,13 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import PropTypes from "prop-types";
 import { Box, Container } from "@mui/system";
 import {
   Button,
   Checkbox,
-  CircularProgress,
   FormControl,
   FormControlLabel,
   IconButton,
   TextField,
-  Switch,
   FormHelperText,
   Typography,
   OutlinedInput,
@@ -18,26 +16,22 @@ import {
   Stack,
 } from "@mui/material";
 
-import {
-  LightMode,
-  DarkMode,
-  Visibility,
-  VisibilityOff,
-} from "@mui/icons-material";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
+
+import CustomSnackbar from "../../components/CustomSnackbar/CustomSnackbar";
+import CookieModal from "../../components/CookieModal/CookieModal";
+import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
+import ThemeSwitch from "../../components/ThemeSwitch/ThemeSwitch";
+
+import "./Login.css";
+
+import getFromLocalStorage from "../../utils/getFromLocalStorage";
+import saveToLocalStorage from "../../utils/saveToLocalStorage";
 
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import YupPassword from "yup-password";
-
-import CustomSnackbar from "../../components/CustomSnackbar/CustomSnackbar";
-import CookieModal from "../../components/CookieModal/CookieModal";
-
-import "./Login.css";
-import getFromLocalStorage from "../../utils/getFromLocalStorage";
-import saveToLocalStorage from "../../utils/saveToLocalStorage";
-
 YupPassword(yup);
 
 const TEST_USERNAME = "testuser1";
@@ -46,42 +40,36 @@ const TEST_PASSWORD = "Testpass1!";
 
 const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
   const [showPassword, setShowPassword] = useState(false);
-  const [isLoginView, setLoginView] = useState(true);
-  const [userData, setUserData] = useState({
-    username: "",
-    email: "",
-    password: "",
-  });
   const [rememberMe, setRememberMe] = useState(true);
+  const [isLoginView, setLoginView] = useState(true);
 
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const [snackbarOptions, setSnackbarOptions] = useState({});
   const [showLoadingSpinner, setShowLoadingSpinner] = useState(false);
 
-  const theme = createTheme({
-    palette: {
-      mode: themeMode ? "light" : "dark",
-    },
+  const [userData, setUserData] = useState({
+    username: "",
+    email: "",
+    password: "",
   });
 
   const inputChangeHandler = (value) => {
     setUserData(value);
   };
   const showPasswordClickedHandler = () => setShowPassword((show) => !show);
-  const handleMouseDownPassword = (event) => {
-    event.preventDefault();
-  };
 
   const themeModeViewClickedHandler = (bool) => {
     setLoginView(bool);
   };
 
   const loginButtonClickedHandler = () => {
+    // Check if credentials match hardcoded test credentials
     if (
       userData.username === TEST_USERNAME &&
       userData.email === TEST_EMAIL &&
       userData.password === TEST_PASSWORD
     ) {
+      // If so execute a succesful login
       setSnackbarOptions({
         severity: "success",
         message: "Login successful!",
@@ -92,7 +80,9 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
     } else {
       let users = getFromLocalStorage("users");
       if (users) {
-        const filteredUsers = users.filter((user) => {
+        // Check if there is any existing user in users array with
+        // the same username, email and password
+        const existingUser = users.filter((user) => {
           return (
             userData.username === user.username &&
             userData.email === user.email &&
@@ -100,7 +90,8 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
           );
         });
 
-        if (filteredUsers.length > 0) {
+        // If so execute a succesful login
+        if (existingUser.length > 0) {
           setSnackbarOptions({
             severity: "success",
             message: "Login successful!",
@@ -110,7 +101,8 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
           return handleAuthentication();
         }
       }
-
+      // If neither hardcoded test credentials nor any credentials in
+      // users array match return crendentials are not valid meesage
       setSnackbarOptions({
         severity: "error",
         message: "Credentials are not valid. Register a new user first!",
@@ -167,7 +159,10 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
       .string()
       .required("Username is a required field")
       .min(6, "Username must be at least 6 characters"),
-    email: yup.string().required("Email is a required field").email("Email must be a valid email"),
+    email: yup
+      .string()
+      .required("Email is a required field")
+      .email("Email must be a valid email"),
     password: yup.string().password().required(),
   });
 
@@ -182,173 +177,153 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
   return (
     <>
       <CookieModal />
-      <ThemeProvider theme={theme}>
-        <Container className={`Login__container`}>
-          {showLoadingSpinner ? (
+      <Container className={`Login__container`}>
+        {showLoadingSpinner ? (
+          <LoadingSpinner />
+        ) : (
+          <>
+            <ThemeSwitch
+              themeMode={themeMode}
+              handleThemeModeChange={handleThemeModeChange}
+            />
+
             <Box
-              data-testid="loading-spinner"
-              className={`Login_loading-spinner`}
+              component="form"
+              className={`Login__form ${themeMode}`}
+              data-testid="form"
             >
-              <CircularProgress size={60} />
-            </Box>
-          ) : (
-            <>
-              <Box
-                id="theme-mode-switch"
-                className={`Login__theme-mode-switch ${themeMode}`}
-              >
-                <LightMode />
-
-                <Switch
-                  onClick={() => handleThemeModeChange()}
-                  inputProps={{ "aria-label": "Toggle theme" }}
+              <Stack spacing={2}>
+                <CustomSnackbar
+                  message={snackbarOptions.message}
+                  vertical={"top"}
+                  horizontal={"center"}
+                  alert={true}
+                  severity={snackbarOptions.severity}
+                  open={openSnackbar}
+                  setOpen={setOpenSnackbar}
                 />
-                <DarkMode />
-              </Box>
-              <Box
-                component="form"
-                className={`Login__form ${themeMode}`}
-                data-testid="form"
-              >
-                <Stack spacing={2}>
-                  <CustomSnackbar
-                    message={snackbarOptions.message}
-                    vertical={"top"}
-                    horizontal={"center"}
-                    alert={true}
-                    severity={snackbarOptions.severity}
-                    open={openSnackbar}
-                    setOpen={setOpenSnackbar}
-                  />
 
-                  <TextField
-                    id="username"
-                    className={`Login__textfield ${themeMode}`}
-                    placeholder="Enter username"
-                    label="Username"
-                    variant="outlined"
-                    required
-                    {...register("username")}
-                    error={errors.username ? true : false}
-                    helperText={errors.username?.message}
+                <TextField
+                  id="username"
+                  className={`Login__textfield ${themeMode}`}
+                  placeholder="Enter username"
+                  label="Username"
+                  variant="outlined"
+                  required
+                  {...register("username")}
+                  error={errors.username ? true : false}
+                  helperText={errors.username?.message}
+                  onChange={(event) =>
+                    inputChangeHandler({
+                      ...userData,
+                      username: event.target.value,
+                    })
+                  }
+                  inputProps={{ "data-testid": "username" }}
+                />
+
+                <TextField
+                  id="email"
+                  className={`Login__textfield ${themeMode}`}
+                  placeholder="Enter email"
+                  label="Email"
+                  variant="outlined"
+                  required
+                  {...register("email")}
+                  error={errors.email ? true : false}
+                  helperText={errors.email?.message}
+                  onChange={(event) =>
+                    inputChangeHandler({
+                      ...userData,
+                      email: event.target.value,
+                    })
+                  }
+                  inputProps={{ "data-testid": "email" }}
+                />
+
+                <FormControl
+                  className={`Login__textfield ${themeMode}`}
+                  required={true}
+                  error={errors.password ? true : false}
+                >
+                  <InputLabel htmlFor="outlined-adornment-password">
+                    Password
+                  </InputLabel>
+
+                  <OutlinedInput
+                    id="password"
+                    type={showPassword ? "text" : "password"}
+                    label="Password"
+                    placeholder="Enter password"
+                    {...register("password")}
+                    endAdornment={
+                      <InputAdornment position="end">
+                        <IconButton
+                          aria-label="themeMode password visibility"
+                          onClick={showPasswordClickedHandler}
+                          edge="end"
+                          data-testid="show-password"
+                        >
+                          {showPassword ? <VisibilityOff /> : <Visibility />}
+                        </IconButton>
+                      </InputAdornment>
+                    }
                     onChange={(event) =>
                       inputChangeHandler({
                         ...userData,
-                        username: event.target.value,
+                        password: event.target.value,
                       })
                     }
-                    inputProps={{ "data-testid": "username" }}
+                    inputProps={{ "data-testid": "password" }}
                   />
+                  <FormHelperText id="password-helper-text">
+                    {errors.password?.message}
+                  </FormHelperText>
+                </FormControl>
 
-                  <TextField
-                    id="email"
-                    className={`Login__textfield ${themeMode}`}
-                    placeholder="Enter email"
-                    label="Email"
-                    variant="outlined"
-                    required
-                    {...register("email")}
-                    error={errors.email ? true : false}
-                    helperText={errors.email?.message}
-                    onChange={(event) =>
-                      inputChangeHandler({
-                        ...userData,
-                        email: event.target.value,
-                      })
-                    }
-                    inputProps={{ "data-testid": "email" }}
-                  />
-
-                  <FormControl
-                    className={`Login__textfield ${themeMode}`}
-                    required={true}
-                    error={errors.password ? true : false}
-                  >
-                    <InputLabel htmlFor="outlined-adornment-password">
-                      Password
-                    </InputLabel>
-
-                    <OutlinedInput
-                      id="password"
-                      type={showPassword ? "text" : "password"}
-                      label="Password"
-                      placeholder="Enter password"
-                      {...register("password")}
-                      endAdornment={
-                        <InputAdornment position="end">
-                          <IconButton
-                            aria-label="themeMode password visibility"
-                            onClick={showPasswordClickedHandler}
-                            onMouseDown={handleMouseDownPassword}
-                            edge="end"
-                            data-testid="show-password"
-                          >
-                            {showPassword ? <VisibilityOff /> : <Visibility />}
-                          </IconButton>
-                        </InputAdornment>
-                      }
-                      onChange={(event) =>
-                        inputChangeHandler({
-                          ...userData,
-                          password: event.target.value,
-                        })
-                      }
-                      inputProps={{ "data-testid": "password" }}
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      data-testid="remember-me"
+                      checked={rememberMe}
+                      onChange={(event) => {
+                        setRememberMe(event.target.checked);
+                      }}
                     />
-                    <FormHelperText id="password-helper-text">
-                      {errors.password?.message}
-                    </FormHelperText>
-                  </FormControl>
+                  }
+                  label="Remember me"
+                />
 
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        data-testid="remember-me"
-                        checked={rememberMe}
-                        onChange={(event) => {
-                          setRememberMe(event.target.checked);
-                        }}
-                      />
-                    }
-                    label="Remember me"
-                  />
+                <Box className={`Login__form-panel`}>
+                  <Button
+                    data-testid="submit"
+                    variant="contained"
+                    onClick={handleSubmit(
+                      isLoginView
+                        ? loginButtonClickedHandler
+                        : registerButtonClickedHandler
+                    )}
+                  >
+                    {isLoginView ? "Login" : "Register"}
+                  </Button>
 
-                  <Box className={`Login__form-panel`}>
-                    <Button
-                      data-testid="submit"
-                      variant="contained"
-                      onClick={handleSubmit(
-                        isLoginView
-                          ? loginButtonClickedHandler
-                          : registerButtonClickedHandler
-                      )}
-                    >
-                      {isLoginView ? "Login" : "Register"}
-                    </Button>
-
-                    <span
-                      data-testid="loginRegisterSwitch"
-                      onClick={() => themeModeViewClickedHandler(!isLoginView)}
-                    >
-                      {isLoginView ? (
-                        <Typography align="center">
-                          You don&apos;t have an account?{" "}
-                          <span className={`subscribe`}>Register here!</span>
-                        </Typography>
-                      ) : (
-                        <Typography align="center">
-                          You already have an account?{" "}
-                          <span className={`login`}>Login here!</span>
-                        </Typography>
-                      )}
-                    </span>
-                  </Box>
-                </Stack>
-              </Box>
-            </>
-          )}
-        </Container>
-      </ThemeProvider>
+                  <span
+                    data-testid="loginRegisterSwitch"
+                    onClick={() => themeModeViewClickedHandler(!isLoginView)}
+                  >
+                    <Typography align="center">
+                      {isLoginView ? "You don't have an account? " : "You already have an account? "}
+                      <span className={isLoginView ? `subscribe` : `login`}>
+                        {isLoginView ? "Register here!" : "Login here!"}
+                      </span>
+                    </Typography>
+                  </span>
+                </Box>
+              </Stack>
+            </Box>
+          </>
+        )}
+      </Container>
     </>
   );
 };
