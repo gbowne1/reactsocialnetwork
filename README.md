@@ -18,7 +18,7 @@ Development Plugins:
 
 - Webpack
 - Babel
-- Jest
+- Jest## Contributing
 - ESLint
 - Prettier
 
@@ -32,3 +32,13 @@ Database:
 - Axios?
 
 This is not hosted anywhere yet so use the Create-React-App Development server by running `npm start` after installing with `npm i` or `npm install` and wait for the browser to start.
+
+## Running tests
+
+We have both unit tests(Jest & React Testing Library) and e2e tests(Cypress).
+
+In order to run unit tests run ```npm run test``` on the CLI.
+
+In order to run e2e tests run you can run ```npm run test:cypress``` on the CLI.
+
+In order to open cypress UI you can run ```npm run test:cypress:open``` on the CLI.

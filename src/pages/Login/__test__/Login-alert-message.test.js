@@ -4,6 +4,10 @@ const user = userEvent.setup();
 
 import Login from "../Login";
 
+const mockSetLoginToken = jest.fn((data) =>
+  console.log(`mockSetLoginToken called with ${data}`)
+);
+
 describe("Tests Login alert messages", () => {
   it("should display success message on successful login", async () => {
     act(() => {
@@ -40,7 +44,7 @@ describe("Tests Login alert messages", () => {
     };
 
     act(() => {
-      render(<Login />);
+      render(<Login setLoginToken={mockSetLoginToken} />);
     });
 
     const loginRegisterText = screen.getByTestId("loginRegisterSwitch");
@@ -73,16 +77,12 @@ describe("Tests Login alert messages", () => {
     expect(alertMessage).toHaveTextContent("Registered user!");
   });
 
-  it.only("should display error message on login without existing credentials", async () => {
+  it("should display error message on login without existing credentials", async () => {
     const nonExistingUser = {
       username: "nonExistingUser",
       email: "nonExistingEmail@gmail.com",
       password: "nonExistingPassword1!",
     };
-
-    const mockSetLoginToken = jest.fn((data) =>
-      console.log(`mockSetLoginToken called with ${data}`)
-    );
 
     act(() => {
       render(<Login setLoginToken={mockSetLoginToken} />);
@@ -112,16 +112,12 @@ describe("Tests Login alert messages", () => {
     );
   });
 
-  it.only("should display warning message on registering an already existing email", async () => {
+  it("should display warning message on registering an already existing email", async () => {
     const existingUser = {
       username: "testuser1",
       email: "testuser@gmail.com",
       password: "Testpass1!",
     };
-
-    const mockSetLoginToken = jest.fn((data) =>
-      console.log(`mockSetLoginToken called with ${data}`)
-    );
 
     act(() => {
       render(<Login setLoginToken={mockSetLoginToken} />);

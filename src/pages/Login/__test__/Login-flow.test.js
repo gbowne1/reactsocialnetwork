@@ -4,6 +4,10 @@ const user = userEvent.setup();
 
 import Login from "../Login";
 
+const mockSetLoginToken = jest.fn((data) =>
+  console.log(`mockSetLoginToken called with ${data}`)
+);
+
 describe("Tests Login flow", () => {
   it("Test user can login successfully(hardcoded credentials)", async () => {
     act(() => {
@@ -40,7 +44,7 @@ describe("Tests Login flow", () => {
     };
 
     act(() => {
-      render(<Login />);
+      render(<Login setLoginToken={mockSetLoginToken} />);
     });
 
     const loginRegisterText = screen.getByTestId("loginRegisterSwitch");

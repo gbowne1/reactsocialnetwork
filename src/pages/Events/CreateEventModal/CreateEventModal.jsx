@@ -250,7 +250,7 @@ const CreateEventModal = ({
           <DialogActions>
             <Button
               id="create-event-button"
-              data-testid="create-event-button"
+              data-testid="create-event-modal-button"
               className={`CreateEventModal__button ${themeMode}`}
               variant="contained"
               type="submit"

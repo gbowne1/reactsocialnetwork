@@ -16,32 +16,36 @@ const Feedback = ({ themeMode }) => {
   return (
     <div>
       <Dialog className="Feedback" open={true}>
-        <DialogTitle className={`Feedback__title ${themeMode}`}>
-          Feedback
-        </DialogTitle>
-        <DialogContent className={`Feedback__content ${themeMode}`}>
-          <DialogContentText className={`Feedback__content-text ${themeMode}`}>
-            This app is created and maintained by GitHub open source community.
-            We are happy to get any feedback and encourage you to contribute if
-            you would like. If so, make sure to read{" "}
-            <Link to="https://github.com/gbowne1/reactsocialnetwork/blob/main/CONTRIBUTING.md">
-              Contribution guide
+        <div data-testid="feedback">
+          <DialogTitle className={`Feedback__title ${themeMode}`}>
+            Feedback
+          </DialogTitle>
+          <DialogContent className={`Feedback__content ${themeMode}`}>
+            <DialogContentText
+              className={`Feedback__content-text ${themeMode}`}
+            >
+              This app is created and maintained by GitHub open source
+              community. We are happy to get any feedback and encourage you to
+              contribute if you would like. If so, make sure to read{" "}
+              <Link to="https://github.com/gbowne1/reactsocialnetwork/blob/main/CONTRIBUTING.md">
+                Contribution guide
+              </Link>
+              .
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions className={`Feedback__actions ${themeMode}`}>
+            <Link tabIndex={-1} to={previousRoute}>
+              <Button tabIndex={0}>Go back</Button>
             </Link>
-            .
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions className={`Feedback__actions ${themeMode}`}>
-          <Link tabIndex={-1} to={previousRoute}>
-            <Button tabIndex={0}>Go back</Button>
-          </Link>
-          <Link
-            tabIndex={-1}
-            target="_blank"
-            to="https://github.com/gbowne1/reactsocialnetwork"
-          >
-            <Button tabIndex={0}>Go to GitHub</Button>
-          </Link>
-        </DialogActions>
+            <Link
+              tabIndex={-1}
+              target="_blank"
+              to="https://github.com/gbowne1/reactsocialnetwork"
+            >
+              <Button tabIndex={0}>Go to GitHub</Button>
+            </Link>
+          </DialogActions>
+        </div>
       </Dialog>
     </div>
   );
