@@ -74,6 +74,6 @@
  	 	"jest-watch-typeahead": "^0.6.5",
  	 	"prettier": "^2.8.8",
  	 	"react-test-renderer": "^18.2.0",
- 	 	"weback": "^0.0.1-security"
+ 	 	"webpack": "^5.75.0"
  	}
 }
