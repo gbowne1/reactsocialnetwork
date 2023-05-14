@@ -7,7 +7,7 @@ describe("Test CreateEventModal validation", () => {
   it("should display error labels when leaving required fields empty", async () => {
     renderCreateEventModal();
 
-    const createEventButton = screen.getByTestId("create-event-button");
+    const createEventButton = screen.getByTestId("create-event-modal-button");
     fireEvent.click(createEventButton);
 
     const eventTitleHelperText = await screen.findByText(
@@ -38,7 +38,7 @@ describe("Test CreateEventModal validation", () => {
       await user.type(eventTitleInput, "ABCDE");
       expect(eventTitleInput.value).toBe("ABCDE");
 
-      const createEventButton = screen.getByTestId("create-event-button");
+      const createEventButton = screen.getByTestId("create-event-modal-button");
       await user.click(createEventButton);
     });
     const helperText = document.querySelector("#event-title-input-helper-text");
@@ -56,7 +56,7 @@ describe("Test CreateEventModal validation", () => {
       await user.type(eventLocationInput, "ABCDE");
       expect(eventLocationInput.value).toBe("ABCDE");
 
-      const createEventButton = screen.getByTestId("create-event-button");
+      const createEventButton = screen.getByTestId("create-event-modal-button");
       await user.click(createEventButton);
     });
     const helperText = document.querySelector(
@@ -78,7 +78,7 @@ describe("Test CreateEventModal validation", () => {
       await user.type(eventLocationUrlInput, "notAValidUrl");
       expect(eventLocationUrlInput.value).toBe("notAValidUrl");
 
-      const createEventButton = screen.getByTestId("create-event-button");
+      const createEventButton = screen.getByTestId("create-event-modal-button");
       await user.click(createEventButton);
     });
     const helperText = document.querySelector(
@@ -96,7 +96,7 @@ describe("Test CreateEventModal validation", () => {
       await user.type(eventImageUrlInput, "notAValidUrl");
       expect(eventImageUrlInput.value).toBe("notAValidUrl");
 
-      const createEventButton = screen.getByTestId("create-event-button");
+      const createEventButton = screen.getByTestId("create-event-modal-button");
       await user.click(createEventButton);
     });
     const helperText = document.querySelector(
@@ -112,7 +112,7 @@ describe("Test CreateEventModal validation", () => {
     fireEvent.change(eventDateInput, { target: { value: "04/24/2022" } });
 
     await act(async () => {
-      const createEventButton = screen.getByTestId("create-event-button");
+      const createEventButton = screen.getByTestId("create-event-modal-button");
       await user.click(createEventButton);
     });
 
@@ -127,7 +127,7 @@ describe("Test CreateEventModal validation", () => {
     fireEvent.change(eventDateInput, { target: { value: "" } });
 
     await act(async () => {
-      const createEventButton = screen.getByTestId("create-event-button");
+      const createEventButton = screen.getByTestId("create-event-modal-button");
       await user.click(createEventButton);
     });
 

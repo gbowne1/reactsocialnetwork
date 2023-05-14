@@ -11,7 +11,7 @@ describe("Tests Login form input validation", () => {
     const loginButton = screen.getByText(/LOGIN/i);
     fireEvent.click(loginButton);
 
-    const helperText = await screen.findByText("username is a required field");
+    const helperText = await screen.findByText("Username is a required field");
     expect(helperText).toBeVisible();
   });
 
@@ -42,7 +42,7 @@ describe("Tests Login form input validation", () => {
     const loginButton = screen.getByText(/LOGIN/i);
     fireEvent.click(loginButton);
 
-    const helperText = await screen.findByText("email is a required field");
+    const helperText = await screen.findByText("Email is a required field");
     expect(helperText).toBeVisible();
   });
 
@@ -60,7 +60,7 @@ describe("Tests Login form input validation", () => {
       await user.click(loginButton);
     });
     const helperText = document.querySelector("#email-helper-text");
-    expect(helperText).toHaveTextContent("email must be a valid email");
+    expect(helperText).toHaveTextContent("Email must be a valid email");
   });
 
   it("should display error label if password doens't have at least 8 characters", async () => {

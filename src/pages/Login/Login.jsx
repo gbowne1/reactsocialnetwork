@@ -1,14 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { Box, Container } from "@mui/system";
-import HighlightOffIcon from "@mui/icons-material/HighlightOff";
-import {
-  Modal,
-  Card,
-  CardContent,
-  CardHeader,
-  CardActions,
-} from "@mui/material";
 import {
   Button,
   Checkbox,
@@ -32,14 +24,16 @@ import {
   Visibility,
   VisibilityOff,
 } from "@mui/icons-material";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import YupPassword from "yup-password";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 import CustomSnackbar from "../../components/CustomSnackbar/CustomSnackbar";
+import CookieModal from "../../components/CookieModal/CookieModal";
+
 import "./Login.css";
 import getFromLocalStorage from "../../utils/getFromLocalStorage";
 import saveToLocalStorage from "../../utils/saveToLocalStorage";
@@ -51,14 +45,6 @@ const TEST_EMAIL = "testuser@gmail.com";
 const TEST_PASSWORD = "Testpass1!";
 
 const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
-  const [open, setOpen] = useState(false);
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setOpen(true);
-    }, 3000);
-
-    return () => clearTimeout(timeout);
-  }, []);
   const [showPassword, setShowPassword] = useState(false);
   const [isLoginView, setLoginView] = useState(true);
   const [userData, setUserData] = useState({
@@ -123,7 +109,6 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
           setOpenSnackbar(true);
           return handleAuthentication();
         }
-
       }
 
       setSnackbarOptions({
@@ -172,7 +157,7 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
       setShowLoadingSpinner(true);
       setTimeout(() => {
         // Show the app.
-        setLoginToken(true);
+        setLoginToken && setLoginToken(true);
       }, 1000);
     }, 1000);
   };
@@ -180,10 +165,10 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
   const validationSchema = yup.object().shape({
     username: yup
       .string()
-      .required()
+      .required("Username is a required field")
       .min(6, "Username must be at least 6 characters"),
-    email: yup.string().required().email(),
-    password: yup.string().password().required("Password is required"),
+    email: yup.string().required("Email is a required field").email("Email must be a valid email"),
+    password: yup.string().password().required(),
   });
 
   const {
@@ -196,71 +181,14 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
 
   return (
     <>
-      <Modal
-        open={open}
-        onClose={() => {
-          setOpen(false);
-        }}
-        className="modal-box"
-      >
-        <>
-          <Card className="cookies-card">
-            <CardHeader title="Our Website Uses Cookies" />
-            <HighlightOffIcon
-              className="closeIcon"
-              onClick={() => {
-                setOpen(false);
-              }}
-            />
-            <CardContent>
-              <Typography>
-                <div className="card-content">
-                  <p>We collect user data to provide better user experience.</p>
-                  <a href="!#" style={{ color: "black" }}>
-                    {" "}
-                    Learn more about how we use cookies.
-                  </a>
-                </div>
-                <hr />
-                <div className="cookies-card-bottom">
-                  <Checkbox color="primary" />
-                  <div className="text">
-                    <p>Necessary Cookies</p>
-                  </div>
-                </div>
-                <div className="cookies-card-bottom">
-                  <Checkbox color="primary" />
-                  <div className="text">
-                    <p>Analytical Cookies</p>
-                  </div>
-                </div>
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <div className="card-footer">
-                <Button
-                  variant="contained"
-                  color="secondary"
-                  className="necessarybtn"
-                >
-                  Accept Necessary
-                </Button>
-                <Button
-                  variant="contained"
-                  color="primary"
-                  className="acceptallbtn"
-                >
-                  Accept All
-                </Button>
-              </div>
-            </CardActions>
-          </Card>
-        </>
-      </Modal>
+      <CookieModal />
       <ThemeProvider theme={theme}>
         <Container className={`Login__container`}>
           {showLoadingSpinner ? (
-            <Box className={`Login_loading-spinner`}>
+            <Box
+              data-testid="loading-spinner"
+              className={`Login_loading-spinner`}
+            >
               <CircularProgress size={60} />
             </Box>
           ) : (

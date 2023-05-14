@@ -125,7 +125,7 @@ export default function TopNav({
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleSettingsClicked}>
+      <MenuItem onClick={handleSettingsClicked} data-testid="menu-settings">
         <SettingsIcon
           color="action"
           sx={{
@@ -135,7 +135,7 @@ export default function TopNav({
         />{" "}
         Settings
       </MenuItem>
-      <MenuItem onClick={handleHelpClicked}>
+      <MenuItem onClick={handleHelpClicked} data-testid="menu-help">
         <HelpIcon
           color="action"
           sx={{
@@ -144,7 +144,7 @@ export default function TopNav({
         />{" "}
         Help
       </MenuItem>
-      <MenuItem onClick={handleFeedbackClicked}>
+      <MenuItem onClick={handleFeedbackClicked} data-testid="menu-feedback">
         <FeedbackIcon
           color="action"
           sx={{
@@ -154,7 +154,7 @@ export default function TopNav({
         Feedback
       </MenuItem>
 
-      <MenuItem onClick={handleLogoutClicked}>
+      <MenuItem onClick={handleLogoutClicked} data-testid="menu-logout">
         <LogoutIcon
           color="action"
           sx={{
@@ -163,7 +163,7 @@ export default function TopNav({
         />
         {isUserLoggedIn ? "Log In" : "Log out"}
       </MenuItem>
-      <MenuItem onClick={handleMyAccountClicked}>
+      <MenuItem onClick={handleMyAccountClicked} data-testid="menu-my-account">
         <AccountBoxIcon
           color="action"
           sx={{
@@ -238,9 +238,14 @@ export default function TopNav({
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar className={`Top-nav ${themeMode}`} position="fixed">
+      <AppBar
+        data-testid="top-nav"
+        className={`Top-nav ${themeMode}`}
+        position="fixed"
+      >
         <Toolbar>
           <IconButton
+            data-testid="burger-menu-button"
             size="large"
             edge="start"
             color="inherit"
@@ -252,6 +257,7 @@ export default function TopNav({
           </IconButton>
 
           <Typography
+            data-testid="logo"
             variant="h6"
             noWrap
             component="div"
@@ -272,6 +278,7 @@ export default function TopNav({
             }}
           >
             <Input
+              data-testid="search"
               className={`Top-nav-search ${themeMode}`}
               sx={{ ":after": { borderBottomColor: themeAccentColor } }}
             ></Input>
@@ -282,6 +289,7 @@ export default function TopNav({
 
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <IconButton
+              data-testid="messages"
               size="large"
               aria-label={`show chat with ${newMessagesCount} new messages`}
               color="inherit"
@@ -291,7 +299,12 @@ export default function TopNav({
               </Badge>
             </IconButton>
 
-            <IconButton size="large" aria-label="show chat" color="inherit">
+            <IconButton
+              data-testid="chat"
+              size="large"
+              aria-label="show chat"
+              color="inherit"
+            >
               <ChatIcon />
             </IconButton>
 
@@ -301,6 +314,7 @@ export default function TopNav({
               iconColor="action"
             />
             <IconButton
+              data-testid="user-menu"
               size="large"
               edge="end"
               aria-label="account of current user"
@@ -328,6 +342,7 @@ export default function TopNav({
 
           <Box sx={{ ml: 2 }}>
             <Switch
+              data-testid="theme-switch"
               onClick={() => handleThemeModeChange()}
               inputProps={{ "aria-label": "Toggle theme" }}
             />
