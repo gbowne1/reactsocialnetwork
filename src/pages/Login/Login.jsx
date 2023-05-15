@@ -167,7 +167,10 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
       .string()
       .required("Username is a required field")
       .min(6, "Username must be at least 6 characters"),
-    email: yup.string().required("Email is a required field").email("Email must be a valid email"),
+    email: yup
+      .string()
+      .required("Email is a required field")
+      .email("Email must be a valid email"),
     password: yup.string().password().required(),
   });
 
