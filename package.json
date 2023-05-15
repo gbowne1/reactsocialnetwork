@@ -45,8 +45,9 @@
 		"build": "react-scripts build",
 		"test": "react-scripts test",
     "test:cypress": "cd e2e/ && npx cypress run",
+
+
     "test:cypress:open": "cd e2e/ && npx cypress open",
-		"eject": "react-scripts eject"
 		"eject": "react-scripts eject",
 		"format": "npx prettier --write ."
 
