@@ -17,7 +17,7 @@
   },
   "rules": {
     "prettier/prettier": "error",
-    "react/jsx-uses-react": "on",
+    "react/jsx-uses-react": "warn",
     "react/react-in-jsx-scope": "on",
     "no-console": "warn",
     "react/jsx-no-undef": "warn"
