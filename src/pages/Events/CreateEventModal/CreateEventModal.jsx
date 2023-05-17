@@ -36,7 +36,6 @@ const CreateEventModal = ({
   const [eventLocationUrl, setEventLocationUrl] = useState("");
   const [eventImageUrl, setEventImageUrl] = useState("");
 
-
   const handlCreateEventClicked = () => {
     const newEvent = {
       title: eventTitle,
