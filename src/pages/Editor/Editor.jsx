@@ -22,8 +22,8 @@ import "./Editor.css";
 
 function Editor({ themeMode }) {
   const [isOpen, setIsOpen] = useState(true);
-  const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
 
   const handleSave = () => {
     // Save the blog post

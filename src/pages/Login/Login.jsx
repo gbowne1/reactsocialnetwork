@@ -312,7 +312,9 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
                     onClick={() => themeModeViewClickedHandler(!isLoginView)}
                   >
                     <Typography align="center">
-                      {isLoginView ? "You don't have an account? " : "You already have an account? "}
+                      {isLoginView
+                        ? "You don't have an account? "
+                        : "You already have an account? "}
                       <span className={isLoginView ? `subscribe` : `login`}>
                         {isLoginView ? "Register here!" : "Login here!"}
                       </span>

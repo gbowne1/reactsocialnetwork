@@ -3,12 +3,9 @@ import { Switch } from "@mui/material";
 import { LightMode, DarkMode } from "@mui/icons-material";
 import "./ThemeSwitch.css";
 
-const ThemeSwitch = ({handleThemeModeChange, themeMode}) => {
+const ThemeSwitch = ({ handleThemeModeChange, themeMode }) => {
   return (
-    <div
-      id="theme-mode-switch"
-      className={`ThemeSwitch ${themeMode}`}
-    >
+    <div id="theme-mode-switch" className={`ThemeSwitch ${themeMode}`}>
       <LightMode />
 
       <Switch
@@ -24,6 +21,5 @@ ThemeSwitch.propTypes = {
   themeMode: PropTypes.string,
   handleThemeModeChange: PropTypes.func,
 };
-
 
 export default ThemeSwitch;
