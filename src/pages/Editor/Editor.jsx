@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import PropTypes from "prop-types";
 import { Box, TextField, Button } from "@mui/material";
 import { FormControlLabel, FormGroup, Switch } from "@mui/material";

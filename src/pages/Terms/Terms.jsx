@@ -1,7 +1,7 @@
-import React from "react";
+import { Component } from "react";
 import "./Terms.css";
 
-class Terms extends React.Component {
+class Terms extends Component {
   render() {
     return (
       <div className="Terms-container">

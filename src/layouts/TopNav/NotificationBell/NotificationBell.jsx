@@ -1,4 +1,3 @@
-import React from "react";
 import PropTypes from "prop-types";
 
 import Badge from "@mui/material/Badge";
@@ -10,7 +9,7 @@ const NotificationBell = ({ notifications, setOpen }) => {
   const newNotifications = `You have ${notifications.length} notifications!`;
   const noNewNotifications = "No new notifications";
 
-  const handleOpen = (event) => {
+  const handleOpen = () => {
     console.log("Notication menu opened!");
     setOpen && setOpen(true);
   };
