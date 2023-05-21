@@ -1,19 +1,8 @@
 {
   "parser": "@babel/eslint-parser",
-  "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:prettier/recommended"
-  ],
   "plugins": ["react", "prettier"],
   "parserOptions": {
     "requireConfigFile": true
-  },
-  "rules": {
-    "prettier/prettier": "error",
-    "react/jsx-uses-react": "off",
-    "react/react-in-jsx-scope": "off",
-    "no-console": "warn"
   },
   "settings": {
     "react": {
