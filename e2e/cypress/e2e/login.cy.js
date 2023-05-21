@@ -28,6 +28,19 @@ describe("Login tests", () => {
     cy.get(".Panel").should(exists ? "be.visible" : "not.exist");
   };
 
+  // Add all user ids of registered user so we can delete them.
+  const userIds = [];
+
+  beforeEach(() => {
+    // Delete all db records
+    cy.request({
+      url: "http://localhost:9000/api/users/delete-test-users",
+      failOnStatusCode: false,
+    }).then((response) => {
+      expect(response.body.message).to.eq("Users deleted!");
+    });
+  });
+
   it("should login with hardcoded testuser credentials", () => {
     const TEST_USERNAME = "testuser1";
     const TEST_EMAIL = "testuser@gmail.com";
@@ -78,8 +91,8 @@ describe("Login tests", () => {
   });
 
   it("should register a new user, then login successfully with those credentials", () => {
-    const NEW_USERNAME = "Manuel";
-    const NEW_EMAIL = "manuelpinedacabeza@gmail.com";
+    const NEW_USERNAME = "testuser";
+    const NEW_EMAIL = "newuser@gmail.com";
     const NEW_PASSWORD = "Test1234!";
 
     cy.visit("http://localhost:3000/");
@@ -117,7 +130,7 @@ describe("Login tests", () => {
   });
 
   it("should NOT register a new user with already existing credentials", () => {
-    const EXISTING_USERNAME = "testuser1";
+    const EXISTING_USERNAME = "testuser";
     const EXISTING_EMAIL = "testuser@gmail.com";
     const EXISTING_PASSWORD = "Testpass1!";
 
@@ -246,5 +259,10 @@ describe("Login tests", () => {
 
     // Check password helper text is not visible
     cy.get("#password-helper-text").should("not.be.visible");
+  });
+
+  after(() => {
+    // Delete all registered users
+    // Create a delete test users route.
   });
 });
