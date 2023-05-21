@@ -260,9 +260,4 @@ describe("Login tests", () => {
     // Check password helper text is not visible
     cy.get("#password-helper-text").should("not.be.visible");
   });
-
-  after(() => {
-    // Delete all registered users
-    // Create a delete test users route.
-  });
 });
