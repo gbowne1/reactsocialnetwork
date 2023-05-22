@@ -11,7 +11,6 @@ import CancelIcon from "@mui/icons-material/Cancel";
 import ReplyIcon from "@mui/icons-material/Reply";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-// import saveToLocalStorage from "../../../utils/saveToLocalStorage";
 import placeholderImageUrl from "../../../data/placeholderImageUrl";
 import checkImage from "../../../utils/checkImage";
 import formatDate from "../../../utils/formatDate";
@@ -22,7 +21,6 @@ const SingleEvent = ({
   themeMode,
   eventData,
   eventKey,
-  // events,
   setEvents,
   setSnackbarOptions,
   setOpenSnackbar,
@@ -33,10 +31,6 @@ const SingleEvent = ({
   const handleAttendanceChange = (event) => {
     eventData["attendance"] = event.target.value;
     setAttendance(event.target.value);
-    // saveToLocalStorage("events", events);
-
-    console.warn("On handleAttendanceChange");
-    console.log("Current eventData", eventData);
 
     // Update event using updateEvent route.
     fetch(`http://localhost:9000/api/event/${eventData.id}`, {
@@ -67,7 +61,6 @@ const SingleEvent = ({
     fetch(`http://localhost:9000/api/events/`)
       .then((res) => res.json())
       .then((res) => {
-        console.log(res.data);
         // And set them using setEvent
         setEvents(res.data);
       });
