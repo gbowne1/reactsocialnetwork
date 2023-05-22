@@ -1,0 +1,127 @@
+.SingleEvent {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  justify-content: space-between;
+}
+
+.SingleEvent.light-mode {
+  background-color: var(--bg-light-500);
+}
+
+.SingleEvent.dark-mode {
+  background-color: var(--bg-dark-500);
+}
+
+.SingleEvent__info-panel {
+  min-width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.SingleEvent__image {
+  border-radius: 15px;
+  width: 150px;
+  height: 100px;
+}
+
+.SingleEvent__text {
+  min-width: 200px;
+  text-align: left;
+}
+
+.SingleEvent__title {
+  font-weight: bold;
+}
+
+.SingleEvent__location > span {
+  font-weight: bold;
+}
+
+.SingleEvent__location > a {
+  color: grey;
+}
+
+.SingleEvent__button-panel {
+  width: 50%;
+  max-width: 350px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.SingleEvent__attendance-select {
+  height: 40px;
+  width: 150px;
+}
+
+.SingleEvent__attendance-select.light-mode {
+  color: var(--text-dark-500) !important;
+}
+
+.SingleEvent__attendance-select.dark-mode {
+  color: var(--text-light-500) !important;
+}
+
+.SingleEvent__attendance-select fieldset {
+  border-color: #ffc93d !important;
+}
+
+.SingleEvent__attendance-icon {
+  position: relative;
+  top: 2px;
+  right: 5px;
+}
+
+.SingleEvent__attendance-icon.light-mode {
+  color: #1976d2 !important;
+  background-color: unset;
+}
+.SingleEvent__attendance-icon.dark-mode {
+  color: var(--clr-dark-mode-accent-900) !important;
+  background-color: unset;
+}
+
+.SingleEvent__share-button {
+  display: flex;
+  text-align: center;
+  height: 40px !important;
+}
+
+.SingleEvent__share-button.light-mode {
+  background-color: #1976d2 !important;
+}
+
+.SingleEvent__share-button.dark-mode {
+  background-color: var(--clr-dark-mode-accent-900) !important;
+}
+
+.SingleEvent__share-button.light-mode {
+  color: var(--text-light-100);
+}
+
+.SingleEvent__share-button.dark-mode {
+  color: var(--text-light-100);
+}
+
+.SingleEvent__share-button-icon {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  font-size: 30px !important;
+}
+
+.SingleEvent__delete-button {
+  display: flex;
+  text-align: center;
+  height: 40px !important;
+}
+
+.SingleEvent__delete-button.light-mode {
+  background-color: #1976d2 !important;
+  color: var(--text-light-100);
+}
+
+.SingleEvent__delete-button.dark-mode {
+  background-color: var(--clr-dark-mode-accent-900) !important;
+  color: var(--text-light-100);
+}

@@ -1,0 +1,174 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+@import url("./variables.css");
+
+.App {
+  display: block;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  z-index: +1;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+.App.light-mode {
+  background-color: var(--bg-light-500);
+}
+
+.App.dark-mode {
+  background-color: var(--bg-dark-500);
+}
+
+.Main-app-dark-mode {
+  background-color: var(--bg-dark-500);
+}
+
+.Main-app-light-mode {
+  background-color: var(--bg-light-500);
+}
+
+.Main-app-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  top: 60px;
+  min-height: 100vh;
+}
+
+.Main-app-container.dark-mode {
+  background-color: var(--bg-dark-500);
+  position: relative;
+  top: 60px;
+}
+
+.Main-app-container.light-mode {
+  background-color: var(--bg-light-500);
+  position: relative;
+  top: 60px;
+}
+
+.Section-app {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Section-app.dark-mode {
+  background-color: var(--bg-dark-500);
+}
+
+.Section-app.light-mode {
+  background-color: var(--bg-light-500);
+}
+
+.Section-container {
+  width: 70%;
+  max-width: 1400px;
+  min-height: 700px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  margin: 10px auto;
+}
+
+h1 {
+  align-items: center;
+}
+
+h2 {
+  padding-top: 30px;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.img {
+  padding-left: 15px;
+}
+
+input {
+  margin-top: 0.5rem;
+}
+
+input::placeholder {
+  margin-left: 5px;
+  padding-left: 5px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+span .hamburger {
+  color: #fff !important;
+  position: absolute;
+  left: 0 !important;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* input[type="submit"] {
+    background-color: blue;
+    color: black;
+    cursor: pointer;
+    border: 0;
+    padding: 0.625rem 0.9375rem;
+    margin-top: 0.3125rem;
+} */
+
+/* 1884 x 905 */
+
+@media screen and (min-width: 1884px) {
+}
+
+@media screen and (max-height: 905px) {
+}
+
+/* 1920 x 1080 */
+
+@media screen and (max-width: 1920px) {
+}
+
+@media screen and (max-height: 1080px) {
+}
+
+/* 1366 x 768 */
+
+@media screen and (max-width: 1366px) {
+}
+
+@media screen and (max-height: 768px) {
+}
+
+/* 375 x 667*/
+
+@media screen and (max-width: 375px) {
+}
+
+@media screen and (max-height: 667px) {
+}
+
+/* 360 x 640 */
+
+@media screen and (max-width: 360px) {
+}
+
+@media screen and (max-height: 640px) {
+}

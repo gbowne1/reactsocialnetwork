@@ -1,0 +1,99 @@
+.CreateEventModal {
+  margin: 0 auto;
+}
+
+.CreateEventModal__container.light-mode {
+  color: var(--text-dark-500) !important;
+}
+
+.CreateEventModal__container h2 {
+  text-align: center;
+}
+
+.CreateEventModal__container.light-mode,
+.CreateEventModal__container.light-mode h2 {
+  color: var(--text-dark-500) !important;
+  background-color: var(--text-light-100) !important;
+}
+
+.CreateEventModal__container.dark-mode,
+.CreateEventModal__container.dark-mode h2 {
+  color: var(--text-light-100) !important;
+  background-color: var(--text-dark-100) !important;
+}
+
+.CreateEventModal__container.dark-mode {
+  color: var(--text-light-100) !important;
+}
+
+.CreateEventModal__container.light-mode input {
+  color: var(--text-dark-500) !important;
+}
+
+.CreateEventModal__container.dark-mode input {
+  color: var(--text-light-100) !important;
+}
+
+.CreateEventModal__title {
+  width: 500px;
+  padding: 10px;
+}
+
+.MuiFormLabel-root,
+.MuiInputLabel-root,
+.MuiFormHelperText-root {
+  color: unset !important;
+}
+
+.MuiFormLabel-root.light-mode,
+.MuiFormHelperText-root.light-mode {
+  color: var(--text-dark-100) !important;
+}
+
+.MuiFormLabel-root.dark-mode,
+.MuiInputLabel-root.dark-mode,
+.MuiFormHelperText-root.dark-mode {
+  color: var(--text-light-100) !important;
+}
+
+.MuiInputLabel-root.Mui-error {
+  color: #d32f2f !important;
+}
+
+.CreateEventModal__inputs {
+  padding: 10px 20px;
+}
+
+.CreateEventModal__inputs.light-mode {
+  background-color: var(--text-light-100);
+}
+
+.CreateEventModal__inputs.dark-mode {
+  background-color: var(--text-dark-100);
+}
+
+.CreateEventModal__textfield.light-mode {
+  background-color: var(--text-light-100) !important;
+  color: var(--text-dark-500) !important;
+}
+
+.CreateEventModal__textfield.dark-mode {
+  background-color: var(--text-dark-100) !important;
+  color: var(--text-light-100) !important;
+}
+
+.CreateEventModal__datepicker {
+  width: 100%;
+}
+
+.CreateEventModal__button {
+  margin: 0 auto;
+}
+
+.CreateEventModal__button.light-mode {
+  background-color: var(--text-dark-100);
+}
+
+.CreateEventModal__button.dark-mode {
+  background-color: var(--clr-dark-mode-accent-900);
+}

@@ -1,0 +1,7 @@
+.LoadingSpinner {
+  position: relative;
+  top: 100px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
