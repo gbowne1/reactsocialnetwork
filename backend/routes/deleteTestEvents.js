@@ -7,7 +7,6 @@ router.get("/api/events/delete-test-events", (req, res, next) => {
     `DELETE FROM Event WHERE locationName='Test event location'`,
     function (err, result) {
       if (err) {
-        console.log(err.message);
         res.status(400).json({ error: res.message });
         return;
       }
