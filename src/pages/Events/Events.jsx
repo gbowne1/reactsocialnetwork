@@ -7,9 +7,9 @@ import CreateEventModal from "./CreateEventModal/CreateEventModal";
 import CustomSnackbar from "../../components/CustomSnackbar/CustomSnackbar";
 import Panel from "../../components/Panel/Panel";
 
-import saveToLocalStorage from "../../utils/saveToLocalStorage";
-import getFromLocalStorage from "../../utils/getFromLocalStorage";
-import eventsData from "../../data/eventsData";
+// import saveToLocalStorage from "../../utils/saveToLocalStorage";
+// import getFromLocalStorage from "../../utils/getFromLocalStorage";
+// import eventsData from "../../data/eventsData";
 import "./Events.css";
 
 const Events = ({ themeMode }) => {
@@ -20,13 +20,23 @@ const Events = ({ themeMode }) => {
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const [snackbarOptions, setSnackbarOptions] = useState({});
 
-  const [events, setEvents] = useState(
-    getFromLocalStorage("events") || eventsData
-  );
-  const [filteredEvents, setFilteredEvents] = useState(events);
+  const [events, setEvents] = useState([]);
+  // getFromLocalStorage("events") || eventsData
+  const [filteredEvents, setFilteredEvents] = useState(events || []);
 
   useEffect(() => {
-    saveToLocalStorage("events", events);
+    // Fetch initial events from db
+    fetch("http://localhost:9000/api/events")
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+        setEvents(res.data);
+      });
+  }, []);
+
+  useEffect(() => {
+    // saveToLocalStorage("events", events);
+    // If events array changes save it to db
   }, [events]);
 
   const handleCreateEventClose = () => {
