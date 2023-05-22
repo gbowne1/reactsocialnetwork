@@ -40,7 +40,6 @@ router.post("/api/event/", (req, res, next) => {
   }
 
   if (errors.length) {
-    console.log(errors);
     res.status(400).json({ error: errors.join(",") });
     return;
   }
@@ -72,7 +71,6 @@ router.post("/api/event/", (req, res, next) => {
   db.run(sql, params, function (err, result) {
     if (err) {
       const errorMessage = `An event with title ${data.title} already exists!`;
-      console.log(err.message);
       res.status(400).json({ error: errorMessage });
       return;
     }
