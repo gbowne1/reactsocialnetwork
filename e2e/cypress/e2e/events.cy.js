@@ -334,8 +334,8 @@ describe("Event tests", () => {
     // Add a location with more than 6 characters
     cy.get('[data-testid="event-location-input"]')
       .clear()
-      .type("Beach Hotel")
-      .should("have.value", "Beach Hotel");
+      .type("Test event location")
+      .should("have.value", "Test event location");
 
     cy.get('[data-testid="create-event-modal-button"]').click();
 

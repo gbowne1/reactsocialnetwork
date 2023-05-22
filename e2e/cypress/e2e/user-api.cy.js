@@ -45,7 +45,6 @@ describe("API tests", () => {
       body: testUser,
       failOnStatusCode: false,
     }).then((res) => {
-      console.log(res);
       expect(res.body.error).to.eq(
         `User ${testUser.email} does not exists, register a user first!`
       );
@@ -70,7 +69,6 @@ describe("API tests", () => {
       body: testUser,
       failOnStatusCode: false,
     }).then((res) => {
-      console.log(res);
       expect(res.body.message).to.eq("User successfully logged in!");
     });
   });
@@ -162,18 +160,14 @@ describe("API tests", () => {
     });
 
     // Get newly created users...
-    cy.request(`${apiUrl}/api/users/`).then((res) => {
-      // and their ids...
-      // const userIds = res.body.data.map((user) => user.id);
-      console.log(userIds);
+    // and their ids...
 
-      // Get users by id and check their name and emails are correct
-      userIds.map((id, i) => {
-        cy.request(`${apiUrl}/api/user/${id}`).then((res) => {
-          expect(res.body.message).to.eq("User successfully retrieved!");
-          expect(res.body.data.name).to.eq(users[i].name);
-          expect(res.body.data.email).to.eq(users[i].email);
-        });
+    // Get users by id and check their name and emails are correct
+    userIds.map((id, i) => {
+      cy.request(`${apiUrl}/api/user/${id}`).then((res) => {
+        expect(res.body.message).to.eq("User successfully retrieved!");
+        expect(res.body.data.name).to.eq(users[i].name);
+        expect(res.body.data.email).to.eq(users[i].email);
       });
     });
   });
@@ -192,7 +186,6 @@ describe("API tests", () => {
 
       // Get user id
       const userId = res.body.id;
-      console.log("User id", userId);
 
       // Create updated user data
       const updatedUser = {
@@ -207,7 +200,6 @@ describe("API tests", () => {
         url: `${apiUrl}/api/user/${userId}`,
         body: updatedUser,
       }).then((res) => {
-        console.log(res);
         expect(res.body.message).to.eq("User successfully updated!");
         expect(res.body.data.name).to.eq(updatedUser.name);
         expect(res.body.data.email).to.eq(updatedUser.email);
@@ -229,7 +221,6 @@ describe("API tests", () => {
 
       // Get user id
       const userId = res.body.id;
-      console.log("User id", userId);
 
       // Delete user
       cy.request({
