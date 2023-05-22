@@ -89,64 +89,48 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
               severity: "error",
               message: "Credentials are not valid. Register a new user first!",
             });
-          } else {
-            setSnackbarOptions({
-              severity: "success",
-              message: "Login successful!",
-            });
-
-            return handleAuthentication();
+            return setOpenSnackbar(true);
           }
+
+          setSnackbarOptions({
+            severity: "success",
+            message: "Login successful!",
+          });
+          setOpenSnackbar(true);
+
+          return handleAuthentication();
         });
     }
-    setOpenSnackbar(true);
   };
 
   const registerButtonClickedHandler = async () => {
-    // Get current saved users.
-    const response = await fetch("http://localhost:9000/api/users/");
-    const responseJson = await response.json();
-    const savedUsers = responseJson.data;
-    console.log("Saved users...", savedUsers);
+    // Make a request to registerUser route and send the userData obj
+    fetch("http://localhost:9000/api/user/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userData),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+        if (res.error) {
+          setSnackbarOptions({
+            severity: "warning",
+            message: "A user with that email is already registered!",
+          });
+          return setOpenSnackbar(true);
+        }
 
-    // Check if current userData is not present in savedUsers
-    // already, specifically we check if email is present.
-    const foundUsers = savedUsers.find((user) => user.email === userData.email);
-    console.log("foundUsers...", foundUsers);
-
-    if (foundUsers?.length > 0) {
-      setSnackbarOptions({
-        severity: "warning",
-        message: "A user with that email is already registered!",
-      });
-      setOpenSnackbar(true);
-    } else {
-      fetch("http://localhost:9000/api/user/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(userData),
-      })
-        .then((res) => res.json())
-        .then((res) => {
-          if (res.error) {
-            console.error(res.error);
-            setSnackbarOptions({
-              severity: "error",
-              message: "A user with that email is already registered!",
-            });
-          } else {
-            setSnackbarOptions({
-              severity: "info",
-              message: "Registered user!",
-            });
-
-            handleAuthentication();
-          }
-          setOpenSnackbar(true);
+        setSnackbarOptions({
+          severity: "success",
+          message: "Registered user!",
         });
-    }
+
+        setOpenSnackbar(true);
+        return handleAuthentication();
+      });
   };
 
   const handleAuthentication = () => {
