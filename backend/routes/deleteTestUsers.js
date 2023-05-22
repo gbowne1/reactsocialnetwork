@@ -5,7 +5,6 @@ const db = require("../database");
 router.get("/api/users/delete-test-users", (req, res, next) => {
   db.run(`DELETE FROM User WHERE username='testuser'`, function (err, result) {
     if (err) {
-      console.log(err.message);
       res.status(400).json({ error: res.message });
       return;
     }

@@ -31,7 +31,6 @@ router.post("/api/login", (req, res, next) => {
   // Get all users
   db.all(sql, params, (err, rows) => {
     if (err) {
-      console.log(err.message);
       res.status(400).json({ error: err.message });
       return;
     }
@@ -47,8 +46,6 @@ router.post("/api/login", (req, res, next) => {
         user.password === data.password
     );
 
-    console.log("existingUser: ", existingUser);
-
     if (existingUser) {
       return res.json({
         message: "User successfully logged in!",
@@ -56,7 +53,6 @@ router.post("/api/login", (req, res, next) => {
       });
     }
 
-    console.log(`User ${data.email} does not exists, register a user first!`);
     return res.status(400).json({
       error: `User ${data.email} does not exists, register a user first!`,
     });
