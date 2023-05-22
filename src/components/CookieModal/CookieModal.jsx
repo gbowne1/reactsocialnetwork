@@ -7,7 +7,6 @@ import {
   CardActions,
   Checkbox,
   Modal,
-  Typography,
 } from "@mui/material";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 
@@ -41,28 +40,26 @@ const CookieModal = () => {
             }}
           />
           <CardContent>
-            <Typography>
-              <div className="card-content">
-                <p>We collect user data to provide better user experience.</p>
-                <a href="!#" style={{ color: "black" }}>
-                  {" "}
-                  Learn more about how we use cookies.
-                </a>
+            <div className="card-content">
+              <p>We collect user data to provide better user experience.</p>
+              <a href="!#" style={{ color: "black" }}>
+                {" "}
+                Learn more about how we use cookies.
+              </a>
+            </div>
+            <hr />
+            <div className="cookies-card-bottom">
+              <Checkbox color="primary" />
+              <div className="text">
+                <p>Necessary Cookies</p>
               </div>
-              <hr />
-              <div className="cookies-card-bottom">
-                <Checkbox color="primary" />
-                <div className="text">
-                  <p>Necessary Cookies</p>
-                </div>
+            </div>
+            <div className="cookies-card-bottom">
+              <Checkbox color="primary" />
+              <div className="text">
+                <p>Analytical Cookies</p>
               </div>
-              <div className="cookies-card-bottom">
-                <Checkbox color="primary" />
-                <div className="text">
-                  <p>Analytical Cookies</p>
-                </div>
-              </div>
-            </Typography>
+            </div>
           </CardContent>
           <CardActions>
             <div className="card-footer">
