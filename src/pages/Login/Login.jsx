@@ -25,9 +25,6 @@ import ThemeSwitch from "../../components/ThemeSwitch/ThemeSwitch";
 
 import "./Login.css";
 
-import getFromLocalStorage from "../../utils/getFromLocalStorage";
-import saveToLocalStorage from "../../utils/saveToLocalStorage";
-
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -62,7 +59,7 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
     setLoginView(bool);
   };
 
-  const loginButtonClickedHandler = () => {
+  const loginButtonClickedHandler = async () => {
     // Check if credentials match hardcoded test credentials
     if (
       userData.username === TEST_USERNAME &&
@@ -74,75 +71,88 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
         severity: "success",
         message: "Login successful!",
       });
-
       setOpenSnackbar(true);
       return handleAuthentication();
     } else {
-      let users = getFromLocalStorage("users");
-      if (users) {
-        // Check if there is any existing user in users array with
-        // the same username, email and password
-        const existingUser = users.filter((user) => {
-          return (
-            userData.username === user.username &&
-            userData.email === user.email &&
-            userData.password === user.password
-          );
+      // Call /api/login with userData
+      fetch("http://localhost:9000/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userData),
+      })
+        .then((res) => res.json())
+        .then((res) => {
+          if (res.error) {
+            setSnackbarOptions({
+              severity: "error",
+              message: "Credentials are not valid. Register a new user first!",
+            });
+          } else {
+            setSnackbarOptions({
+              severity: "success",
+              message: "Login successful!",
+            });
+
+            return handleAuthentication();
+          }
         });
-
-        // If so execute a succesful login
-        if (existingUser.length > 0) {
-          setSnackbarOptions({
-            severity: "success",
-            message: "Login successful!",
-          });
-
-          setOpenSnackbar(true);
-          return handleAuthentication();
-        }
-      }
-      // If neither hardcoded test credentials nor any credentials in
-      // users array match return crendentials are not valid meesage
-      setSnackbarOptions({
-        severity: "error",
-        message: "Credentials are not valid. Register a new user first!",
-      });
-      setOpenSnackbar(true);
     }
+    setOpenSnackbar(true);
   };
 
-  const registerButtonClickedHandler = () => {
-    // Get current users in localStorage.
-    if (!getFromLocalStorage("users")) saveToLocalStorage("users", []);
-    let savedUsers = getFromLocalStorage("users");
+  const registerButtonClickedHandler = async () => {
+    // Get current saved users.
+    const response = await fetch("http://localhost:9000/api/users/");
+    const responseJson = await response.json();
+    const savedUsers = responseJson.data;
+    console.log("Saved users...", savedUsers);
 
     // Check if current userData is not present in savedUsers
     // already, specifically we check if email is present.
     const foundUsers = savedUsers.find((user) => user.email === userData.email);
+    console.log("foundUsers...", foundUsers);
 
-    if (foundUsers) {
+    if (foundUsers?.length > 0) {
       setSnackbarOptions({
         severity: "warning",
         message: "A user with that email is already registered!",
       });
+      setOpenSnackbar(true);
     } else {
-      savedUsers.push(userData);
-      saveToLocalStorage("users", savedUsers);
+      fetch("http://localhost:9000/api/user/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userData),
+      })
+        .then((res) => res.json())
+        .then((res) => {
+          if (res.error) {
+            console.error(res.error);
+            setSnackbarOptions({
+              severity: "error",
+              message: "A user with that email is already registered!",
+            });
+          } else {
+            setSnackbarOptions({
+              severity: "info",
+              message: "Registered user!",
+            });
 
-      setSnackbarOptions({
-        severity: "info",
-        message: "Registered user!",
-      });
-
-      handleAuthentication();
+            handleAuthentication();
+          }
+          setOpenSnackbar(true);
+        });
     }
-    setOpenSnackbar(true);
   };
 
   const handleAuthentication = () => {
     // Save user's credentials on localStorage under "lastLoginCredentials".
     // This will be used for Remember Me and logout features.
-    rememberMe && saveToLocalStorage("lastLoginCredentials", userData);
+    // rememberMe && saveToLocalStorage("lastLoginCredentials", userData);
 
     // Show loading spinner for one second.
     setTimeout(() => {
