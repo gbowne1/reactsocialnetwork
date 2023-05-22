@@ -25,7 +25,6 @@ const CreateEventModal = ({
   themeMode,
   isOpen,
   handleClose,
-  // events,
   setEvents,
   setSnackbarOptions,
   setOpenSnackbar,
