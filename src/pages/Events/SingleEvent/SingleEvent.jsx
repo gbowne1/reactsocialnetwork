@@ -11,7 +11,7 @@ import CancelIcon from "@mui/icons-material/Cancel";
 import ReplyIcon from "@mui/icons-material/Reply";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-import saveToLocalStorage from "../../../utils/saveToLocalStorage";
+// import saveToLocalStorage from "../../../utils/saveToLocalStorage";
 import placeholderImageUrl from "../../../data/placeholderImageUrl";
 import checkImage from "../../../utils/checkImage";
 import formatDate from "../../../utils/formatDate";
@@ -22,7 +22,7 @@ const SingleEvent = ({
   themeMode,
   eventData,
   eventKey,
-  events,
+  // events,
   setEvents,
   setSnackbarOptions,
   setOpenSnackbar,
@@ -33,14 +33,44 @@ const SingleEvent = ({
   const handleAttendanceChange = (event) => {
     eventData["attendance"] = event.target.value;
     setAttendance(event.target.value);
-    saveToLocalStorage("events", events);
+    // saveToLocalStorage("events", events);
+
+    console.warn("On handleAttendanceChange");
+    console.log("Current eventData", eventData);
+
+    // Update event using updateEvent route.
+    fetch(`http://localhost:9000/api/event/${eventData.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(eventData),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+      });
+
+    // Receive new eventData in callback and replace eventData with
+    // updated eventData.
   };
 
   const handleDeleteButtonClicked = () => {
-    const updatedEvents = events.filter((event) => {
-      return event.title !== eventData.title;
-    });
-    setEvents(updatedEvents);
+    // Use eventData.id to delete event
+    fetch(`http://localhost:9000/api/event/${eventData.id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((res) => console.log(res));
+
+    // Fetch all events again
+    fetch(`http://localhost:9000/api/events/`)
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res.data);
+        // And set them using setEvent
+        setEvents(res.data);
+      });
 
     setSnackbarOptions({
       severity: "success",
@@ -87,7 +117,7 @@ const SingleEvent = ({
             </a>
           </p>
           <p data-testid="single-event-participation">
-            {`${eventData.participation.interested} interested... ${eventData.participation.going} going...`}
+            {`${eventData.participationInterested} interested... ${eventData.participationGoing} going...`}
           </p>
         </div>
       </div>
