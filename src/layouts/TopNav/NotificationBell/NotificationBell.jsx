@@ -10,7 +10,6 @@ const NotificationBell = ({ notifications, setOpen }) => {
   const noNewNotifications = "No new notifications";
 
   const handleOpen = () => {
-    console.log("Notication menu opened!");
     setOpen && setOpen(true);
   };
 
