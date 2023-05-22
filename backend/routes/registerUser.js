@@ -16,7 +16,6 @@ router.post("/api/user/", (req, res, next) => {
   }
 
   if (errors.length) {
-    console.log(errors);
     res.status(400).json({ error: errors.join(",") });
     return;
   }
@@ -33,9 +32,6 @@ router.post("/api/user/", (req, res, next) => {
   db.run(sql, params, function (err, result) {
     if (err) {
       const errorMessage = `A user with email ${data.email} already exists!`;
-      console.log(err.message);
-      console.log(errorMessage);
-
       res.status(400).json({ error: errorMessage });
       return;
     }
