@@ -25,7 +25,7 @@ const CreateEventModal = ({
   themeMode,
   isOpen,
   handleClose,
-  events,
+  // events,
   setEvents,
   setSnackbarOptions,
   setOpenSnackbar,
@@ -44,21 +44,42 @@ const CreateEventModal = ({
       imageUrl: eventImageUrl,
       attendance: "Going",
       date: eventDate,
-
-      participation: {
-        interested: 1,
-        going: 1,
-      },
+      participationInterested: 1,
+      participationGoing: 1,
     };
 
-    setEvents([...events, newEvent]);
+    // Insert new record on db
+    fetch("http://localhost:9000/api/event/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newEvent),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        if (res.error) {
+          setSnackbarOptions({
+            severity: "success",
+            message: "An event with that title already exists!",
+          });
+        }
+        setSnackbarOptions({
+          severity: "success",
+          message: "Event successfully created!",
+        });
 
-    setSnackbarOptions({
-      severity: "success",
-      message: "Event successfully created!",
-    });
+        // Fetch all events from db
+        fetch("http://localhost:9000/api/events/")
+          .then((res) => res.json())
+          .then((res) => {
+            console.log(res.data);
+            // And then set those events with setEvent
+            setEvents(res.data);
+          });
 
-    setOpenSnackbar(true);
+        setOpenSnackbar(true);
+      });
 
     reset({
       "event-title-input": "",
