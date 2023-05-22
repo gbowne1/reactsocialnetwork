@@ -3,7 +3,6 @@ const router = express.Router();
 const db = require("../database");
 
 router.patch("/api/event/:id", (req, res, next) => {
-  console.log(req.body);
   const data = {
     date: req.body.date,
     title: req.body.title,
@@ -43,11 +42,9 @@ router.patch("/api/event/:id", (req, res, next) => {
     ],
     (err) => {
       if (err) {
-        console.log(err.message);
         res.status(400).json({ error: res.message });
         return;
       }
-      console.log(data);
       res.json({
         message: "Event successfully updated!",
         data: data,
