@@ -37,8 +37,12 @@ This is not hosted anywhere yet so use the Create-React-App Development server b
 
 We have both unit tests(Jest & React Testing Library) and e2e tests(Cypress).
 
+
 In order to run unit tests go to `client/` folder and run `npm run test` on the CLI.
 
 In order to run e2e tests go to `client/` folder and run `npm run test:cypress` on the CLI.
 
 In order to open cypress UI go to `client/` folder and run `npm run test:cypress:open` on the CLI.
+
+
+
