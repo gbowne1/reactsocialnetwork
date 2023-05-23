@@ -2,7 +2,7 @@
 
 const addLastLoginCredentialsToLocalStorage = () => {
   const lastLoginCredentials = {
-    username: "testuser1",
+    username: "testuser",
     email: "testuser@gmail.com",
     password: "Testpass1",
   };
