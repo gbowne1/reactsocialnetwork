@@ -1,0 +1,74 @@
+{
+  "name": "reactsocialnetwork",
+  "version": "0.1.0",
+  "private": true,
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "routes.js",
+  "author": "Gregory Bowne",
+  "license": "MIT",
+  "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@hookform/resolvers": "^2.9.11",
+    "@mui/icons-material": "^5.10.16",
+    "@mui/material": "^5.10.17",
+    "@mui/system": "^5.12.1",
+    "@mui/x-date-pickers": "^6.0.1",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^14.4.3",
+    "dayjs": "^1.11.7",
+    "dotenv": "^16.0.3",
+    "eslint": "^8.0.0",
+    "express": "^4.18.2",
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-burger-menu": "^3.0.9",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.43.3",
+    "react-router": "^6.4.5",
+    "react-router-dom": "^6.4.5",
+    "react-scripts": "^5.0.1",
+    "web-vitals": "^3.1.0",
+    "yup": "^1.0.2",
+    "yup-password": "^0.2.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "test:cypress": "cd ../e2e/ && npx cypress run",
+    "test:cypress:open": "cd ../e2e/ && npx cypress open",
+    "eject": "react-scripts eject",
+    "format": "npx prettier --write ."
+  },
+  "proxy": "",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.21.0",
+    "@babel/eslint-parser": "^7.21.8",
+    "@testing-library/dom": "^9.2.0",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^9.1.2",
+    "cypress": "^12.11.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-config-react-app": "^7.0.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
+    "jest-watch-typeahead": "^0.6.5",
+    "prettier": "^2.8.8",
+    "react-test-renderer": "^18.2.0",
+    "webpack": "^5.75.0"
+  }
+}

@@ -14,16 +14,87 @@ const addLastLoginCredentialsToLocalStorage = () => {
 };
 
 describe("Event tests", () => {
+  const apiUrl = "http://localhost:9000";
   const ctx = {};
-  it("should create a new event succesfully", () => {
-    const newEvent = {
-      title: "Beach Volleyball",
-      location: "Venice Beach",
-      locationUrl: "http://venice-beach.com/",
-      imageUrl: "http://venice-beach.com/image-1/",
-      date: "04/24/2025",
-    };
 
+  const testEvent = {
+    title: "Beach Volleyball",
+    location: "Test event location",
+    locationUrl: "http://venice-beach.com/",
+    imageUrl: "http://venice-beach.com/image-1/",
+    date: new Date().toLocaleDateString(),
+  };
+
+  const testEvents = [
+    {
+      date: new Date().toLocaleDateString(),
+      title: "Test event 1",
+      locationName: "Test event location",
+      locationUrl: "http://test-event.com/location/",
+      imageUrl: "http://test-event.com/image-1/",
+      attendance: "Not Going",
+      participationInterested: 43,
+      participationGoing: 22,
+    },
+    {
+      date: new Date().toLocaleDateString(),
+      title: "Test event 2",
+      locationName: "Test event location",
+      locationUrl: "http://test-event.com/location/",
+      imageUrl: "http://test-event.com/image-1/",
+      attendance: "Not Going",
+      participationInterested: 43,
+      participationGoing: 22,
+    },
+    {
+      date: new Date().toLocaleDateString(),
+      title: "Test event 3",
+      locationName: "Test event location",
+      locationUrl: "http://test-event.com/location/",
+      imageUrl: "http://test-event.com/image-1/",
+      attendance: "Not Going",
+      participationInterested: 43,
+      participationGoing: 22,
+    },
+  ];
+
+  beforeEach(() => {
+    // Delete all test events records
+    cy.request({
+      url: `${apiUrl}/api/events/delete-test-events`,
+      failOnStatusCode: false,
+    }).then((res) => {
+      expect(res.body.message).to.eq("Events deleted!");
+    });
+
+    // Check how many events are there initially
+    cy.request({ url: `${apiUrl}/api/events` }).then((res) => {
+      const initialAmountOfEvents = res.body.data.length;
+
+      // If there are less than 3 initial events then create events until
+      // amount of events is >= 3
+      if (initialAmountOfEvents < 3) {
+        // Add the as many events are needed in order to have 3 or more events
+        const amountOfEventsToAdd = 3 - initialAmountOfEvents;
+
+        // Slice the array to contain the amount of events to add
+        const testEventsToAdd = testEvents.slice(0, amountOfEventsToAdd);
+        testEventsToAdd.forEach((testEvent) => {
+          cy.request({
+            method: "POST",
+            url: `${apiUrl}/api/event/`,
+            body: testEvent,
+          }).then((res) => {
+            expect(res.body.message).to.eq(
+              `Event ${testEvent.title} successfully created!`
+            );
+          });
+        });
+      }
+    });
+  });
+
+  it("should create a new event succesfully", () => {
     // Load the app and seed localstorage with credentials
     cy.visit("http://localhost:3000/").then(() => {
       addLastLoginCredentialsToLocalStorage();
@@ -50,12 +121,12 @@ describe("Event tests", () => {
 
     cy.get('[data-testid="create-event-modal"]').should("be.visible");
 
-    cy.get('[data-testid="event-title-input"]').type(newEvent.title);
-    cy.get('[data-testid="event-location-input"]').type(newEvent.location);
+    cy.get('[data-testid="event-title-input"]').type(testEvent.title);
+    cy.get('[data-testid="event-location-input"]').type(testEvent.location);
     cy.get('[data-testid="event-location-url-input"]').type(
-      newEvent.locationUrl
+      testEvent.locationUrl
     );
-    cy.get('[data-testid="event-image-url-input"]').type(newEvent.imageUrl);
+    cy.get('[data-testid="event-image-url-input"]').type(testEvent.imageUrl);
 
     // No need to add date as it's automatically added, just click create event
     cy.get('[data-testid="create-event-modal-button"]').click();
@@ -158,8 +229,9 @@ describe("Event tests", () => {
     // Click on events
     cy.get('[href="/events"]').click();
 
-    // Check there are 3 events initially
-    cy.get(".SingleEvent").should("have.length", 3);
+    cy.get(".SingleEvent").then((element) => {
+      expect(element).to.have.length(3);
+    });
 
     // Delete all events
     const deleteElementIfExists = (elementId) => {
@@ -262,8 +334,8 @@ describe("Event tests", () => {
     // Add a location with more than 6 characters
     cy.get('[data-testid="event-location-input"]')
       .clear()
-      .type("Beach Hotel")
-      .should("have.value", "Beach Hotel");
+      .type("Test event location")
+      .should("have.value", "Test event location");
 
     cy.get('[data-testid="create-event-modal-button"]').click();
 
