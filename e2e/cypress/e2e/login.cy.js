@@ -41,7 +41,7 @@ describe("Login tests", () => {
     });
   });
 
-  it("should login with hardcoded testuser credentials", () => {
+  it("should login with hardcoded testuser credentials and stayed logged in after page reload.", () => {
     const TEST_USERNAME = "testuser1";
     const TEST_EMAIL = "testuser@gmail.com";
     const TEST_PASSWORD = "Testpass1!";
@@ -63,9 +63,13 @@ describe("Login tests", () => {
 
     // Check we are on homepage (dashboard page)
     checkHomepage();
+
+    // Reload page and check homepag is still visible
+    cy.reload();
+    checkHomepage();
   });
 
-  it("should NOT login with un-registed credentials", () => {
+  it("should NOT login with un-registered credentials", () => {
     const UNREGISTERED_USERNAME = "SomeUsername";
     const UNREGISTERED_EMAIL = "SomeEmail@mail.com";
     const UNREGISTERED_PASSWORD = "Somepassword123!";
@@ -90,7 +94,7 @@ describe("Login tests", () => {
       );
   });
 
-  it("should register a new user, then login successfully with those credentials", () => {
+  it("should register a new user, then login successfully with those credentials and stayed logged in after page reload.", () => {
     const NEW_USERNAME = "testuser";
     const NEW_EMAIL = "newuser@gmail.com";
     const NEW_PASSWORD = "Test1234!";
@@ -126,6 +130,10 @@ describe("Login tests", () => {
     submitUserData(NEW_USERNAME, NEW_EMAIL, NEW_PASSWORD);
 
     // Check we are on homepage (dashboard page)
+    checkHomepage();
+
+    // Reload page and check homepag is still visible
+    cy.reload();
     checkHomepage();
   });
 
