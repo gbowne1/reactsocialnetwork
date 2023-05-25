@@ -1,7 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Profile.css';
 
 const Profile = () => {
+
+  const [openModal, setOpenModal] = useState(null);
+
+  useEffect(() => {
+    setOpenModal(true);
+  }, []);
+
+
   const [formData, setFormData] = useState({});
   const [profileImage, setProfileImage] = useState(null);
 
@@ -30,11 +38,12 @@ const Profile = () => {
 
   return (
     <div className='profile'>
-      <div className="Profile-container">
 
-      <button className="Close-button">
-        <span className='icon'>&times;</span>
-      </button>
+      {openModal && (
+      <div className="Profile-container">
+        <button className="Close-button">
+          <span className='icon' onClick={(prev) =>{setOpenModal(!prev)} }>&times;</span>
+        </button>
 
       <form className="infoForm" onSubmit={handleSubmit}>
         <h3>Create Profile</h3>
@@ -144,6 +153,7 @@ const Profile = () => {
 
         </form>
       </div>
+      )}
     </div>
   );
 };
