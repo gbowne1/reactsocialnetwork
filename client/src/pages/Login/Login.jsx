@@ -22,6 +22,7 @@ import CustomSnackbar from "../../components/CustomSnackbar/CustomSnackbar";
 import CookieModal from "../../components/CookieModal/CookieModal";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 import ThemeSwitch from "../../components/ThemeSwitch/ThemeSwitch";
+import saveToLocalStorage from "../../utils/saveToLocalStorage";
 
 import "./Login.css";
 
@@ -136,7 +137,7 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
   const handleAuthentication = () => {
     // Save user's credentials on localStorage under "lastLoginCredentials".
     // This will be used for Remember Me and logout features.
-    // rememberMe && saveToLocalStorage("lastLoginCredentials", userData);
+    rememberMe && saveToLocalStorage("lastLoginCredentials", userData);
 
     // Show loading spinner for one second.
     setTimeout(() => {
