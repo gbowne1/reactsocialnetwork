@@ -1,5 +1,10 @@
 {
   "parser": "@babel/eslint-parser",
+  "extends": [
+    "react-app",
+    "react-app/jest",
+    "shared-config"
+  ],
   "plugins": [
     "react",
     "prettier"
