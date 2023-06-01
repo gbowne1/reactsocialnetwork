@@ -34,7 +34,6 @@ const Panel = ({
     let widthClassName = "";
     if (!width) return widthClassName;
 
-    if (width === 100) widthClassName = "w-100";
     if (width === 75) widthClassName = "w-75";
     if (width === 50) widthClassName = "w-50";
     if (width === 25) widthClassName = "w-25";
