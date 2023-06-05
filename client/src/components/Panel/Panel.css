@@ -4,7 +4,7 @@
   border-top-right-radius: 15px;
   border-top-left-radius: 15px;
   min-width: 70%;
-  max-width: 1400px !important;
+  max-width: 1400px;
   min-height: 700px;
 }
 
@@ -99,4 +99,10 @@ table {
   max-width: 75% !important;
   width: 75% !important;
   min-width: 75% !important;
+}
+
+.w-100 {
+  max-width: 100% !important;
+  width: 100% !important;
+  min-width: 100% !important;
 }

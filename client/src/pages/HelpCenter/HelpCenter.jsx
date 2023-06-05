@@ -65,7 +65,7 @@ const HelpCenter = ({ themeMode }) => {
   return (
     <Panel
       themeMode={themeMode}
-      width={100}
+      width={75}
       titleHeading="Help center"
       isOpen={isOpen}
       setIsOpen={setIsOpen}
