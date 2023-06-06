@@ -1,43 +1,97 @@
-@import url("../../variables.css");
+.profile{
+  width: 100%;
+  padding: 15px 0;
+  background-color: #55555599;
+}
 
-/* TODO: Update colors and fonts according to variables.css */
 .Profile-header {
-  background-color: #555;
-  max-width: 1384px;
-  height: 60px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
+    background-color: #555;
+    max-width: 1384px;
+    height: 60px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .icon {
+    font-size: 25px;
+    margin-top: 15px;
+    margin-right: 15px;
+    cursor: pointer;
+  }
+  
+  .Profile-container {
+    position: relative;
+    background-color: white;
+    width: 70%;
+    max-width: 1400px;
+    height: fit-content;
+    border-radius: 5px;
+    border: 2px solid black;
+    margin: auto;
+    text-align: center;
+    z-index: 3;
+  }
 
-.icon {
-  font-size: 25px;
-  margin-top: 15px;
-  margin-right: 15px;
-  cursor: pointer;
-}
+  .background{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.7;
+    background: #5a5a5a;
+  }
+  
+  .Close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 40px;
+    width: 40px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+  }
+  
+  h3 {
+    padding-top: 19px;
+    height: 45px;
+    width: 180px;
+  }
+  
 
-.Profile-container {
-  background-color: beige;
-  width: 70%;
-  max-width: 1400px;
-  height: 700px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  border: 2.5px solid black;
-  margin-top: 2px;
-}
 
-.Close-button {
-  height: 40px;
-  width: 60px;
-  background-color: blue;
-}
+.infoForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .infoInput{
+    border: 0.5px solid rgba(0, 0, 0, 0.205);
+    outline: none;
+    /* background-color: var(--inputColor); */
+    border-radius: 8px;
+    padding: 20px;
+    flex:1;
+  }
+  
+  .infoForm>div{
+    display: flex;
+    gap: 1rem;
+    height: 2rem;
+    width: 90%;
+  }
+  
+  .infoButton{
+    width: 6rem;
+    height: 2rem;
+    margin-bottom: 10px;
+  }
 
-h3 {
-  padding-top: 19px;
-  height: 45px;
-  width: 180px;
-}
+  
