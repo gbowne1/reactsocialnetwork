@@ -10,6 +10,8 @@ import {
 } from "@mui/material";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 
+import "./CookieModal.css";
+
 const CookieModal = () => {
   const [isOpen, setIsOpen] = useState(false);
 
