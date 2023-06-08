@@ -9,8 +9,13 @@ import {
   Modal,
 } from "@mui/material";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
+import getFromLocalStorage from "../../utils/getFromLocalStorage";
+import saveToLocalStorage from "../../utils/saveToLocalStorage";
 
 const CookieModal = () => {
+  // State used to ONLY show cookie modal in case cookies have not been accepted.
+  const [cookiesAccepted] = useState(getFromLocalStorage("cookiesAccepted"));
+
   const [isOpen, setIsOpen] = useState(false);
   const [showLearnMoreLink] = useState(false);
 
@@ -23,15 +28,13 @@ const CookieModal = () => {
   }, []);
 
   const closeCookieModal = () => {
+    // Save cookie state on localStorage.
+    saveToLocalStorage("cookiesAccepted", true);
     setIsOpen(false);
-  }
+  };
 
-  return (
-    <Modal
-      open={isOpen}
-      onClose={closeCookieModal}
-      className="modal-box"
-    >
+  return cookiesAccepted ? null : (
+    <Modal open={isOpen} onClose={closeCookieModal} className="modal-box">
       <>
         <Card className="cookies-card">
           <CardHeader title="Our Website Uses Cookies" />
@@ -45,10 +48,12 @@ const CookieModal = () => {
           <CardContent>
             <div className="card-content">
               <p>We collect user data to provide better user experience.</p>
-              {showLearnMoreLink && <a href="!#" style={{ color: "black" }}>
-                {" "}
-                Learn more about how we use cookies.
-              </a>}
+              {showLearnMoreLink && (
+                <a href="!#" style={{ color: "black" }}>
+                  {" "}
+                  Learn more about how we use cookies.
+                </a>
+              )}
             </div>
             <hr />
             <div className="cookies-card-bottom">
