@@ -34,7 +34,7 @@ const CookieModal = () => {
   };
 
   return cookiesAccepted ? null : (
-    <Modal open={isOpen} onClose={closeCookieModal} className="modal-box">
+    <Modal open={isOpen} onClose={closeCookieModal} className="modal-box" data-testid="cookie-modal">
       <>
         <Card className="cookies-card">
           <CardHeader title="Our Website Uses Cookies" />
@@ -76,6 +76,7 @@ const CookieModal = () => {
                 color="secondary"
                 className="necessarybtn"
                 onClick={closeCookieModal}
+                data-testid="cookie-modal-accept-necessary-button"
               >
                 Accept Necessary
               </Button>
@@ -84,6 +85,7 @@ const CookieModal = () => {
                 color="primary"
                 className="acceptallbtn"
                 onClick={closeCookieModal}
+                data-testid="cookie-modal-accept-all-button"
               >
                 Accept All
               </Button>
