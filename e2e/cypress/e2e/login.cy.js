@@ -173,7 +173,7 @@ describe("Login tests", () => {
     checkHomepage(false);
   });
 
-  it("should display error labels when leaving required inputs empty or on validation errors", () => {
+  it.only("should display error labels when leaving required inputs empty or on validation errors", () => {
     cy.visit("http://localhost:3000/");
 
     // Close cookie modal
@@ -219,8 +219,21 @@ describe("Login tests", () => {
       .should("be.visible")
       .and("have.text", "Email must be a valid email");
 
+    // Add a password with just 7 characters
+    cy.get('[data-testid="password"]')
+      .type("footbal")
+      .should("have.value", "footbal");
+
+    cy.get('[data-testid="submit"]').click();
+
+    // Check password helper text
+    cy.get("#password-helper-text")
+      .should("be.visible")
+      .and("have.text", "password must be at least 8 characters");
+
     // Add a password with just 8 characters
     cy.get('[data-testid="password"]')
+      .clear()
       .type("football")
       .should("have.value", "football");
 
