@@ -12,6 +12,7 @@ import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 
 const CookieModal = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [showLearnMoreLink] = useState(false);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -21,12 +22,14 @@ const CookieModal = () => {
     return () => clearTimeout(timeout);
   }, []);
 
+  const closeCookieModal = () => {
+    setIsOpen(false);
+  }
+
   return (
     <Modal
       open={isOpen}
-      onClose={() => {
-        setIsOpen(false);
-      }}
+      onClose={closeCookieModal}
       className="modal-box"
     >
       <>
@@ -42,10 +45,10 @@ const CookieModal = () => {
           <CardContent>
             <div className="card-content">
               <p>We collect user data to provide better user experience.</p>
-              <a href="!#" style={{ color: "black" }}>
+              {showLearnMoreLink && <a href="!#" style={{ color: "black" }}>
                 {" "}
                 Learn more about how we use cookies.
-              </a>
+              </a>}
             </div>
             <hr />
             <div className="cookies-card-bottom">
@@ -67,6 +70,7 @@ const CookieModal = () => {
                 variant="contained"
                 color="secondary"
                 className="necessarybtn"
+                onClick={closeCookieModal}
               >
                 Accept Necessary
               </Button>
@@ -74,6 +78,7 @@ const CookieModal = () => {
                 variant="contained"
                 color="primary"
                 className="acceptallbtn"
+                onClick={closeCookieModal}
               >
                 Accept All
               </Button>
