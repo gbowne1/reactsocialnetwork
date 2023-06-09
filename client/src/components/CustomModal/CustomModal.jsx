@@ -5,7 +5,6 @@ import {
   DialogContent,
   DialogContentText,
 } from "@mui/material";
-import CloseButton from "../CloseButton/CloseButton";
 import "./CustomModal.css";
 
 const CustomModal = ({
