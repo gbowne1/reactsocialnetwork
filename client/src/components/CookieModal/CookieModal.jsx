@@ -1,17 +1,21 @@
 import { useState, useEffect } from "react";
-import {
-  Button,
-  Card,
-  CardContent,
-  CardHeader,
-  CardActions,
-  Checkbox,
-  Modal,
-} from "@mui/material";
-import HighlightOffIcon from "@mui/icons-material/HighlightOff";
+import { Button, Checkbox } from "@mui/material";
+import CustomModal from "../../components/CustomModal/CustomModal";
+import getFromLocalStorage from "../../utils/getFromLocalStorage";
+import saveToLocalStorage from "../../utils/saveToLocalStorage";
+
+import "./CookieModal.css";
 
 const CookieModal = () => {
+  // State used to ONLY show cookie modal in case cookies have not been accepted.
+  const [cookiesAccepted] = useState(getFromLocalStorage("cookiesAccepted"));
+
   const [isOpen, setIsOpen] = useState(false);
+  // const [showLearnMoreLink] = useState(false);
+
+  const handleClose = () => {
+    setIsOpen(false);
+  };
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -21,67 +25,54 @@ const CookieModal = () => {
     return () => clearTimeout(timeout);
   }, []);
 
-  return (
-    <Modal
-      open={isOpen}
-      onClose={() => {
-        setIsOpen(false);
-      }}
-      className="modal-box"
+  const closeCookieModal = () => {
+    // Save cookie state on localStorage.
+    saveToLocalStorage("cookiesAccepted", true);
+    handleClose(false);
+  };
+
+  return cookiesAccepted ? null : (
+    <CustomModal
+      isOpen={isOpen}
+      setIsOpen={setIsOpen}
+      title="Our Website Uses Cookies"
+      message="We collect user data to provide better user experience. Learn more about how we use cookies."
     >
-      <>
-        <Card className="cookies-card">
-          <CardHeader title="Our Website Uses Cookies" />
-          <HighlightOffIcon
-            className="closeIcon"
-            data-testid="cookie-modal-close-button"
-            onClick={() => {
-              setIsOpen(false);
-            }}
-          />
-          <CardContent>
-            <div className="card-content">
-              <p>We collect user data to provide better user experience.</p>
-              <a href="!#" style={{ color: "black" }}>
-                {" "}
-                Learn more about how we use cookies.
-              </a>
-            </div>
-            <hr />
-            <div className="cookies-card-bottom">
-              <Checkbox color="primary" />
-              <div className="text">
-                <p>Necessary Cookies</p>
-              </div>
-            </div>
-            <div className="cookies-card-bottom">
-              <Checkbox color="primary" />
-              <div className="text">
-                <p>Analytical Cookies</p>
-              </div>
-            </div>
-          </CardContent>
-          <CardActions>
-            <div className="card-footer">
-              <Button
-                variant="contained"
-                color="secondary"
-                className="necessarybtn"
-              >
-                Accept Necessary
-              </Button>
-              <Button
-                variant="contained"
-                color="primary"
-                className="acceptallbtn"
-              >
-                Accept All
-              </Button>
-            </div>
-          </CardActions>
-        </Card>
-      </>
-    </Modal>
+      <hr />
+      <div className="checkbox-container">
+        <div className="checkbox">
+          <Checkbox color="primary" />
+          <div className="text">
+            <p>Necessary Cookies</p>
+          </div>
+        </div>
+        <div className="checkbox">
+          <Checkbox color="primary" />
+          <div className="text">
+            <p>Analytical Cookies</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="button-container">
+        <Button
+          className="button"
+          onClick={closeCookieModal}
+          variant="contained"
+          color="secondary"
+        >
+          Accept Necessary
+        </Button>
+        <Button
+          className="button"
+          onClick={closeCookieModal}
+          variant="contained"
+          autoFocus
+        >
+          Accept All
+        </Button>
+      </div>
+    </CustomModal>
   );
 };
 
