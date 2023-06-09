@@ -5,6 +5,7 @@ import {
   DialogContent,
   DialogContentText,
 } from "@mui/material";
+import CloseButton from "../CloseButton/CloseButton";
 import "./CustomModal.css";
 
 const CustomModal = ({
@@ -12,7 +13,7 @@ const CustomModal = ({
   setIsOpen,
   title,
   message,
-  linkMessage,
+  dataTestId,
   children,
 }) => {
   return (
@@ -24,6 +25,7 @@ const CustomModal = ({
             setIsOpen(false);
           }}
           className="dialog"
+          data-testid={dataTestId}
         >
           <DialogTitle className="dialog-title">{title}</DialogTitle>
           <DialogContent className="dialog-content">
