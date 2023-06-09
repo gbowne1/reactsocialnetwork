@@ -1,6 +1,7 @@
 @import url("../../variables.css");
 
 .Login__container {
+
   margin-top: 200px;
 }
 
@@ -39,8 +40,9 @@
 
 .Login__textfield.dark-mode input:-webkit-autofill,
 .Login__textfield.dark-mode input:-webkit-autofill:focus {
-  -webkit-box-shadow: 0 0 0px 1000px var(--bg-light-900) inset;
+  -webkit-box-shadow: 0 0 0px 1000px var(--text-dark-100) inset;
 }
+
 
 .Login__textfield.dark-mode fieldset {
   border-color: var(--bg-light-100) !important;

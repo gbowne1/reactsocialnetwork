@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+
 import { Button, Checkbox } from "@mui/material";
 import CustomModal from "../../components/CustomModal/CustomModal";
 import getFromLocalStorage from "../../utils/getFromLocalStorage";
