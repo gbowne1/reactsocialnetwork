@@ -1,14 +1,9 @@
 import { useState, useEffect } from "react";
-import {
-  Button,
-  Card,
-  CardContent,
-  CardHeader,
-  CardActions,
-  Checkbox,
-  Modal,
-} from "@mui/material";
-import HighlightOffIcon from "@mui/icons-material/HighlightOff";
+
+import { Button, Checkbox } from "@mui/material";
+import CustomModal from "../../components/CustomModal/CustomModal";
+import CloseButton from "../CloseButton/CloseButton";
+
 import getFromLocalStorage from "../../utils/getFromLocalStorage";
 import saveToLocalStorage from "../../utils/saveToLocalStorage";
 
@@ -19,7 +14,11 @@ const CookieModal = () => {
   const [cookiesAccepted] = useState(getFromLocalStorage("cookiesAccepted"));
 
   const [isOpen, setIsOpen] = useState(false);
-  const [showLearnMoreLink] = useState(false);
+  // const [showLearnMoreLink] = useState(false);
+
+  const handleClose = () => {
+    setIsOpen(false);
+  };
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -32,70 +31,54 @@ const CookieModal = () => {
   const closeCookieModal = () => {
     // Save cookie state on localStorage.
     saveToLocalStorage("cookiesAccepted", true);
-    setIsOpen(false);
+    handleClose(false);
   };
 
   return cookiesAccepted ? null : (
-    <Modal open={isOpen} onClose={closeCookieModal} className="modal-box" data-testid="cookie-modal">
-      <>
-        <Card className="cookies-card">
-          <CardHeader title="Our Website Uses Cookies" />
-          <HighlightOffIcon
-            className="closeIcon"
-            data-testid="cookie-modal-close-button"
-            onClick={() => {
-              setIsOpen(false);
-            }}
-          />
-          <CardContent>
-            <div className="card-content">
-              <p>We collect user data to provide better user experience.</p>
-              {showLearnMoreLink && (
-                <a href="!#" style={{ color: "black" }}>
-                  {" "}
-                  Learn more about how we use cookies.
-                </a>
-              )}
+      <CustomModal
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        title="Our Website Uses Cookies"
+        message="We collect user data to provide better user experience. Learn more about how we use cookies."
+        dataTestId="cookie-modal"
+      >
+        <hr />
+        <div className="checkbox-container">
+          <div className="checkbox">
+            <Checkbox color="primary" />
+            <div className="text">
+              <p>Necessary Cookies</p>
             </div>
-            <hr />
-            <div className="cookies-card-bottom">
-              <Checkbox color="primary" />
-              <div className="text">
-                <p>Necessary Cookies</p>
-              </div>
+          </div>
+          <div className="checkbox">
+            <Checkbox color="primary" />
+            <div className="text">
+              <p>Analytical Cookies</p>
             </div>
-            <div className="cookies-card-bottom">
-              <Checkbox color="primary" />
-              <div className="text">
-                <p>Analytical Cookies</p>
-              </div>
-            </div>
-          </CardContent>
-          <CardActions>
-            <div className="card-footer">
-              <Button
-                variant="contained"
-                color="secondary"
-                className="necessarybtn"
-                onClick={closeCookieModal}
-                data-testid="cookie-modal-accept-necessary-button"
-              >
-                Accept Necessary
-              </Button>
-              <Button
-                variant="contained"
-                color="primary"
-                className="acceptallbtn"
-                onClick={closeCookieModal}
-                data-testid="cookie-modal-accept-all-button"
-              >
-                Accept All
-              </Button>
-            </div>
-          </CardActions>
-        </Card>
-      </>
-    </Modal>
+          </div>
+        </div>
+
+        <div className="button-container">
+          <Button
+            className="button"
+            onClick={closeCookieModal}
+            variant="contained"
+            color="secondary"
+            data-testid="cookie-modal-accept-necessary-button"
+          >
+            Accept Necessary
+          </Button>
+          <Button
+            className="button"
+            onClick={closeCookieModal}
+            variant="contained"
+            autoFocus
+            data-testid="cookie-modal-accept-all-button"
+          >
+            Accept All
+          </Button>
+        </div>
+      </CustomModal>
   );
 };
 

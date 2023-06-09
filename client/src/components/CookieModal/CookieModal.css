@@ -1,53 +1,24 @@
-.modal-box {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.cookies-card {
-  width: 30vw;
-  position: relative;
-}
-
-.cookies-card-bottom {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.card-footer {
-  width: 100vw;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 10px;
-}
-
-.necessarybtn,
-.acceptallbtn {
-  width: 48%;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-.card-content {
+.checkbox-container {
+  display: block;
   width: 100%;
-  display: flex;
-  flex-direction: column;
   margin-bottom: 20px;
-  left: 0%;
 }
 
-.closeIcon {
-  position: absolute;
-  top: 5%;
-  right: 3%;
+.checkbox {
+  display: flex;
+  width: 100%;
 }
 
-.closeIcon:hover {
-  cursor: pointer;
+.checkbox>.text {
+  padding-top: 12px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.button-container>button {
+  min-width: 175px;
 }
