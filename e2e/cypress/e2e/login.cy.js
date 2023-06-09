@@ -39,6 +39,9 @@ describe("Login tests", () => {
     }).then((response) => {
       expect(response.body.message).to.eq("Users deleted!");
     });
+
+    // Add cookiesAccepted: true so that cookies modal does not appear/
+    window.localStorage.setItem("cookiesAccepted", JSON.stringify(true));
   });
 
   it("should login with hardcoded testuser credentials and stayed logged in after page reload.", () => {
@@ -47,9 +50,6 @@ describe("Login tests", () => {
     const TEST_PASSWORD = "Testpass1!";
 
     cy.visit("http://localhost:3000/");
-
-    // Close cookie modal
-    cy.get("[data-testid=cookie-modal-close-button]").click();
 
     submitUserData(TEST_USERNAME, TEST_EMAIL, TEST_PASSWORD);
 
@@ -76,9 +76,6 @@ describe("Login tests", () => {
 
     cy.visit("http://localhost:3000/");
 
-    // Close cookie modal
-    cy.get("[data-testid=cookie-modal-close-button]").click();
-
     submitUserData(
       UNREGISTERED_USERNAME,
       UNREGISTERED_EMAIL,
@@ -101,9 +98,6 @@ describe("Login tests", () => {
 
     cy.visit("http://localhost:3000/");
 
-    // Close cookie modal
-    cy.get("[data-testid=cookie-modal-close-button]").click();
-
     // Click on register here!
     cy.get(".subscribe").click();
 
@@ -123,9 +117,6 @@ describe("Login tests", () => {
     // Logout
     cy.get("[data-testid=user-menu]").click();
     cy.get("[data-testid=menu-logout]").click();
-
-    // Remove cookie popup again
-    cy.get("[data-testid=cookie-modal-close-button]").click();
 
     submitUserData(NEW_USERNAME, NEW_EMAIL, NEW_PASSWORD);
 
@@ -156,9 +147,6 @@ describe("Login tests", () => {
       console.log(window.localStorage);
     });
 
-    // Close cookie modal
-    cy.get("[data-testid=cookie-modal-close-button]").click();
-
     // Click on register here!
     cy.get(".subscribe").click();
 
@@ -175,9 +163,6 @@ describe("Login tests", () => {
 
   it("should display error labels when leaving required inputs empty or on validation errors", () => {
     cy.visit("http://localhost:3000/");
-
-    // Close cookie modal
-    cy.get("[data-testid=cookie-modal-close-button]").click();
 
     // Click on submit
     cy.get('[data-testid="submit"]').click();
