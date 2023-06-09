@@ -8,6 +8,7 @@ Current reusable components:
 
 - CloseButton
 - CustomAlert
+- Custom Modal
 - CustomSnackbar
 - LoadingSpinner
 - Panel
@@ -33,6 +34,17 @@ An alert you can use to display short important messages to the user.
 _Screenshot of component:_
 
 <img src="../images/CustomAlert.png" width=500/>
+
+<br />
+<br />
+
+### _CustomModal_
+
+A modal popup you can use to inform users and also have them perform an action.
+
+_Screenshot of component:_
+
+<img src="../images/CustomModal.png" width=500/>
 
 <br />
 <br />
