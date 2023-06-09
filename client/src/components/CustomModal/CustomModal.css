@@ -1,0 +1,17 @@
+.dialog-title {
+  padding: 10px !important;
+  width: 100%;
+  height: 100px;
+  text-align: center;
+}
+
+.dialog-content {
+  background-color: ;
+  width: 400px;
+  height: 100px;
+}
+
+.dialog-actions {
+  padding: 10px;
+  height: fit-content;
+}
