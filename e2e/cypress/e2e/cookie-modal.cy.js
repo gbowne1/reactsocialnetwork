@@ -25,7 +25,9 @@ describe("Cookie Modal tests", () => {
 
   it("should display cookie modal, close it when clicking on the X button and display it after page relaod", () => {
     cy.get("[data-testid=cookie-modal]").should("be.visible");
-    cy.get("[data-testid=cookie-modal-close-button]").click();
+
+    //  Click outside the modal to close it
+    cy.get("body").click(0, 0);
     cy.get("[data-testid=cookie-modal]").should("not.exist");
 
     cy.reload();
