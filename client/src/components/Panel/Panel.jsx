@@ -26,7 +26,7 @@ const Panel = ({
   dataTestId,
   children,
 }) => {
-  function handleClose() {
+  const handleClose = () => {
     setIsOpen(false);
   }
 
