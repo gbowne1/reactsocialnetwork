@@ -7,6 +7,21 @@ import {
 } from "@mui/material";
 import "./CustomModal.css";
 
+/**
+ *
+ * @param {boolean} isOpen - boolean state use to open or close the component
+ * @param {function} setIsOpen - function used to change the state to open and close the component
+ *
+ * @param {string} title - the heading text for the modal.
+ * @param {string} message - the message text for the modal.
+ *
+ * @param {string} dataTestId - a data testid attribute to pass on to the main element
+ *  (MUI dialog component) in order to indentify it for tests.
+ *
+ * @param {array} children - children elements to add inside the component.
+ * @returns CustomModal component.
+ */
+
 const CustomModal = ({
   isOpen,
   setIsOpen,
