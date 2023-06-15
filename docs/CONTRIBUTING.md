@@ -1,81 +1,60 @@
-# Contributing to React Social Network development
+#ਰੀਐਕਟ ਸੋਸ਼ਲ ਨੈੱਟਵਰਕ ਵਿਕਾਸ ਵਿੱਚ ਯੋਗਦਾਨ ਦੇਣਾ
+ਅਸੀਂ ਪੁਲ ਰਿਕਵੈਸਟ (PR) ਨੂੰ ਸਵੀਕਾਰ ਕਰਦੇ ਹਾਂ ਅਤੇ ਮੌਜੂਦਾ ਸਮੱਸਿਆਵਾਂ ਨੂੰ ਠੀਕ ਕਰਨ ਲਈ ਲੋਕਾਂ ਦੀ ਮਦਦ ਕਰਨ ਲਈ ਕੰਮ ਕਰਨ ਵਾਲੇ ਲੋਕਾਂ ਨੂੰ ਸਵਾਗਤ ਕਰਦੇ ਹਾਂ। ਜੇ ਤੁਸੀਂ ਇਸ ਪਰਾਜੈਕਟ ਨੂੰ ਨਵੇਂ ਹੋਏ ਹੋ, ਤਾਂ ਜੇ ਤੁਹਾਡੇ ਕੋਲ ਇਸ ਐਪ ਨਾਲ ਕੋਈ ਸਮੱਸਿਆ ਹੈ, ਤਾਂ ਖੁਲ੍ਹ੍ਹੀ ਚੋਟੀ ਕਰਨ ਲਈ ਜਰੂਰੀ ਨਹੀਂ ਕਰ ਰਹੇ ਹੋਵੋ।
 
-We welcome Pull Requests (PR's) as well as having people working on fixing it's current issues. If you are coming to this project new.
-If you notice an issue with this app, please feel free to open an issue.
+ਬਹੁਤ ਸਾਰੇ ਡੈਵਲਪਰਜ਼ ਪੁਛਦੇ ਹਨ ਕਿ ਉਹ ਯੋਗਦਾਨ ਦੇਣ ਜਾਂ ਕੋਈ ਕੰਮ ਸੌਂਪਣ ਦੀ ਬਾਰੇ ਪ੍ਰਿਸ਼ਟਾਨ ਵਿੱਚ ਦੱਸ ਸਕਦੇ ਹਨ ਜਿਵੇਂ ਕਿ ਰਿਪੋਰਟ ਕੀਤੀ ਹੋਈ ਸਮੱਸਿਆ ਵਿੱਚ। ਇਹ ਬਹੁਤ ਵਧੀਆ ਹੈ। ਅਸੀਂ ਇਸ ਪ੍ਰਾਜੈਕਟ ਵਿੱਚ ਕਿਸੇ ਵੀ ਕੰਮ / ਸਮੱਸਿਆ ਤੇ ਕੰਮ ਕਰਨ ਲਈ ਤੁਹਾਨੂੰ ਸਵਾਗਤ ਕਰਦੇ ਹਾਂ, ਬਸ ਸਾਨੂੰ ਦੱਸ ਦਿਓ ਕਿ ਤੁਸੀਂ ਕਿਸੇ ਸਮੱਸਿਆ ਤੇ ਕੰਮ ਕਰਨ ਜਾ ਰਹੇ ਹੋ। ਜੇ ਤੁਸੀਂ ਸੰਦੇਹ ਦੇ ਨਾਲ ਸਮਝ ਦੀ ਸਥਿਤੀ ਵਿੱਚ ਹੋ ਰਹੇ ਹੋ, ਤਾਂ ਇਥੇ ਇਕ ਸਮੱਸਿਆ ਹੈ: https://github.com/gbowne1/reactsocialnetwork/discussions/36। ਆਮ ਤੌਰ ਤੇ, ਜੇ ਤੁਸੀਂ ਮਨਾਂਹੀ ਹੈਰਾਨੀ ਕਰਨ ਵਾਲੀ ਸਥਿਤੀ ਵਿੱਚ 72 ਘੰਟੇ ਤੋਂ ਵੱਧ ਸਮੇਂ ਲਗਣਗੇ ਤਾਂ ਤੁਸੀਂ ਸਾਨੂੰ ਦੱਸੋ, ਤਾਂ ਕਿ ਸਮੱਸਿਆ ਘਟ ਨਾ ਜਾਏ।
 
-A lot of developers prefer asking if they could contribute or be assigned a task as a reply to a reported issue in the Issues tab. This is great. We have a strict no gate-keeping policy in any of these projects. You are welcome to work on any task/issue, just let us know that you are going to work on the an issue.
-If you are unsure of the style and design, there is an issue here: <https://github.com/gbowne1/reactsocialnetwork/discussions/36>. Typically, if you think it will take you longer than 72 hours after having been assigned, to submit a PR, let us know that way issues do not go stale.
+ਕੁਝ ਟਾਸਕਾਂ ਸਾਨੂੰ ਪਹਿਲਾਂ ਦਾਅ ਸਮਝਾਇਆ ਜਾ ਸਕਦਾ ਹੈ, ਵਿਸ਼ੇਸ਼ਤਾ ਕਰਕੇ ਜਿਨ੍ਹਾਂ ਵਿੱਚ ਨਵੇਂ ਵਿਕਾਸ਼ਕਾਂ ਲਈ ਮੁਸ਼ਕਿਲ ਹੋ ਸਕਦੇ ਹਨ। ਜੇ ਤੁਸੀਂ ਇੱਕ ਪ੍ਰਾਰੰਭਿਕ ਵਿਕਾਸ਼ਕ ਹੋ, ਤਾਂ ਤੁਸੀਂ ਛੋਟੇ ਟਾਸਕ ਵੀ ਕਰ ਸਕਦੇ ਹੋ, ਜਿਵੇਂ ਕਿ ਸਟਾਈਲ ਮੁੱਦਿਆਂ।
 
-Some tasks may not be beginner friendly even if tagged `good first issue`.. so try and judge the task accordingly. If you are a beginner, there are smaller tasks a beginner can work on such as style issues.
+ਤੁਹਾਨੂੰ ਪਹਿਲਾਂ ਹੀ ਰੀਐਕਟ 17 ਅਤੇ/ਜਾਂ 18, ਜਾਵਾਸਕ੍ਰਿਪਟ ES5/ES6/ES7 ਨਾਲ ਪਰਚੇ ਹੋਣਾ ਚਾਹੀਦਾ ਹੈ।
 
-You should already be familiar with React 17 and or 18, JavaScript ES5/ES6/ES7.
+ਸਟਾਈਲ
+ਮੈਨੂੰ ਹਾਲ ਵਿੱਚ ਕੋਈ ਆਧਿਕਾਰਿਕ ਸਟਾਈਲ ਗਾਈਡ ਬਣਾਈ ਨਹੀਂ ਹੈ। ਜੇ ਕਿਸੇ ਨੂੰ ਸਟਾਈਲ ਗਾਈਡ ਬਣਾਉਣ ਲਈ ਚਾਹੁੰਦਾ ਹੈ, ਤਾਂ ਉਸਨੇ ਇੱਕ ਚਰਚਾ ਬਣਾਈ ਸਕਦਾ ਹੈ।
 
-## Style
+ਲੇਆਊਟ ਇੱਕ 3 ਕਾਲਮਨ ਲੇਆਊਟ ਹੈ, ਜੋ ਡੈਸਕਟਾਪ ਵਿਚ ਇੱਕ 200-250px ਦਾ ਖੱਬਾ ਪੈਨਲ, 1400-1500px ਦਾ ਕੇਂਦਰੀ ਪੈਨਲ ਅਤੇ ਇੱਕ 200-250px ਦਾ ਸੱਜਾ ਪੈਨਲ ਦੀ ਸ਼ੁਰੂਆਤ ਕਰਦਾ ਹੈ, ਜਿਵੇਂ ਫੇਸਬੁੱਕ ਦਾ ਡੈਸਕਟਾਪ ਵੀਉ ਜਦੋਂ ਕਿ ਰੂਟ '/' ਤੇ ਨਜ਼ਰ ਆਂਦਾ ਹੈ।
 
-I have not created an official style guide yet. If anyone would like to create a style guide for us. Create a Discussion.
+ਵਿਕਾਸ
+ਜੇ ਤੁਸੀਂ ਯਕੀਨੀ ਨਹੀਂ ਕਰਦੇ ਕਿ ਤੁਸੀਂ ਕਿਸ ਉਦੇਸ਼ 'ਤੇ ਕੰਮ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ, ਤਾਂ ਸਮੱਸਿਆਵਾਂ ਦੀ ਸੂਚੀ ਦੇਖੋ। ਸਾਥ ਹੀ ਸ਼ਾਮਲ ਹੈ ਇਸ ਵਿੱਚ TODO.md ਫਾਈਲ ਵਿੱਚ ਦਰਜ ਕੀਤੇ ਗਏ TODO's।
 
-The layout is a 3 column layout, starting with desktop view with a 200-250px left panel, 1400-1500px center panel and a 200-250px right panel, similar to Facebook's desktop view when looking at the root '/'.
+ਨੋਟ: ਜੇ ਤੁਹਾਨੂੰ UI ਬਣਾਉਣ ਦੀ ਲੋੜ ਪੈਂਦੀ ਹੈ, ਤਾਂ ਤੁਸੀਂ ਸਾਡੇ reusable-components ਵਰਤ ਸਕਦੇ ਹੋ (src/components ਵਿੱਚ ਸਥਿਤ), ਤਾਂ ਕਿ ਵੀਲ ਨੂੰ ਦੁਬਾਰਾ ਬਣਾਉਣ ਦੀ ਲੋੜ ਨਹੀਂ ਹੈ।
 
-## Development
+PR's
+ਜਦੋਂ ਤੁਸੀਂ GitHub 'ਤੇ PR ਬਣਾਉਂਦੇ ਹੋ, ਕਿਰਪਾ ਕਰਕੇ ਉੱਤਰੀ ਧੱਪਾ 'ਤੇ ਖੱਲੇ ਹੋਣ ਵਾਲੇ ਅਨੁਭਾਗ, ਮੁਆਲਿਫਾਂ, ਲੇਬਲ, ਪਰਾਜੈਕਟ, ਮਾਇਲਸਟੋਨ(ਸ) ਅਤੇ ਵਿਕਾਸ ਪੂਰਾ ਕਰੋ ਜਦੋਂ ਤੱਕ ਤੁਸੀਂ PR ਜਮ੍ਹਾਂ ਨਹੀਂ ਕਰਦੇ। ਕਿਰਪਾ ਕਰਕੇ ਪੁਲ ਰਿਕਵੈਸਟ ਮੈਸੇਜ ਵਿੱਚ ਇੱਕ ਸਕ੍ਰੀਨਸ਼ਾਟ ਸਾਂਝਾ ਕਰੋ ਜਾਂ ਪੁਲ ਰਿਕਵੈਸਟ ਮੈਸੇਜ ਵਿੱਚ ਕੰਮ ਕਰਦੇ ਹੋਏ ਠੀਕ ਕਾਰਜ ਦੀ ਛੋਟੀ ਵ੍ਯਾਖਿਆ ਕਰੋ। ਖਾਲੀ ਸਮੱਸਿਆਵਾਂ ਅਤੇ ਵ੍ਯਾਖਿਆਵਾਂ ਨੂੰ ਮਰਜ ਨਹੀਂ ਮਿਲਣ ਸਕਦੀਆਂ।
 
-If you are not sure what to work on, review the issues list. There are also TODO's listed in the included TODO.md file.
+ਕਿਸੇ ਸਮੱਸਿਆ ਨੂੰ ਵਿਕਾਸ ਨਾਲ ਜੋੜੋ ਜੋ PR ਨੂੰ ਬੰਦ ਕਰੇਗੀ
+ਯਕੀਨੀ ਬਣਾਓ ਕਿ ਤੁਸੀਂ ਪ੍ਰਾਪਤ ਮੂਲਾਂਕਣ ਕਰਨ ਵਾਲੇ ਹੋ ਅਰਥਾਤ ਤੁਸੀਂ @gbowne1 ਨੂੰ ਹੀ ਮੂਲਾਂਕਣ ਕਰੋਗੇ
+ਲੇਬਲਾਂ ਵਿੱਚ ਉਚਿਤ ਚੋਣ ਕਰੋ
+ਮੈਲਸਟੋਨ, ਫਰੰਟ-ਐਂਡ ਜਾਂ ਬੈਕ-ਐਂਡ ਚੁਣੋ (ਹੋਰ ਬਾਅਦ ਵੀ ਹੋ ਸਕਦੇ ਹਨ)
+ਮੁੱਦੇ
+@gbowne1 ਉਪਭੋਗਤਾਵਾਂ ਨੂੰ ਪਹਿਲਾਂ ਆਓ, ਪਹਿਲਾਂ ਪਾਓ ਦੇ ਆਧਾਰ 'ਤੇ ਮੁੱਦਿਆਂ ਨੂੰ ਸੌਂਪੇਗਾ। ਭਵਿੱਖ ਵਿੱਚ ਮੈਂ ਚਾਹੁੰਦਾ ਹਾਂ ਕਿ ਘੱਟੋ-ਘੱਟ 2 ਲੋਕ ਫਰੰਟਐਂਡ ਅਤੇ 2 ਲੋਕ ਬੈਕਐਂਡ ਕਰਨ, ਫਿਰ ਅਸੀਂ CSS, ਕੰਪੋਨੈਂਟਸ, ਆਦਿ ਵਰਗੀਆਂ ਚੀਜ਼ਾਂ ਦੀ ਦੇਖਭਾਲ ਕਰਨ ਵਾਲੇ ਲੋਕਾਂ ਦੇ ਖਾਸ ਸਮੂਹਾਂ ਨੂੰ ਨਿਰਧਾਰਤ ਕਰ ਸਕਦੇ ਹਾਂ।
 
-**Note:** In case you need to build an UI you can use one of our [reusable-components](REUSABLE_COMPONENTS.md) (located under [src/components](../src/components) ), in order
-to not have to reivent the wheel.
+ਸੰਪਾਦਕ ਅਤੇ IDE
+ਸੈੱਟਿੰਗਾਂ ਅਤੇ ਕਨਫਿਗਰੇਸ਼ਨ ਵਿੱਚ ਸ਼ਾਮਲ ਕੀਤੇ ਗਏ ਵਰਕਸਪੇਸ, ਸੈਟਿੰਗਾਂ, ਕਨਫਿਗਰੇਸ਼ਨ ਅਤੇ ਪਲੱਗਿਨਾਂ Visual Studio ਅਤੇ Visual Studio Code ਲਈ ਪਰਬੰਧਨ ਕਰਨ ਲਈ ਮਿਲਦੀਆਂ ਹਨ, ਪਰ ਇਸ ਤੋਂ ਬਾਅਦ, ਅਸੀਂ ਟੂਲ ਅਤੇ ਸੰਪਾਦਕ/IDE ਨਿਰਪੱਖ ਹਾਂ, ਇਸ ਲਈ ਤੁਸੀਂ ਜੋ ਵੀ ਸੰਪਾਦਕ ਜਾਂ IDE ਤੁਸੀਂ ਪਸੰਦ ਕਰਦੇ ਹੋ, ਉਸ ਦਾ ਉਪਯੋਗ ਕਰ ਸਕਦੇ ਹੋ।
 
-### PR's
+ਸੈਟਿੰਗਾਂ ਅਤੇ ਕਨਫਿਗਰੇਸ਼ਨ
+ਸ਼ਾਮਲ ਕੀਤੇ ਗਏ ਵਰਕਸਪੇਸ, ਸੈਟਿੰਗਾਂ, ਕਨਫਿਗਰੇਸ਼ਨ ਅਤੇ ਪਲੱਗਿਨ ਨੂੰ ਖਾਲੀ ਬੁਨਿਆਦੀ ਰੀਅਲ ਵਿੱਚ ਸੰਪਾਦਨ ਕਰਨ ਲਈ ਹਨ:
 
-When you do a PR on GitHub, Please make sure you complete the section on the right, Assignees, Reviewers, Labels, Projects, Milestone(s) and Development before you submit the PR. Please also share a screenshot or show the working fix in the Pull Request message and a brief description of what you fixed. Blank issues and descriptions may not get merged.
+Babel Webpack ESLint Prettier VSCode (.vscode) Visual Studio 2019+ (.vs) GitHub (.github)
 
-- Link an issue to Development that the PR will close
-- Make sure that you tag a reviewer i.e. @gbowne1
-- Pick appropriate labels from Labels
-- Make sure you are the assignee to the PR.
-- Milestone, choose Frontend or Backend (more may come later on)
+ਇਹ ਸਹੀ ਨਹੀਂ ਹੋ ਸਕਦੇ, ਇਸ ਲਈ ਜੇ ਤੁਸੀਂ ਇਸ ਵਿੱਚ ਯੋਗਦਾਨ ਕਰਕੇ ਇਹਨਾਂ ਨੂੰ ਹੋਰ ਸੰਪੂਰਨ ਰਿਅਾਜਾਂ ਬਣਾਉਣ ਚਾਹੁੰਦੇ ਹੋ, ਤਾਂ ਇਹ ਜਾਂਚ ਕਰਨ ਲਈ ਸਵਾਗਤ ਹੈ ਕਿ ਤੁਸੀਂ ਯੋਗਦਾਨ ਕਰੋਗੇ ਤਾਂ ਕਿ ਰੀਐਕਟ ਵਿਕਾਸ ਲਈ ਇਹ ਹੋ ਸਕਦੇ ਹਨ।
 
-### Issues
+ਤੈਕਨਾਲੋਜੀ ਸਟੈਕ
+ਇਹ ਪਰਾਜੈਕਟ Create React App ਨਾਲ ਬੂਟਸਟ੍ਰੈਪ ਕੀਤਾ ਗਿਆ ਹੈ। ਇਹ ਐਪਲੀਕੇਸ਼ਨ ਨਿਮਨਲਿਖਤ ਤੈਕਨਾਲੋਜੀ ਨਾਲ ਬਣਾਈ ਗਈ ਹੈ:
 
-@gbowne1 will assign users to issues on a first come, first serve basis. In the future I would like a minimum of 2 people doing Frontend and 2 people doing Backend, then we can assign specific groups of people taking care of things like CSS, Components, etc.
+ਰੀਐਕਟ 18.0 - 18.2
+CSS3
+JavaScript (ES5/ES6/ES7/ES2015/ਆਦਿ)
+ਨੋਡ
+Express
+Material UI v5.11.6
+ਬ੍ਰਾਂਚ
+ਅਸੀਂ ਆਮ ਤੌਰ ਤੇ GitFlow / GitHub Flow ਦੇ ਮੁਤਾਬਕ ਬ੍ਰਾਂਚ ਚੁਣਦੇ ਹਾਂ।
 
-## Editor & IDE
+[ main ] ਮੁੱਖ ਕਾਰਜੀ ਬ੍ਰਾਂਚ
+[ master ] ਸਥਾਈ / ਆਰਕਾਈਵ ਬ੍ਰਾਂਚ
+[ test ] ਅਣਜਾਣ ਕੋਡ
+ਫੀਚਰ ਬਰਾਂਚ # ਦੀ ਸੰਖਿਆ - {ਫੀਚਰ}
+[ਬੱਗਫਿਕਸ - {ਠੀਕ ਹੋਇਆ ਬੱਗ}]
+[ਹੌਟਫਿਕਸ - {ਠੀਕ ਕਰੋ}]
 
-The repository contains folders with project appropriate settings and configurations for Visual Studio and Visual Studio code but beyond that, We are tool and editor/IDE agnostic so you can use whatever editor or IDE or you like.
+ਕੁਝ ਕੋਡ ਜੋ ਤੁਸੀਂ ਕੰਮ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ, ਨੂੰ ਕਮਿਟ/ਪੁਸ਼ ਕਰਨ ਲਈ ਇੱਕ ਟੈਸਟ ਬਰਾਂਚ ਵਰਤੋ।
 
-## Settings & Configuration
-
-The included workspaces, settings, configurations and plugins are for:
-
-Babel
-Webpack
-ESLint
-Prettier
-VSCode (.vscode)
-Visual Studio 2019+ (.vs)
-GitHub (.github)
-
-These may not be 100% correct, so if you can contribute to them to make them more accurate for React development it is welcomed.
-
-## Tech Stack
-
-This project was bootstrapped with Create React App.
-This application is built with:
-
-- React 18.0 - 18.2
-- CSS3
-- JavaScript (ES5/ES6/ES7/ES2015/etc.)
-- Node
-- Express
-- Material UI v5.11.6
-
-## Branches
-
-Our branches follow GitFlow / GitHub Flow as a general rule.
-
-- [ main ] main working branch
-- [ master ] Permanent // Archive branch
-- [ test ] untested code
-- Feature Branch # of feature - {feature}
-- [bugfix - { fixed bug }]
-- [hotfix - { fix }]
-
-Use a test branch to commit/push code that you believe should work but is not completely tested.
