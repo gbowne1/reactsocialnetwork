@@ -17,6 +17,7 @@ import TopNav from "./layouts/TopNav/TopNav";
 import Login from "./pages/Login/Login";
 import HelpCenter from "./pages/HelpCenter/HelpCenter";
 import SubjectDetails from "./pages/HelpCenter/SubjectDetails";
+import AdminDashboard from "./pages/AdminDashboard/AdminDashboard";
 
 import getFromLocalStorage from "./utils/getFromLocalStorage";
 import Feedback from "./pages/Feedback/Feedback";
@@ -150,6 +151,11 @@ const App = () => {
                       });
                     })}
                   </Route>
+                  <Route
+                    exact
+                    path="/admin"
+                    element={<AdminDashboard themeMode={themeMode} />}
+                  />
                   <Route
                     exact
                     path="*"
