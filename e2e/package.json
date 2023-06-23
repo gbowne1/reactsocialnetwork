@@ -7,7 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "test:cypress": "cd ../e2e/ && npx cypress run",
-    "test:cypress:open": "cd ../e2e/ && npx cypress open"
+    "test:cypress:open": "npx cypress open"
   },
   "keywords": [],
   "author": "",
