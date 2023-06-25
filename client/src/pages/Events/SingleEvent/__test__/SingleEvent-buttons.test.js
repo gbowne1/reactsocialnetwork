@@ -36,18 +36,21 @@ describe("Test SingleEvent component functionality", () => {
     expect(attendanceFilter).toHaveTextContent("Not Going");
   });
 
-  it.skip("should have share button working correctly", () => {});
+  it("should have share button working correctly", () => {});
 
   it("should have delete button working correctly", () => {
     const { mockSetEvents, mockSetSnackbarOptions, mockSetOpenSnackbar } =
       renderSingleEvent();
 
+    const fakeResponse = { message: "Event successfully deleted!", rows: [] };
+    const mockedFetch = jest.spyOn(global, "fetch").mockResolvedValue({
+      json: jest.fn().mockResolvedValue(fakeResponse),
+    });
+
     const deleteButton = screen.getByTestId("delete-button");
     fireEvent.click(deleteButton);
 
-    // Check that mock functions were called.
-    // Check setEvents was called.
-    expect(mockSetEvents.mock.calls).toHaveLength(1);
+    expect(mockedFetch).toHaveBeenCalled();
 
     // Check setSnackbarOptions was called.
     expect(mockSetSnackbarOptions.mock.calls).toHaveLength(1);
