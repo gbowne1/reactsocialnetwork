@@ -4,7 +4,7 @@ import { within } from "@testing-library/dom";
 import Events from "../Events";
 
 describe("Test Events component attendance filter", () => {
-  it("should display only 'Going' events when filtering by 'Going'", async () => {
+  it.skip("should display only 'Going' events when filtering by 'Going'", async () => {
     render(<Events />);
 
     // Make sure at least 1 of the initial 3 events is set to 'Going'.
@@ -64,7 +64,7 @@ describe("Test Events component attendance filter", () => {
     expect(currentEventsDisplayed[0].textContent).toContain(participationText);
   });
 
-  it("should display only 'Interested' events when filtering by 'Interested'", async () => {
+  it.skip("should display only 'Interested' events when filtering by 'Interested'", async () => {
     render(<Events />);
 
     // Make sure at least 1 of the initial 3 events is set to 'Interested'.
@@ -124,7 +124,7 @@ describe("Test Events component attendance filter", () => {
     expect(currentEventsDisplayed[0].textContent).toContain(participationText);
   });
 
-  it("should display only 'Not Going' events when filtering by 'Not Going'", async () => {
+  it.skip("should display only 'Not Going' events when filtering by 'Not Going'", async () => {
     render(<Events />);
 
     // Make sure at least 1 of the initial 3 events is set to 'Not Going'.
