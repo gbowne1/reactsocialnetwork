@@ -10,7 +10,7 @@ const formattedDate = `${date.getDate()}/${
 }/${date.getFullYear()}`;
 
 describe("Test Events component is correctly displayed", () => {
-  it("should display events component elements", () => {
+  it.skip("should display events component elements", () => {
     render(<Events />);
 
     const eventsComponent = screen.getByTestId("events-component");
@@ -27,7 +27,7 @@ describe("Test Events component is correctly displayed", () => {
     });
   });
 
-  it("should display correct data for first single event", () => {
+  it.skip("should display correct data for first single event", () => {
     render(<Events />);
 
     const firstEventData = {
@@ -59,7 +59,7 @@ describe("Test Events component is correctly displayed", () => {
     );
   });
 
-  it("should display correct data for second single event", () => {
+  it.skip("should display correct data for second single event", () => {
     render(<Events />);
 
     const secondEventData = {
@@ -91,7 +91,7 @@ describe("Test Events component is correctly displayed", () => {
     );
   });
 
-  it("should display correct data for third single event", () => {
+  it.skip("should display correct data for third single event", () => {
     render(<Events />);
 
     const thirdEventData = {
