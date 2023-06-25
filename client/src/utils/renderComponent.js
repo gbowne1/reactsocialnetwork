@@ -22,10 +22,8 @@ const renderSingleEvent = () => {
       "https://www.shutterstock.com/image-photo/02-august-2018bucharest-romania-people-260nw-1148998826.jpg",
     attendance: "Not Going",
 
-    participation: {
-      interested: 46,
-      going: 27,
-    },
+    participationInterested: 46,
+    participationGoing: 27,
   };
 
   const themeMode = "light-theme";
