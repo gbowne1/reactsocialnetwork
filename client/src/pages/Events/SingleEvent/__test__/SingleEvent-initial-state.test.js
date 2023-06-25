@@ -31,8 +31,7 @@ describe("Test SingleEvent component is correctly displayed", () => {
 
     expect(eventParticipation).toBeVisible();
     // Format participation as is displayed on the Single Event component.
-    const participation = eventData.participation;
-    const formattedParticipation = `${participation.interested} interested... ${participation.going} going...`;
+    const formattedParticipation = `${eventData.participationInterested} interested... ${eventData.participationGoing} going...`;
     expect(eventParticipation).toHaveTextContent(formattedParticipation);
 
     expect(attendanceFilter).toBeVisible();
