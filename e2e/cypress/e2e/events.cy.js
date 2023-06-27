@@ -4,7 +4,7 @@ const addLastLoginCredentialsToLocalStorage = () => {
   const lastLoginCredentials = {
     username: "testuser1",
     email: "testuser@gmail.com",
-    password: "Testpass1",
+    password: "Testpass1!",
   };
 
   window.localStorage.setItem(
@@ -12,6 +12,9 @@ const addLastLoginCredentialsToLocalStorage = () => {
     JSON.stringify(lastLoginCredentials)
   );
 };
+
+const addCookiesAcceptedToLocalStorage = () =>
+  window.localStorage.setItem("cookiesAccepted", JSON.stringify(true));
 
 describe("Event tests", () => {
   const apiUrl = "http://localhost:9000";
@@ -59,6 +62,12 @@ describe("Event tests", () => {
   ];
 
   beforeEach(() => {
+    // Load the app and seed localstorage with cookiesAccepted key to true
+    // and add credentials in order  to bypass login screen
+    cy.visit("http://localhost:3000/").then(() => {
+      addCookiesAcceptedToLocalStorage();
+      addLastLoginCredentialsToLocalStorage();
+    });
     // Delete all test events records
     cy.request({
       url: `${apiUrl}/api/events/delete-test-events`,
@@ -92,14 +101,11 @@ describe("Event tests", () => {
         });
       }
     });
+
+    cy.visit("http://localhost:3000/");
   });
 
   it("should create a new event succesfully", () => {
-    // Load the app and seed localstorage with credentials
-    cy.visit("http://localhost:3000/").then(() => {
-      addLastLoginCredentialsToLocalStorage();
-    });
-
     // Load app again to dashboard screen
     cy.visit("http://localhost:3000/");
 
@@ -136,6 +142,11 @@ describe("Event tests", () => {
       .should("be.visible")
       .and("have.text", "Event successfully created!");
 
+    // Check that there new event's data is found on event's panel
+    cy.get(".Panel__content")
+      .should("contain.text", testEvent.title)
+      .and("contain.text", testEvent.location);
+
     // Check that now amount of SingleEvent components is ctx.currentNumberOfEvents + 1
     cy.get(".SingleEvent").then((singleEvents) => {
       const currentNumberOfEvents = singleEvents.length;
@@ -145,10 +156,6 @@ describe("Event tests", () => {
 
   ctx.singleEvents = [];
   it("should filter events by 'Going', 'Interested' and 'Not Going'", () => {
-    cy.visit("http://localhost:3000/").then(() => {
-      addLastLoginCredentialsToLocalStorage();
-    });
-
     // Click on burger menu
     cy.get("[data-testid=burger-menu-button]").click();
 
@@ -219,10 +226,6 @@ describe("Event tests", () => {
   });
 
   it("should delete events successfully", () => {
-    cy.visit("http://localhost:3000/").then(() => {
-      addLastLoginCredentialsToLocalStorage();
-    });
-
     // Click on burger menu
     cy.get("[data-testid=burger-menu-button]").click();
 
@@ -237,9 +240,19 @@ describe("Event tests", () => {
     const deleteElementIfExists = (elementId) => {
       const elementToDelete = elementId;
       cy.get("body").then((body) => {
-        if (body.find(elementToDelete).length > 0) {
-          cy.get(elementToDelete).first().click();
-          deleteElementIfExists(elementId);
+        const numElemsToDelete = body.find(elementToDelete).length;
+        if (numElemsToDelete > 0) {
+          cy.log(
+            `Element with id: ${elementToDelete} found ${numElemsToDelete} times!`
+          );
+
+          // Dirty hack to avoid clicking on the delete button before it appears asynchroniously
+          for (let i = 0; i < numElemsToDelete; i++) {
+            cy.reload();
+            cy.wait(200);
+            console.log(`Calling function ${i + 1} time!`);
+            cy.get(elementToDelete).first().click();
+          }
         }
       });
     };
@@ -247,14 +260,12 @@ describe("Event tests", () => {
     deleteElementIfExists('[data-testid="delete-button"]');
 
     // Check there are 0 events now
+    cy.reload();
+    cy.wait(500);
     cy.get(".SingleEvent").should("not.exist");
   });
 
   it("should display error labels when leaving required inputs empty or on validation errors", () => {
-    cy.visit("http://localhost:3000/").then(() => {
-      addLastLoginCredentialsToLocalStorage();
-    });
-
     // Click on burger menu
     cy.get("[data-testid=burger-menu-button]").click();
 

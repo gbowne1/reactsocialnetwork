@@ -37,8 +37,6 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "test:cypress": "cd ../e2e/ && npx cypress run",
-    "test:cypress:open": "cd ../e2e/ && npx cypress open",
     "eject": "react-scripts eject",
     "format": "npx prettier --write ."
   },
@@ -61,7 +59,6 @@
     "@testing-library/dom": "^9.2.0",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^9.1.2",
-    "cypress": "^12.11.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-config-react-app": "^7.0.1",
     "eslint-plugin-prettier": "^4.2.1",
