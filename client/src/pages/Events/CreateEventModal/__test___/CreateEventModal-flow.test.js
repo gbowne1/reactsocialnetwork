@@ -16,6 +16,11 @@ describe("Test CreateEventModal flow", () => {
       date: "04/24/2025",
     };
 
+    const fakeResponse = { error: null };
+    const mockedFetch = jest.spyOn(global, "fetch").mockResolvedValue({
+      json: jest.fn().mockResolvedValue(fakeResponse),
+    });
+
     // Check modal is visible.
     const modal = screen.getByTestId("create-event-modal");
     expect(modal).toBeVisible();

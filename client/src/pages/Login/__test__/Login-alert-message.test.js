@@ -1,5 +1,6 @@
 import { act, fireEvent, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+
 const user = userEvent.setup();
 
 import Login from "../Login";
@@ -43,6 +44,11 @@ describe("Tests Login alert messages", () => {
       password: "Testuser99!",
     };
 
+    const fakeResponse = { error: null };
+    const mockedFetch = jest.spyOn(global, "fetch").mockResolvedValue({
+      json: jest.fn().mockResolvedValue(fakeResponse),
+    });
+
     act(() => {
       render(<Login setLoginToken={mockSetLoginToken} />);
     });
@@ -73,6 +79,8 @@ describe("Tests Login alert messages", () => {
       await user.click(registerButton);
     });
 
+    expect(mockedFetch).toHaveBeenCalledTimes(1);
+
     const alertMessage = screen.getByTestId("alert-message");
     expect(alertMessage).toHaveTextContent("Registered user!");
   });
@@ -83,6 +91,13 @@ describe("Tests Login alert messages", () => {
       email: "nonExistingEmail@gmail.com",
       password: "nonExistingPassword1!",
     };
+
+    const fakeResponse = {
+      error: true,
+    };
+    const mockedFetch = jest.spyOn(global, "fetch").mockResolvedValue({
+      json: jest.fn().mockResolvedValue(fakeResponse),
+    });
 
     act(() => {
       render(<Login setLoginToken={mockSetLoginToken} />);
@@ -106,6 +121,8 @@ describe("Tests Login alert messages", () => {
       await user.click(loginButton);
     });
 
+    expect(mockedFetch).toHaveBeenCalledTimes(1);
+
     const alertMessage = screen.getByTestId("alert-message");
     expect(alertMessage).toHaveTextContent(
       "Credentials are not valid. Register a new user first!"
@@ -118,6 +135,11 @@ describe("Tests Login alert messages", () => {
       email: "testuser@gmail.com",
       password: "Testpass1!",
     };
+
+    const fakeResponse = { error: null };
+    const mockedFetch = jest.spyOn(global, "fetch").mockResolvedValue({
+      json: jest.fn().mockResolvedValue(fakeResponse),
+    });
 
     act(() => {
       render(<Login setLoginToken={mockSetLoginToken} />);
@@ -148,6 +170,8 @@ describe("Tests Login alert messages", () => {
 
       await user.click(registerButton);
     });
+
+    expect(mockedFetch).toHaveBeenCalledTimes(1);
 
     const alertMessage = screen.getByTestId("alert-message");
     expect(alertMessage).toHaveTextContent("Registered user!");

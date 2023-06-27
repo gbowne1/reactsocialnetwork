@@ -43,6 +43,11 @@ describe("Tests Login flow", () => {
       password: "Testuser99!",
     };
 
+    const fakeResponse = { error: null };
+    const mockedFetch = jest.spyOn(global, "fetch").mockResolvedValue({
+      json: jest.fn().mockResolvedValue(fakeResponse),
+    });
+
     act(() => {
       render(<Login setLoginToken={mockSetLoginToken} />);
     });
@@ -72,6 +77,8 @@ describe("Tests Login flow", () => {
 
       await user.click(registerButton);
     });
+
+    expect(mockedFetch).toHaveBeenCalledTimes(1);
 
     const alertMessage = screen.getByTestId("alert-message");
     expect(alertMessage).toHaveTextContent("Registered user!");
