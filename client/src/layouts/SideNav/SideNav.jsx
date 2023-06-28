@@ -11,22 +11,22 @@ const SideNav = ({ isSideNavVisible, themeMode }) => {
   return (
     <Menu
       isOpen={isSideNavVisible}
-      className={`${themeMode}`}
+      className={`SideNav ${themeMode}`}
       data-testid="side-nav"
     >
-      <a className={`menu-item ${themeMode}`} href="/groups">
+      <a className={`SideNav ${themeMode}`} href="/groups">
         <GroupsIcon className="side-nav-icon" />
         Groups
       </a>
-      <a className={`menu-item ${themeMode}`} href="/events">
+      <a className={`SideNav ${themeMode}`} href="/events">
         <CalendarMonthIcon className="side-nav-icon" />
         Events
       </a>
-      <a className={`menu-item ${themeMode}`} href="/friends">
+      <a className={`SideNav ${themeMode}`} href="/friends">
         <PeopleAltIcon className="side-nav-icon" />
         Friends
       </a>
-      <a className={`menu-item ${themeMode}`} href="/admin">
+      <a className={`SideNav ${themeMode}`} href="/admin">
         <AdminPanelSettingsIcon className="side-nav-icon" />
         Admin
       </a>
