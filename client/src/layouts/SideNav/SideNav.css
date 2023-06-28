@@ -1,4 +1,4 @@
-@import url("../../variables.css");
+/* @import url("../../variables.css");
 
 /* Position and sizing of burger button */
 .bm-burger-button {
@@ -48,12 +48,12 @@
   font-size: 30px;
 }
 
-.dark-mode {
+.SideNav.dark-mode {
   background-color: var(--bg-dark-500);
   color: var(--text-light-500);
 }
 
-.light-mode {
+.SideNav.light-mode {
   background-color: var(--bg-light-500);
   color: var(--text-dark-900);
 }
