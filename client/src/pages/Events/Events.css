@@ -8,12 +8,20 @@
   min-height: 700px;
 }
 
-.Events__attendance-select.light-mode {
+.Events__attendance-filter.light-mode {
   color: var(--text-dark-900) !important;
 }
 
-.Events__attendance-select.dark-mode {
+.Events__attendance-filter.dark-mode {
   color: var(--text-light-100) !important;
+}
+
+.Events__attendance-filter.light-mode fieldset {
+  border: 3px solid var(--bg-light-500);
+}
+
+.Events__attendance-filter.dark-mode fieldset {
+  border: 3px solid var(--bg-light-500) !important;
 }
 
 .Events.light-mode,
