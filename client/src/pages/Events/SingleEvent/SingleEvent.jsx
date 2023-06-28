@@ -5,12 +5,6 @@ import { Button } from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 
-import StarIcon from "@mui/icons-material/Star";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import CancelIcon from "@mui/icons-material/Cancel";
-import ReplyIcon from "@mui/icons-material/Reply";
-import DeleteIcon from "@mui/icons-material/Delete";
-
 import placeholderImageUrl from "../../../data/placeholderImageUrl";
 import checkImage from "../../../utils/checkImage";
 import formatDate from "../../../utils/formatDate";
@@ -96,7 +90,9 @@ const SingleEvent = ({
           alt="event"
         />
         <div className="SingleEvent__text">
-          <p data-testid="single-event-date">{formatDate(eventData.date)}</p>
+          <p className="SingleEvent__date" data-testid="single-event-date">
+            Don't miss it on: {formatDate(eventData.date)}
+          </p>
           <p data-testid="single-event-title" className="SingleEvent__title">
             {eventData.title}
           </p>
@@ -109,8 +105,13 @@ const SingleEvent = ({
               {eventData.locationName}
             </a>
           </p>
-          <p data-testid="single-event-participation">
-            {`${eventData.participationInterested} interested... ${eventData.participationGoing} going...`}
+          <p
+            data-testid="single-event-participation"
+            className="SingleEvent_participation"
+          >
+            {`${eventData.participationInterested} people are interested...`}{" "}
+            <br />
+            {` ${eventData.participationGoing} people are going...`}
           </p>
         </div>
       </div>
@@ -124,22 +125,20 @@ const SingleEvent = ({
           value={attendance}
           label="Attendance"
           onChange={handleAttendanceChange}
+          disableUnderline
         >
-          <MenuItem value={"Going"} data-testid="attendance-going">
-            <CheckCircleIcon
-              className={`SingleEvent__attendance-icon ${themeMode}`}
-            />
-            Going
+          <MenuItem
+            value={"Going"}
+            data-testid="attendance-going"
+            className="MenuItem"
+          >
+            <span>Going</span>
           </MenuItem>
           <MenuItem value={"Interested"} data-testid="attendance-interested">
-            <StarIcon className={`SingleEvent__attendance-icon ${themeMode}`} />
-            Interested
+            <span>Interested</span>
           </MenuItem>
           <MenuItem value={"Not Going"} data-testid="attendance-not-going">
-            <CancelIcon
-              className={`SingleEvent__attendance-icon ${themeMode}`}
-            />
-            Not Going
+            <span>Not Going</span>
           </MenuItem>
         </Select>
 
@@ -149,7 +148,7 @@ const SingleEvent = ({
           data-testid="share-button"
           className={`SingleEvent__share-button ${themeMode}`}
         >
-          <ReplyIcon className="SingleEvent__share-button-icon" />
+          Share
         </Button>
         <Button
           variant="outlined"
@@ -158,7 +157,7 @@ const SingleEvent = ({
           className={`SingleEvent__delete-button ${themeMode}`}
           onClick={handleDeleteButtonClicked}
         >
-          <DeleteIcon className="SingleEvent__delete-button-icon" />
+          Delete
         </Button>
       </div>
     </div>
