@@ -31,7 +31,7 @@ function Friends({ themeMode }) {
             aria-label="Label for text input"
             className="search"
             type="text"
-            value="Search"
+            defaultValue="Search"
           ></input>
           <br />
           <br />
@@ -72,6 +72,7 @@ function Friends({ themeMode }) {
 }
 Friends.propTypes = {
   themeMode: PropTypes.string,
+  children: PropTypes.object.isRequired,
 };
 
 export default Friends;
