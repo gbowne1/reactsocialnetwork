@@ -1,13 +1,13 @@
 # MERN Social Media Application
 
-!~[MERN Stack](https://img.shields.io/badge/Tech_Stack-MERN-blue)~
-!~[Build Status](https://img.shields.io/badge/Build-Passing-green)~
-!~[License](https://img.shields.io/badge/License-MIT-yellow)~
-!~[Contributors](https://img.shields.io/badge/Contributors-4-blue)~
-!~[Semantic Versioning](https://img.shields.io/badge/Semantic_Versioning-2.0.0-blueviolet)~
-!~[GitHub Flow](https://img.shields.io/badge/GitHub_Flow-Active-brightgreen)~
-!~[Changelog](https://img.shields.io/badge/Changelog-Keep_a_Changelog-red)~
-!~[TODO.md](https://img.shields.io/badge/TODO.md-Active-yellow)~
+![MERN Stack](https://img.shields.io/badge/Tech_Stack-MERN-blue)
+![Build Status](https://img.shields.io/badge/Build-Passing-green)
+![License](https://img.shields.io/badge/License-MIT-yellow)
+![Contributors](https://img.shields.io/badge/Contributors-4-blue)
+![Semantic Versioning](https://img.shields.io/badge/Semantic_Versioning-2.0.0-blueviolet)
+![GitHub Flow](https://img.shields.io/badge/GitHub_Flow-Active-brightgreen)
+![Changelog](https://img.shields.io/badge/Changelog-Keep_a_Changelog-red)
+![TODO.md](https://img.shields.io/badge/TODO.md-Active-yellow)
 
 ## Overview
 
@@ -78,6 +78,3 @@ In order to run unit tests go to `client/` folder and run `npm run test` on the 
 In order to run e2e tests go to `client/` folder and run `npm run test:cypress` on the CLI.
 
 In order to open cypress UI go to `client/` folder and run `npm run test:cypress:open` on the CLI.
-
-
-
