@@ -2,7 +2,7 @@
   "parser": "@babel/eslint-parser",
   "extends": [
     "react-app",
-    "react-app/jest",
+    "react-app/jest"
   ],
   "plugins": [
     "react",
