@@ -1,7 +1,6 @@
 # Contribuer au développement du React Social Network
 
-Nous acceptons les Pull Requests (PR) ainsi que les personnes qui travaillent à la résolution des problèmes actuels. Si vous venez sur ce projet pour la première fois.
-Si vous remarquez un problème avec cette application, n'hésitez pas à ouvrir un problème.
+Nous acceptons les Pull Requests (PR) ainsi que les personnes qui travaillent à la résolution des problèmes actuels. Si vous venez sur ce projet pour la première fois et si vous remarquez un problème avec cette application, n'hésitez pas à ouvrir un problème.
 
 Beaucoup de développeurs préfèrent demander s'ils peuvent contribuer ou se voir assigner une tâche en réponse à un problème signalé dans l'onglet Problèmes. C'est très bien. Nous appliquons une politique stricte de no gate-keeping dans tous ces projets. Vous pouvez travailler sur n'importe quelle tâche/problème, il vous suffit de nous faire savoir que vous allez travailler sur un problème.
 Si vous n'êtes pas sûr du style et de la conception, il y a une discussion ici : <https://github.com/gbowne1/reactsocialnetwork/discussions/36>. 
