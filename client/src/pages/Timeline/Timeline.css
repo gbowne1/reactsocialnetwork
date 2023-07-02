@@ -1,0 +1,7 @@
+.timeline {
+  background-color: white;
+  width: 500px;
+  min-width: 75%;
+  height: max-content;
+  padding: 20px;
+}
