@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const db = require("../database");
 
-/* GET users listing. */
+/* GET event listing. */
 router.get("/api/event/:id", function (req, res, next) {
   const sql = "select * from Event where id = ?";
   const params = [req.params.id];
