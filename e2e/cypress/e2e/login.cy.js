@@ -24,8 +24,10 @@ describe("Login tests", () => {
     // Section app is visible
     cy.get(".Section-app").should(exists ? "be.visible" : "not.exist");
 
-    // Dashboard panel is visble
-    cy.get(".Panel").should(exists ? "be.visible" : "not.exist");
+    // Timeline is visble
+    cy.get("[data-testid=timeline]").should(
+      exists ? "be.visible" : "not.exist"
+    );
   };
 
   // Add all user ids of registered user so we can delete them.
