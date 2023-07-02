@@ -1,20 +1,9 @@
 /// <reference types="cypress" />
 
-const addLastLoginCredentialsToLocalStorage = () => {
-  const lastLoginCredentials = {
-    username: "testuser1",
-    email: "testuser@gmail.com",
-    password: "Testpass1!",
-  };
-
-  window.localStorage.setItem(
-    "lastLoginCredentials",
-    JSON.stringify(lastLoginCredentials)
-  );
-};
-
-const addCookiesAcceptedToLocalStorage = () =>
-  window.localStorage.setItem("cookiesAccepted", JSON.stringify(true));
+import {
+  addLastLoginCredentialsToLocalStorage,
+  addCookiesAcceptedToLocalStorage,
+} from "../utils/utils";
 
 describe("Event tests", () => {
   const apiUrl = "http://localhost:9000";
@@ -68,6 +57,7 @@ describe("Event tests", () => {
       addCookiesAcceptedToLocalStorage();
       addLastLoginCredentialsToLocalStorage();
     });
+
     // Delete all test events records
     cy.request({
       url: `${apiUrl}/api/events/delete-test-events`,
