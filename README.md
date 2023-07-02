@@ -40,9 +40,10 @@ have already started working with.  If we like the design of the component, feat
 To install and run this application, you will need to have Node.js and MongoDB installed on your machine. Once you have these installed, follow these steps:
 
 1. Clone the repository
-2. Install the dependencies using `npm install`
-3. Start the server using `npm start`
-4. Open the application in your web browser at `http://localhost:3000`
+2. move to /client folder using `cd client` on your terminal
+3. Install the dependencies using `npm install`
+4. Start the server using `npm start`
+5. Open the application in your web browser at `http://localhost:3000`
 
 ## Contributing
 
