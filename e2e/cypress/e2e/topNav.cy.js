@@ -1,17 +1,6 @@
 /// <reference types="cypress" />
 
-const addLastLoginCredentialsToLocalStorage = () => {
-  const lastLoginCredentials = {
-    username: "testuser",
-    email: "testuser@gmail.com",
-    password: "Testpass1",
-  };
-
-  window.localStorage.setItem(
-    "lastLoginCredentials",
-    JSON.stringify(lastLoginCredentials)
-  );
-};
+import { addLastLoginCredentialsToLocalStorage } from "../utils/utils";
 
 describe("Top Nav tests", () => {
   it("should display navbar and all elements", () => {
