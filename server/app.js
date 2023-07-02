@@ -19,10 +19,19 @@ const deleteUserRouter = require("./routes/deleteUser");
 const deleteUsersRouter = require("./routes/deleteUsers");
 const deleteTestUsersRouter = require("./routes/deleteTestUsers");
 
+const getPostRouter = require("./routes/getPost");
+const getPostsRouter = require("./routes/getPosts");
+
+const createPostRouter = require("./routes/createPost");
+const updatePostRouter = require("./routes/updatePost");
+const deletePostRouter = require("./routes/deletePost");
+
+// Warning!
+const deleteTestPostsRouter = require("./routes/deleteTestPosts");
+
 const getEventsRouter = require("./routes/getEvents");
 const getEventRouter = require("./routes/getEvent");
 const registerEventRouter = require("./routes/registerEvent");
-
 const updateEventRouter = require("./routes/updateEvent");
 const deleteEventRouter = require("./routes/deleteEvent");
 
@@ -61,6 +70,23 @@ app.use(deleteUserRouter);
 
 // Warning!
 app.use(deleteTestUsersRouter);
+// -------------------------
+
+// POSTS ------------------
+
+app.use(getPostsRouter);
+
+app.use(getPostRouter);
+
+app.use(createPostRouter);
+
+app.use(updatePostRouter);
+
+app.use(deletePostRouter);
+
+// Warning!
+app.use(deleteTestPostsRouter);
+
 // -------------------------
 
 // EVENTS ------------------
