@@ -258,10 +258,14 @@ export default function TopNav({
 
           <Typography
             data-testid="logo"
+            className="Top-nav-logo"
             variant="h6"
             noWrap
             component="div"
             sx={{ display: { xs: "none", sm: "block" } }}
+            onClick={() => {
+              window.location = "/";
+            }}
           >
             LOGO
           </Typography>
