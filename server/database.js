@@ -40,6 +40,53 @@ let db = new sqlite3.Database(DBSOURCE, (err) => {
     console.log("Succesfully created User database!");
 
     db.run(
+      `CREATE TABLE IF NOT EXISTS Post (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      accountImage text NOT NULL,
+      accountName text NOT NULL,
+      postDate text NOT NULL,
+      postText text NOT NULL,
+      postImage text NOT NULL
+    )`,
+      (err) => {
+        if (err) {
+          // Table already created
+          console.error(err.message);
+          throw err;
+        } else {
+          // Table just created, creating some rows
+          const insert =
+            "INSERT OR REPLACE INTO Post (accountImage, accountName, postDate, postText, postImage) VALUES (?,?,?,?,?)";
+
+          db.run(insert, [
+            "https://avatars.githubusercontent.com/u/4129325?v=4",
+            "Manuel Pineda",
+            new Date().toDateString(),
+            "First Post. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "https://static.vecteezy.com/system/resources/previews/012/168/187/non_2x/beautiful-sunset-on-the-beach-with-palm-tree-for-travel-and-vacation-free-photo.JPG",
+          ]);
+
+          db.run(insert, [
+            "https://avatars.githubusercontent.com/u/4129325?v=4",
+            "Manuel Pineda",
+            new Date().toDateString(),
+            "Second Post. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "https://static.vecteezy.com/system/resources/previews/012/168/187/non_2x/beautiful-sunset-on-the-beach-with-palm-tree-for-travel-and-vacation-free-photo.JPG",
+          ]);
+
+          db.run(insert, [
+            "https://avatars.githubusercontent.com/u/4129325?v=4",
+            "Manuel Pineda",
+            new Date().toDateString(),
+            "Third Post. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "https://static.vecteezy.com/system/resources/previews/012/168/187/non_2x/beautiful-sunset-on-the-beach-with-palm-tree-for-travel-and-vacation-free-photo.JPG",
+          ]);
+        }
+      }
+    );
+    console.log("Succesfully created Post database!");
+
+    db.run(
       `CREATE TABLE IF NOT EXISTS Event (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       date DATE,
