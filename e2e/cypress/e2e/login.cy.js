@@ -19,10 +19,7 @@ describe("Login tests", () => {
 
   const checkHomepage = (exists = true) => {
     // Toolbar is visible
-    cy.get(".MuiToolbar-root").should(exists ? "be.visible" : "not.exist");
-
-    // Section app is visible
-    cy.get(".Section-app").should(exists ? "be.visible" : "not.exist");
+    cy.get("[data-testid=top-nav]").should(exists ? "be.visible" : "not.exist");
 
     // Timeline is visble
     cy.get("[data-testid=timeline]").should(
@@ -101,7 +98,7 @@ describe("Login tests", () => {
     cy.visit("http://localhost:3000/");
 
     // Click on register here!
-    cy.get(".subscribe").click();
+    cy.get("[data-testid=subscribe]").click();
 
     submitUserData(NEW_USERNAME, NEW_EMAIL, NEW_PASSWORD);
 
@@ -149,7 +146,7 @@ describe("Login tests", () => {
     });
 
     // Click on register here!
-    cy.get(".subscribe").click();
+    cy.get("[data-testid=subscribe]").click();
 
     submitUserData(EXISTING_USERNAME, EXISTING_EMAIL, EXISTING_PASSWORD);
 
