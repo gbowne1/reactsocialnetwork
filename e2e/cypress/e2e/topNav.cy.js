@@ -21,11 +21,11 @@ describe("Top Nav tests", () => {
     // Open side menu
     cy.get('[data-testid="burger-menu-button"]').click();
 
-    cy.get(".bm-menu").should("be.visible");
+    cy.get(".SideNav").should("be.visible");
 
     // Close side menu
     cy.get("#react-burger-cross-btn").click();
-    cy.get(".bm-menu").should("not.be.visible");
+    cy.get(".SideNav").should("not.be.visible");
 
     // Check logo
     cy.get('[data-testid="logo"]').should("be.visible");
@@ -51,7 +51,9 @@ describe("Top Nav tests", () => {
     // Click on settings and check settings panel appears
     cy.get('[data-testid="menu-settings"]').should("be.visible");
     cy.get('[data-testid="menu-settings"]').click();
-    cy.get(".Panel").should("be.visible").and("contain.text", "Settings");
+    cy.get("[data-testid=settings-panel]")
+      .should("be.visible")
+      .and("contain.text", "Settings");
 
     // Click user profile icon
     cy.get('[data-testid="user-menu"]').click();
@@ -59,7 +61,9 @@ describe("Top Nav tests", () => {
     // Click on help and check help panel appears
     cy.get('[data-testid="menu-help"]').should("be.visible");
     cy.get('[data-testid="menu-help"]').click();
-    cy.get(".Panel").should("be.visible").and("contain.text", "Help center");
+    cy.get("[data-testid=help-panel]")
+      .should("be.visible")
+      .and("contain.text", "Help center");
 
     // Click user profile icon
     cy.get('[data-testid="user-menu"]').click();
@@ -79,11 +83,11 @@ describe("Top Nav tests", () => {
     // Check theme switch is visible, click on it and check app has dark-mode class
     cy.get('[data-testid="theme-switch"]').should("be.visible");
     cy.get('[data-testid="theme-switch"]').click();
-    cy.get(".App").should("have.class", "dark-mode");
+    cy.get("[data-testid=app]").should("have.class", "dark-mode");
 
     // Click on theme switch again and check app now has light-mode class
     cy.get('[data-testid="theme-switch"]').click();
-    cy.get(".App").should("have.class", "light-mode");
+    cy.get("[data-testid=app]").should("have.class", "light-mode");
 
     // Click user profile icon
     cy.get('[data-testid="user-menu"]').click();
