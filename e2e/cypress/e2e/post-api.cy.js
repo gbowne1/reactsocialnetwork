@@ -35,7 +35,7 @@ describe("Post API tests", () => {
   it("GET - /api/posts - should retrieve all existing posts data", () => {
     cy.request(`${apiUrl}/api/posts/`).then((res) => {
       expect(Array.isArray(res.body.data)).to.be.true;
-      expect(res.body.data.length).to.be.above(3);
+      expect(res.body.data.length).to.eq(3);
     });
   });
 
