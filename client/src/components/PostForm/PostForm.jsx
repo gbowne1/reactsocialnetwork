@@ -43,7 +43,6 @@ const PostForm = ({ themeMode, posts, setPosts, userAvatar = null }) => {
         fetch("http://localhost:9000/api/posts/")
           .then((res) => res.json())
           .then((res) => {
-            console.log(res.data);
             // And then set those posts with setEvent
             setPosts(res.data);
           });
