@@ -56,7 +56,7 @@ const App = () => {
   }
 
   return (
-    <div className={`App ${themeMode}`}>
+    <div className={`App ${themeMode}`} data-testid="app">
       <Router>
         <div className="container-fluid">
           <header className="App-header">
