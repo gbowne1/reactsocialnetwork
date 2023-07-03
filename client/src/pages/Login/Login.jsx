@@ -115,7 +115,6 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log(res);
         if (res.error) {
           setSnackbarOptions({
             severity: "warning",
