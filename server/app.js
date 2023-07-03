@@ -7,36 +7,37 @@ const cors = require("cors");
 
 const indexRouter = require("./routes/index");
 
-const loginUserRouter = require("./routes/loginUser");
-const registerUserRouter = require("./routes/registerUser");
+const loginUserRouter = require("./routes/users/loginUser");
+const createUserRouter = require("./routes/users/createUser");
 
-const getUsersRouter = require("./routes/getUsers");
-const getUserRouter = require("./routes/getUser");
+const getUsersRouter = require("./routes/users/getUsers");
+const getUserRouter = require("./routes/users/getUser");
 
-const updateUserRouter = require("./routes/updateUser");
-const deleteUserRouter = require("./routes/deleteUser");
+const updateUserRouter = require("./routes/users/updateUser");
+const deleteUserRouter = require("./routes/users/deleteUser");
 // Warning!
-const deleteUsersRouter = require("./routes/deleteUsers");
-const deleteTestUsersRouter = require("./routes/deleteTestUsers");
+const deleteUsersRouter = require("./routes/users/deleteUsers");
+const deleteTestUsersRouter = require("./routes/users/deleteTestUsers");
 
-const getPostRouter = require("./routes/getPost");
-const getPostsRouter = require("./routes/getPosts");
+const getPostRouter = require("./routes/posts/getPost");
+const getPostsRouter = require("./routes/posts/getPosts");
 
-const createPostRouter = require("./routes/createPost");
-const updatePostRouter = require("./routes/updatePost");
-const deletePostRouter = require("./routes/deletePost");
-
-// Warning!
-const deleteTestPostsRouter = require("./routes/deleteTestPosts");
-
-const getEventsRouter = require("./routes/getEvents");
-const getEventRouter = require("./routes/getEvent");
-const registerEventRouter = require("./routes/registerEvent");
-const updateEventRouter = require("./routes/updateEvent");
-const deleteEventRouter = require("./routes/deleteEvent");
+const createPostRouter = require("./routes/posts/createPost");
+const updatePostRouter = require("./routes/posts/updatePost");
+const deletePostRouter = require("./routes/posts/deletePost");
 
 // Warning!
-const deleteTestEventsRouter = require("./routes/deleteTestEvents");
+const deleteTestPostsRouter = require("./routes/posts/deleteTestPosts");
+
+const getEventsRouter = require("./routes/events/getEvents");
+const getEventRouter = require("./routes/events/getEvent");
+
+const createEventRouter = require("./routes/events/createEvent");
+const updateEventRouter = require("./routes/events/updateEvent");
+const deleteEventRouter = require("./routes/events/deleteEvent");
+
+// Warning!
+const deleteTestEventsRouter = require("./routes/events/deleteTestEvents");
 
 const app = express();
 
@@ -56,7 +57,7 @@ app.use("/", indexRouter);
 // AUTHENTICATION ----------
 app.use(loginUserRouter);
 
-app.use(registerUserRouter);
+app.use(createUserRouter);
 // -------------------------
 
 // USERS -------------------
@@ -95,7 +96,7 @@ app.use(getEventsRouter);
 
 app.use(getEventRouter);
 
-app.use(registerEventRouter);
+app.use(createEventRouter);
 
 app.use(updateEventRouter);
 
