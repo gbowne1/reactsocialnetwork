@@ -309,7 +309,10 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
                       {isLoginView
                         ? "You don't have an account? "
                         : "You already have an account? "}
-                      <span className={isLoginView ? `subscribe` : `login`}>
+                      <span
+                        className={isLoginView ? `subscribe` : `login`}
+                        data-testid={isLoginView ? `subscribe` : `login`}
+                      >
                         {isLoginView ? "Register here!" : "Login here!"}
                       </span>
                     </Typography>
