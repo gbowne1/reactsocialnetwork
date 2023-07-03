@@ -105,7 +105,7 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
   };
 
   const registerButtonClickedHandler = async () => {
-    // Make a request to registerUser route and send the userData obj
+    // Make a request to createUser route and send the userData obj
     fetch("http://localhost:9000/api/user/", {
       method: "POST",
       headers: {
