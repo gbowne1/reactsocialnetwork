@@ -69,6 +69,7 @@ const HelpCenter = ({ themeMode }) => {
       titleHeading="Help center"
       isOpen={isOpen}
       setIsOpen={setIsOpen}
+      dataTestId={"help-panel"}
     >
       <div className="Help-center__content-wrapper">
         <div className="Help-center__subject-picker">
