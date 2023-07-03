@@ -57,17 +57,17 @@ const PostForm = ({ themeMode, posts, setPosts, userAvatar = null }) => {
     <div>
       {" "}
       <form
-        className={`Post-create ${themeMode}`}
+        className={`Post__create ${themeMode}`}
         onSubmit={onSubmit}
         data-testid="create-post-form"
       >
-        <div className="Post-basics">
-          <div className="Post-avatar">
+        <div className="Post__basics">
+          <div className="Post__avatar">
             {userAvatar ? (
               <img src={userAvatar} alt="user avatar" />
             ) : (
               <IconButton
-                className="Post-empty-avatar"
+                className="Post__empty-avatar"
                 aria-label="search-button"
               >
                 <AccountCircleIcon
@@ -85,7 +85,7 @@ const PostForm = ({ themeMode, posts, setPosts, userAvatar = null }) => {
             placeholder="What's on your mind?"
             aria-invalid="false"
             aria-label="Post text input"
-            className={`Post-text ${themeMode}`}
+            className={`Post__input ${themeMode}`}
             data-testid="create-post-input"
             value={postText}
             onChange={(e) => setPostText(e.target.value)}
@@ -94,7 +94,7 @@ const PostForm = ({ themeMode, posts, setPosts, userAvatar = null }) => {
           />
 
           <IconButton
-            className={`Post-submit ${themeMode}`}
+            className={`Post__submit ${themeMode}`}
             aria-label="search button"
             type="submit"
             data-testid="create-post-submit-button"
@@ -108,10 +108,11 @@ const PostForm = ({ themeMode, posts, setPosts, userAvatar = null }) => {
           </IconButton>
         </div>
 
-        <hr />
-        <div className="Post-uploads">
+        <hr className="Post__hr" />
+
+        <div className="Post__uploads">
           <IconButton
-            className="Post-upload-btn"
+            className="Post__upload-btn"
             aria-label="upload picture"
             component="label"
           >
@@ -122,11 +123,11 @@ const PostForm = ({ themeMode, posts, setPosts, userAvatar = null }) => {
               aria-labelledby="upload picture"
               sx={{ color: "#054a91" }}
             />
-            <span className={`Post-icon-label ${themeMode}`}>Add Photo</span>
+            <span className={`Post__icon-label ${themeMode}`}>Add Photo</span>
           </IconButton>
 
           <IconButton
-            className="Post-upload-btn"
+            className="Post__upload-btn"
             aria-label="upload video"
             component="label"
           >
@@ -137,11 +138,11 @@ const PostForm = ({ themeMode, posts, setPosts, userAvatar = null }) => {
               aria-labelledby="upload video"
               sx={{ color: "#931621" }}
             />
-            <span className={`Post-icon-label ${themeMode}`}>Add Video</span>
+            <span className={`Post__icon-label ${themeMode}`}>Add Video</span>
           </IconButton>
 
           <IconButton
-            className="Post-upload-btn"
+            className="Post__upload-btn"
             aria-label="add mood"
             component="label"
           >
@@ -151,7 +152,7 @@ const PostForm = ({ themeMode, posts, setPosts, userAvatar = null }) => {
               aria-labelledby="add mood"
               sx={{ color: "#FFD369" }}
             />
-            <span className={`Post-icon-label ${themeMode}`}>Add Mood</span>
+            <span className={`Post__icon-label ${themeMode}`}>Add Mood</span>
           </IconButton>
         </div>
       </form>
