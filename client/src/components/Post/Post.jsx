@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import CloseButton from "../CloseButton/CloseButton"
 import "./Post.css";
 
-const Post = ({accountImage, accountName, postDate, postText, postImage}) => {
+const Post = ({themeMode, accountImage, accountName, postDate, postText, postImage}) => {
   const [isOpen, setIsOpen] = useState(true);
 
   const handleClose = () => {
@@ -12,33 +12,33 @@ const Post = ({accountImage, accountName, postDate, postText, postImage}) => {
 
   return (
     isOpen && (
-      <div className="post" data-testid="post">
-        <div className="post-header">
-          <div className="post-image-container">
-            <img
-              data-testid="account-image"
-              src={accountImage}
-              alt=""
-            />
+      <div className={`Post ${themeMode}`} data-testid="post">
+        <div className={`Post__header ${themeMode}`}>
+          <div className="Post__image-container">
+            <img data-testid="account-image" src={accountImage} alt="" />
           </div>
-          <div className="post-account-data-container">
-            <div className="post-account" data-testid="account-name">{accountName}</div>
-            <div className="post-date" data-testid="post-date">{postDate}</div>
+          <div className="Post__account-data-container">
+            <div className="Post__account" data-testid="account-name">
+              {accountName}
+            </div>
+            <div className="Post__date" data-testid="post-date">
+              {postDate}
+            </div>
           </div>
-          <CloseButton handleClose={handleClose} dataTestid="post-close-button" />
+          <CloseButton
+            className={`Post__close-button ${themeMode}`}
+            dataTestid="post-close-button"
+            handleClose={handleClose}
+          />
         </div>
 
-        <div className="post-content" >
-          <div className="post-text" data-testid="post-text">
+        <div className="Post__content">
+          <div className={`Post__text ${themeMode}`} data-testid="post-text">
             {postText}
           </div>
 
-          <div className="post-content-image-container">
-            <img
-              data-testid="post-image"
-              src={postImage}
-              alt=""
-            />
+          <div className="Post-content-image-container">
+            <img data-testid="post-image" src={postImage} alt="" />
           </div>
         </div>
       </div>
@@ -48,6 +48,7 @@ const Post = ({accountImage, accountName, postDate, postText, postImage}) => {
 
 
 Post.propTypes = {
+  themeMode: PropTypes.string,
   accountImage: PropTypes.string,
   accountName: PropTypes.string,
   postDate: PropTypes.string,
