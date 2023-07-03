@@ -74,7 +74,6 @@ const CreateEventModal = ({
         fetch("http://localhost:9000/api/events/")
           .then((res) => res.json())
           .then((res) => {
-            console.log(res.data);
             // And then set those events with setEvent
             setEvents(res.data);
           });
