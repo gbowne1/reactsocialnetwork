@@ -146,7 +146,6 @@ describe("Login tests", () => {
       users.push(existingUser);
 
       window.localStorage.setItem("users", JSON.stringify(users));
-      console.log(window.localStorage);
     });
 
     // Click on register here!
