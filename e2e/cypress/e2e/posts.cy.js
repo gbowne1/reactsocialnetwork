@@ -91,4 +91,14 @@ describe("Post tests", () => {
           .and("have.length", initialPostAmount + 2);
       });
   });
+
+  after(() => {
+    // Delete all test post records
+    cy.request({
+      url: `${apiUrl}/api/posts/delete-test-posts`,
+      failOnStatusCode: false,
+    }).then((res) => {
+      expect(res.body.message).to.eq("Posts deleted!");
+    });
+  });
 });
