@@ -166,4 +166,14 @@ describe("Event API tests", () => {
       });
     });
   });
+
+  after(() => {
+    // Delete all db records
+    cy.request({
+      url: "http://localhost:9000/api/events/delete-test-events",
+      failOnStatusCode: false,
+    }).then((response) => {
+      expect(response.body.message).to.eq("Events deleted!");
+    });
+  });
 });
