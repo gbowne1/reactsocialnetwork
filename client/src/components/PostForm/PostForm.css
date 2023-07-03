@@ -1,6 +1,6 @@
 @import url("../../variables.css");
 
-.Post-create {
+.Post__create {
   border-radius: 10px;
   border: none;
   padding: 10px;
@@ -11,16 +11,15 @@
   box-shadow: 0px 1px 2px #888888;
 }
 
-.Post-create.dark-mode {
+.Post__create.dark-mode {
   background-color: var(--bg-dark-500);
 }
 
-.Post-create.light-mode {
-  /* background-color: var(--bg-light-500); */
-  background-color: white;
+.Post__create.light-mode {
+  background-color: var(--bg-light-500);
 }
 
-.Post-basics {
+.Post__basics {
   width: 100%;
   justify-content: space-between;
   display: flex;
@@ -28,18 +27,18 @@
   gap: 10px;
 }
 
-.Post-avatar {
+.Post__avatar {
   margin: auto;
   height: 100%;
 }
 
-.Post-avatar button {
+.Post__avatar button {
   font-size: 36px;
   padding: 0;
   line-height: 100%;
 }
 
-.Post-empty-avatar {
+.Post__empty-avatar {
   padding: 0;
   margin: 0;
   margin-block: auto;
@@ -47,7 +46,7 @@
   line-height: 100%;
 }
 
-.Post-text {
+.Post__input {
   background-color: #f0f2f5;
   margin: 0;
   padding: 10px 15px;
@@ -56,40 +55,44 @@
   flex: 1;
 }
 
-.Post-text.dark-mode::placeholder {
+.Post__input.dark-mode::placeholder {
   color: var(--text-light-100);
 }
 
-.Post-text.dark-mode {
+.Post__input.dark-mode {
   color: var(--text-light-900);
   background-color: var(--bg-dark-100);
 }
 
-.Post-text.light-mode::placeholder {
+.Post__input.light-mode::placeholder {
   color: var(--text-dark-100);
 }
 
-/* .Post-text.light-mode {
+/* .Post__input.light-mode {
   color: var(--text-dark-900);
   background-color: var(--bg-light-100);
 } */
 
-.Post-submit {
+.Post__submit {
   margin: 0;
   padding: 10px 15px;
   border-radius: 50px;
   border: none;
 }
 
-.Post-submit.dark-mode {
+.Post__submit.dark-mode {
   color: var(--clr-dark-mode-accent-500);
 }
 
-.Post-submit.light-mode {
+.Post__submit.light-mode {
   color: var(--clr-light-mode-accent-500);
 }
 
-.Post-uploads {
+.Post__hr {
+  margin: 10px auto;
+}
+
+.Post__uploads {
   margin: 0;
   padding: 0;
   display: flex;
@@ -98,25 +101,25 @@
   width: 100%;
 }
 
-.Post-uploads button {
+.Post__uploads button {
   padding: 0;
 }
 
-.Post-upload-btn:hover {
+.Post__upload-btn:hover {
   border-radius: 5px;
 }
 
-.Post-icon-label {
+.Post__icon-label {
   margin-left: 10px;
   font-size: 14px;
 }
 
-.Post-icon-label.dark-mode {
+.Post__icon-label.dark-mode {
   background-color: transparent;
   color: var(--text-light-500);
 }
 
-.Post-icon-label.light-mode {
+.Post__icon-label.light-mode {
   background-color: transparent;
   color: var(--text-dark-500);
 }
