@@ -7,7 +7,6 @@ import "./Timeline.css";
 const Timeline = ({ themeMode }) => {
   const [posts, setPosts] = useState([]);
   const [shownPosts, setShownPosts] = useState([]);
-  console.log(shownPosts);
 
   useEffect(() => {
     fetch("http://localhost:9000/api/posts")
