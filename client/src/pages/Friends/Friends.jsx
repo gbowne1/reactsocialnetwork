@@ -72,7 +72,7 @@ function Friends({ themeMode }) {
 }
 Friends.propTypes = {
   themeMode: PropTypes.string,
-  children: PropTypes.object.isRequired,
+  // children: PropTypes.object.isRequired,
 };
 
 export default Friends;
