@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { useState } from "react";
 import "./App.css";
 // import MenuIcon from '@mui/icons-material/Menu';
+import Timeline from "./pages/Timeline/Timeline";
 import UserProfile from "./pages/UserProfile/UserProfile";
 import Profile from "./pages/Profile/Profile";
 import Dashboard from "./pages/Dashboard/Dashboard";
@@ -55,7 +56,7 @@ const App = () => {
   }
 
   return (
-    <div className={`App ${themeMode}`}>
+    <div className={`App ${themeMode}`} data-testid="app">
       <Router>
         <div className="container-fluid">
           <header className="App-header">
@@ -78,7 +79,7 @@ const App = () => {
                   <Route
                     exact
                     path="/"
-                    element={<Dashboard themeMode={themeMode} />}
+                    element={<Timeline themeMode={themeMode} />}
                   />
                   <Route
                     exact

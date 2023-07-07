@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const db = require("../database");
+const db = require("../../database");
 
 /* GET event listing. */
 router.get("/api/event/:id", function (req, res, next) {

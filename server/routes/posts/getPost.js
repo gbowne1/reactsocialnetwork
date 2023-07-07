@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const db = require("../database");
+const db = require("../../database");
 
-/* GET event listing. */
-router.get("/api/event/:id", function (req, res, next) {
-  const sql = "select * from Event where id = ?";
+/* GET posts listing. */
+router.get("/api/post/:id", function (req, res, next) {
+  const sql = "select * from Post where id = ?";
   const params = [req.params.id];
   db.get(sql, params, (err, row) => {
     if (err) {
@@ -13,8 +13,8 @@ router.get("/api/event/:id", function (req, res, next) {
     }
     res.json({
       message: row
-        ? "Event successfully retrieved!"
-        : `Event with id: ${params} not found.`,
+        ? "Post successfully retrieved!"
+        : `Post with id: ${params} not found.`,
       data: row,
     });
   });

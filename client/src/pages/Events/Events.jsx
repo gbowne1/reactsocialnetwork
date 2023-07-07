@@ -53,7 +53,7 @@ const Events = ({ themeMode }) => {
 
   useEffect(() => {
     if (eventsFilterValue === "Home") {
-      setFilteredEvents(events);
+      setFilteredEvents(events.reverse());
     } else {
       const filteredEvents = events.filter((event) => {
         return event.attendance === eventsFilterValue;

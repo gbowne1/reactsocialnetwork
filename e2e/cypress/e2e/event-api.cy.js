@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-describe("API tests", () => {
+describe("Event API tests", () => {
   const apiUrl = "http://localhost:9000";
 
   const testEvent = {
@@ -164,6 +164,16 @@ describe("API tests", () => {
       }).then((res) => {
         expect(res.body.message).to.eq(`Event with id: ${eventId} not found.`);
       });
+    });
+  });
+
+  after(() => {
+    // Delete all db records
+    cy.request({
+      url: "http://localhost:9000/api/events/delete-test-events",
+      failOnStatusCode: false,
+    }).then((response) => {
+      expect(response.body.message).to.eq("Events deleted!");
     });
   });
 });

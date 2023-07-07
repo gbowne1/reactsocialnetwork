@@ -16,6 +16,7 @@ function Settings({ themeMode }) {
           titleHeading="Settings"
           isOpen={isOpen}
           setIsOpen={setIsOpen}
+          dataTestId="settings-panel"
         >
           <div className="Settings-tab-groups-container">
             <div className="Settings-tab-group">

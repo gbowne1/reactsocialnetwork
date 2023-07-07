@@ -105,7 +105,7 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
   };
 
   const registerButtonClickedHandler = async () => {
-    // Make a request to registerUser route and send the userData obj
+    // Make a request to createUser route and send the userData obj
     fetch("http://localhost:9000/api/user/", {
       method: "POST",
       headers: {
@@ -115,7 +115,6 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log(res);
         if (res.error) {
           setSnackbarOptions({
             severity: "warning",
@@ -310,7 +309,10 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
                       {isLoginView
                         ? "You don't have an account? "
                         : "You already have an account? "}
-                      <span className={isLoginView ? `subscribe` : `login`}>
+                      <span
+                        className={isLoginView ? `subscribe` : `login`}
+                        data-testid={isLoginView ? `subscribe` : `login`}
+                      >
                         {isLoginView ? "Register here!" : "Login here!"}
                       </span>
                     </Typography>

@@ -1,7 +1,6 @@
 @import url("../../variables.css");
 
-.Top-nav {
-}
+.Top-nav {}
 
 .Top-nav.dark-mode {
   background-color: var(--bg-dark-900);
@@ -26,4 +25,8 @@
 
 .Top-nav-search.light-mode {
   background-color: var(--bg-light-500);
+}
+
+.Top-nav-logo {
+  cursor: pointer;
 }

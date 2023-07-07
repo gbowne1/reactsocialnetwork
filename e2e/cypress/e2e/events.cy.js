@@ -1,20 +1,9 @@
 /// <reference types="cypress" />
 
-const addLastLoginCredentialsToLocalStorage = () => {
-  const lastLoginCredentials = {
-    username: "testuser1",
-    email: "testuser@gmail.com",
-    password: "Testpass1!",
-  };
-
-  window.localStorage.setItem(
-    "lastLoginCredentials",
-    JSON.stringify(lastLoginCredentials)
-  );
-};
-
-const addCookiesAcceptedToLocalStorage = () =>
-  window.localStorage.setItem("cookiesAccepted", JSON.stringify(true));
+import {
+  addLastLoginCredentialsToLocalStorage,
+  addCookiesAcceptedToLocalStorage,
+} from "../utils/utils";
 
 describe("Event tests", () => {
   const apiUrl = "http://localhost:9000";
@@ -68,6 +57,7 @@ describe("Event tests", () => {
       addCookiesAcceptedToLocalStorage();
       addLastLoginCredentialsToLocalStorage();
     });
+
     // Delete all test events records
     cy.request({
       url: `${apiUrl}/api/events/delete-test-events`,
@@ -116,7 +106,7 @@ describe("Event tests", () => {
     cy.get('[href="/events"]').click();
 
     // Check how many events are currently
-    cy.get(".SingleEvent").then((singleEvents) => {
+    cy.get("[data-testid=single-event-component]").then((singleEvents) => {
       const currentNumberOfEvents = singleEvents.length;
       cy.log(`Current number of events: ${currentNumberOfEvents}`);
       ctx.currentNumberOfEvents = currentNumberOfEvents;
@@ -143,12 +133,13 @@ describe("Event tests", () => {
       .and("have.text", "Event successfully created!");
 
     // Check that there new event's data is found on event's panel
-    cy.get(".Panel__content")
+    cy.get("[data-testid=single-event-component]")
+      .first()
       .should("contain.text", testEvent.title)
       .and("contain.text", testEvent.location);
 
     // Check that now amount of SingleEvent components is ctx.currentNumberOfEvents + 1
-    cy.get(".SingleEvent").then((singleEvents) => {
+    cy.get("[data-testid=single-event-component]").then((singleEvents) => {
       const currentNumberOfEvents = singleEvents.length;
       expect(currentNumberOfEvents).to.eq(ctx.currentNumberOfEvents + 1);
     });
@@ -186,10 +177,12 @@ describe("Event tests", () => {
       .should("have.text", "Interested");
 
     // Record the innerText of each event element to use for comparison later
-    cy.get(".SingleEvent").each((singleEvent, index) => {
-      singleEvent = singleEvent[0];
-      ctx.singleEvents.push({ singleEventText: singleEvent.innerText });
-    });
+    cy.get("[data-testid=single-event-component]").each(
+      (singleEvent, index) => {
+        singleEvent = singleEvent[0];
+        ctx.singleEvents.push({ singleEventText: singleEvent.innerText });
+      }
+    );
 
     // Filter events by 'Going'
     cy.get("#attendance-filter").click();
@@ -197,7 +190,7 @@ describe("Event tests", () => {
     cy.get("#attendance-filter").should("have.text", "Going");
 
     // Get 'Going' event and compare text with recorded text
-    cy.get(".SingleEvent").then((singleEvent) => {
+    cy.get("[data-testid=single-event-component]").then((singleEvent) => {
       singleEvent = singleEvent[0];
       expect(singleEvent.innerText).to.eq(ctx.singleEvents[0].singleEventText);
     });
@@ -208,7 +201,7 @@ describe("Event tests", () => {
     cy.get("#attendance-filter").should("have.text", "Interested");
 
     // Get 'Interested' event and compare text with recorded text
-    cy.get(".SingleEvent").then((singleEvent) => {
+    cy.get("[data-testid=single-event-component]").then((singleEvent) => {
       singleEvent = singleEvent[0];
       expect(singleEvent.innerText).to.eq(ctx.singleEvents[1].singleEventText);
     });
@@ -219,50 +212,69 @@ describe("Event tests", () => {
     cy.get("#attendance-filter").should("have.text", "Not Going");
 
     // Get 'Not Going' event and compare text with recorded text
-    cy.get(".SingleEvent").then((singleEvent) => {
+    cy.get("[data-testid=single-event-component]").then((singleEvent) => {
       singleEvent = singleEvent[0];
       expect(singleEvent.innerText).to.eq(ctx.singleEvents[2].singleEventText);
     });
   });
 
   it("should delete events successfully", () => {
+    // Load app again to dashboard screen
+    cy.visit("http://localhost:3000/");
+
     // Click on burger menu
-    cy.get("[data-testid=burger-menu-button]").click();
+    cy.get('[data-testid="burger-menu-button"]').click();
 
     // Click on events
     cy.get('[href="/events"]').click();
 
-    cy.get(".SingleEvent").then((element) => {
-      expect(element).to.have.length(3);
+    // Check how many events are currently
+    cy.get("[data-testid=single-event-component]").then((singleEvents) => {
+      const currentNumberOfEvents = singleEvents.length;
+      cy.log(`Current number of events: ${currentNumberOfEvents}`);
+      ctx.currentNumberOfEvents = currentNumberOfEvents;
     });
 
-    // Delete all events
-    const deleteElementIfExists = (elementId) => {
-      const elementToDelete = elementId;
-      cy.get("body").then((body) => {
-        const numElemsToDelete = body.find(elementToDelete).length;
-        if (numElemsToDelete > 0) {
-          cy.log(
-            `Element with id: ${elementToDelete} found ${numElemsToDelete} times!`
-          );
+    // Complete create event flow
+    cy.get('[data-testid="create-event-button"]').click();
 
-          // Dirty hack to avoid clicking on the delete button before it appears asynchroniously
-          for (let i = 0; i < numElemsToDelete; i++) {
-            cy.reload();
-            cy.wait(200);
-            console.log(`Calling function ${i + 1} time!`);
-            cy.get(elementToDelete).first().click();
-          }
-        }
+    cy.get('[data-testid="create-event-modal"]').should("be.visible");
+
+    cy.get('[data-testid="event-title-input"]').type(testEvent.title);
+    cy.get('[data-testid="event-location-input"]').type(testEvent.location);
+    cy.get('[data-testid="event-location-url-input"]').type(
+      testEvent.locationUrl
+    );
+    cy.get('[data-testid="event-image-url-input"]').type(testEvent.imageUrl);
+
+    // No need to add date as it's automatically added, just click create event
+    cy.get('[data-testid="create-event-modal-button"]').click();
+
+    // Check success message
+    cy.get('[data-testid="alert-message"]')
+      .should("be.visible")
+      .and("have.text", "Event successfully created!");
+
+    // Check that there new event's data is found on event's panel
+    cy.get("[data-testid=single-event-component]")
+      .first()
+      .should("contain.text", testEvent.title)
+      .and("contain.text", testEvent.location);
+
+    // Choose the first event element
+    cy.get("[data-testid=single-event-component]")
+      .first()
+      .then((singleEvent) => {
+        singleEvent = singleEvent[0];
+
+        // Confirm first element has the correct title and location
+        cy.get(singleEvent).should("contain.text", testEvent.title);
+        cy.get(singleEvent).should("contain.text", testEvent.location);
+
+        cy.get(singleEvent).within(() => {
+          cy.get("[data-testid=delete-button]").should("be.visible").click();
+        });
       });
-    };
-
-    deleteElementIfExists('[data-testid="delete-button"]');
-
-    // Check there are 0 events now
-    cy.reload();
-    cy.wait(500);
-    cy.get(".SingleEvent").should("not.exist");
   });
 
   it("should display error labels when leaving required inputs empty or on validation errors", () => {
@@ -410,5 +422,15 @@ describe("Event tests", () => {
 
     cy.get("#event-image-url-input-helper-text").should("not.exist");
     cy.get("[data-testid='event-date-input'] > p").should("not.exist");
+  });
+
+  after(() => {
+    // Delete all db records
+    cy.request({
+      url: "http://localhost:9000/api/events/delete-test-events",
+      failOnStatusCode: false,
+    }).then((response) => {
+      expect(response.body.message).to.eq("Events deleted!");
+    });
   });
 });

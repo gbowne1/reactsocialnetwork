@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-describe("API tests", () => {
+describe("User API tests", () => {
   const apiUrl = "http://localhost:9000";
 
   const testUser = {
