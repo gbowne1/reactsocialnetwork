@@ -11,13 +11,11 @@ const formatDate = (dateString) => {
   if (dateString) {
     dateObj = new Date(dateString);
   } else {
-    const todayDateObj = new Date();
-    dateObj = todayDateObj;
+    dateObj = new Date();
   }
-  const formattedDate = `${dateObj.getDate()}/${
+  return `${dateObj.getDate()}/${
     dateObj.getMonth() + 1
   }/${dateObj.getFullYear()}`;
-  return formattedDate;
 };
 
 export default formatDate;

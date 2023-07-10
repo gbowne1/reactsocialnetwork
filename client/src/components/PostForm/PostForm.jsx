@@ -27,7 +27,6 @@ const PostForm = ({ themeMode, posts, setPosts, userAvatar = null }) => {
 
     fetch("http://localhost:9000/api/post", {
       method: "POST",
-      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },

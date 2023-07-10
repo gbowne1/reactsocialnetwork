@@ -11,7 +11,6 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
-
 import "./CreateEventModal.css";
 
 import { useForm } from "react-hook-form";
@@ -19,7 +18,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import YupPassword from "yup-password";
 YupPassword(yup);
-
 
 const today = dayjs();
 
@@ -108,7 +106,7 @@ const CreateEventModal = ({
     const dateToday = new Date(today.format("MM/DD/YYYY"));
     const dateToCheck = new Date(dateToValidate.format("MM/DD/YYYY"));
 
-    if (dateToCheck == "Invalid Date") {
+    if (dateToCheck === "Invalid Date") {
       return {
         result: false,
         message: "Invalid Date",
@@ -186,7 +184,7 @@ const CreateEventModal = ({
               variant="standard"
               required
               {...register("event-title-input")}
-              error={errors["event-title-input"] ? true : false}
+              error={!!errors["event-title-input"]}
               helperText={errors["event-title-input"]?.message}
               onChange={(event) => {
                 setEventTitle(event.target.value);
@@ -204,7 +202,7 @@ const CreateEventModal = ({
               variant="standard"
               required
               {...register("event-location-input")}
-              error={errors["event-location-input"] ? true : false}
+              error={!!errors["event-location-input"]}
               helperText={errors["event-location-input"]?.message}
               onChange={(event) => {
                 setEventLocation(event.target.value);
@@ -222,7 +220,7 @@ const CreateEventModal = ({
               variant="standard"
               required
               {...register("event-location-url-input")}
-              error={errors["event-location-url-input"] ? true : false}
+              error={!!errors["event-location-url-input"]}
               helperText={errors["event-location-url-input"]?.message}
               onChange={(event) => {
                 setEventLocationUrl(event.target.value);
@@ -240,7 +238,7 @@ const CreateEventModal = ({
               variant="standard"
               required
               {...register("event-image-url-input")}
-              error={errors["event-image-url-input"] ? true : false}
+              error={!!errors["event-image-url-input"]}
               helperText={errors["event-image-url-input"]?.message}
               onChange={(event) => {
                 setEventImageUrl(event.target.value);

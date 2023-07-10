@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { useState } from "react";
+import React, { useState } from "react";
 import "./App.css";
 // import MenuIcon from '@mui/icons-material/Menu';
 import Timeline from "./pages/Timeline/Timeline";

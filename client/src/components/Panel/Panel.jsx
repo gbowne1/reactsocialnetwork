@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import CloseButton from "../CloseButton/CloseButton";
 import "./Panel.css";
+import React from "react";
 
 /**
  *
@@ -13,6 +14,8 @@ import "./Panel.css";
  * @param {boolean} isOpen - boolean state use to open or close the component
  * @param {function} setIsOpen - function used to change the state to open and close the component
  *
+ * @param dataTestId
+ * @param children
  * @returns Panel component.
  */
 
@@ -28,7 +31,7 @@ const Panel = ({
 }) => {
   const handleClose = () => {
     setIsOpen(false);
-  }
+  };
 
   const getClassNameFromWidthProp = (width) => {
     let widthClassName = "";

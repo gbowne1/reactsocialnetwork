@@ -3,9 +3,10 @@
  * If it does it sets that image as state using hook as callback function.
  * If it does not it defaults to setting a placeholder image instead.
  *
- * @param {string} image url of the image to check
- * @param {function} callback hooks used to set imageUrl as a state.
- * @param {string} image url for a placeholder image to fallback on in case image.onerror is called.
+ * @param imageUrl
+ * @param setImageUrl
+ * @param placeholderImageUrl
+ * @param logs
  */
 
 const checkImage = (

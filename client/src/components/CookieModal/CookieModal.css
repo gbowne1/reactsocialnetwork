@@ -9,7 +9,7 @@
   width: 100%;
 }
 
-.checkbox>.text {
+.checkbox > .text {
   padding-top: 12px;
 }
 
@@ -19,6 +19,6 @@
   width: 100%;
 }
 
-.button-container>button {
+.button-container > button {
   min-width: 175px;
 }

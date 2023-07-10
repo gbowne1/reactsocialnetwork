@@ -1,6 +1,6 @@
 import "./NotFound.css";
 import PropTypes from "prop-types";
-
+import React from "react";
 const NotFound = ({ themeMode }) => {
   return (
     <div className={`NotFound-container ${themeMode}`}>

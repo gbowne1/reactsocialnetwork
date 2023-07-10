@@ -1,5 +1,5 @@
 import { screen, fireEvent } from "@testing-library/react";
-import { within } from "@testing-library/dom";
+import { within } from "@testing-library/react";
 import { renderSingleEvent } from "../../../../utils/renderComponent";
 
 describe("Test SingleEvent component functionality", () => {

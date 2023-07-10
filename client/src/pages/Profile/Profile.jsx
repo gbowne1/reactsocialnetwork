@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import "./Profile.css";
 
 const Profile = () => {
-
   const [openModal, setOpenModal] = useState(null);
 
   useEffect(() => {
@@ -48,16 +47,19 @@ const Profile = () => {
     }
   };
 
-
   return (
     <div className="profile">
-
       {openModal && (
         <div className="Profile-container">
           <button className="Close-button">
-            <span className="icon" onClick={(prev) => {
-              setOpenModal(!prev);
-            }}>&times;</span>
+            <span
+              className="icon"
+              onClick={(prev) => {
+                setOpenModal(!prev);
+              }}
+            >
+              &times;
+            </span>
           </button>
 
           <form className="infoForm" onSubmit={handleSubmit}>
@@ -65,10 +67,15 @@ const Profile = () => {
 
             <div>
               Profile image
-              <input type="file" name="profileImage" onChange={handleFileSelect} />
+              <input
+                type="file"
+                name="profileImage"
+                onChange={handleFileSelect}
+              />
             </div>
-            {previewURL &&
-              <img className="preview-image" src={previewURL} alt="Preview" />}
+            {previewURL && (
+              <img className="preview-image" src={previewURL} alt="Preview" />
+            )}
 
             <div>
               <input
@@ -124,7 +131,6 @@ const Profile = () => {
               rows={5}
               value={formData.bio}
               onChange={handleChange}
-              type="text"
               className="infoInput"
               placeholder="Bio"
               name="bio"
@@ -175,7 +181,6 @@ const Profile = () => {
             <button className="infoButton" type="submit">
               Create
             </button>
-
           </form>
         </div>
       )}

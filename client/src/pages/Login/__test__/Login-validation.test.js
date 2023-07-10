@@ -1,8 +1,8 @@
 import { act, fireEvent, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-const user = userEvent.setup();
 
 import Login from "../Login";
+const user = userEvent.setup();
 
 describe("Tests Login form input validation", () => {
   it("should display error label when leaving username empty", async () => {

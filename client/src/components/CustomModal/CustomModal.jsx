@@ -6,6 +6,7 @@ import {
   DialogContentText,
 } from "@mui/material";
 import "./CustomModal.css";
+import React from "react";
 
 /**
  *

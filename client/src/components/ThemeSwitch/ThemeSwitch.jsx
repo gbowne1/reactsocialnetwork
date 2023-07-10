@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { Switch } from "@mui/material";
 import { LightMode, DarkMode } from "@mui/icons-material";
+import React from "react";
 import "./ThemeSwitch.css";
 
 const ThemeSwitch = ({ handleThemeModeChange, themeMode }) => {

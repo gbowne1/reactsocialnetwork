@@ -1,5 +1,6 @@
 import "./Footer.css";
 import PropTypes from "prop-types";
+import React from "react";
 
 function Footer({ themeMode }) {
   return (

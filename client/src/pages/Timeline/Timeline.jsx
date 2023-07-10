@@ -12,7 +12,7 @@ const Timeline = ({ themeMode }) => {
     fetch("http://localhost:9000/api/posts")
       .then((res) => res.json())
       .then((res) => {
-        setPosts(res.data)
+        setPosts(res.data);
       });
   }, []);
 
