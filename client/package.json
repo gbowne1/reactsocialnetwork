@@ -39,7 +39,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "format": "npx prettier --write .",
-    "lint": "npx eslint src"
+    "lint": "npx eslint src",
+    "lint:fix": "eslint src --fix"
   },
   "proxy": "",
   "browserslist": {
