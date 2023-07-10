@@ -1,5 +1,5 @@
 import { fireEvent, screen, render } from "@testing-library/react";
-import { within } from "@testing-library/dom";
+import { within } from "@testing-library/react";
 
 import Events from "../Events";
 

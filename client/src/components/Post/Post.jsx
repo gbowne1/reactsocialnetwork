@@ -1,9 +1,16 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import CloseButton from "../CloseButton/CloseButton"
+import CloseButton from "../CloseButton/CloseButton";
 import "./Post.css";
 
-const Post = ({themeMode, accountImage, accountName, postDate, postText, postImage}) => {
+const Post = ({
+  themeMode,
+  accountImage,
+  accountName,
+  postDate,
+  postText,
+  postImage,
+}) => {
   const [isOpen, setIsOpen] = useState(true);
 
   const handleClose = () => {
@@ -45,7 +52,6 @@ const Post = ({themeMode, accountImage, accountName, postDate, postText, postIma
     )
   );
 };
-
 
 Post.propTypes = {
   themeMode: PropTypes.string,

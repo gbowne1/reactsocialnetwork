@@ -1,6 +1,7 @@
 @import url("../../variables.css");
 
-.Top-nav {}
+.Top-nav {
+}
 
 .Top-nav.dark-mode {
   background-color: var(--bg-dark-900);

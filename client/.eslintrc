@@ -1,13 +1,7 @@
 {
   "parser": "@babel/eslint-parser",
-  "extends": [
-    "react-app",
-    "react-app/jest"
-  ],
-  "plugins": [
-    "react",
-    "prettier"
-  ],
+  "extends": ["react-app", "react-app/jest"],
+  "plugins": ["react", "prettier"],
   "parserOptions": {
     "requireConfigFile": true
   },

@@ -6,7 +6,7 @@
   width: 100%;
   max-width: 800px;
   height: fit-content;
-  box-shadow: 0px 1px 2px #888888;
+  box-shadow: 0 1px 2px #888888;
 }
 
 .Post.dark-mode {

@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import './Profile.css';
+import React, { useEffect, useState } from "react";
+import "./Profile.css";
 
 const Profile = () => {
-
   const [openModal, setOpenModal] = useState(null);
 
   useEffect(() => {
@@ -11,6 +10,22 @@ const Profile = () => {
 
   const [formData, setFormData] = useState({});
   const [profileImage, setProfileImage] = useState(null);
+  const [previewURL, setPreviewURL] = useState("");
+
+  const handleFileSelect = (e) => {
+    const file = e.target.files[0];
+    setProfileImage(file);
+
+    // Create a FileReader instance
+    const reader = new FileReader();
+
+    // Read the file and set the preview URL
+    reader.onloadend = () => {
+      setPreviewURL(reader.result);
+    };
+    // Read the file as a data URL
+    reader.readAsDataURL(file);
+  };
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -28,18 +43,23 @@ const Profile = () => {
       data.append("file", profileImage);
       userData.profilePicture = fileName;
 
-    console.log({userData});
+      console.log({ userData });
     }
-  }
-
+  };
 
   return (
-    <div className='profile'>
-
-        {openModal && (
+    <div className="profile">
+      {openModal && (
         <div className="Profile-container">
           <button className="Close-button">
-            <span className='icon' onClick={(prev) =>{setOpenModal(!prev)} }>&times;</span>
+            <span
+              className="icon"
+              onClick={(prev) => {
+                setOpenModal(!prev);
+              }}
+            >
+              &times;
+            </span>
           </button>
 
           <form className="infoForm" onSubmit={handleSubmit}>
@@ -47,8 +67,15 @@ const Profile = () => {
 
             <div>
               Profile image
-              <input type="file" name="profileImage" onChange={(e) => setProfileImage(e.target.files[0])} />
+              <input
+                type="file"
+                name="profileImage"
+                onChange={handleFileSelect}
+              />
             </div>
+            {previewURL && (
+              <img className="preview-image" src={previewURL} alt="Preview" />
+            )}
 
             <div>
               <input
@@ -71,13 +98,13 @@ const Profile = () => {
 
             <div>
               <input
-                  value={formData.username}
-                  onChange={handleChange}
-                  type="text"
-                  placeholder="Username"
-                  name="username"
-                  className="infoInput"
-                />
+                value={formData.username}
+                onChange={handleChange}
+                type="text"
+                placeholder="Username"
+                name="username"
+                className="infoInput"
+              />
             </div>
 
             <div>
@@ -100,65 +127,63 @@ const Profile = () => {
             </div>
 
             <textarea
-                style={{width: '90%'}} 
-                rows={5}
-                value={formData.bio}
+              style={{ width: "90%" }}
+              rows={5}
+              value={formData.bio}
+              onChange={handleChange}
+              className="infoInput"
+              placeholder="Bio"
+              name="bio"
+            />
+
+            <div>
+              <input
+                value={formData.website}
                 onChange={handleChange}
                 type="text"
+                placeholder="Website"
+                name="website"
                 className="infoInput"
-                placeholder="Bio"
-                name="bio"
+              />
+            </div>
+
+            <div>
+              <input
+                value={formData.interest}
+                onChange={handleChange}
+                type="text"
+                placeholder="Interest"
+                name="interest"
+                className="infoInput"
+              />
+            </div>
+
+            <div>
+              <input
+                value={formData.privarySetting}
+                onChange={handleChange}
+                type="text"
+                placeholder="Privary Setting (public/private/friends only)"
+                name="privarySetting"
+                className="infoInput"
               />
 
-            <div>
               <input
-                  value={formData.website}
-                  onChange={handleChange}
-                  type="text"
-                  placeholder="Website"
-                  name="website"
-                  className="infoInput"
-                />
-            </div>
-
-            <div>
-              <input
-                  value={formData.interest}
-                  onChange={handleChange}
-                  type="text"
-                  placeholder="Interest"
-                  name="interest"
-                  className="infoInput"
-                />
-            </div>
-
-            <div>
-                <input
-                  value={formData.privarySetting}
-                  onChange={handleChange}
-                  type="text"
-                  placeholder="Privary Setting (public/private/friends only)"
-                  name="privarySetting"
-                  className="infoInput"
-                />
-
-              <input
-                  value={formData.notificationSetting}
-                  onChange={handleChange}
-                  type="text"
-                  placeholder="Notifictaion Setting (email/push notification)"
-                  name="notificationSetting"
-                  className="infoInput"
-                />
+                value={formData.notificationSetting}
+                onChange={handleChange}
+                type="text"
+                placeholder="Notifictaion Setting (email/push notification)"
+                name="notificationSetting"
+                className="infoInput"
+              />
             </div>
 
             <button className="infoButton" type="submit">
               Create
             </button>
-
           </form>
         </div>
-        )}
+      )}
     </div>
   );
 };

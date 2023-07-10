@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
+import React from "react";
 
 const CloseButton = ({ handleClose, dataTestid, className }) => {
   return (

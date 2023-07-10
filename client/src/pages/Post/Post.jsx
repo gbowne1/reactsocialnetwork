@@ -6,6 +6,7 @@ import VideoFileIcon from "@mui/icons-material/VideoFile";
 import MoodIcon from "@mui/icons-material/Mood";
 import SendIcon from "@mui/icons-material/Send";
 import { IconButton } from "@mui/material";
+import React from "react";
 
 function Post({ themeMode, userAvatar, userName = "" }) {
   return (

@@ -1,5 +1,6 @@
 //import { NavLink as Link } from 'react-router-dom';
 import { slide as Menu } from "react-burger-menu";
+import React from "react";
 import "./SideNav.css";
 import PropTypes from "prop-types";
 import GroupsIcon from "@mui/icons-material/Groups";

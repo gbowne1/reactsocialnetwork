@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Box, Container } from "@mui/system";
 import {
@@ -205,7 +205,7 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
                   variant="outlined"
                   required
                   {...register("username")}
-                  error={errors.username ? true : false}
+                  error={!!errors.username}
                   helperText={errors.username?.message}
                   onChange={(event) =>
                     inputChangeHandler({
@@ -224,7 +224,7 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
                   variant="outlined"
                   required
                   {...register("email")}
-                  error={errors.email ? true : false}
+                  error={!!errors.email}
                   helperText={errors.email?.message}
                   onChange={(event) =>
                     inputChangeHandler({
@@ -238,7 +238,7 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
                 <FormControl
                   className={`Login__textfield ${themeMode}`}
                   required={true}
-                  error={errors.password ? true : false}
+                  error={!!errors.password}
                 >
                   <InputLabel htmlFor="outlined-adornment-password">
                     Password

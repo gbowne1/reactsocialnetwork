@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 import Collapse from "@mui/material/Collapse";
 import IconButton from "@mui/material/IconButton";
