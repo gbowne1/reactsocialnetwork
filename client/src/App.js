@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { useState } from "react";
 import "./App.css";
+import "index.jsx";
 // import MenuIcon from '@mui/icons-material/Menu';
 import Timeline from "./pages/Timeline/Timeline";
 import UserProfile from "./pages/UserProfile/UserProfile";
