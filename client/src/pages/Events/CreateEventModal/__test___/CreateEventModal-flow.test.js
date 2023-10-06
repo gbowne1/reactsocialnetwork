@@ -17,7 +17,7 @@ describe("Test CreateEventModal flow", () => {
         };
 
         const fakeResponse = { error: null };
-        const mockedFetch = jest.spyOn(global, "fetch").mockResolvedValue({
+        jest.spyOn(global, "fetch").mockResolvedValue({
             json: jest.fn().mockResolvedValue(fakeResponse),
         });
 

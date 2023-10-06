@@ -45,7 +45,7 @@ describe("Test SingleEvent component functionality", () => {
     it("should have share button working correctly", () => {});
 
     it("should have delete button working correctly", () => {
-        const { mockSetEvents, mockSetSnackbarOptions, mockSetOpenSnackbar } =
+        const { mockSetSnackbarOptions, mockSetOpenSnackbar } =
             renderSingleEvent();
 
         const fakeResponse = {

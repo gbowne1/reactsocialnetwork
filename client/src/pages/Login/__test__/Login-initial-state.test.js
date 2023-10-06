@@ -19,7 +19,6 @@ describe("Tests Login form is correctly displayed", () => {
 
         const loginButton = screen.getByTestId("submit");
         const registerHereText = screen.getByText(/Register here!/i);
-        const rememberMe = screen.getByTestId("submit");
 
         expect(loginForm).toBeVisible();
 
