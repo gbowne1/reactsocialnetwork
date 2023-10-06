@@ -1,7 +1,7 @@
 import { act, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-const user = userEvent.setup();
 import { renderCreateEventModal } from "../../../../utils/renderComponent";
+const user = userEvent.setup();
 
 describe("Test CreateEventModal flow", () => {
     it("should fill out CreateEventModal succesfully and reset form after submit", async () => {

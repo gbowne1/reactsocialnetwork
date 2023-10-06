@@ -1,8 +1,8 @@
 import { act, fireEvent, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-const user = userEvent.setup();
 
 import Login from "../Login";
+const user = userEvent.setup();
 
 const mockSetLoginToken = jest.fn((data) =>
     console.log(`mockSetLoginToken called with ${data}`)

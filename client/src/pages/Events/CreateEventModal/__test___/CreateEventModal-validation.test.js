@@ -1,7 +1,7 @@
 import { act, fireEvent, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-const user = userEvent.setup();
 import { renderCreateEventModal } from "../../../../utils/renderComponent";
+const user = userEvent.setup();
 
 describe("Test CreateEventModal validation", () => {
     it("should display error labels when leaving required fields empty", async () => {
