@@ -5,197 +5,199 @@ const user = userEvent.setup();
 import Login from "../Login";
 
 describe("Tests Login form input validation", () => {
-  it("should display error label when leaving username empty", async () => {
-    render(<Login />);
+    it("should display error label when leaving username empty", async () => {
+        render(<Login />);
 
-    const loginButton = screen.getByText(/LOGIN/i);
-    fireEvent.click(loginButton);
+        const loginButton = screen.getByText(/LOGIN/i);
+        fireEvent.click(loginButton);
 
-    const helperText = await screen.findByText("Username is a required field");
-    expect(helperText).toBeVisible();
-  });
-
-  it("should display error label when inputing an username with less than 6 characters", async () => {
-    act(() => {
-      render(<Login />);
+        const helperText = await screen.findByText(
+            "Username is a required field"
+        );
+        expect(helperText).toBeVisible();
     });
 
-    const usernameInput = screen.getByTestId("username");
-    const loginButton = screen.getByText(/LOGIN/i);
+    it("should display error label when inputing an username with less than 6 characters", async () => {
+        act(() => {
+            render(<Login />);
+        });
 
-    await act(async () => {
-      await user.type(usernameInput, "ABCDE");
-      expect(usernameInput.value).toBe("ABCDE");
+        const usernameInput = screen.getByTestId("username");
+        const loginButton = screen.getByText(/LOGIN/i);
 
-      await user.click(loginButton);
+        await act(async () => {
+            await user.type(usernameInput, "ABCDE");
+            expect(usernameInput.value).toBe("ABCDE");
+
+            await user.click(loginButton);
+        });
+
+        const helperText = document.querySelector("#username-helper-text");
+        expect(helperText).toHaveTextContent(
+            "Username must be at least 6 characters"
+        );
     });
 
-    const helperText = document.querySelector("#username-helper-text");
-    expect(helperText).toHaveTextContent(
-      "Username must be at least 6 characters"
-    );
-  });
+    it("should display error label when leaving email empty", async () => {
+        render(<Login />);
 
-  it("should display error label when leaving email empty", async () => {
-    render(<Login />);
+        const loginButton = screen.getByText(/LOGIN/i);
+        fireEvent.click(loginButton);
 
-    const loginButton = screen.getByText(/LOGIN/i);
-    fireEvent.click(loginButton);
-
-    const helperText = await screen.findByText("Email is a required field");
-    expect(helperText).toBeVisible();
-  });
-
-  it("should display error label when email is not a valid", async () => {
-    act(() => {
-      render(<Login />);
+        const helperText = await screen.findByText("Email is a required field");
+        expect(helperText).toBeVisible();
     });
 
-    const emailInput = screen.getByTestId("email");
-    const loginButton = screen.getByText(/LOGIN/i);
+    it("should display error label when email is not a valid", async () => {
+        act(() => {
+            render(<Login />);
+        });
 
-    await act(async () => {
-      await user.type(emailInput, "notValidEmail");
-      expect(emailInput.value).toBe("notValidEmail");
-      await user.click(loginButton);
-    });
-    const helperText = document.querySelector("#email-helper-text");
-    expect(helperText).toHaveTextContent("Email must be a valid email");
-  });
+        const emailInput = screen.getByTestId("email");
+        const loginButton = screen.getByText(/LOGIN/i);
 
-  it("should display error label if password doens't have at least 8 characters", async () => {
-    render(<Login />);
-
-    const loginButton = screen.getByText(/LOGIN/i);
-    fireEvent.click(loginButton);
-
-    const helperText = await screen.findByText(
-      "password must be at least 8 characters"
-    );
-    expect(helperText).toBeVisible();
-  });
-
-  it("should display error label if password doens't have at least 1 uppercase character", async () => {
-    act(() => {
-      render(<Login />);
+        await act(async () => {
+            await user.type(emailInput, "notValidEmail");
+            expect(emailInput.value).toBe("notValidEmail");
+            await user.click(loginButton);
+        });
+        const helperText = document.querySelector("#email-helper-text");
+        expect(helperText).toHaveTextContent("Email must be a valid email");
     });
 
-    const passwordInput = screen.getByTestId("password");
-    const loginButton = screen.getByText(/LOGIN/i);
+    it("should display error label if password doens't have at least 8 characters", async () => {
+        render(<Login />);
 
-    await act(async () => {
-      await user.type(passwordInput, "passwordnouppercase");
-      expect(passwordInput.value).toBe("passwordnouppercase");
+        const loginButton = screen.getByText(/LOGIN/i);
+        fireEvent.click(loginButton);
 
-      await user.click(loginButton);
-    });
-    const helperText = document.querySelector("#password-helper-text");
-    expect(helperText).toHaveTextContent(
-      "password must contain at least 1 uppercase letter"
-    );
-  });
-
-  it("should display error label if password doens't have at least 1 lowercase character", async () => {
-    act(() => {
-      render(<Login />);
+        const helperText = await screen.findByText(
+            "password must be at least 8 characters"
+        );
+        expect(helperText).toBeVisible();
     });
 
-    const passwordInput = screen.getByTestId("password");
-    const loginButton = screen.getByText(/LOGIN/i);
+    it("should display error label if password doens't have at least 1 uppercase character", async () => {
+        act(() => {
+            render(<Login />);
+        });
 
-    await act(async () => {
-      await user.type(passwordInput, "PASSWORDNOLOWERCASE");
-      expect(passwordInput.value).toBe("PASSWORDNOLOWERCASE");
+        const passwordInput = screen.getByTestId("password");
+        const loginButton = screen.getByText(/LOGIN/i);
 
-      await user.click(loginButton);
-    });
-    const helperText = document.querySelector("#password-helper-text");
-    expect(helperText).toHaveTextContent(
-      "password must contain at least 1 lowercase letter"
-    );
-  });
+        await act(async () => {
+            await user.type(passwordInput, "passwordnouppercase");
+            expect(passwordInput.value).toBe("passwordnouppercase");
 
-  it("should display error label if password doens't have at least 1 number character", async () => {
-    act(() => {
-      render(<Login />);
-    });
-
-    const passwordInput = screen.getByTestId("password");
-    const loginButton = screen.getByText(/LOGIN/i);
-
-    await act(async () => {
-      await user.type(passwordInput, "passwordWithNoNumber");
-      expect(passwordInput.value).toBe("passwordWithNoNumber");
-      await user.click(loginButton);
-    });
-    const helperText = document.querySelector("#password-helper-text");
-    expect(helperText).toHaveTextContent(
-      "password must contain at least 1 number"
-    );
-  });
-
-  it("should display error label if password doens't have at least 1 symbol character", async () => {
-    act(() => {
-      render(<Login />);
+            await user.click(loginButton);
+        });
+        const helperText = document.querySelector("#password-helper-text");
+        expect(helperText).toHaveTextContent(
+            "password must contain at least 1 uppercase letter"
+        );
     });
 
-    const passwordInput = screen.getByTestId("password");
-    const loginButton = screen.getByText(/LOGIN/i);
+    it("should display error label if password doens't have at least 1 lowercase character", async () => {
+        act(() => {
+            render(<Login />);
+        });
 
-    await act(async () => {
-      await user.type(passwordInput, "passwordWithNoSymbols1");
-      expect(passwordInput.value).toBe("passwordWithNoSymbols1");
+        const passwordInput = screen.getByTestId("password");
+        const loginButton = screen.getByText(/LOGIN/i);
 
-      await user.click(loginButton);
-    });
-    const helperText = document.querySelector("#password-helper-text");
-    expect(helperText).toHaveTextContent(
-      "password must contain at least 1 symbol"
-    );
-  });
+        await act(async () => {
+            await user.type(passwordInput, "PASSWORDNOLOWERCASE");
+            expect(passwordInput.value).toBe("PASSWORDNOLOWERCASE");
 
-  it("should update password input to a text input after clicking the 'eye' button", async () => {
-    act(() => {
-      render(<Login />);
-    });
-
-    const passwordInput = screen.getByTestId("password");
-    expect(passwordInput.type).toBe("password");
-
-    await act(async () => {
-      const showPasswordButton = screen.getByTestId("show-password");
-      await user.click(showPasswordButton);
+            await user.click(loginButton);
+        });
+        const helperText = document.querySelector("#password-helper-text");
+        expect(helperText).toHaveTextContent(
+            "password must contain at least 1 lowercase letter"
+        );
     });
 
-    expect(passwordInput.type).toBe("text");
+    it("should display error label if password doens't have at least 1 number character", async () => {
+        act(() => {
+            render(<Login />);
+        });
 
-    await act(async () => {
-      const showPasswordButton = screen.getByTestId("show-password");
-      await user.click(showPasswordButton);
+        const passwordInput = screen.getByTestId("password");
+        const loginButton = screen.getByText(/LOGIN/i);
+
+        await act(async () => {
+            await user.type(passwordInput, "passwordWithNoNumber");
+            expect(passwordInput.value).toBe("passwordWithNoNumber");
+            await user.click(loginButton);
+        });
+        const helperText = document.querySelector("#password-helper-text");
+        expect(helperText).toHaveTextContent(
+            "password must contain at least 1 number"
+        );
     });
 
-    expect(passwordInput.type).toBe("password");
-  });
+    it("should display error label if password doens't have at least 1 symbol character", async () => {
+        act(() => {
+            render(<Login />);
+        });
 
-  it("should display 'Register here!' text initially", () => {
-    render(<Login />);
+        const passwordInput = screen.getByTestId("password");
+        const loginButton = screen.getByText(/LOGIN/i);
 
-    const loginRegisterText = screen.getByTestId("loginRegisterSwitch");
-    expect(loginRegisterText).toBeVisible();
-    expect(loginRegisterText).toHaveTextContent(
-      "You don't have an account? Register here!"
-    );
-  });
+        await act(async () => {
+            await user.type(passwordInput, "passwordWithNoSymbols1");
+            expect(passwordInput.value).toBe("passwordWithNoSymbols1");
 
-  it("should display 'Login here!' text after being clicked", () => {
-    render(<Login />);
+            await user.click(loginButton);
+        });
+        const helperText = document.querySelector("#password-helper-text");
+        expect(helperText).toHaveTextContent(
+            "password must contain at least 1 symbol"
+        );
+    });
 
-    const loginRegisterText = screen.getByTestId("loginRegisterSwitch");
-    fireEvent.click(loginRegisterText);
+    it("should update password input to a text input after clicking the 'eye' button", async () => {
+        act(() => {
+            render(<Login />);
+        });
 
-    expect(loginRegisterText).toBeVisible();
-    expect(loginRegisterText).toHaveTextContent(
-      "You already have an account? Login here!"
-    );
-  });
+        const passwordInput = screen.getByTestId("password");
+        expect(passwordInput.type).toBe("password");
+
+        await act(async () => {
+            const showPasswordButton = screen.getByTestId("show-password");
+            await user.click(showPasswordButton);
+        });
+
+        expect(passwordInput.type).toBe("text");
+
+        await act(async () => {
+            const showPasswordButton = screen.getByTestId("show-password");
+            await user.click(showPasswordButton);
+        });
+
+        expect(passwordInput.type).toBe("password");
+    });
+
+    it("should display 'Register here!' text initially", () => {
+        render(<Login />);
+
+        const loginRegisterText = screen.getByTestId("loginRegisterSwitch");
+        expect(loginRegisterText).toBeVisible();
+        expect(loginRegisterText).toHaveTextContent(
+            "You don't have an account? Register here!"
+        );
+    });
+
+    it("should display 'Login here!' text after being clicked", () => {
+        render(<Login />);
+
+        const loginRegisterText = screen.getByTestId("loginRegisterSwitch");
+        fireEvent.click(loginRegisterText);
+
+        expect(loginRegisterText).toBeVisible();
+        expect(loginRegisterText).toHaveTextContent(
+            "You already have an account? Login here!"
+        );
+    });
 });

@@ -17,62 +17,68 @@ import "./Panel.css";
  */
 
 const Panel = ({
-  themeMode,
-  width,
-  titleHeading,
-  contentHeading,
-  isOpen,
-  setIsOpen,
-  dataTestId,
-  children,
+    themeMode,
+    width,
+    titleHeading,
+    contentHeading,
+    isOpen,
+    setIsOpen,
+    dataTestId,
+    children,
 }) => {
-  const handleClose = () => {
-    setIsOpen(false);
-  }
+    const handleClose = () => {
+        setIsOpen(false);
+    };
 
-  const getClassNameFromWidthProp = (width) => {
-    let widthClassName = "";
-    if (!width) return widthClassName;
+    const getClassNameFromWidthProp = (width) => {
+        let widthClassName = "";
+        if (!width) return widthClassName;
 
-    if (width === 100) widthClassName = "w-100";
-    if (width === 75) widthClassName = "w-75";
-    if (width === 50) widthClassName = "w-50";
-    if (width === 25) widthClassName = "w-25";
-    return widthClassName;
-  };
+        if (width === 100) widthClassName = "w-100";
+        if (width === 75) widthClassName = "w-75";
+        if (width === 50) widthClassName = "w-50";
+        if (width === 25) widthClassName = "w-25";
+        return widthClassName;
+    };
 
-  return (
-    <>
-      {isOpen && (
-        <div
-          data-testid={dataTestId}
-          className={`Panel ${themeMode}  ${getClassNameFromWidthProp(width)}`}
-        >
-          <div className={`Panel__header ${themeMode}`}>
-            {titleHeading && <h3 className={`Panel__title`}>{titleHeading}</h3>}
-            <CloseButton handleClose={handleClose} />
-          </div>
-          <div className={`Panel__content`}>
-            {contentHeading && (
-              <h4 className={`Panel__content-heading`}>{contentHeading}</h4>
+    return (
+        <>
+            {isOpen && (
+                <div
+                    data-testid={dataTestId}
+                    className={`Panel ${themeMode}  ${getClassNameFromWidthProp(
+                        width
+                    )}`}
+                >
+                    <div className={`Panel__header ${themeMode}`}>
+                        {titleHeading && (
+                            <h3 className={`Panel__title`}>{titleHeading}</h3>
+                        )}
+                        <CloseButton handleClose={handleClose} />
+                    </div>
+                    <div className={`Panel__content`}>
+                        {contentHeading && (
+                            <h4 className={`Panel__content-heading`}>
+                                {contentHeading}
+                            </h4>
+                        )}
+                        {children}
+                    </div>
+                </div>
             )}
-            {children}
-          </div>
-        </div>
-      )}
-    </>
-  );
+        </>
+    );
 };
 
 Panel.propTypes = {
-  themeMode: PropTypes.string,
-  width: PropTypes.number,
-  titleHeading: PropTypes.string,
-  contentHeading: PropTypes.string,
-  isOpen: PropTypes.bool,
-  setIsOpen: PropTypes.func,
-  dataTestId: PropTypes.string,
-  children: PropTypes.node,
+    themeMode: PropTypes.string,
+    width: PropTypes.number,
+    titleHeading: PropTypes.string,
+    contentHeading: PropTypes.string,
+    isOpen: PropTypes.bool,
+    setIsOpen: PropTypes.func,
+    dataTestId: PropTypes.string,
+    children: PropTypes.node,
 };
 
 export default Panel;

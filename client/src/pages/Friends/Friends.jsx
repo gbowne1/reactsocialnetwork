@@ -12,67 +12,79 @@ import "./Friends.css";
 import Panel from "../../components/Panel/Panel";
 
 function Friends({ themeMode }) {
-  const [isOpen, setIsOpen] = useState(true);
+    const [isOpen, setIsOpen] = useState(true);
 
-  return (
-    <>
-      {isOpen && (
-        <Panel
-          themeMode={themeMode}
-          titleHeading="Friends"
-          contentHeading="Here are your Friends!"
-          isOpen={isOpen}
-          setIsOpen={setIsOpen}
-        >
-          <input
-            dir="ltr"
-            placeholder="Search"
-            aria-invalid="false"
-            aria-label="Label for text input"
-            className="search"
-            type="text"
-            defaultValue="Search"
-          ></input>
-          <br />
-          <br />
-          <div>
-            <Container maxWidth="xl">
-              <Card variant="outlined" sx={{ minWidth: 275 }}>
-                <CardContent>
-                  <Typography sx={{ fontSize: 19 }} gutterBottom>
-                    Friends
-                  </Typography>
-                  <Card sx={{ maxWidth: 198 }}>
-                    <CardMedia
-                      sx={{ height: 198 }}
-                      image="/static/images/cards/contemplative-reptile.jpg"
-                      title="a super awesome user"
-                    />
-                    <CardContent>
-                      <Typography gutterBottom variant="h5" component="div">
-                        Awesome
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        Add this great user
-                      </Typography>
-                    </CardContent>
-                    <CardActions>
-                      <Button size="small">Add</Button>
-                      <Button size="small">Learn More</Button>
-                    </CardActions>
-                  </Card>
-                </CardContent>
-              </Card>
-            </Container>
-          </div>
-        </Panel>
-      )}
-    </>
-  );
+    return (
+        <>
+            {isOpen && (
+                <Panel
+                    themeMode={themeMode}
+                    titleHeading="Friends"
+                    contentHeading="Here are your Friends!"
+                    isOpen={isOpen}
+                    setIsOpen={setIsOpen}
+                >
+                    <input
+                        dir="ltr"
+                        placeholder="Search"
+                        aria-invalid="false"
+                        aria-label="Label for text input"
+                        className="search"
+                        type="text"
+                        defaultValue="Search"
+                    ></input>
+                    <br />
+                    <br />
+                    <div>
+                        <Container maxWidth="xl">
+                            <Card variant="outlined" sx={{ minWidth: 275 }}>
+                                <CardContent>
+                                    <Typography
+                                        sx={{ fontSize: 19 }}
+                                        gutterBottom
+                                    >
+                                        Friends
+                                    </Typography>
+                                    <Card sx={{ maxWidth: 198 }}>
+                                        <CardMedia
+                                            sx={{ height: 198 }}
+                                            image="/static/images/cards/contemplative-reptile.jpg"
+                                            title="a super awesome user"
+                                        />
+                                        <CardContent>
+                                            <Typography
+                                                gutterBottom
+                                                variant="h5"
+                                                component="div"
+                                            >
+                                                Awesome
+                                            </Typography>
+                                            <Typography
+                                                variant="body2"
+                                                color="text.secondary"
+                                            >
+                                                Add this great user
+                                            </Typography>
+                                        </CardContent>
+                                        <CardActions>
+                                            <Button size="small">Add</Button>
+                                            <Button size="small">
+                                                Learn More
+                                            </Button>
+                                        </CardActions>
+                                    </Card>
+                                </CardContent>
+                            </Card>
+                        </Container>
+                    </div>
+                </Panel>
+            )}
+        </>
+    );
 }
 Friends.propTypes = {
-  themeMode: PropTypes.string,
-  // children: PropTypes.object.isRequired,
+    themeMode: PropTypes.string,
+    // children: PropTypes.object.isRequired,
 };
 
 export default Friends;

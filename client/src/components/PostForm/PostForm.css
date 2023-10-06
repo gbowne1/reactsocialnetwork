@@ -1,71 +1,71 @@
 @import url("../../variables.css");
 
 .Post__create {
-  border-radius: 10px;
-  border: none;
-  padding: 10px;
-  margin: 50px auto;
-  width: 100%;
-  max-width: 600px;
-  gap: 15px;
-  box-shadow: 0px 1px 2px #888888;
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+    margin: 50px auto;
+    width: 100%;
+    max-width: 600px;
+    gap: 15px;
+    box-shadow: 0px 1px 2px #888888;
 }
 
 .Post__create.dark-mode {
-  background-color: var(--bg-dark-500);
+    background-color: var(--bg-dark-500);
 }
 
 .Post__create.light-mode {
-  background-color: var(--bg-light-500);
+    background-color: var(--bg-light-500);
 }
 
 .Post__basics {
-  width: 100%;
-  justify-content: space-between;
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
+    width: 100%;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
 }
 
 .Post__avatar {
-  margin: auto;
-  height: 100%;
+    margin: auto;
+    height: 100%;
 }
 
 .Post__avatar button {
-  font-size: 36px;
-  padding: 0;
-  line-height: 100%;
+    font-size: 36px;
+    padding: 0;
+    line-height: 100%;
 }
 
 .Post__empty-avatar {
-  padding: 0;
-  margin: 0;
-  margin-block: auto;
-  font-size: 36px;
-  line-height: 100%;
+    padding: 0;
+    margin: 0;
+    margin-block: auto;
+    font-size: 36px;
+    line-height: 100%;
 }
 
 .Post__input {
-  background-color: #f0f2f5;
-  margin: 0;
-  padding: 10px 15px;
-  border-radius: 50px;
-  border: none;
-  flex: 1;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 10px 15px;
+    border-radius: 50px;
+    border: none;
+    flex: 1;
 }
 
 .Post__input.dark-mode::placeholder {
-  color: var(--text-light-100);
+    color: var(--text-light-100);
 }
 
 .Post__input.dark-mode {
-  color: var(--text-light-900);
-  background-color: var(--bg-dark-100);
+    color: var(--text-light-900);
+    background-color: var(--bg-dark-100);
 }
 
 .Post__input.light-mode::placeholder {
-  color: var(--text-dark-100);
+    color: var(--text-dark-100);
 }
 
 /* .Post__input.light-mode {
@@ -74,52 +74,52 @@
 } */
 
 .Post__submit {
-  margin: 0;
-  padding: 10px 15px;
-  border-radius: 50px;
-  border: none;
+    margin: 0;
+    padding: 10px 15px;
+    border-radius: 50px;
+    border: none;
 }
 
 .Post__submit.dark-mode {
-  color: var(--clr-dark-mode-accent-500);
+    color: var(--clr-dark-mode-accent-500);
 }
 
 .Post__submit.light-mode {
-  color: var(--clr-light-mode-accent-500);
+    color: var(--clr-light-mode-accent-500);
 }
 
 .Post__hr {
-  margin: 10px auto;
+    margin: 10px auto;
 }
 
 .Post__uploads {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: space-around;
-  gap: 10px;
-  width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    width: 100%;
 }
 
 .Post__uploads button {
-  padding: 0;
+    padding: 0;
 }
 
 .Post__upload-btn:hover {
-  border-radius: 5px;
+    border-radius: 5px;
 }
 
 .Post__icon-label {
-  margin-left: 10px;
-  font-size: 14px;
+    margin-left: 10px;
+    font-size: 14px;
 }
 
 .Post__icon-label.dark-mode {
-  background-color: transparent;
-  color: var(--text-light-500);
+    background-color: transparent;
+    color: var(--text-light-500);
 }
 
 .Post__icon-label.light-mode {
-  background-color: transparent;
-  color: var(--text-dark-500);
+    background-color: transparent;
+    color: var(--text-dark-500);
 }

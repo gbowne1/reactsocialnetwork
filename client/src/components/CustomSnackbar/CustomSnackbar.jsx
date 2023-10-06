@@ -20,67 +20,67 @@ import CloseIcon from "@mui/icons-material/Close";
  */
 
 const CustomSnackbar = ({
-  message,
-  vertical,
-  horizontal,
+    message,
+    vertical,
+    horizontal,
 
-  alert,
-  severity,
+    alert,
+    severity,
 
-  open,
-  setOpen,
+    open,
+    setOpen,
 }) => {
-  vertical = vertical || "top";
-  horizontal = horizontal || "left";
+    vertical = vertical || "top";
+    horizontal = horizontal || "left";
 
-  return (
-    <Snackbar
-      anchorOrigin={{ vertical, horizontal }}
-      open={open}
-      onClose={() => {
-        setOpen(false);
-      }}
-      message={message}
-      key={vertical + horizontal}
-    >
-      {alert && (
-        <Alert
-          id="alert-message"
-          data-testid="alert-message"
-          severity={severity}
-          sx={{ mb: 2 }}
-          action={
-            <IconButton
-              aria-label="close"
-              color="inherit"
-              size="small"
-              onClick={() => {
+    return (
+        <Snackbar
+            anchorOrigin={{ vertical, horizontal }}
+            open={open}
+            onClose={() => {
                 setOpen(false);
-              }}
-            >
-              <CloseIcon fontSize="inherit" />
-            </IconButton>
-          }
+            }}
+            message={message}
+            key={vertical + horizontal}
         >
-          {message}
-        </Alert>
-      )}
-    </Snackbar>
-  );
+            {alert && (
+                <Alert
+                    id="alert-message"
+                    data-testid="alert-message"
+                    severity={severity}
+                    sx={{ mb: 2 }}
+                    action={
+                        <IconButton
+                            aria-label="close"
+                            color="inherit"
+                            size="small"
+                            onClick={() => {
+                                setOpen(false);
+                            }}
+                        >
+                            <CloseIcon fontSize="inherit" />
+                        </IconButton>
+                    }
+                >
+                    {message}
+                </Alert>
+            )}
+        </Snackbar>
+    );
 };
 
 CustomSnackbar.propTypes = {
-  children: PropTypes.array,
+    children: PropTypes.array,
 
-  message: PropTypes.string,
-  vertical: PropTypes.string,
-  horizontal: PropTypes.string,
+    message: PropTypes.string,
+    vertical: PropTypes.string,
+    horizontal: PropTypes.string,
 
-  alert: PropTypes.bool,
-  severity: PropTypes.string,
+    alert: PropTypes.bool,
+    severity: PropTypes.string,
 
-  open: PropTypes.bool,
-  setOpen: PropTypes.func,
+    open: PropTypes.bool,
+    setOpen: PropTypes.func,
 };
 
 export default CustomSnackbar;
