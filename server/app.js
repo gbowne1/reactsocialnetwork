@@ -15,9 +15,21 @@ const getUserRouter = require("./routes/users/getUser");
 
 const updateUserRouter = require("./routes/users/updateUser");
 const deleteUserRouter = require("./routes/users/deleteUser");
+
 // Warning!
 const deleteUsersRouter = require("./routes/users/deleteUsers");
 const deleteTestUsersRouter = require("./routes/users/deleteTestUsers");
+
+const getUserFriends = require("./routes/friend-requests/getUserFriends");
+const getFriendRequestsReceived = require("./routes/friend-requests/getFriendRequestsReceived");
+const getFriendRequestsSent = require("./routes/friend-requests/getFriendRequestsSent");
+
+const createFriendRequest = require("./routes/friend-requests/createFriendRequest");
+const acceptFriendRequest = require("./routes/friend-requests/acceptFriendRequest");
+const rejectFriendRequest = require("./routes/friend-requests/rejectFriendRequest");
+
+// Warning!
+const unfriend = require("./routes/friend-requests/unfriend");
 
 const getPostRouter = require("./routes/posts/getPost");
 const getPostsRouter = require("./routes/posts/getPosts");
@@ -73,7 +85,23 @@ app.use(deleteUserRouter);
 app.use(deleteTestUsersRouter);
 // -------------------------
 
-// POSTS ------------------
+// FRIENDS -----------------
+
+app.use(getUserFriends);
+
+app.use(getFriendRequestsReceived);
+app.use(getFriendRequestsSent);
+
+app.use(createFriendRequest);
+
+app.use(acceptFriendRequest);
+
+app.use(rejectFriendRequest);
+
+app.use(unfriend);
+// -------------------------
+
+// POSTS -------------------
 
 app.use(getPostsRouter);
 
