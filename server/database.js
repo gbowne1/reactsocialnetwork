@@ -17,6 +17,7 @@ let db = new sqlite3.Database(DBSOURCE, (err) => {
       username text NOT NULL,
       email text unique NOT NULL,
       password text NOT NULL,
+      accountImageUrl text,
       CONSTRAINT email_unique UNIQUE (email)
     )`,
       (err) => {
@@ -27,17 +28,18 @@ let db = new sqlite3.Database(DBSOURCE, (err) => {
         } else {
           // Table just created, creating some rows
           const insert =
-            "INSERT OR REPLACE INTO User (username, email, password) VALUES (?,?,?)";
+            "INSERT OR REPLACE INTO User (username, email, password, accountImageUrl) VALUES (?,?,?,?)";
 
           db.run(insert, [
             "testuser1",
             "testuser@gmail.com",
             md5("Testpass1!"),
+            "https://icon-library.com/images/default-user-icon/default-user-icon-13.jpg",
           ]);
         }
       }
     );
-    console.log("Succesfully created User database!");
+    console.log("Succesfully created User database table!");
 
     db.run(
       `CREATE TABLE IF NOT EXISTS Post (
@@ -84,7 +86,7 @@ let db = new sqlite3.Database(DBSOURCE, (err) => {
         }
       }
     );
-    console.log("Succesfully created Post database!");
+    console.log("Succesfully created Post database table!");
 
     db.run(
       `CREATE TABLE IF NOT EXISTS Event (
@@ -144,7 +146,34 @@ let db = new sqlite3.Database(DBSOURCE, (err) => {
         }
       }
     );
-    console.log("Succesfully created Event database!");
+    console.log("Succesfully created Event database table!");
+
+    // Create Friendship/Followship table
+    db.run(
+      `CREATE TABLE IF NOT EXISTS Friendship (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      user_id INTEGER,
+      friend_id INTEGER,
+      status TEXT NOT NULL,
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+      FOREIGN KEY (user_id) REFERENCES User(id),
+      FOREIGN KEY (friend_id) REFERENCES User(id)
+    )`,
+      (err) => {
+        if (err) {
+          // Table already created
+          console.error(err.message);
+          throw err;
+        } else {
+          // Table just created, creating some rows
+          const insert =
+            "INSERT OR REPLACE INTO Friendship (user_id, friend_id, status, created_at) VALUES (?,?,?,?)";
+
+          db.run(insert, [3, 4, "accepted", new Date()]);
+        }
+      }
+    );
+    console.log("Successfully created Friendship database table!");
   }
 });
 
