@@ -28,20 +28,17 @@
   --bg-light-yellow-500: #ffc93d;
   --bg-light-yellow-900: #ffb700;
 
-
   --bg-dark-yellow-100: rgb(173, 145, 75);
   --bg-dark-yellow-500: #daab33;
   --bg-dark-yellow-900: #d39803;
 
-
   --bg-light-red-100: #ff7f7f;
-  --bg-light-red-500: #FF4444;
+  --bg-light-red-500: #ff4444;
   --bg-light-red-900: #ff0f0f;
 
   --bg-dark-red-100: #c15f5f;
   --bg-dark-red-500: #a12929;
   --bg-dark-red-900: #a90303;
-
 
   /* Font sizes */
   --fs-900: 3rem;
