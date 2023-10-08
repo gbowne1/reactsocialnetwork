@@ -4,26 +4,29 @@ const db = require("../../database");
 
 // Register new post, fail if user post already exist
 router.post("/api/post/", (req, res, next) => {
+  // TODO use object destructuring!!!
   let data = {};
   const errors = [];
 
-  if (!req.body.accountImage) {
+  const { accountImage, accountName, postDate, postText, postImage } = req.body;
+
+  if (!accountImage) {
     errors.push("No accountImage specified");
   }
 
-  if (!req.body.accountName) {
+  if (!accountName) {
     errors.push("No accountName specified");
   }
 
-  if (!req.body.postDate) {
+  if (!postDate) {
     errors.push("No postDate specified");
   }
 
-  if (!req.body.postText) {
+  if (!postText) {
     errors.push("No postText specified");
   }
 
-  if (!req.body.postImage) {
+  if (!postImage) {
     errors.push("No postImage specified");
   }
 
@@ -33,11 +36,11 @@ router.post("/api/post/", (req, res, next) => {
   }
 
   data = {
-    accountImage: req.body.accountImage,
-    accountName: req.body.accountName,
-    postDate: req.body.postDate,
-    postText: req.body.postText,
-    postImage: req.body.postImage,
+    accountImage,
+    accountName,
+    postDate,
+    postText,
+    postImage,
   };
 
   const sql =
