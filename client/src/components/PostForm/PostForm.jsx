@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
@@ -8,17 +8,43 @@ import MoodIcon from "@mui/icons-material/Mood";
 import SendIcon from "@mui/icons-material/Send";
 import { IconButton } from "@mui/material";
 
+import getFromLocalStorage from "../../utils/getFromLocalStorage";
+
 import "./PostForm.css";
 
 const PostForm = ({ themeMode, posts, setPosts, userAvatar = null }) => {
   const [postText, setPostText] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
+
+  useEffect(() => {
+    const currentUserData = getFromLocalStorage("lastLoginCredentials");
+    const currentUsername = currentUserData.username;
+    console.log(currentUsername);
+
+    fetch("http://localhost:9000/api/users/")
+      .then((res) => res.json())
+      .then((res) => {
+        const users = res.data;
+        const fetchedCurrentUserData = users.filter(
+          (user) => user.username === currentUsername
+        )[0];
+
+        setImageUrl(fetchedCurrentUserData.accountImageUrl)
+        console.log(fetchedCurrentUserData.accountImageUrl);
+      });
+  }, []);
 
   const onSubmit = (e) => {
     e.preventDefault();
 
+    const defaultUserImage =
+      "https://icon-library.com/images/default-user-icon/default-user-icon-13.jpg";
+    const lastLoginCredentials = getFromLocalStorage("lastLoginCredentials");
+    const username = lastLoginCredentials.username;
+
     const newPost = {
-      accountImage: "https://avatars.githubusercontent.com/u/4129325?v=4",
-      accountName: "Manuel Pineda",
+      accountImage: imageUrl || defaultUserImage,
+      accountName: username,
       postDate: new Date().toDateString(),
       postText: postText,
       postImage:
@@ -26,7 +52,6 @@ const PostForm = ({ themeMode, posts, setPosts, userAvatar = null }) => {
     };
 
     fetch("http://localhost:9000/api/post", {
-      method: "POST",
       method: "POST",
       headers: {
         "Content-Type": "application/json",
