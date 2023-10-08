@@ -24,10 +24,18 @@ router.post("/api/user/", (req, res, next) => {
     username: req.body.username,
     email: req.body.email,
     password: md5(req.body.password),
+    accountImageUrl:
+      "https://icon-library.com/images/default-user-icon/default-user-icon-13.jpg",
   };
 
-  const sql = "INSERT INTO User (username, email, password) VALUES (?,?,?)";
-  const params = [data.username, data.email, data.password];
+  const sql =
+    "INSERT INTO User (username, email, password, accountImageUrl) VALUES (?,?,?,?)";
+  const params = [
+    data.username,
+    data.email,
+    data.password,
+    data.accountImageUrl,
+  ];
 
   db.run(sql, params, function (err, result) {
     if (err) {
