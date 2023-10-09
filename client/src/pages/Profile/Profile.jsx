@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import Panel from "../../components/Panel/Panel";
-
+import CustomSnackbar from "../../components/CustomSnackbar/CustomSnackbar";
 import getFromLocalStorage from "../../utils/getFromLocalStorage";
 
 import "./Profile.css";
 
 const Profile = ({ themeMode }) => {
+  const [openSnackbar, setOpenSnackbar] = useState(false);
+  const [snackbarOptions, setSnackbarOptions] = useState({});
+
   const [isOpen, setIsOpen] = useState(true);
   const [formData, setFormData] = useState({});
   const [fetchedUserData, setFetchedUserData] = useState({});
@@ -15,7 +18,6 @@ const Profile = ({ themeMode }) => {
   useEffect(() => {
     const currentUserData = getFromLocalStorage("lastLoginCredentials");
     const currentUsername = currentUserData.username;
-    console.log(currentUsername);
 
     fetch("http://localhost:9000/api/users/")
       .then((res) => res.json())
@@ -26,8 +28,6 @@ const Profile = ({ themeMode }) => {
         )[0];
 
         setFetchedUserData(fetchedCurrentUserData);
-
-        console.log(fetchedCurrentUserData);
 
         const currentUserId = fetchedCurrentUserData.id;
         setUserId(currentUserId);
@@ -42,8 +42,6 @@ const Profile = ({ themeMode }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log(formData);
-
     // Update userData
     const updatedUserData = {
       username: fetchedUserData.username,
@@ -51,8 +49,6 @@ const Profile = ({ themeMode }) => {
       password: fetchedUserData.password,
       accountImageUrl: formData.imageUrl,
     };
-
-    console.log(updatedUserData);
 
     fetch(`http://localhost:9000/api/user/${userId}`, {
       method: "PATCH",
@@ -66,12 +62,26 @@ const Profile = ({ themeMode }) => {
         if (res.error) {
           alert(res.error);
         }
-        console.log(res);
+
+        setSnackbarOptions({
+          severity: "success",
+          message: "User data updated successfully!",
+        });
+        setOpenSnackbar(true);
       });
   };
 
   return (
     <>
+      <CustomSnackbar
+        message={snackbarOptions.message}
+        vertical={"top"}
+        horizontal={"center"}
+        alert={true}
+        severity={snackbarOptions.severity}
+        open={openSnackbar}
+        setOpen={setOpenSnackbar}
+      />
       <Panel
         themeMode={themeMode}
         titleHeading="Profile"
