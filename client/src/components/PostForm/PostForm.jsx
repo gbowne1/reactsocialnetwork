@@ -13,6 +13,7 @@ import getFromLocalStorage from "../../utils/getFromLocalStorage";
 import "./PostForm.css";
 
 const PostForm = ({ themeMode, posts, setPosts, userAvatar = null }) => {
+
   const [postText, setPostText] = useState("");
   const [imageUrl, setImageUrl] = useState("");
 
@@ -130,66 +131,18 @@ const PostForm = ({ themeMode, posts, setPosts, userAvatar = null }) => {
               sx={{ color: "inherit" }}
             />
           </IconButton>
+                </div>
+            </form>
         </div>
-
-        <hr className="Post__hr" />
-
-        <div className="Post__uploads">
-          <IconButton
-            className="Post__upload-btn"
-            aria-label="upload picture"
-            component="label"
-          >
-            <input hidden accept="image/*" multiple type="file" />
-            <InsertPhotoIcon
-              fontSize="inherit"
-              aria-label="upload picture"
-              aria-labelledby="upload picture"
-              sx={{ color: "#054a91" }}
-            />
-            <span className={`Post__icon-label ${themeMode}`}>Add Photo</span>
-          </IconButton>
-
-          <IconButton
-            className="Post__upload-btn"
-            aria-label="upload video"
-            component="label"
-          >
-            <input hidden accept="video/*" multiple type="file" />
-            <VideoFileIcon
-              fontSize="inherit"
-              aria-label="upload video"
-              aria-labelledby="upload video"
-              sx={{ color: "#931621" }}
-            />
-            <span className={`Post__icon-label ${themeMode}`}>Add Video</span>
-          </IconButton>
-
-          <IconButton
-            className="Post__upload-btn"
-            aria-label="add mood"
-            component="label"
-          >
-            <MoodIcon
-              fontSize="inherit"
-              aria-label="add mood"
-              aria-labelledby="add mood"
-              sx={{ color: "#FFD369" }}
-            />
-            <span className={`Post__icon-label ${themeMode}`}>Add Mood</span>
-          </IconButton>
-        </div>
-      </form>
-    </div>
-  );
+    );
 };
 
 PostForm.propTypes = {
-  themeMode: PropTypes.string,
-  posts: PropTypes.array,
-  setPosts: PropTypes.func,
-  userAvatar: PropTypes.node,
-  userName: PropTypes.string,
+    themeMode: PropTypes.string,
+    posts: PropTypes.array,
+    setPosts: PropTypes.func,
+    userAvatar: PropTypes.node,
+    userName: PropTypes.string,
 };
 
 export default PostForm;

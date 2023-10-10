@@ -1,126 +1,126 @@
 .SingleEvent {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-  border: 3px solid;
-  border-radius: 35px;
+    border: 3px solid;
+    border-radius: 35px;
 
-  height: 180px;
-  padding: 10px;
+    height: 180px;
+    padding: 10px;
 }
 
 .SingleEvent.light-mode {
-  background-color: var(--bg-light-100);
-  border-color: #ededed;
+    background-color: var(--bg-light-100);
+    border-color: #ededed;
 }
 
 .SingleEvent.dark-mode {
-  background-color: var(--bg-dark-500);
+    background-color: var(--bg-dark-500);
 }
 
 .SingleEvent__info-panel {
-  min-width: 400px;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+    min-width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .SingleEvent__image {
-  border-radius: 20px;
+    border-radius: 20px;
 
-  margin-right: 20px;
-  width: 200px;
-  height: auto;
+    margin-right: 20px;
+    width: 200px;
+    height: auto;
 }
 
 .SingleEvent__text {
-  min-width: 250px;
-  text-align: left;
+    min-width: 250px;
+    text-align: left;
 }
 
 .SingleEvent__date {
-  font-size: 14px;
-  font-weight: 300;
+    font-size: 14px;
+    font-weight: 300;
 }
 
 .SingleEvent__title {
-  font-size: 16px;
-  font-weight: 400;
+    font-size: 16px;
+    font-weight: 400;
 }
 
-.SingleEvent__location>span {
-  font-size: 16px;
-  font-weight: 400;
+.SingleEvent__location > span {
+    font-size: 16px;
+    font-weight: 400;
 }
 
-.SingleEvent__location>a {
-  font-size: 16px;
-  color: grey;
+.SingleEvent__location > a {
+    font-size: 16px;
+    color: grey;
 }
 
 .SingleEvent_participation {
-  font-size: 12px;
+    font-size: 12px;
 }
 
 .SingleEvent__button-panel {
-  width: 50%;
-  max-width: 350px;
-  display: flex;
-  justify-content: space-evenly;
+    width: 50%;
+    max-width: 350px;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .SingleEvent__attendance-select {
-  background-color: #21cafd !important;
-  border-radius: 10px;
-  border: 3px solid;
-  height: 40px;
-  width: 150px;
+    background-color: #21cafd !important;
+    border-radius: 10px;
+    border: 3px solid;
+    height: 40px;
+    width: 150px;
 }
 
 .SingleEvent__attendance-select.light-mode {
-  border-color: #ededed;
-  background-color: #ffffff;
-  color: var(--text-light-100) !important;
+    border-color: #ededed;
+    background-color: #ffffff;
+    color: var(--text-light-100) !important;
 }
 
 .SingleEvent__attendance-select.dark-mode {
-  border-color: #909090;
-  color: var(--text-light-100) !important;
+    border-color: #909090;
+    color: var(--text-light-100) !important;
 }
 
 .SingleEvent__share-button {
-  display: flex;
-  text-align: center;
-  height: 40px !important;
+    display: flex;
+    text-align: center;
+    height: 40px !important;
 }
 
 .SingleEvent__share-button.light-mode {
-  background-color: var(--bg-light-yellow-500) !important;
-  border: 3px solid #ededed !important;
-  color: white;
+    background-color: var(--bg-light-yellow-500) !important;
+    border: 3px solid #ededed !important;
+    color: white;
 }
 
 .SingleEvent__share-button.dark-mode {
-  background-color: var(--bg-dark-yellow-500) !important;
-  border: 3px solid #909090 !important;
-  color: white;
+    background-color: var(--bg-dark-yellow-500) !important;
+    border: 3px solid #909090 !important;
+    color: white;
 }
 
 .SingleEvent__delete-button {
-  display: flex;
-  text-align: center;
-  height: 40px !important;
+    display: flex;
+    text-align: center;
+    height: 40px !important;
 }
 
 .SingleEvent__delete-button.light-mode {
-  background-color: var(--bg-light-red-500) !important;
-  border: 3px solid #ededed !important;
-  color: white;
+    background-color: var(--bg-light-red-500) !important;
+    border: 3px solid #ededed !important;
+    color: white;
 }
 
 .SingleEvent__delete-button.dark-mode {
-  background-color: var(--bg-dark-red-500) !important;
-  border: 3px solid #909090 !important;
-  color: white;
+    background-color: var(--bg-dark-red-500) !important;
+    border: 3px solid #909090 !important;
+    color: white;
 }

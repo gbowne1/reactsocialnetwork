@@ -1,108 +1,108 @@
 @import url("../../variables.css");
 
 .Panel {
-  border-top-right-radius: 15px;
-  border-top-left-radius: 15px;
-  min-width: 70%;
-  max-width: 1400px;
-  min-height: 700px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    min-width: 70%;
+    max-width: 1400px;
+    min-height: 700px;
 }
 
 .Panel.light-mode {
-  background-color: var(--bg-light-100);
-  color: var(--text-dark-500);
+    background-color: var(--bg-light-100);
+    color: var(--text-dark-500);
 }
 
 .Panel.dark-mode {
-  background-color: var(--bg-dark-100);
-  color: var(--text-light-500);
+    background-color: var(--bg-dark-100);
+    color: var(--text-light-500);
 }
 
 .Panel__header {
-  height: 60px;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+    height: 60px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .Panel__header.dark-mode {
-  background-color: var(--bg-dark-900);
-  color: var(--clr-dark-mode-accent-500);
+    background-color: var(--bg-dark-900);
+    color: var(--clr-dark-mode-accent-500);
 }
 
 .Panel__header.light-mode {
-  background-color: var(--bg-light-900);
-  color: var(--clr-light-mode-accent-500);
+    background-color: var(--bg-light-900);
+    color: var(--clr-light-mode-accent-500);
 }
 
 .Panel__content {
-  padding: 10px;
+    padding: 10px;
 }
 
 .Panel__content-heading {
-  width: 100%;
+    width: 100%;
 }
 
 .Close-button {
-  height: 40px;
-  width: 60px;
-  background-color: blue;
+    height: 40px;
+    width: 60px;
+    background-color: blue;
 }
 
 h1 {
-  float: left;
-  padding-top: 19px;
-  height: 45px;
-  width: 250px;
+    float: left;
+    padding-top: 19px;
+    height: 45px;
+    width: 250px;
 }
 
 h2 {
-  float: left;
-  padding-top: 19px;
-  height: 45px;
-  width: 250px;
+    float: left;
+    padding-top: 19px;
+    height: 45px;
+    width: 250px;
 }
 
 h3 {
-  float: left;
-  padding-top: 19px;
-  height: 45px;
-  width: 250px;
+    float: left;
+    padding-top: 19px;
+    height: 45px;
+    width: 250px;
 }
 
 h4 {
-  float: left;
-  padding-top: 19px;
-  height: 45px;
-  width: 250px;
+    float: left;
+    padding-top: 19px;
+    height: 45px;
+    width: 250px;
 }
 
 table {
-  margin-top: 15px;
+    margin-top: 15px;
 }
 
 .w-25 {
-  max-width: 25% !important;
-  width: 25% !important;
-  min-width: 25% !important;
+    max-width: 25% !important;
+    width: 25% !important;
+    min-width: 25% !important;
 }
 
 .w-50 {
-  max-width: 50% !important;
-  width: 50% !important;
-  min-width: 50% !important;
+    max-width: 50% !important;
+    width: 50% !important;
+    min-width: 50% !important;
 }
 
 .w-75 {
-  max-width: 75% !important;
-  width: 75% !important;
-  min-width: 75% !important;
+    max-width: 75% !important;
+    width: 75% !important;
+    min-width: 75% !important;
 }
 
 .w-100 {
-  max-width: 100% !important;
-  width: 100% !important;
-  min-width: 100% !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    min-width: 100% !important;
 }

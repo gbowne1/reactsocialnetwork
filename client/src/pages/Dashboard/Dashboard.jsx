@@ -5,24 +5,24 @@ import Panel from "../../components/Panel/Panel";
 import "./Dashboard.css";
 
 function Dashboard({ themeMode }) {
-  const [isOpen, setIsOpen] = useState(true);
+    const [isOpen, setIsOpen] = useState(true);
 
-  return (
-    <>
-      {isOpen && (
-        <Panel
-          themeMode={themeMode}
-          titleHeading="Dashboard"
-          contentHeading="Welcome to your dashboard!"
-          isOpen={isOpen}
-          setIsOpen={setIsOpen}
-        ></Panel>
-      )}
-    </>
-  );
+    return (
+        <>
+            {isOpen && (
+                <Panel
+                    themeMode={themeMode}
+                    titleHeading="Dashboard"
+                    contentHeading="Welcome to your dashboard!"
+                    isOpen={isOpen}
+                    setIsOpen={setIsOpen}
+                ></Panel>
+            )}
+        </>
+    );
 }
 Dashboard.propTypes = {
-  themeMode: PropTypes.string,
+    themeMode: PropTypes.string,
 };
 
 export default Dashboard;

@@ -13,47 +13,47 @@ import CreateEventModal from "../pages/Events/CreateEventModal/CreateEventModal"
   }
  */
 const renderSingleEvent = () => {
-  const eventData = {
-    date: new Date(),
-    title: "Cinema Night!",
-    locationName: "Cinema32",
-    locationUrl: "#",
-    imageUrl:
-      "https://www.shutterstock.com/image-photo/02-august-2018bucharest-romania-people-260nw-1148998826.jpg",
-    attendance: "Not Going",
+    const eventData = {
+        date: new Date(),
+        title: "Cinema Night!",
+        locationName: "Cinema32",
+        locationUrl: "#",
+        imageUrl:
+            "https://www.shutterstock.com/image-photo/02-august-2018bucharest-romania-people-260nw-1148998826.jpg",
+        attendance: "Not Going",
 
-    participationInterested: 46,
-    participationGoing: 27,
-  };
+        participationInterested: 46,
+        participationGoing: 27,
+    };
 
-  const themeMode = "light-theme";
-  const mockKey = 1;
-  const events = [];
-  const mockSetEvents = jest.fn((data) => console.log(data));
-  const mockSetSnackbarOptions = jest.fn((data) => console.log(data));
-  const mockSetOpenSnackbar = jest.fn((data) => console.log(data));
+    const themeMode = "light-theme";
+    const mockKey = 1;
+    const events = [];
+    const mockSetEvents = jest.fn((data) => console.log(data));
+    const mockSetSnackbarOptions = jest.fn((data) => console.log(data));
+    const mockSetOpenSnackbar = jest.fn((data) => console.log(data));
 
-  act(() => {
-    render(
-      <SingleEvent
-        themeMode={themeMode}
-        key={mockKey}
-        eventKey={mockKey}
-        eventData={eventData}
-        events={events}
-        setEvents={mockSetEvents}
-        setSnackbarOptions={mockSetSnackbarOptions}
-        setOpenSnackbar={mockSetOpenSnackbar}
-      />
-    );
-  });
+    act(() => {
+        render(
+            <SingleEvent
+                themeMode={themeMode}
+                key={mockKey}
+                eventKey={mockKey}
+                eventData={eventData}
+                events={events}
+                setEvents={mockSetEvents}
+                setSnackbarOptions={mockSetSnackbarOptions}
+                setOpenSnackbar={mockSetOpenSnackbar}
+            />
+        );
+    });
 
-  return {
-    eventData,
-    mockSetEvents,
-    mockSetSnackbarOptions,
-    mockSetOpenSnackbar,
-  };
+    return {
+        eventData,
+        mockSetEvents,
+        mockSetSnackbarOptions,
+        mockSetOpenSnackbar,
+    };
 };
 
 /*
@@ -66,35 +66,35 @@ const renderSingleEvent = () => {
   }
  */
 const renderCreateEventModal = () => {
-  const mockIsOpen = true;
-  const mockHandleClose = jest.fn((data) => console.log(data));
+    const mockIsOpen = true;
+    const mockHandleClose = jest.fn((data) => console.log(data));
 
-  const events = [];
-  const mockSetEvents = jest.fn((data) => console.log(data));
+    const events = [];
+    const mockSetEvents = jest.fn((data) => console.log(data));
 
-  const themeMode = "light-mode";
-  const mockSetSnackbarOptions = jest.fn((data) => console.log(data));
-  const mockSetOpenSnackbar = jest.fn((data) => console.log(data));
+    const themeMode = "light-mode";
+    const mockSetSnackbarOptions = jest.fn((data) => console.log(data));
+    const mockSetOpenSnackbar = jest.fn((data) => console.log(data));
 
-  act(() => {
-    render(
-      <CreateEventModal
-        isOpen={mockIsOpen}
-        handleClose={mockHandleClose}
-        events={events}
-        setEvents={mockSetEvents}
-        themeMode={themeMode}
-        setSnackbarOptions={mockSetSnackbarOptions}
-        setOpenSnackbar={mockSetOpenSnackbar}
-      />
-    );
-  });
+    act(() => {
+        render(
+            <CreateEventModal
+                isOpen={mockIsOpen}
+                handleClose={mockHandleClose}
+                events={events}
+                setEvents={mockSetEvents}
+                themeMode={themeMode}
+                setSnackbarOptions={mockSetSnackbarOptions}
+                setOpenSnackbar={mockSetOpenSnackbar}
+            />
+        );
+    });
 
-  return {
-    mockSetEvents,
-    mockSetSnackbarOptions,
-    mockSetOpenSnackbar,
-  };
+    return {
+        mockSetEvents,
+        mockSetSnackbarOptions,
+        mockSetOpenSnackbar,
+    };
 };
 
 export { renderSingleEvent, renderCreateEventModal };

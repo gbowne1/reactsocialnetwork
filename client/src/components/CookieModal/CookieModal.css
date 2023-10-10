@@ -1,24 +1,24 @@
 .checkbox-container {
-  display: block;
-  width: 100%;
-  margin-bottom: 20px;
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
 }
 
 .checkbox {
-  display: flex;
-  width: 100%;
+    display: flex;
+    width: 100%;
 }
 
-.checkbox>.text {
-  padding-top: 12px;
+.checkbox > .text {
+    padding-top: 12px;
 }
 
 .button-container {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
 
-.button-container>button {
-  min-width: 175px;
+.button-container > button {
+    min-width: 175px;
 }
