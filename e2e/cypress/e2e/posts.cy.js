@@ -1,6 +1,7 @@
 /// <reference types="cypress" />
 
 import {
+  lastLoginCredentials,
   addLastLoginCredentialsToLocalStorage,
   addCookiesAcceptedToLocalStorage,
 } from "../utils/utils";
@@ -64,31 +65,48 @@ describe("Post tests", () => {
   });
 
   it("should create a post", () => {
+    cy.get("[data-testid=create-post-form]").should("be.visible");
+    cy.get("[data-testid=create-post-input]")
+      .clear()
+      .type("Test post")
+      .and("have.value", "Test post");
+    cy.get("[data-testid=create-post-submit-button]").click();
+
     cy.get("[data-testid=post]")
-      .should("be.visible")
-      .then((posts) => {
-        const initialPostAmount = posts.length;
-
-        cy.get("[data-testid=create-post-form]").should("be.visible");
-        cy.get("[data-testid=create-post-input]")
-          .clear()
-          .type("Test post")
-          .and("have.value", "Test post");
-
-        cy.get("[data-testid=create-post-submit-button]").click();
-        cy.get("[data-testid=post]")
+      .first()
+      .within(() => {
+        // Check account name
+        cy.get("[data-testid=account-name]")
           .should("be.visible")
-          .and("have.length", initialPostAmount + 1);
+          .and("contain.text", lastLoginCredentials.username);
 
-        cy.get("[data-testid=create-post-input]")
-          .clear()
-          .type("Second Test post")
-          .and("have.value", "Second Test post");
+        // Check account image
+        cy.get('[data-testid="account-image"]')
+          .should("have.attr", "src")
+          .and("include", lastLoginCredentials.accountImageUrl);
 
-        cy.get("[data-testid=create-post-submit-button]").click();
-        cy.get("[data-testid=post]")
+        // Check post text
+        cy.get("[data-testid=post-text]")
           .should("be.visible")
-          .and("have.length", initialPostAmount + 2);
+          .and("contain.text", "Test post");
+      });
+
+    cy.get("[data-testid=create-post-input]")
+      .clear()
+      .type("Second Test post")
+      .and("have.value", "Second Test post");
+    cy.get("[data-testid=create-post-submit-button]").click();
+
+    cy.get("[data-testid=post]")
+      .first()
+      .within(() => {
+        cy.get("[data-testid=account-name]")
+          .should("be.visible")
+          .and("contain.text", lastLoginCredentials.username);
+
+        cy.get("[data-testid=post-text]")
+          .should("be.visible")
+          .and("contain.text", "Test post");
       });
   });
 
