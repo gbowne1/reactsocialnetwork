@@ -58,9 +58,9 @@ const Panel = ({
                     </div>
                     <div className={`Panel__content`}>
                         {contentHeading && (
-                            <h4 className={`Panel__content-heading`}>
+                            <h3 className={`Panel__content-heading`}>
                                 {contentHeading}
-                            </h4>
+                            </h3>
                         )}
                         {children}
                     </div>
