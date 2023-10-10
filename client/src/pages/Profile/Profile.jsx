@@ -1,166 +1,175 @@
-import React, { useEffect, useState } from 'react';
-import './Profile.css';
+import React, { useEffect, useState } from "react";
+import "./Profile.css";
 
 const Profile = () => {
+    const [openModal, setOpenModal] = useState(null);
 
-  const [openModal, setOpenModal] = useState(null);
+    useEffect(() => {
+        setOpenModal(true);
+    }, []);
 
-  useEffect(() => {
-    setOpenModal(true);
-  }, []);
+    const [formData, setFormData] = useState({});
+    const [profileImage, setProfileImage] = useState(null);
 
-  const [formData, setFormData] = useState({});
-  const [profileImage, setProfileImage] = useState(null);
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+    // form submission
+    const handleSubmit = (e) => {
+        e.preventDefault();
 
-  // form submission
-  const handleSubmit = (e) => {
-    e.preventDefault();
+        let userData = formData;
+        if (profileImage) {
+            const data = new FormData();
+            const fileName = Date.now() + profileImage.name;
+            data.append("name", fileName);
+            data.append("file", profileImage);
+            userData.profilePicture = fileName;
 
-    let userData = formData;
-    if (profileImage) {
-      const data = new FormData();
-      const fileName = Date.now() + profileImage.name;
-      data.append("name", fileName);
-      data.append("file", profileImage);
-      userData.profilePicture = fileName;
+            console.log({ userData });
+        }
+    };
 
-    console.log({userData});
-    }
-  }
+    return (
+        <div className="profile">
+            {openModal && (
+                <div className="Profile-container">
+                    <button className="Close-button">
+                        <span
+                            className="icon"
+                            onClick={(prev) => {
+                                setOpenModal(!prev);
+                            }}
+                        >
+                            &times;
+                        </span>
+                    </button>
 
+                    <form className="infoForm" onSubmit={handleSubmit}>
+                        <h3>Create Profile</h3>
 
-  return (
-    <div className='profile'>
+                        <div>
+                            Profile image
+                            <input
+                                type="file"
+                                name="profileImage"
+                                onChange={(e) =>
+                                    setProfileImage(e.target.files[0])
+                                }
+                            />
+                        </div>
 
-        {openModal && (
-        <div className="Profile-container">
-          <button className="Close-button">
-            <span className='icon' onClick={(prev) =>{setOpenModal(!prev)} }>&times;</span>
-          </button>
+                        <div>
+                            <input
+                                value={formData.firstname}
+                                onChange={handleChange}
+                                type="text"
+                                placeholder="First Name"
+                                name="firstname"
+                                className="infoInput"
+                            />
+                            <input
+                                value={formData.lastname}
+                                onChange={handleChange}
+                                type="text"
+                                placeholder="Last Name"
+                                name="lastname"
+                                className="infoInput"
+                            />
+                        </div>
 
-          <form className="infoForm" onSubmit={handleSubmit}>
-            <h3>Create Profile</h3>
+                        <div>
+                            <input
+                                value={formData.username}
+                                onChange={handleChange}
+                                type="text"
+                                placeholder="Username"
+                                name="username"
+                                className="infoInput"
+                            />
+                        </div>
 
-            <div>
-              Profile image
-              <input type="file" name="profileImage" onChange={(e) => setProfileImage(e.target.files[0])} />
-            </div>
+                        <div>
+                            <input
+                                value={formData.location}
+                                onChange={handleChange}
+                                type="text"
+                                placeholder="Location"
+                                name="location"
+                                className="infoInput"
+                            />
+                            <input
+                                value={formData.relationship}
+                                onChange={handleChange}
+                                type="text"
+                                className="infoInput"
+                                placeholder="Relationship status"
+                                name="relationship"
+                            />
+                        </div>
 
-            <div>
-              <input
-                value={formData.firstname}
-                onChange={handleChange}
-                type="text"
-                placeholder="First Name"
-                name="firstname"
-                className="infoInput"
-              />
-              <input
-                value={formData.lastname}
-                onChange={handleChange}
-                type="text"
-                placeholder="Last Name"
-                name="lastname"
-                className="infoInput"
-              />
-            </div>
+                        <textarea
+                            style={{ width: "90%" }}
+                            rows={5}
+                            value={formData.bio}
+                            onChange={handleChange}
+                            type="text"
+                            className="infoInput"
+                            placeholder="Bio"
+                            name="bio"
+                        />
 
-            <div>
-              <input
-                  value={formData.username}
-                  onChange={handleChange}
-                  type="text"
-                  placeholder="Username"
-                  name="username"
-                  className="infoInput"
-                />
-            </div>
+                        <div>
+                            <input
+                                value={formData.website}
+                                onChange={handleChange}
+                                type="text"
+                                placeholder="Website"
+                                name="website"
+                                className="infoInput"
+                            />
+                        </div>
 
-            <div>
-              <input
-                value={formData.location}
-                onChange={handleChange}
-                type="text"
-                placeholder="Location"
-                name="location"
-                className="infoInput"
-              />
-              <input
-                value={formData.relationship}
-                onChange={handleChange}
-                type="text"
-                className="infoInput"
-                placeholder="Relationship status"
-                name="relationship"
-              />
-            </div>
+                        <div>
+                            <input
+                                value={formData.interest}
+                                onChange={handleChange}
+                                type="text"
+                                placeholder="Interest"
+                                name="interest"
+                                className="infoInput"
+                            />
+                        </div>
 
-            <textarea
-                style={{width: '90%'}} 
-                rows={5}
-                value={formData.bio}
-                onChange={handleChange}
-                type="text"
-                className="infoInput"
-                placeholder="Bio"
-                name="bio"
-              />
+                        <div>
+                            <input
+                                value={formData.privarySetting}
+                                onChange={handleChange}
+                                type="text"
+                                placeholder="Privary Setting (public/private/friends only)"
+                                name="privarySetting"
+                                className="infoInput"
+                            />
 
-            <div>
-              <input
-                  value={formData.website}
-                  onChange={handleChange}
-                  type="text"
-                  placeholder="Website"
-                  name="website"
-                  className="infoInput"
-                />
-            </div>
+                            <input
+                                value={formData.notificationSetting}
+                                onChange={handleChange}
+                                type="text"
+                                placeholder="Notifictaion Setting (email/push notification)"
+                                name="notificationSetting"
+                                className="infoInput"
+                            />
+                        </div>
 
-            <div>
-              <input
-                  value={formData.interest}
-                  onChange={handleChange}
-                  type="text"
-                  placeholder="Interest"
-                  name="interest"
-                  className="infoInput"
-                />
-            </div>
-
-            <div>
-                <input
-                  value={formData.privarySetting}
-                  onChange={handleChange}
-                  type="text"
-                  placeholder="Privary Setting (public/private/friends only)"
-                  name="privarySetting"
-                  className="infoInput"
-                />
-
-              <input
-                  value={formData.notificationSetting}
-                  onChange={handleChange}
-                  type="text"
-                  placeholder="Notifictaion Setting (email/push notification)"
-                  name="notificationSetting"
-                  className="infoInput"
-                />
-            </div>
-
-            <button className="infoButton" type="submit">
-              Create
-            </button>
-
-          </form>
+                        <button className="infoButton" type="submit">
+                            Create
+                        </button>
+                    </form>
+                </div>
+            )}
         </div>
-        )}
-    </div>
-  );
+    );
 };
 
 export default Profile;

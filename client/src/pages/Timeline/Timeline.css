@@ -1,16 +1,16 @@
 .Timeline {
-  position: relative;
-  top: -20px;
-  width: 500px;
-  min-width: 75%;
-  height: max-content;
-  padding: 20px;
+    position: relative;
+    top: -20px;
+    width: 500px;
+    min-width: 75%;
+    height: max-content;
+    padding: 20px;
 }
 
 .Timeline.light-mode {
-  background-color: var(--bg-light-100);
+    background-color: var(--bg-light-100);
 }
 
 .Timeline.dark-mode {
-  background-color: var(--bg-dark-100);
+    background-color: var(--bg-dark-100);
 }

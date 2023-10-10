@@ -9,28 +9,28 @@
  */
 
 const checkImage = (
-  imageUrl,
-  setImageUrl,
-  placeholderImageUrl,
-  logs = false
+    imageUrl,
+    setImageUrl,
+    placeholderImageUrl,
+    logs = false
 ) => {
-  if (!imageUrl) imageUrl = placeholderImageUrl;
+    if (!imageUrl) imageUrl = placeholderImageUrl;
 
-  logs && console.log(`Calling checkImage on imageUrl ${imageUrl}`);
+    logs && console.log(`Calling checkImage on imageUrl ${imageUrl}`);
 
-  var image = new Image();
-  image.src = imageUrl || placeholderImageUrl;
+    var image = new Image();
+    image.src = imageUrl || placeholderImageUrl;
 
-  image.onload = function () {
-    if (this.width > 0) {
-      logs && console.log("image exists");
-      setImageUrl(imageUrl);
-    }
-  };
-  image.onerror = function () {
-    logs && console.log("image doesn't exist");
-    setImageUrl(placeholderImageUrl);
-  };
+    image.onload = function () {
+        if (this.width > 0) {
+            logs && console.log("image exists");
+            setImageUrl(imageUrl);
+        }
+    };
+    image.onerror = function () {
+        logs && console.log("image doesn't exist");
+        setImageUrl(placeholderImageUrl);
+    };
 };
 
 export default checkImage;
