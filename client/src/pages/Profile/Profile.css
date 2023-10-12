@@ -1,100 +1,58 @@
-.profile {
-  width: 100%;
-  padding: 15px 0;
-  background-color: #55555599;
+.Profile__textfield-section {
+    display: flex;
+    width: 100%;
+    margin-bottom: 10px;
 }
 
-.Profile-header {
-  background-color: #555;
-  max-width: 1384px;
-  height: 60px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.Profile__textfield {
+    margin: 0 1.25% !important;
+    width: 47.5%;
 }
 
-.icon {
-  font-size: 25px;
-  margin-top: 15px;
-  margin-right: 15px;
-  cursor: pointer;
+.Profile__textfield.dark-mode label {
+    color: var(--text-light-100) !important;
 }
 
-.Profile-container {
-  position: relative;
-  background-color: white;
-  width: 70%;
-  max-width: 1400px;
-  height: fit-content;
-  border-radius: 5px;
-  border: 2px solid black;
-  margin: auto;
-  text-align: center;
-  z-index: 3;
+.Profile__textfield.dark-mode input {
+    color: var(--text-light-100) !important;
+    background-color: var(--bg-dark-100);
 }
 
-.background {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0.7;
-  background: #5a5a5a;
+.Profile__textfield.dark-mode input:-webkit-autofill,
+.Profile__textfield.dark-mode input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px var(--text-dark-100) inset;
 }
 
-.Close-button {
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 40px;
-  width: 40px;
-  background-color: transparent;
-  border: none;
-  outline: none;
+.Profile__textfield.dark-mode fieldset {
+    border-color: var(--bg-light-100) !important;
 }
 
-h3 {
-  padding-top: 19px;
-  height: 45px;
-  width: 180px;
+.Profile__textfield-w-95 {
+    margin: 0 1.25% !important;
+    width: 97.5%;
 }
 
-.infoForm {
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; */
-  gap: 2rem;
+.Profile__textfield-w-95.dark-mode label {
+    color: var(--text-light-100) !important;
 }
 
-.profile-section {
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-  margin-bottom: 10px;
+.Profile__textfield-w-95.dark-mode input,
+.Profile__textfield-w-95.dark-mode textarea {
+    color: var(--text-light-100) !important;
+    background-color: var(--bg-dark-100);
 }
 
-.infoInput {
-  border: 0.5px solid rgba(0, 0, 0, 0.205);
-  outline: none;
-  /* background-color: var(--inputColor); */
-  width: 45%;
-  border-radius: 8px;
-  padding: 20px;
+.Profile__textfield-w-95.dark-mode input:-webkit-autofill,
+.Profile__textfield-w-95.dark-mode input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px var(--text-dark-100) inset;
 }
 
-.infoForm>div {
-  display: flex;
-  gap: 1rem;
-  height: 2rem;
-  width: 90%;
+.Profile__textfield-w-95.dark-mode fieldset {
+    border-color: var(--bg-light-100) !important;
 }
 
-.infoButton {
-  width: 6rem;
-  height: 2rem;
-  margin-bottom: 10px;
+.Profile__submit-button {
+    margin: 10px auto 20px;
+    width: 200px;
+    background-color: #ffc93d !important;
 }
