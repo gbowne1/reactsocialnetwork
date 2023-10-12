@@ -98,7 +98,6 @@ export default function TopNav({
 
     const handleLogoutClicked = () => {
         saveToLocalStorage("lastLoginCredentials", null);
-        navigate("/", { state: window.location.pathname });
         window.location.reload();
         handleMenuClose();
     };
