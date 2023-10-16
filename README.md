@@ -35,33 +35,13 @@ have already started working with.  If we like the design of the component, feat
 - Events
 - Connecting with friends
 
-## Installation
+## Installation & Running the App
 
-To install and run this application, you will need to have Node.js and MongoDB installed on your machine. Once you have these installed, follow these steps:
-
-1. Clone the repository
-2. move to /client folder using `cd client` on your terminal
-3. Install the dependencies using `npm install`
-4. Start the server using `npm start`
-5. Open the application in your web browser at `http://localhost:3000`
+Please check installation and running instructions at: https://github.com/gbowne1/reactsocialnetwork/wiki/Installation
 
 ## Contributing
 
-If you would like to contribute to this project, please follow these steps:
-
-1. Fork the repository
-2. Create a new branch for your feature or bug fix
-3. Make your changes and commit them with descriptive commit messages and include a screenshot of your working change.
-4. Push your changes to your fork
-5. Submit a pull request
-
-If you would like to contribute to this repository, please read our [Contributing](https://github.com/gbowne1/reactsocialnetwork/blob/main/docs/CONTRIBUTING.md) document. We welcome your pull requests here. We are editor and IDE agnostic here, however, VSCode and Visual Studio configurations and settings are included to make contributing easier for those who have not set up their development environment for React development.  This includes extensions which you can opt out of installing when you first open the project in VSCode.
-
-You should already be familiar with React 17 and or 18, JavaScript ES5/ES6/ES7 and JSX. If you are not there are plenty of resources available, such as this video: <https://www.youtube.com/watch?v=cd3P3yXyx30>
-
-This is not hosted anywhere yet and the backend of this project is currently under construction.
-
-If you would like something to work on, there are plenty of TODO's here <https://github.com/gbowne1/reactsocialnetwork/blob/main/docs/TODO.md> we are particularly needing help with core features.  If you have ideas for features, use the discussion tab to submit an idea for a feature.
+Please check contributing instructions at: https://github.com/gbowne1/reactsocialnetwork/wiki/Contributing
 
 ## Contact
 
