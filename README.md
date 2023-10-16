@@ -43,6 +43,10 @@ Please check installation and running instructions at: https://github.com/gbowne
 
 Please check contributing instructions at: https://github.com/gbowne1/reactsocialnetwork/wiki/Contributing
 
+## Coding Styles and Naming Conventions
+
+Please check coding styles and naming conventions at: https://github.com/gbowne1/reactsocialnetwork/wiki/Developer-Guide#coding-style-and-naming-conventions
+
 ## Contact
 
 If you have any questions or concerns about this project, please contact the project maintainers and the current core development team.  These are the people you will add as reviewers on a PR.
