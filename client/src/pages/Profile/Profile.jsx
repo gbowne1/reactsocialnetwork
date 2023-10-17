@@ -7,216 +7,216 @@ import getFromLocalStorage from "../../utils/getFromLocalStorage";
 import "./Profile.css";
 
 const Profile = ({ themeMode }) => {
-  const [openSnackbar, setOpenSnackbar] = useState(false);
-  const [snackbarOptions, setSnackbarOptions] = useState({});
+    const [openSnackbar, setOpenSnackbar] = useState(false);
+    const [snackbarOptions, setSnackbarOptions] = useState({});
 
-  const [isOpen, setIsOpen] = useState(true);
-  const [formData, setFormData] = useState({});
-  const [fetchedUserData, setFetchedUserData] = useState({});
-  const [userId, setUserId] = useState(null);
+    const [isOpen, setIsOpen] = useState(true);
+    const [formData, setFormData] = useState({});
+    const [fetchedUserData, setFetchedUserData] = useState({});
+    const [userId, setUserId] = useState(null);
 
-  useEffect(() => {
-    const currentUserData = getFromLocalStorage("lastLoginCredentials");
-    const currentUsername = currentUserData.username;
+    useEffect(() => {
+        const currentUserData = getFromLocalStorage("lastLoginCredentials");
+        const currentUsername = currentUserData.username;
 
-    fetch("http://localhost:9000/api/users/")
-      .then((res) => res.json())
-      .then((res) => {
-        const users = res.data;
-        const fetchedCurrentUserData = users.filter(
-          (user) => user.username === currentUsername
-        )[0];
+        fetch("http://localhost:9000/api/users/")
+            .then((res) => res.json())
+            .then((res) => {
+                const users = res.data;
+                const fetchedCurrentUserData = users.filter(
+                    (user) => user.username === currentUsername
+                )[0];
 
-        setFetchedUserData(fetchedCurrentUserData);
+                setFetchedUserData(fetchedCurrentUserData);
 
-        const currentUserId = fetchedCurrentUserData.id;
-        setUserId(currentUserId);
-      });
-  }, []);
+                const currentUserId = fetchedCurrentUserData.id;
+                setUserId(currentUserId);
+            });
+    }, []);
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  // form submission
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    // Update userData
-    const updatedUserData = {
-      username: fetchedUserData.username,
-      email: fetchedUserData.email,
-      password: fetchedUserData.password,
-      accountImageUrl: formData.imageUrl,
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    fetch(`http://localhost:9000/api/user/${userId}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(updatedUserData),
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        if (res.error) {
-          alert(res.error);
-        }
+    // form submission
+    const handleSubmit = (e) => {
+        e.preventDefault();
 
-        setSnackbarOptions({
-          severity: "success",
-          message: "User data updated successfully!",
-        });
-        setOpenSnackbar(true);
-      });
-  };
+        // Update userData
+        const updatedUserData = {
+            username: fetchedUserData.username,
+            email: fetchedUserData.email,
+            password: fetchedUserData.password,
+            accountImageUrl: formData.imageUrl,
+        };
 
-  return (
-    <>
-      <CustomSnackbar
-        message={snackbarOptions.message}
-        vertical={"top"}
-        horizontal={"center"}
-        alert={true}
-        severity={snackbarOptions.severity}
-        open={openSnackbar}
-        setOpen={setOpenSnackbar}
-      />
-      <Panel
-        themeMode={themeMode}
-        titleHeading="Profile"
-        contentHeading="Welcome to user profile!"
-        isOpen={isOpen}
-        setIsOpen={setIsOpen}
-      >
-        <form className="" onSubmit={handleSubmit}>
-          <h3>Create Profile</h3>
+        fetch(`http://localhost:9000/api/user/${userId}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(updatedUserData),
+        })
+            .then((res) => res.json())
+            .then((res) => {
+                if (res.error) {
+                    alert(res.error);
+                }
 
-          <div className="profile-section">
-            <input
-              type="text"
-              id="imageUrl"
-              name="imageUrl"
-              placeholder="Profile image Url"
-              value={formData.imageUrl}
-              onChange={handleChange}
-              className="infoInput"
-            />
-          </div>
+                setSnackbarOptions({
+                    severity: "success",
+                    message: "User data updated successfully!",
+                });
+                setOpenSnackbar(true);
+            });
+    };
 
-          <div className="profile-section">
-            <input
-              value={formData.firstname}
-              onChange={handleChange}
-              type="text"
-              placeholder="First Name"
-              name="firstname"
-              className="infoInput"
+    return (
+        <>
+            <CustomSnackbar
+                message={snackbarOptions.message}
+                vertical={"top"}
+                horizontal={"center"}
+                alert={true}
+                severity={snackbarOptions.severity}
+                open={openSnackbar}
+                setOpen={setOpenSnackbar}
             />
-            <input
-              value={formData.lastname}
-              onChange={handleChange}
-              type="text"
-              placeholder="Last Name"
-              name="lastname"
-              className="infoInput"
-            />
-          </div>
+            <Panel
+                themeMode={themeMode}
+                titleHeading="Profile"
+                contentHeading="Welcome to user profile!"
+                isOpen={isOpen}
+                setIsOpen={setIsOpen}
+            >
+                <form className="" onSubmit={handleSubmit}>
+                    <h3>Create Profile</h3>
 
-          <div className="profile-section">
-            <input
-              value={formData.username}
-              onChange={handleChange}
-              type="text"
-              placeholder="Username"
-              name="username"
-              className="infoInput"
-            />
-          </div>
+                    <div className="profile-section">
+                        <input
+                            type="text"
+                            id="imageUrl"
+                            name="imageUrl"
+                            placeholder="Profile image Url"
+                            value={formData.imageUrl}
+                            onChange={handleChange}
+                            className="infoInput"
+                        />
+                    </div>
 
-          <div className="profile-section">
-            <input
-              value={formData.location}
-              onChange={handleChange}
-              type="text"
-              placeholder="Location"
-              name="location"
-              className="infoInput"
-            />
-            <input
-              value={formData.relationship}
-              onChange={handleChange}
-              type="text"
-              className="infoInput"
-              placeholder="Relationship status"
-              name="relationship"
-            />
-          </div>
+                    <div className="profile-section">
+                        <input
+                            value={formData.firstname}
+                            onChange={handleChange}
+                            type="text"
+                            placeholder="First Name"
+                            name="firstname"
+                            className="infoInput"
+                        />
+                        <input
+                            value={formData.lastname}
+                            onChange={handleChange}
+                            type="text"
+                            placeholder="Last Name"
+                            name="lastname"
+                            className="infoInput"
+                        />
+                    </div>
 
-          <div className="profile-section">
-            {" "}
-            <textarea
-              style={{ width: "90%" }}
-              rows={5}
-              value={formData.bio}
-              onChange={handleChange}
-              type="text"
-              className="infoInput"
-              placeholder="Bio"
-              name="bio"
-            />
-          </div>
+                    <div className="profile-section">
+                        <input
+                            value={formData.username}
+                            onChange={handleChange}
+                            type="text"
+                            placeholder="Username"
+                            name="username"
+                            className="infoInput"
+                        />
+                    </div>
 
-          <div className="profile-section">
-            <input
-              value={formData.website}
-              onChange={handleChange}
-              type="text"
-              placeholder="Website"
-              name="website"
-              className="infoInput"
-            />
-            <input
-              value={formData.interest}
-              onChange={handleChange}
-              type="text"
-              placeholder="Interest"
-              name="interest"
-              className="infoInput"
-            />
-          </div>
+                    <div className="profile-section">
+                        <input
+                            value={formData.location}
+                            onChange={handleChange}
+                            type="text"
+                            placeholder="Location"
+                            name="location"
+                            className="infoInput"
+                        />
+                        <input
+                            value={formData.relationship}
+                            onChange={handleChange}
+                            type="text"
+                            className="infoInput"
+                            placeholder="Relationship status"
+                            name="relationship"
+                        />
+                    </div>
 
-          <div className="profile-section">
-            <input
-              value={formData.privarySetting}
-              onChange={handleChange}
-              type="text"
-              placeholder="Privary Setting (public/private/friends only)"
-              name="privarySetting"
-              className="infoInput"
-            />
+                    <div className="profile-section">
+                        {" "}
+                        <textarea
+                            style={{ width: "90%" }}
+                            rows={5}
+                            value={formData.bio}
+                            onChange={handleChange}
+                            type="text"
+                            className="infoInput"
+                            placeholder="Bio"
+                            name="bio"
+                        />
+                    </div>
 
-            <input
-              value={formData.notificationSetting}
-              onChange={handleChange}
-              type="text"
-              placeholder="Notifictaion Setting (email/push notification)"
-              name="notificationSetting"
-              className="infoInput"
-            />
-          </div>
+                    <div className="profile-section">
+                        <input
+                            value={formData.website}
+                            onChange={handleChange}
+                            type="text"
+                            placeholder="Website"
+                            name="website"
+                            className="infoInput"
+                        />
+                        <input
+                            value={formData.interest}
+                            onChange={handleChange}
+                            type="text"
+                            placeholder="Interest"
+                            name="interest"
+                            className="infoInput"
+                        />
+                    </div>
 
-          <button className="infoButton" type="submit">
-            Create
-          </button>
-        </form>
-      </Panel>
-    </>
-  );
+                    <div className="profile-section">
+                        <input
+                            value={formData.privarySetting}
+                            onChange={handleChange}
+                            type="text"
+                            placeholder="Privary Setting (public/private/friends only)"
+                            name="privarySetting"
+                            className="infoInput"
+                        />
+
+                        <input
+                            value={formData.notificationSetting}
+                            onChange={handleChange}
+                            type="text"
+                            placeholder="Notifictaion Setting (email/push notification)"
+                            name="notificationSetting"
+                            className="infoInput"
+                        />
+                    </div>
+
+                    <button className="infoButton" type="submit">
+                        Create
+                    </button>
+                </form>
+            </Panel>
+        </>
+    );
 };
 
 Profile.propTypes = {
-  themeMode: PropTypes.string,
+    themeMode: PropTypes.string,
 };
 
 export default Profile;
