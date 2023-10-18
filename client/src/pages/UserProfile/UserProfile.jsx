@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Box, Button, Tabs, Tab, Typography } from "@mui/material";
+import { Box, Button, Tabs, Tab } from "@mui/material";
 
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -8,61 +8,32 @@ import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import GitHubIcon from "@mui/icons-material/GitHub";
 
 import Panel from "../../components/Panel/Panel";
-
+import CustomTabPanel from "../../components/CustomTabPanel/CustomTabPanel";
 import getFromLocalStorage from "../../utils/getFromLocalStorage";
+import fetchUserData from "../../utils/fetchUserData";
 
 import "./UserProfile.css";
 
-function CustomTabPanel(props) {
-    const { children, value, index, ...other } = props;
-
-    return (
-        <div
-            role="tabpanel"
-            hidden={value !== index}
-            id={`simple-tabpanel-${index}`}
-            aria-labelledby={`simple-tab-${index}`}
-            {...other}
-        >
-            {value === index && (
-                <Box sx={{ p: 3 }}>
-                    <Typography align="left">{children}</Typography>
-                </Box>
-            )}
-        </div>
-    );
+function a11yProps(index) {
+    return {
+        id: `simple-tab-${index}`,
+        "aria-controls": `simple-tabpanel-${index}`,
+    };
 }
 
 const UserProfile = ({ themeMode }) => {
     const [isOpen, setIsOpen] = useState(true);
     const [value, setValue] = useState(0);
-    const [username] = useState(
-        getFromLocalStorage("lastLoginCredentials").username || ""
-    );
-    const [email] = useState(
-        getFromLocalStorage("lastLoginCredentials").email || ""
-    );
-
-    const [imageUrl, setImageUrl] = useState(
-        "https://icon-library.com/images/default-user-icon/default-user-icon-13.jpg"
-    );
+    const [userData, setUserData] = useState({
+        username: "username",
+        email: "user@user.com",
+        accountImageUrl:
+            "https://icon-library.com/images/default-user-icon/default-user-icon-13.jpg",
+    });
 
     useEffect(() => {
-        const currentUserData = getFromLocalStorage("lastLoginCredentials");
-        const currentUsername = currentUserData.username;
-        console.log(currentUsername);
-
-        fetch("http://localhost:9000/api/users/")
-            .then((res) => res.json())
-            .then((res) => {
-                const users = res.data;
-                const fetchedCurrentUserData = users.filter(
-                    (user) => user.username === currentUsername
-                )[0];
-
-                setImageUrl(fetchedCurrentUserData.accountImageUrl);
-                console.log(fetchedCurrentUserData.accountImageUrl);
-            });
+        const currentEmail = getFromLocalStorage("lastLoginCredentials").email;
+        fetchUserData(currentEmail, setUserData);
     }, []);
 
     const handleSocialIconClicked = (social) => {
@@ -80,13 +51,6 @@ const UserProfile = ({ themeMode }) => {
         setValue(newValue);
     };
 
-    function a11yProps(index) {
-        return {
-            id: `simple-tab-${index}`,
-            "aria-controls": `simple-tabpanel-${index}`,
-        };
-    }
-
     return (
         <Panel
             themeMode={themeMode}
@@ -101,14 +65,18 @@ const UserProfile = ({ themeMode }) => {
                         <Box className="UProfile__image-container">
                             <img
                                 data-testid="account-image"
-                                src={imageUrl}
+                                src={userData.accountImageUrl}
                                 alt=""
                             />
                         </Box>
                     </Box>
                     <Box className="UProfile__user-contact-container">
-                        <p className="UProfile__contact-info">@{username}</p>
-                        <p className="UProfile__contact-info">email: {email}</p>
+                        <p className="UProfile__contact-info">
+                            @{userData.username}
+                        </p>
+                        <p className="UProfile__contact-info">
+                            email: {userData.email}
+                        </p>
                         <p className="UProfile__contact-info">
                             website: https://www.mysite.com
                         </p>
@@ -148,7 +116,9 @@ const UserProfile = ({ themeMode }) => {
                 </Box>
                 <Box className="UProfile__middle-section">
                     <Box className="UProfile__user-info-container">
-                        <p className="UProfile__about-info">{username}</p>
+                        <p className="UProfile__about-info">
+                            {userData.username}
+                        </p>
                         <p className="UProfile__about-info">Full Name</p>
                         <p className="UProfile__about-info">Location</p>
                         <p className="UProfile__about-info">Career</p>
