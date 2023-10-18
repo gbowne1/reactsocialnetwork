@@ -11,14 +11,13 @@ import "./CookieModal.css";
 
 const CookieModal = () => {
     // State used to ONLY show cookie modal in case cookies have not been accepted.
-    const [cookiesAccepted] = useState(getFromLocalStorage("cookiesAccepted"));
-
+    const [cookiesAccepted, setCookiesAccepted] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     // const [showLearnMoreLink] = useState(false);
 
-    const handleClose = () => {
-        setIsOpen(false);
-    };
+    useEffect(() => {
+        setCookiesAccepted(getFromLocalStorage("cookiesAccepted"));
+    });
 
     useEffect(() => {
         const timeout = setTimeout(() => {
@@ -27,6 +26,10 @@ const CookieModal = () => {
 
         return () => clearTimeout(timeout);
     }, []);
+
+    const handleClose = () => {
+        setIsOpen(false);
+    };
 
     const closeCookieModal = () => {
         // Save cookie state on localStorage.
