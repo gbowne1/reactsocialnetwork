@@ -83,31 +83,31 @@ const UserProfile = ({ themeMode }) => {
                     </Box>
                     <Box className="UProfile__social-icons-container">
                         <Box
-                            className="UProfile__social-icon"
+                            className="UProfile__social-icon fb-color"
                             onClick={() => handleSocialIconClicked("fb")}
                         >
                             <FacebookIcon />
                         </Box>
                         <Box
-                            className="UProfile__social-icon"
+                            className="UProfile__social-icon insta-color"
                             onClick={() => handleSocialIconClicked("insta")}
                         >
                             <InstagramIcon />
                         </Box>
                         <Box
-                            className="UProfile__social-icon"
+                            className="UProfile__social-icon x-color"
                             onClick={() => handleSocialIconClicked("x")}
                         >
                             <TwitterIcon />
                         </Box>
                         <Box
-                            className="UProfile__social-icon"
+                            className="UProfile__social-icon wa-color"
                             onClick={() => handleSocialIconClicked("wa")}
                         >
                             <WhatsAppIcon />
                         </Box>
                         <Box
-                            className="UProfile__social-icon"
+                            className="UProfile__social-icon gh-color"
                             onClick={() => handleSocialIconClicked("gh")}
                         >
                             <GitHubIcon />
