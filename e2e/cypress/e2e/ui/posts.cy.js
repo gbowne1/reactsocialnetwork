@@ -4,7 +4,7 @@ import {
     lastLoginCredentials,
     addLastLoginCredentialsToLocalStorage,
     addCookiesAcceptedToLocalStorage,
-} from "../utils/utils";
+} from "../../utils/utils";
 
 const loremIpsum = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do`;
 
@@ -49,7 +49,7 @@ describe("Post tests", () => {
         });
     });
 
-    it("should remove post by clicking on the post's close button", () => {
+    it("should remove post when clicking on the post's close button", () => {
         cy.get("[data-testid=post]")
             .should("be.visible")
             .then((posts) => {
@@ -66,7 +66,7 @@ describe("Post tests", () => {
         cy.get("[data-testid=post]").should("not.exist");
     });
 
-    it("should create a post", () => {
+    it("should create a post when submitting post form", () => {
         cy.get("[data-testid=create-post-form]").should("be.visible");
         cy.get("[data-testid=create-post-input]")
             .clear()
