@@ -1,8 +1,7 @@
+import "./Dashboard.css";
 import { useState } from "react";
 import PropTypes from "prop-types";
 import Panel from "../../components/Panel/Panel";
-
-import "./Dashboard.css";
 
 function Dashboard({ themeMode }) {
     const [isOpen, setIsOpen] = useState(true);

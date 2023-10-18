@@ -1,6 +1,6 @@
+import "./Panel.css";
 import PropTypes from "prop-types";
 import CloseButton from "../CloseButton/CloseButton";
-import "./Panel.css";
 
 /**
  *

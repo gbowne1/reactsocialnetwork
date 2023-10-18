@@ -1,44 +1,8 @@
+import "./Admin.Dashboard.css";
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import {
-    Button,
-    FormGroup,
-    Stack,
-    ButtonBase,
-    Typography,
-    Box,
-    FormControl,
-    FormLabel,
-    FormHelperText,
-    FormControlLabel,
-    ButtonGroup,
-    Paper,
-    Popper,
-    MenuItem,
-    MenuList,
-    Checkbox,
-    InputLabel,
-    Select,
-    NativeSelect,
-    OutlinedInput,
-    FilledInput,
-    ListItemText,
-    Chip,
-    TextField,
-    Input,
-    IconButton,
-    InputAdornment,
-    Divider,
-} from "@mui/material/";
+import { Button } from "@mui/material/";
 import Panel from "../../components/Panel/Panel";
-import {
-    createTheme,
-    ThemeProvider,
-    useTheme,
-    styled,
-} from "@mui/material/styles";
-
-import "./Admin.Dashboard.css";
 
 function AdminDashboard({ themeMode }) {
     const [isOpen, setIsOpen] = useState(true);

@@ -1,3 +1,4 @@
+import "./Profile.css";
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import Panel from "../../components/Panel/Panel";
@@ -5,7 +6,6 @@ import CustomSnackbar from "../../components/CustomSnackbar/CustomSnackbar";
 import getFromLocalStorage from "../../utils/getFromLocalStorage";
 
 import { Button, TextField } from "@mui/material";
-import "./Profile.css";
 
 import { useForm } from "react-hook-form";
 

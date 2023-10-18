@@ -1,3 +1,4 @@
+import "./PostForm.css";
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
@@ -10,8 +11,6 @@ import { IconButton } from "@mui/material";
 
 import getFromLocalStorage from "../../utils/getFromLocalStorage";
 import fetchUserData from "../../utils/fetchUserData";
-
-import "./PostForm.css";
 
 const PostForm = ({ themeMode, posts, setPosts, userAvatar = null }) => {
     const [postText, setPostText] = useState("");
@@ -71,17 +70,17 @@ const PostForm = ({ themeMode, posts, setPosts, userAvatar = null }) => {
         <div>
             {" "}
             <form
-                className={`Post__create ${themeMode}`}
+                className={`PostForm__create ${themeMode}`}
                 onSubmit={onSubmit}
                 data-testid="create-post-form"
             >
-                <div className="Post__basics">
-                    <div className="Post__avatar">
+                <div className="PostForm__basics">
+                    <div className="PostForm__avatar">
                         {userAvatar ? (
                             <img src={userAvatar} alt="user avatar" />
                         ) : (
                             <IconButton
-                                className="Post__empty-avatar"
+                                className="PostForm__empty-avatar"
                                 aria-label="search-button"
                             >
                                 <AccountCircleIcon
@@ -99,7 +98,7 @@ const PostForm = ({ themeMode, posts, setPosts, userAvatar = null }) => {
                         placeholder="What's on your mind?"
                         aria-invalid="false"
                         aria-label="Post text input"
-                        className={`Post__input ${themeMode}`}
+                        className={`PostForm__input ${themeMode}`}
                         data-testid="create-post-input"
                         value={postText}
                         onChange={(e) => setPostText(e.target.value)}
@@ -108,7 +107,7 @@ const PostForm = ({ themeMode, posts, setPosts, userAvatar = null }) => {
                     />
 
                     <IconButton
-                        className={`Post__submit ${themeMode}`}
+                        className={`PostForm__submit ${themeMode}`}
                         aria-label="search button"
                         type="submit"
                         data-testid="create-post-submit-button"
