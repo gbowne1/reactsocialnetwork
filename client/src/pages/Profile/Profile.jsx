@@ -17,7 +17,6 @@ const Profile = ({ themeMode }) => {
     const [formData, setFormData] = useState({});
     const [fetchedUserData, setFetchedUserData] = useState({});
     const [userId, setUserId] = useState(null);
-
     const [userData, setUserData] = useState({
         username: "",
         email: "",
@@ -94,7 +93,6 @@ const Profile = ({ themeMode }) => {
                 setOpenSnackbar(true);
             });
     };
-
     return (
         <>
             <CustomSnackbar

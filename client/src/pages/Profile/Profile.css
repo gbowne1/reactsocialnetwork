@@ -1,58 +1,58 @@
 .Profile__textfield-section {
-    display: flex;
-    width: 100%;
-    margin-bottom: 10px;
+  display: flex;
+  width: 100%;
+  margin-bottom: 10px;
 }
 
 .Profile__textfield {
-    margin: 0 1.25% !important;
-    width: 47.5%;
+  margin: 0 1.25% !important;
+  width: 47.5%;
 }
 
 .Profile__textfield.dark-mode label {
-    color: var(--text-light-100) !important;
+  color: var(--text-light-100) !important;
 }
 
 .Profile__textfield.dark-mode input {
-    color: var(--text-light-100) !important;
-    background-color: var(--bg-dark-100);
+  color: var(--text-light-100) !important;
+  background-color: var(--bg-dark-100);
 }
 
 .Profile__textfield.dark-mode input:-webkit-autofill,
 .Profile__textfield.dark-mode input:-webkit-autofill:focus {
-    -webkit-box-shadow: 0 0 0px 1000px var(--text-dark-100) inset;
+  -webkit-box-shadow: 0 0 0px 1000px var(--text-dark-100) inset;
 }
 
 .Profile__textfield.dark-mode fieldset {
-    border-color: var(--bg-light-100) !important;
+  border-color: var(--bg-light-100) !important;
 }
 
 .Profile__textfield-w-95 {
-    margin: 0 1.25% !important;
-    width: 97.5%;
+  margin: 0 1.25% !important;
+  width: 97.5%;
 }
 
 .Profile__textfield-w-95.dark-mode label {
-    color: var(--text-light-100) !important;
+  color: var(--text-light-100) !important;
 }
 
 .Profile__textfield-w-95.dark-mode input,
 .Profile__textfield-w-95.dark-mode textarea {
-    color: var(--text-light-100) !important;
-    background-color: var(--bg-dark-100);
+  color: var(--text-light-100) !important;
+  background-color: var(--bg-dark-100);
 }
 
 .Profile__textfield-w-95.dark-mode input:-webkit-autofill,
 .Profile__textfield-w-95.dark-mode input:-webkit-autofill:focus {
-    -webkit-box-shadow: 0 0 0px 1000px var(--text-dark-100) inset;
+  -webkit-box-shadow: 0 0 0px 1000px var(--text-dark-100) inset;
 }
 
 .Profile__textfield-w-95.dark-mode fieldset {
-    border-color: var(--bg-light-100) !important;
+  border-color: var(--bg-light-100) !important;
 }
 
 .Profile__submit-button {
-    margin: 10px auto 20px;
-    width: 200px;
-    background-color: #ffc93d !important;
+  margin: 10px auto 20px;
+  width: 200px;
+  background-color: #ffc93d !important;
 }

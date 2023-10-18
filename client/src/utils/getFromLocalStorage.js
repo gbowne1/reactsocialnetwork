@@ -1,4 +1,4 @@
-/*
+/**
  *
  * @param {string} key of the local storage data
  * @returns data for particular key from local storage

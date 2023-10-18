@@ -9,29 +9,17 @@ import SendIcon from "@mui/icons-material/Send";
 import { IconButton } from "@mui/material";
 
 import getFromLocalStorage from "../../utils/getFromLocalStorage";
+import fetchUserData from "../../utils/fetchUserData";
 
 import "./PostForm.css";
 
 const PostForm = ({ themeMode, posts, setPosts, userAvatar = null }) => {
     const [postText, setPostText] = useState("");
-    const [imageUrl, setImageUrl] = useState("");
+    const [userData, setUserData] = useState({});
 
     useEffect(() => {
-        const currentUserData = getFromLocalStorage("lastLoginCredentials");
-        const currentUsername = currentUserData.username;
-        console.log(currentUsername);
-
-        fetch("http://localhost:9000/api/users/")
-            .then((res) => res.json())
-            .then((res) => {
-                const users = res.data;
-                const fetchedCurrentUserData = users.filter(
-                    (user) => user.username === currentUsername
-                )[0];
-
-                setImageUrl(fetchedCurrentUserData.accountImageUrl);
-                console.log(fetchedCurrentUserData.accountImageUrl);
-            });
+        const currentEmail = getFromLocalStorage("lastLoginCredentials").email;
+        fetchUserData(currentEmail, setUserData);
     }, []);
 
     const onSubmit = (e) => {
@@ -45,7 +33,7 @@ const PostForm = ({ themeMode, posts, setPosts, userAvatar = null }) => {
         const username = lastLoginCredentials.username;
 
         const newPost = {
-            accountImage: imageUrl || defaultUserImage,
+            accountImage: userData.accountImageUrl || defaultUserImage,
             accountName: username,
             postDate: new Date().toDateString(),
             postText: postText,

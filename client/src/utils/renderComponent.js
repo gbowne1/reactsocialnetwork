@@ -2,15 +2,14 @@ import { act, render } from "@testing-library/react";
 import SingleEvent from "../pages/Events/SingleEvent/SingleEvent";
 import CreateEventModal from "../pages/Events/CreateEventModal/CreateEventModal";
 
-/*
- *
+/**
  * Helper function to render the SingleEvent component and pass mock params in order to comply with DRY
  * @returns  {
-    eventData, -> Data used for event
-    mockSetEvents, -> Mock function 
-    mockSetSnackbarOptions, -> Mock function 
-    mockSetOpenSnackbar, -> Mock function 
-  }
+ *   eventData, -> Data used for event
+ *   mockSetEvents, -> Mock function
+ *   mockSetSnackbarOptions, -> Mock function
+ *   mockSetOpenSnackbar, -> Mock function
+ * }
  */
 const renderSingleEvent = () => {
     const eventData = {
