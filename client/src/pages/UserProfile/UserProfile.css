@@ -54,9 +54,65 @@
   cursor: pointer;
 }
 
+
 .UProfile__social-icon>svg {
-  margin: 5px;
+  margin: 5px 6px;
   font-size: 35px;
+}
+
+.fb-color {
+  border-color: #0866ff;
+  color: #0866ff;
+}
+
+.fb-color:hover {
+  background-color: #0866ff;
+  border-color: white;
+  color: white;
+}
+
+.insta-color {
+  border-color: #ff1c52;
+  color: #ff1c52;
+}
+
+.insta-color:hover {
+  background-color: #ff1c52;
+  border-color: white;
+  color: white;
+}
+
+.x-color {
+  border-color: #1d9bf0;
+  color: #1d9bf0;
+}
+
+.x-color:hover {
+  background-color: #1d9bf0;
+  border-color: white;
+  color: white;
+}
+
+.wa-color {
+  border-color: #25d366;
+  color: #25d366;
+}
+
+.wa-color:hover {
+  background-color: #25d366;
+  border-color: white;
+  color: white;
+}
+
+.gh-color {
+  border-color: #1f2328;
+  color: #1f2328;
+}
+
+.gh-color:hover {
+  background-color: #1f2328;
+  border-color: white;
+  color: white;
 }
 
 .UProfile__social-icon>img {
