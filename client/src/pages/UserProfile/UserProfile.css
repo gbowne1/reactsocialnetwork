@@ -1,84 +1,105 @@
 @import url("../../variables.css");
 
-.Userprofile {
-    border-top-right-radius: 15px;
-    border-top-left-radius: 15px;
-    min-width: 70%;
-    max-width: 1400px;
-    min-height: 700px;
+.UProfile__top-section {
+  height: 150px;
+  width: 100%;
+  display: flex;
 }
 
-.Userprofile.light-mode {
-    background-color: var(--bg-light-100);
-    color: var(--text-dark-500);
+.UProfile__avatar-container {
+  height: 100%;
+  width: 20%;
 }
 
-.Userprofile.dark-mode {
-    background-color: var(--bg-dark-100);
-    color: var(--text-light-500);
+.UProfile__image-container {
+  border-radius: 50px;
+  margin: 25px auto;
+  width: 100px;
+  height: 100px;
 }
 
-.icon {
-    font-size: 25px;
-    margin-top: 15px;
-    margin-right: 15px;
-    cursor: pointer;
+.UProfile__image-container>img {
+  overflow: hidden;
+  border-radius: 50px;
+  height: 100%;
+  width: 100%;
 }
 
-.Userprofile-header {
-    max-width: 1384px;
-    height: 60px;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+.UProfile__user-contact-container {
+  height: 100%;
+  width: 40%;
 }
 
-.Userprofile-header.dark-mode {
-    background-color: var(--bg-dark-900);
-    color: var(--clr-dark-mode-accent-500);
+.UProfile__contact-info {
+  margin-left: 10px;
+  margin-bottom: 20px;
+  text-align: left;
+  font-size: 1.1rem;
 }
 
-.Userprofile-header.light-mode {
-    background-color: var(--bg-light-900);
-    color: var(--clr-light-mode-accent-500);
+.UProfile__social-icons-container {
+  height: 100%;
+  width: 40%;
+
+  display: flex;
+  justify-content: space-around;
 }
 
-.icon {
-    font-size: 25px;
-    margin-top: 15px;
-    margin-right: 15px;
-    cursor: pointer;
+.UProfile__social-icon {
+  border: 2px solid grey;
+  border-radius: 50px;
+  margin: 50px 0;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
 }
 
-.Close-button {
-    height: 40px;
-    width: 60px;
-    background-color: blue;
+.UProfile__social-icon>svg {
+  margin: 5px;
+  font-size: 35px;
 }
 
-h3 {
-    padding-top: 19px;
-    height: 45px;
-    width: 180px;
+.UProfile__social-icon>img {
+  border-radius: 50px;
+  height: 100%;
+  width: 100%;
 }
 
-.user-profile {
-    width: 1318.8px;
-    height: 700px;
-    margin: 0 auto;
-    padding: 0 250px;
-    box-sizing: border-box;
-    position: relative;
+.UProfile__middle-section {
+  display: flex;
+  height: 300px;
 }
 
-.user-profile-header {
-    width: 1318.8px;
-    height: 60px;
-    background-color: gray;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
+.UProfile__user-info-container {
+  width: 20%;
+  height: 100%;
+}
+
+.UProfile__about-info {
+  margin-left: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.UProfile__user-details-container {
+  border: 2px solid grey;
+  border-radius: 25px;
+  padding: 10px;
+  width: 80%;
+  height: 100%;
+}
+
+.UProfile__bottom-section {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-around;
+  height: 100px;
+}
+
+.UProfile__user-action-button {
+  border-radius: 50px;
+  margin: 50px 0;
+  height: 50px;
+  width: 150px;
 }
