@@ -6,13 +6,12 @@ import "./ThemeSwitch.css";
 const ThemeSwitch = ({ handleThemeModeChange, themeMode }) => {
     return (
         <div id="theme-mode-switch" className={`ThemeSwitch ${themeMode}`}>
-            <LightMode />
-
+            <DarkMode />
             <Switch
                 onClick={() => handleThemeModeChange()}
                 inputProps={{ "aria-label": "Toggle theme" }}
             />
-            <DarkMode />
+            <LightMode />
         </div>
     );
 };

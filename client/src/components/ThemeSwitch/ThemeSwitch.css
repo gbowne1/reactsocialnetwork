@@ -5,6 +5,11 @@
     border: 1px solid;
     border-radius: 10px;
     width: fit-content;
-    padding: 5px 10px;
+    padding: 5px 8px;
     margin: 0 auto 20px;
+}
+.ThemeSwitch.dark-mode{
+    border-color: var(--bg-dark-100);
+    color: white;
+    fill: white;
 }
