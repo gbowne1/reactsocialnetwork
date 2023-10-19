@@ -1,5 +1,6 @@
-import { Component } from "react";
 import "./Terms.css";
+import { Component } from "react";
+
 
 class Terms extends Component {
     render() {

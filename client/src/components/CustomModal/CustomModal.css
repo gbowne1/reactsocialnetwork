@@ -1,17 +1,17 @@
-.dialog-title {
-    padding: 10px !important;
-    width: 100%;
-    height: 100px;
-    text-align: center;
+.Modal__title {
+  padding: 10px !important;
+  width: 100%;
+  height: 100px;
+  text-align: center;
 }
 
-.dialog-content {
-    background-color: whitesmoke;
-    width: 400px;
-    height: 100px;
+.Modal__content {
+  background-color: whitesmoke;
+  width: 400px;
+  height: 100px;
 }
 
-.dialog-actions {
-    padding: 10px;
-    height: fit-content;
+.Modal__actions {
+  padding: 10px;
+  height: fit-content;
 }

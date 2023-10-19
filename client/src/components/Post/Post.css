@@ -82,11 +82,11 @@
   color: var(--text-light-100);
 }
 
-.Post-content-image-container {
+.Post__content-image-container {
   height: 100%;
 }
 
-.Post-content-image-container>img {
+.Post__content-image-container>img {
   width: 100% !important;
   height: auto;
 }

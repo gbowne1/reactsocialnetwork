@@ -3,11 +3,11 @@ import PropTypes from "prop-types";
 
 function Footer({ themeMode }) {
     return (
-        <footer className={`Footer-body ${themeMode}`}>
+        <footer className={`Footer__body ${themeMode}`}>
             <div className="row">
                 <div className="col"></div>
             </div>
-            <section className={`Footer-footer ${themeMode}`}>
+            <section className={`Footer__footer ${themeMode}`}>
                 <ul>
                     <li>
                         <a href="/terms">Terms & Conditions</a>

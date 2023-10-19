@@ -1,12 +1,12 @@
-import PropTypes from "prop-types";
 import "./SubjectDetails.css";
+import PropTypes from "prop-types";
 
 const SubjectDetails = ({ header, content }) => {
     return (
-        <div className="Subject-details">
-            <header className="Subject-details__header">{header}</header>
+        <div className="SubjectDetails">
+            <header className="SubjectDetails__header">{header}</header>
             <hr style={{ width: "100%" }}></hr>
-            <div className="Subject-details__content">{content}</div>
+            <div className="SubjectDetails__content">{content}</div>
         </div>
     );
 };

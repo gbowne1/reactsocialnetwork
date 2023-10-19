@@ -1,3 +1,4 @@
+import "./Login.css";
 import { useState } from "react";
 import PropTypes from "prop-types";
 import { Box, Container } from "@mui/system";
@@ -23,8 +24,6 @@ import CookieModal from "../../components/CookieModal/CookieModal";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 import ThemeSwitch from "../../components/ThemeSwitch/ThemeSwitch";
 import saveToLocalStorage from "../../utils/saveToLocalStorage";
-
-import "./Login.css";
 
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";

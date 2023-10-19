@@ -1,7 +1,7 @@
+import "./Post.css";
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import CloseButton from "../CloseButton/CloseButton";
-import "./Post.css";
 
 const Post = ({
     themeMode,
@@ -54,7 +54,7 @@ const Post = ({
                         {postText}
                     </div>
 
-                    <div className="Post-content-image-container">
+                    <div className="Post__content-image-container">
                         <img data-testid="post-image" src={postImage} alt="" />
                     </div>
                 </div>

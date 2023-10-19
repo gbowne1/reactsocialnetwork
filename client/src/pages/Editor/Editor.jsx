@@ -1,3 +1,4 @@
+import "./Editor.css";
 import { useState } from "react";
 import PropTypes from "prop-types";
 import { Box, TextField, Button } from "@mui/material";
@@ -18,7 +19,7 @@ import {
 } from "@mui/icons-material";
 
 import Panel from "../../components/Panel/Panel";
-import "./Editor.css";
+
 
 function Editor({ themeMode }) {
     const [isOpen, setIsOpen] = useState(true);

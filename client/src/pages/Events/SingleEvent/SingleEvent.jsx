@@ -1,3 +1,4 @@
+import "./SingleEvent.css";
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
@@ -8,8 +9,6 @@ import Select from "@mui/material/Select";
 import placeholderImageUrl from "../../../data/placeholderImageUrl";
 import checkImage from "../../../utils/checkImage";
 import formatDate from "../../../utils/formatDate";
-
-import "./SingleEvent.css";
 
 const SingleEvent = ({
     themeMode,

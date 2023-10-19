@@ -1,3 +1,4 @@
+import "./TopNav.css";
 import { useState } from "react";
 import PropTypes from "prop-types";
 import {
@@ -26,7 +27,6 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
 
 import NotificationBell from "./NotificationBell/NotificationBell";
-import "./TopNav.css";
 import { useNavigate } from "react-router";
 import saveToLocalStorage from "../../utils/saveToLocalStorage";
 
@@ -248,7 +248,7 @@ export default function TopNav({
         <Box sx={{ flexGrow: 1 }}>
             <AppBar
                 data-testid="top-nav"
-                className={`Top-nav ${themeMode}`}
+                className={`TopNav ${themeMode}`}
                 position="fixed"
             >
                 <Toolbar>
@@ -266,7 +266,7 @@ export default function TopNav({
 
                     <Typography
                         data-testid="logo"
-                        className="Top-nav-logo"
+                        className="TopNav__logo"
                         variant="h6"
                         noWrap
                         component="div"
@@ -291,7 +291,7 @@ export default function TopNav({
                     >
                         <Input
                             data-testid="search"
-                            className={`Top-nav-search ${themeMode}`}
+                            className={`TopNav__search ${themeMode}`}
                             sx={{
                                 ":after": {
                                     borderBottomColor: themeAccentColor,
