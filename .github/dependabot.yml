@@ -10,6 +10,17 @@ updates:
       - "dependencies"
       - "need-review"
       - "frontend"
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-patch"]
+    assignees:
+      - "gbowne1"
+      - "manuel12"
+      - "pawel975"
+    reviewers:
+      - "gbowne1"
+      - "manuel12"
+      - "pawel975"
   - package-ecosystem: npm
     directory: "/server"
     schedule:
@@ -20,6 +31,17 @@ updates:
       - "dependencies"
       - "need-review"
       - "backend"
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-patch"]
+    assignees:
+      - "gbowne1"
+      - "manuel12"
+      - "pawel975"
+    reviewers:
+      - "gbowne1"
+      - "manuel12"
+      - "pawel975"
   - package-ecosystem: npm
     directory: "/e2e"
     schedule:
@@ -30,3 +52,14 @@ updates:
       - "dependencies"
       - "need-review"
       - "e2e"
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-patch"]
+    assignees:
+      - "gbowne1"
+      - "manuel12"
+      - "pawel975"
+    reviewers:
+      - "gbowne1"
+      - "manuel12"
+      - "pawel975"
