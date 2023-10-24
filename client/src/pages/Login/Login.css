@@ -1,11 +1,25 @@
 @import url("../../variables.css");
 
 .Login__container {
-    margin-top: 200px;
+    width: 100vw;
+    height: 100vh !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
 }
 
 .Login__theme-mode-switch.light-mode {
     border-color: var(--bg-dark-100);
+}
+
+.Login_theme_handler {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.Login_remember.dark-mode span:nth-child(2) {
+    color: white !important;
 }
 
 .Login__theme-mode-switch.dark-mode {
@@ -13,19 +27,30 @@
 }
 
 .Login__form {
-    border: 1px solid;
-    border-radius: 10px;
+    border: none;
+    border-radius: 12px;
     margin: 0 auto;
     max-width: 600px;
+    width: 100%;
     padding: 20px;
 }
 
 .Login__form.light-mode {
-    border-color: var(--bg-dark-100) !important;
+    background: rgba(255, 255, 255, 0.21);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .Login__form.dark-mode {
-    border-color: var(--bg-light-100) !important;
+    background: rgba(0, 0, 0, 0.21);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(0, 0, 0, 0.3);
 }
 
 .Login__textfield.dark-mode label {
@@ -34,7 +59,33 @@
 
 .Login__textfield.dark-mode input {
     color: var(--text-light-100) !important;
-    background-color: var(--bg-dark-100);
+    background-color: transparent;
+}
+
+.Login_PasswordIcon.light-mode {
+    color: black;
+    fill: black;
+}
+
+.Login__text.light-mode {
+    color: black
+}
+
+.Login__text.dark-mode {
+    color: white;
+}
+.Login_btn.dark-mode {
+    color: white !important;
+    background-color: black !important;
+}
+.Login_btn.light-mode{
+    color: black !important;
+    background-color: white !important;
+}
+
+.Login_PasswordIcon.dark-mode {
+    color: white;
+    fill: white;
 }
 
 .Login__textfield.dark-mode input:-webkit-autofill,
