@@ -8,22 +8,14 @@
     align-items: center !important;
 }
 
-.Login__theme-mode-switch.light-mode {
-    border-color: var(--bg-dark-100);
-}
-
-.Login_theme_handler {
+.Login__theme-mode-switch {
     position: absolute;
     top: 20px;
     right: 20px;
 }
 
-.Login_remember.dark-mode span:nth-child(2) {
+.Login__remember-checkbox.dark-mode span:nth-child(2) {
     color: white !important;
-}
-
-.Login__theme-mode-switch.dark-mode {
-    border-color: var(--bg-light-100);
 }
 
 .Login__form {
@@ -62,25 +54,25 @@
     background-color: transparent;
 }
 
-.Login_PasswordIcon.light-mode {
+.Login__password-icon.light-mode {
     color: black;
     fill: black;
 }
 
-.Login__text.light-mode {
+.Login__login-register-text.light-mode {
     color: black
 }
 
-.Login__text.dark-mode {
+.Login__login-register-text.dark-mode {
     color: white;
 }
 
-.Login_btn.dark-mode {
+.Login__submit-button.dark-mode {
     color: black !important;
     background-color: white !important;
 }
 
-.Login_PasswordIcon.dark-mode {
+.Login__password-icon.dark-mode {
     color: white;
     fill: white;
 }

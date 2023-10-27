@@ -178,7 +178,7 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
                     <LoadingSpinner />
                 ) : (
                     <>
-                        <div className="Login_theme_handler">
+                        <div className="Login__theme-mode-switch">
                             <ThemeSwitch
                                 themeMode={themeMode}
                                 handleThemeModeChange={handleThemeModeChange}
@@ -259,7 +259,7 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
                                         endAdornment={
                                             <InputAdornment position="end">
                                                 <IconButton
-                                                    className={`Login_PasswordIcon ${themeMode}`}
+                                                    className={`Login__password-icon ${themeMode}`}
                                                     aria-label="themeMode password visibility"
                                                     onClick={
                                                         showPasswordClickedHandler
@@ -291,7 +291,7 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
                                 </FormControl>
 
                                 <FormControlLabel
-                                    className={`Login_remember ${themeMode}`}
+                                    className={`Login__remember-checkbox ${themeMode}`}
                                     control={
                                         <Checkbox
                                             data-testid="remember-me"
@@ -329,7 +329,7 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
                                         }
                                     >
                                         <Typography
-                                            className={`Login__text ${themeMode}`}
+                                            className={`Login__login-register-text ${themeMode}`}
                                             align="center"
                                         >
                                             {isLoginView
