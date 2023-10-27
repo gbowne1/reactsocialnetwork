@@ -1,13 +1,11 @@
+import "./CookieModal.css";
 import { useState, useEffect } from "react";
 
 import { Button, Checkbox } from "@mui/material";
 import CustomModal from "../../components/CustomModal/CustomModal";
-import CloseButton from "../CloseButton/CloseButton";
 
 import getFromLocalStorage from "../../utils/getFromLocalStorage";
 import saveToLocalStorage from "../../utils/saveToLocalStorage";
-
-import "./CookieModal.css";
 
 const CookieModal = () => {
     // State used to ONLY show cookie modal in case cookies have not been accepted.
@@ -46,14 +44,14 @@ const CookieModal = () => {
             dataTestId="cookie-modal"
         >
             <hr />
-            <div className="checkbox-container">
-                <div className="checkbox">
+            <div className="CookieModal__checkbox-container">
+                <div className="CookieModal__checkbox">
                     <Checkbox color="primary" />
                     <div className="text">
                         <p>Necessary Cookies</p>
                     </div>
                 </div>
-                <div className="checkbox">
+                <div className="CookieModal__checkbox">
                     <Checkbox color="primary" />
                     <div className="text">
                         <p>Analytical Cookies</p>
@@ -61,9 +59,9 @@ const CookieModal = () => {
                 </div>
             </div>
 
-            <div className="button-container">
+            <div className="CookieModal__button-container">
                 <Button
-                    className="button"
+                    className="CookieModal__button"
                     onClick={closeCookieModal}
                     variant="contained"
                     color="secondary"
@@ -72,7 +70,7 @@ const CookieModal = () => {
                     Accept Necessary
                 </Button>
                 <Button
-                    className="button"
+                    className="CookieModal__button"
                     onClick={closeCookieModal}
                     variant="contained"
                     autoFocus

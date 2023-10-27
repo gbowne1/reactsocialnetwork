@@ -1,3 +1,4 @@
+import "./CustomModal.css";
 import PropTypes from "prop-types";
 import {
     Dialog,
@@ -5,7 +6,6 @@ import {
     DialogContent,
     DialogContentText,
 } from "@mui/material";
-import "./CustomModal.css";
 
 /**
  *
@@ -21,7 +21,6 @@ import "./CustomModal.css";
  * @param {array} children - children elements to add inside the component.
  * @returns CustomModal component.
  */
-
 const CustomModal = ({
     isOpen,
     setIsOpen,
@@ -38,14 +37,14 @@ const CustomModal = ({
                     onClose={() => {
                         setIsOpen(false);
                     }}
-                    className="dialog"
+                    className="Modal"
                     data-testid={dataTestId}
                 >
-                    <DialogTitle className="dialog-title">{title}</DialogTitle>
-                    <DialogContent className="dialog-content">
+                    <DialogTitle className="Modal__title">{title}</DialogTitle>
+                    <DialogContent className="Modal__content">
                         <DialogContentText>{message}</DialogContentText>
                     </DialogContent>
-                    <div className="dialog-actions">{children}</div>
+                    <div className="Modal__actions">{children}</div>
                 </Dialog>
             )}
         </>

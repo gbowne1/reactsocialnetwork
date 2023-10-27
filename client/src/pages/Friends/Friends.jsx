@@ -1,3 +1,4 @@
+import "./Friends.css";
 import { useState } from "react";
 import PropTypes from "prop-types";
 import { Card } from "@mui/material";
@@ -8,7 +9,6 @@ import { CardMedia } from "@mui/material";
 import { CardActions } from "@mui/material";
 import { Button } from "@mui/material";
 
-import "./Friends.css";
 import Panel from "../../components/Panel/Panel";
 
 function Friends({ themeMode }) {
@@ -29,7 +29,6 @@ function Friends({ themeMode }) {
                         placeholder="Search"
                         aria-invalid="false"
                         aria-label="Label for text input"
-                        className="search"
                         type="text"
                         defaultValue="Search"
                     ></input>

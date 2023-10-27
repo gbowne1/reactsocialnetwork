@@ -184,7 +184,6 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
                                 handleThemeModeChange={handleThemeModeChange}
                             />
                         </div>
-
                         <Box
                             component="form"
                             className={`Login__form ${themeMode}`}
@@ -309,7 +308,7 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
                                 <Box className={`Login__form-panel`}>
                                     <Button
                                         data-testid="submit"
-                                        className={`Login_btn ${themeMode}`}
+                                        className={`Login_submit-button ${themeMode}`}
                                         variant="contained"
                                         onClick={handleSubmit(
                                             isLoginView

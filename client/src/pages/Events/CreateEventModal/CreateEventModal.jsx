@@ -1,3 +1,4 @@
+import "./CreateEventModal.css";
 import { useState } from "react";
 import PropTypes from "prop-types";
 import { Box, Button, TextField } from "@mui/material";
@@ -10,8 +11,6 @@ import dayjs from "dayjs";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-
-import "./CreateEventModal.css";
 
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";

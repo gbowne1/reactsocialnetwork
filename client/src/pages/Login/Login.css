@@ -1,26 +1,26 @@
 @import url("../../variables.css");
 
 .Login__container {
-    width: 100vw;
-    height: 100vh !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
+  width: 100vw;
+  height: 100vh !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
 }
 
 .Login__theme-mode-switch {
-    position: absolute;
-    top: 20px;
-    right: 20px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
 }
 
 .Login__remember-checkbox.dark-mode span:nth-child(2) {
-    color: white !important;
+  color: white !important;
 }
 
 .Login__form {
-    border: none;
-    border-radius: 12px;
+    border: 1px solid;
+    border-radius: 10px;
     margin: 0 auto;
     max-width: 600px;
     width: 100%;
@@ -37,63 +37,68 @@
 }
 
 .Login__form.dark-mode {
-    background: rgba(0, 0, 0, 0.21);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.21);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(0, 0, 0, 0.3);
 }
 
 .Login__textfield.dark-mode label {
-    color: var(--text-light-100) !important;
+  color: var(--text-light-100) !important;
 }
 
 .Login__textfield.dark-mode input {
-    color: var(--text-light-100) !important;
-    background-color: transparent;
+  color: var(--text-light-100) !important;
+  background-color: transparent;
 }
 
 .Login__password-icon.light-mode {
-    color: black;
-    fill: black;
+  color: black;
+  fill: black;
 }
 
 .Login__login-register-text.light-mode {
-    color: black
+  color: black
 }
 
 .Login__login-register-text.dark-mode {
-    color: white;
+  color: white;
 }
 
 .Login__submit-button.dark-mode {
-    color: black !important;
-    background-color: white !important;
+  color: white !important;
+  background-color: black !important;
+}
+
+.Login__submit-button.light-mode {
+  color: black !important;
+  background-color: white !important;
 }
 
 .Login__password-icon.dark-mode {
-    color: white;
-    fill: white;
+  color: white;
+  fill: white;
 }
 
 .Login__textfield.dark-mode input:-webkit-autofill,
 .Login__textfield.dark-mode input:-webkit-autofill:focus {
-    -webkit-box-shadow: 0 0 0px 1000px var(--text-dark-100) inset;
+  -webkit-box-shadow: 0 0 0px 1000px var(--text-dark-100) inset;
 }
 
 .Login__textfield.dark-mode fieldset {
-    border-color: var(--bg-light-100) !important;
+  border-color: var(--bg-light-100) !important;
 }
 
 .Login__form-panel button {
-    margin: 10px auto 20px;
-    width: 200px;
-    background-color: #ffc93d !important;
+  margin: 10px auto 20px;
+  width: 200px;
+  background-color: #ffc93d !important;
 }
 
 .Login__form-panel .subscribe,
 .Login__form-panel .login {
-    font-weight: bold;
-    cursor: pointer;
+  font-weight: bold;
+  cursor: pointer;
 }

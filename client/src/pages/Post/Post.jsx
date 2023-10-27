@@ -1,5 +1,5 @@
-import PropTypes from "prop-types";
 import "./Post.css";
+import PropTypes from "prop-types";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import InsertPhotoIcon from "@mui/icons-material/InsertPhoto";
 import VideoFileIcon from "@mui/icons-material/VideoFile";
@@ -9,21 +9,21 @@ import { IconButton } from "@mui/material";
 
 function Post({ themeMode, userAvatar, userName = "" }) {
     return (
-        <div className={`Post ${themeMode}`}>
-            <div className={`Post-header ${themeMode}`}>
-                <h3 className="Post-title">Post</h3>
+        <div className={`PostPage ${themeMode}`}>
+            <div className={`PostPage__header ${themeMode}`}>
+                <h3 className="PostPage__title">Post</h3>
             </div>
 
             <h4>Welcome to your Post {userName}!</h4>
 
-            <form className={`Post-create ${themeMode}`}>
-                <div className="Post-basics">
-                    <div className="Post-avatar">
+            <form className={`PostPage__create ${themeMode}`}>
+                <div className="PostPage__basics">
+                    <div className="PostPage__avatar">
                         {userAvatar ? (
                             <img src={userAvatar} alt="user avatar" />
                         ) : (
                             <IconButton
-                                className="Post-empty-avatar"
+                                className="PostPage__empty-avatar"
                                 aria-label="search-button"
                             >
                                 <AccountCircleIcon
@@ -35,19 +35,17 @@ function Post({ themeMode, userAvatar, userName = "" }) {
                             </IconButton>
                         )}
                     </div>
-
                     <input
                         dir="ltr"
                         placeholder="Start a post"
                         aria-invalid="false"
                         aria-label="Post text input"
-                        className={`Post-text ${themeMode}`}
+                        className={`PostPage__text ${themeMode}`}
                         type="text"
                         autoComplete="off"
                     />
-
                     <IconButton
-                        className={`Post-submit ${themeMode}`}
+                        className={`PostPage__submit ${themeMode}`}
                         aria-label="search button"
                         type="submit"
                     >
@@ -60,9 +58,9 @@ function Post({ themeMode, userAvatar, userName = "" }) {
                     </IconButton>
                 </div>
 
-                <div className="Post-uploads">
+                <div className="PostPage__uploads">
                     <IconButton
-                        className="Post-upload-btn"
+                        className="PostPage__upload-btn"
                         aria-label="upload picture"
                         component="label"
                     >
@@ -73,13 +71,13 @@ function Post({ themeMode, userAvatar, userName = "" }) {
                             aria-labelledby="upload picture"
                             sx={{ color: "#054a91" }}
                         />
-                        <span className={`Post-icon-label ${themeMode}`}>
+                        <span className={`PostPage__icon-label ${themeMode}`}>
                             Add Photo
                         </span>
                     </IconButton>
 
                     <IconButton
-                        className="Post-upload-btn"
+                        className="PostPage__upload-btn"
                         aria-label="upload video"
                         component="label"
                     >
@@ -90,13 +88,13 @@ function Post({ themeMode, userAvatar, userName = "" }) {
                             aria-labelledby="upload video"
                             sx={{ color: "#931621" }}
                         />
-                        <span className={`Post-icon-label ${themeMode}`}>
+                        <span className={`PostPage__icon-label ${themeMode}`}>
                             Add Video
                         </span>
                     </IconButton>
 
                     <IconButton
-                        className="Post-upload-btn"
+                        className="PostPage__upload-btn"
                         aria-label="add mood"
                         component="label"
                     >
@@ -106,7 +104,7 @@ function Post({ themeMode, userAvatar, userName = "" }) {
                             aria-labelledby="add mood"
                             sx={{ color: "#FFD369" }}
                         />
-                        <span className={`Post-icon-label ${themeMode}`}>
+                        <span className={`PostPage__icon-label ${themeMode}`}>
                             Add Mood
                         </span>
                     </IconButton>

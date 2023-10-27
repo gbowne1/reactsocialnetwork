@@ -1,3 +1,4 @@
+import "./HelpCenter.css";
 import { useState } from "react";
 import List from "@mui/material/List";
 import ListItemButton from "@mui/material/ListItemButton";
@@ -5,7 +6,6 @@ import ListItemText from "@mui/material/ListItemText";
 import { Collapse, ListSubheader } from "@mui/material";
 import { ExpandLess, ExpandMore } from "@mui/icons-material";
 import helpCenterContentCategories from "../../data/json/helpCenterContentCategories.json";
-import "./HelpCenter.css";
 import PropTypes from "prop-types";
 import { Box } from "@mui/system";
 import { NavLink, Outlet } from "react-router-dom";
@@ -48,7 +48,7 @@ const HelpCenter = ({ themeMode }) => {
 
                             return (
                                 <NavLink
-                                    className="Help-center__subcategory-link"
+                                    className="HelpCenter__subcategory-link"
                                     key={categoryId + subcategoryId}
                                     to={`/help/${categoryId}/${subcategoryId}`}
                                 >
@@ -77,17 +77,17 @@ const HelpCenter = ({ themeMode }) => {
             setIsOpen={setIsOpen}
             dataTestId={"help-panel"}
         >
-            <div className="Help-center__content-wrapper">
-                <div className="Help-center__subject-picker">
+            <div className="HelpCenter__content-wrapper">
+                <div className="HelpCenter__subject-picker">
                     <List
-                        className={`Help-center__categories-list ${themeMode}`}
+                        className={`HelpCenter__categories-list ${themeMode}`}
                         component="nav"
-                        aria-labelledby="Help-center__categories-subheader"
+                        aria-labelledby="HelpCenter__categories-subheader"
                         subheader={
                             <ListSubheader
                                 component="div"
-                                id="Help-center__categories-subheader"
-                                className={`Help-center__categories-subheader ${themeMode}`}
+                                id="HelpCenter__categories-subheader"
+                                className={`HelpCenter__categories-subheader ${themeMode}`}
                             >
                                 Categories
                             </ListSubheader>
@@ -96,7 +96,7 @@ const HelpCenter = ({ themeMode }) => {
                         {helpCenterCategories}
                     </List>
                 </div>
-                <div className="Help-center__subject-details">
+                <div className="HelpCenter__subject-details">
                     <Outlet />
                 </div>
             </div>

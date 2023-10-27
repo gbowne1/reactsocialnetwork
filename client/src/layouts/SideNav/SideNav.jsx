@@ -1,6 +1,6 @@
+import "./SideNav.css";
 //import { NavLink as Link } from 'react-router-dom';
 import { slide as Menu } from "react-burger-menu";
-import "./SideNav.css";
 import PropTypes from "prop-types";
 import GroupsIcon from "@mui/icons-material/Groups";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
@@ -15,19 +15,19 @@ const SideNav = ({ isSideNavVisible, themeMode }) => {
             data-testid="side-nav"
         >
             <a className={`SideNav ${themeMode}`} href="/groups">
-                <GroupsIcon className="side-nav-icon" />
+                <GroupsIcon className="SideNav__icon" />
                 Groups
             </a>
             <a className={`SideNav ${themeMode}`} href="/events">
-                <CalendarMonthIcon className="side-nav-icon" />
+                <CalendarMonthIcon className="SideNav__icon" />
                 Events
             </a>
             <a className={`SideNav ${themeMode}`} href="/friends">
-                <PeopleAltIcon className="side-nav-icon" />
+                <PeopleAltIcon className="SideNav__icon" />
                 Friends
             </a>
             <a className={`SideNav ${themeMode}`} href="/admin">
-                <AdminPanelSettingsIcon className="side-nav-icon" />
+                <AdminPanelSettingsIcon className="SideNav__icon" />
                 Admin
             </a>
         </Menu>

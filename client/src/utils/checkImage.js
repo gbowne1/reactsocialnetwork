@@ -6,6 +6,7 @@
  * @param {string} image url of the image to check
  * @param {function} callback hooks used to set imageUrl as a state.
  * @param {string} image url for a placeholder image to fallback on in case image.onerror is called.
+ * @returns {void}
  */
 
 const checkImage = (

@@ -1,3 +1,4 @@
+import "./UserProfile.css";
 import { useState, useEffect } from "react";
 import { Box, Button, Tabs, Tab } from "@mui/material";
 
@@ -11,8 +12,6 @@ import Panel from "../../components/Panel/Panel";
 import CustomTabPanel from "../../components/CustomTabPanel/CustomTabPanel";
 import getFromLocalStorage from "../../utils/getFromLocalStorage";
 import fetchUserData from "../../utils/fetchUserData";
-
-import "./UserProfile.css";
 
 function a11yProps(index) {
     return {

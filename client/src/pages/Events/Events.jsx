@@ -1,3 +1,4 @@
+import "./Events.css";
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { Box, Button, MenuItem, Select, Stack } from "@mui/material";
@@ -6,8 +7,6 @@ import SingleEvent from "./SingleEvent/SingleEvent";
 import CreateEventModal from "./CreateEventModal/CreateEventModal";
 import CustomSnackbar from "../../components/CustomSnackbar/CustomSnackbar";
 import Panel from "../../components/Panel/Panel";
-
-import "./Events.css";
 
 const Events = ({ themeMode }) => {
     const [isOpen, setIsOpen] = useState(true);
