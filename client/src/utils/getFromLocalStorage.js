@@ -1,7 +1,7 @@
 /**
  *
  * @param {string} key of the local storage data
- * @returns data for particular key from local storage
+ * @returns data for particular key from local storage or null if not found.
  */
 const getFromLocalStorage = (key = "state") => {
     const data = JSON.parse(localStorage.getItem(key));
@@ -9,7 +9,7 @@ const getFromLocalStorage = (key = "state") => {
     if (data) {
         return data;
     } else {
-        console.log(`There is no "${key}" key in localStorage`);
+        return null;
     }
 };
 
