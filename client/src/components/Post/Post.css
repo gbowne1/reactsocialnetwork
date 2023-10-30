@@ -1,92 +1,92 @@
 .Post {
-  overflow: hidden;
-  border-radius: 15px;
-  margin: 50px auto;
-  padding: 20px 0;
-  width: 100%;
-  max-width: 800px;
-  height: fit-content;
-  box-shadow: 0px 1px 2px #888888;
+    overflow: hidden;
+    border-radius: 15px;
+    margin: 50px auto;
+    padding: 20px 0;
+    width: 100%;
+    max-width: 800px;
+    height: fit-content;
+    box-shadow: 0px 1px 2px #888888;
 }
 
 .Post.dark-mode {
-  background-color: var(--bg-dark-500);
+    background-color: var(--bg-dark-500);
 }
 
 .Post.light-mode {
-  background-color: var(--bg-light-100);
+    background-color: var(--bg-light-100);
 }
 
 .Post__header {
-  display: flex;
-  padding: 5px 20px;
+    display: flex;
+    padding: 5px 20px;
 }
 
 .Post__header.light-mode {
-  color: var(--text-dark-500);
+    color: var(--text-dark-500);
 }
 
 .Post__header.dark-mode {
-  color: var(--text-light-100);
+    color: var(--text-light-100);
 }
 
 .Post__image-container {
-  border: 2px solid lightblue;
-  border-radius: 50px;
-  margin-right: 20px;
-  width: 50px;
-  height: 50px;
+    border: 2px solid lightblue;
+    border-radius: 50px;
+    margin-right: 20px;
+    width: 50px;
+    height: 50px;
 }
 
-.Post__image-container>img {
-  overflow: hidden;
-  border-radius: 50px;
-  width: 100%;
-  height: 100%;
+.Post__image-container > img {
+    overflow: hidden;
+    border-radius: 50px;
+    width: 100%;
+    height: 100%;
 }
 
 .Post__account {
-  font-size: medium;
-  font-weight: bold;
+    font-size: medium;
+    font-weight: bold;
 }
 
 .Post__close-button {
-  margin-right: 0 !important;
-  margin-left: auto !important;
+    margin-right: 0 !important;
+    margin-left: auto !important;
 }
 
 .Post__close-button.light-mode {
-  color: var(--text-dark-100);
+    color: var(--text-dark-100);
 }
 
 .Post__close-button.dark-mode {
-  color: var(--text-light-100);
+    color: var(--text-light-100);
 }
 
 .Post__content {
-  padding: 5px 0;
-  height: fit-content;
+    padding: 5px 0;
+    height: fit-content;
 }
 
 .Post__text {
-  padding: 5px 20px;
-  text-align: left;
-  font-size: 1rem;
+    padding: 5px 20px;
+    text-align: left;
+    font-size: 1rem;
 }
 
 .Post__text.light-mode {
-  color: var(--text-dark-500);
+    color: var(--text-dark-500);
 }
 
 .Post__text.dark-mode {
-  color: var(--text-light-100);
+    color: var(--text-light-100);
 }
 
 .Post__content-image-container {
-  height: 100%;
+    height: 100%;
 }
 
-.Post__content-image-container>img {
-  width: 100% !important;
-  height: auto;
+.Post__content-image-container > img {
+    width: 100% !important;
+    height: auto;
 }
