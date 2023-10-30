@@ -7,6 +7,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import { useNavigate } from "react-router";
 
 import Panel from "../../components/Panel/Panel";
 import CustomTabPanel from "../../components/CustomTabPanel/CustomTabPanel";
@@ -21,6 +22,7 @@ function a11yProps(index) {
 }
 
 const UserProfile = ({ themeMode }) => {
+    const navigate = useNavigate();
     const [isOpen, setIsOpen] = useState(true);
     const [value, setValue] = useState(0);
     const [userData, setUserData] = useState({
@@ -48,6 +50,10 @@ const UserProfile = ({ themeMode }) => {
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
+    };
+
+    const handleEditProfileClicked = () => {
+        navigate("/profile", { state: window.location.pathname });
     };
 
     return (
@@ -170,6 +176,7 @@ const UserProfile = ({ themeMode }) => {
                     <Button
                         className="UProfile__user-action-button"
                         variant="contained"
+                        onClick={handleEditProfileClicked}
                     >
                         Edit Profile
                     </Button>
