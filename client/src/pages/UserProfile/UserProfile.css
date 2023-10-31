@@ -1,161 +1,160 @@
 @import url("../../variables.css");
 
 .UProfile__top-section {
-  height: 150px;
-  width: 100%;
-  display: flex;
+    height: 150px;
+    width: 100%;
+    display: flex;
 }
 
 .UProfile__avatar-container {
-  height: 100%;
-  width: 20%;
+    height: 100%;
+    width: 20%;
 }
 
 .UProfile__image-container {
-  border-radius: 50px;
-  margin: 25px auto;
-  width: 100px;
-  height: 100px;
+    border-radius: 50px;
+    margin: 25px auto;
+    width: 100px;
+    height: 100px;
 }
 
-.UProfile__image-container>img {
-  overflow: hidden;
-  border-radius: 50px;
-  height: 100%;
-  width: 100%;
+.UProfile__image-container > img {
+    overflow: hidden;
+    border-radius: 50px;
+    height: 100%;
+    width: 100%;
 }
 
 .UProfile__user-contact-container {
-  height: 100%;
-  width: 40%;
+    height: 100%;
+    width: 40%;
 }
 
 .UProfile__contact-info {
-  margin-left: 10px;
-  margin-bottom: 20px;
-  text-align: left;
-  font-size: 1.1rem;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    text-align: left;
+    font-size: 1.1rem;
 }
 
 .UProfile__social-icons-container {
-  height: 100%;
-  width: 40%;
+    height: 100%;
+    width: 40%;
 
-  display: flex;
-  justify-content: space-around;
+    display: flex;
+    justify-content: space-around;
 }
 
 .UProfile__social-icon {
-  border: 2px solid grey;
-  border-radius: 50px;
-  margin: 50px 0;
-  height: 50px;
-  width: 50px;
-  cursor: pointer;
+    border: 2px solid grey;
+    border-radius: 50px;
+    margin: 50px 0;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
 }
 
-
-.UProfile__social-icon>svg {
-  margin: 5px 6px;
-  font-size: 35px;
+.UProfile__social-icon > svg {
+    margin: 5px 6px;
+    font-size: 35px;
 }
 
 .fb-color {
-  border-color: #0866ff;
-  color: #0866ff;
+    border-color: #0866ff;
+    color: #0866ff;
 }
 
 .fb-color:hover {
-  background-color: #0866ff;
-  border-color: white;
-  color: white;
+    background-color: #0866ff;
+    border-color: white;
+    color: white;
 }
 
 .insta-color {
-  border-color: #ff1c52;
-  color: #ff1c52;
+    border-color: #ff1c52;
+    color: #ff1c52;
 }
 
 .insta-color:hover {
-  background-color: #ff1c52;
-  border-color: white;
-  color: white;
+    background-color: #ff1c52;
+    border-color: white;
+    color: white;
 }
 
 .x-color {
-  border-color: #1d9bf0;
-  color: #1d9bf0;
+    border-color: #1d9bf0;
+    color: #1d9bf0;
 }
 
 .x-color:hover {
-  background-color: #1d9bf0;
-  border-color: white;
-  color: white;
+    background-color: #1d9bf0;
+    border-color: white;
+    color: white;
 }
 
 .wa-color {
-  border-color: #25d366;
-  color: #25d366;
+    border-color: #25d366;
+    color: #25d366;
 }
 
 .wa-color:hover {
-  background-color: #25d366;
-  border-color: white;
-  color: white;
+    background-color: #25d366;
+    border-color: white;
+    color: white;
 }
 
 .gh-color {
-  border-color: #1f2328;
-  color: #1f2328;
+    border-color: #1f2328;
+    color: #1f2328;
 }
 
 .gh-color:hover {
-  background-color: #1f2328;
-  border-color: white;
-  color: white;
+    background-color: #1f2328;
+    border-color: white;
+    color: white;
 }
 
-.UProfile__social-icon>img {
-  border-radius: 50px;
-  height: 100%;
-  width: 100%;
+.UProfile__social-icon > img {
+    border-radius: 50px;
+    height: 100%;
+    width: 100%;
 }
 
 .UProfile__middle-section {
-  display: flex;
-  height: 300px;
+    display: flex;
+    height: 300px;
 }
 
 .UProfile__user-info-container {
-  width: 20%;
-  height: 100%;
+    width: 20%;
+    height: 100%;
 }
 
 .UProfile__about-info {
-  margin-left: 10px;
-  margin-bottom: 20px;
-  text-align: center;
-  font-size: 1.1rem;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.1rem;
 }
 
 .UProfile__user-details-container {
-  border: 2px solid grey;
-  border-radius: 25px;
-  padding: 10px;
-  width: 80%;
-  height: 100%;
+    border: 2px solid grey;
+    border-radius: 25px;
+    padding: 10px;
+    width: 80%;
+    height: 100%;
 }
 
 .UProfile__bottom-section {
-  margin-top: 50px;
-  display: flex;
-  justify-content: space-around;
-  height: 100px;
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-around;
+    height: 100px;
 }
 
 .UProfile__user-action-button {
-  border-radius: 50px;
-  margin: 50px 0;
-  height: 50px;
-  width: 150px;
+    border-radius: 50px;
+    margin: 50px 0;
+    height: 50px;
+    width: 150px;
 }

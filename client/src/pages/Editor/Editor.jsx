@@ -20,7 +20,6 @@ import {
 
 import Panel from "../../components/Panel/Panel";
 
-
 function Editor({ themeMode }) {
     const [isOpen, setIsOpen] = useState(true);
     const [title, setTitle] = useState("");

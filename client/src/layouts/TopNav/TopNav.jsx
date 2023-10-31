@@ -103,7 +103,7 @@ export default function TopNav({
     };
 
     const handleMyAccountClicked = () => {
-        navigate("/profile", { state: window.location.pathname });
+        navigate("/user-profile", { state: window.location.pathname });
         handleMenuClose();
     };
 
