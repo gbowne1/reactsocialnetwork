@@ -2,7 +2,7 @@
 
 describe("Cookie Modal tests", () => {
     beforeEach(() => {
-        cy.visit("http://localhost:3000/");
+        cy.visit("/");
     });
 
     it("should display cookie modal, close it when clicking 'Accept Necessary' and not display again after page reload", () => {

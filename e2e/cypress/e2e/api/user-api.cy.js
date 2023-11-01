@@ -29,12 +29,7 @@ describe("User API tests", () => {
 
     beforeEach(() => {
         // Delete all db records
-        cy.request({
-            url: "http://localhost:9000/api/users/delete-test-users",
-            failOnStatusCode: false,
-        }).then((response) => {
-            expect(response.body.message).to.eq("Users deleted!");
-        });
+        cy.deleteTestUsers();
     });
 
     // POST - /api/login loginUser
