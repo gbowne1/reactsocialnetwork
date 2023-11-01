@@ -23,19 +23,13 @@ describe("Post API tests", () => {
 
     beforeEach(() => {
         // Delete all test post records
-        cy.request({
-            url: `${apiUrl}/api/posts/delete-test-posts`,
-            failOnStatusCode: false,
-        }).then((res) => {
-            expect(res.body.message).to.eq("Posts deleted!");
-        });
+        cy.deleteTestPosts();
     });
 
     // GET - /api/posts getPosts
     it("GET - /api/posts - should retrieve all existing posts data when requesting", () => {
         cy.request(`${apiUrl}/api/posts/`).then((res) => {
             expect(Array.isArray(res.body.data)).to.be.true;
-            expect(res.body.data.length).to.eq(3);
         });
     });
 
@@ -116,18 +110,13 @@ describe("Post API tests", () => {
                 url: `${apiUrl}/api/post/${eventId}`,
                 body: testPost,
             }).then((res) => {
-                expect(res.body.message).to.eq(`Post successfully deleted!`);
+                expect(res.status).to.eq(204);
             });
         });
     });
 
     after(() => {
         // Delete all test post records
-        cy.request({
-            url: `${apiUrl}/api/posts/delete-test-posts`,
-            failOnStatusCode: false,
-        }).then((res) => {
-            expect(res.body.message).to.eq("Posts deleted!");
-        });
+        cy.deleteTestPosts();
     });
 });

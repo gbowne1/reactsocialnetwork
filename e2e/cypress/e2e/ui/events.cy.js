@@ -53,7 +53,7 @@ describe("Event tests", () => {
     beforeEach(() => {
         // Load the app and seed localstorage with cookiesAccepted key to true
         // and add credentials in order  to bypass login screen
-        cy.visit("http://localhost:3000/").then(() => {
+        cy.visit("/").then(() => {
             addCookiesAcceptedToLocalStorage();
             addLastLoginCredentialsToLocalStorage();
         });
@@ -95,12 +95,12 @@ describe("Event tests", () => {
             }
         });
 
-        cy.visit("http://localhost:3000/");
+        cy.visit("/");
     });
 
     it("should create a new event when submitting valid data", () => {
         // Load app again to dashboard screen
-        cy.visit("http://localhost:3000/");
+        cy.visit("/");
 
         // Click on burger menu
         cy.get('[data-testid="burger-menu-button"]').click();
@@ -233,7 +233,7 @@ describe("Event tests", () => {
 
     it("should delete events when clicking event's delete button", () => {
         // Load app again to dashboard screen
-        cy.visit("http://localhost:3000/");
+        cy.visit("/");
 
         // Click on burger menu
         cy.get('[data-testid="burger-menu-button"]').click();

@@ -3,14 +3,16 @@
 import { addLastLoginCredentialsToLocalStorage } from "../../utils/utils";
 
 describe("Top Nav tests", () => {
-    it("should display all elements and pages when clicking through navbar", () => {
+    beforeEach(() => {
         // Load the app and seed localstorage with credentials
-        cy.visit("http://localhost:3000/").then(() => {
+        cy.visit("/").then(() => {
             addLastLoginCredentialsToLocalStorage();
         });
+    });
 
+    it("should display all elements and pages when clicking through navbar", () => {
         // Load app again to dashboard screen
-        cy.visit("http://localhost:3000/");
+        cy.visit("/");
 
         // Check navbar is visible
         cy.get("[data-testid=top-nav]").should("be.visible");

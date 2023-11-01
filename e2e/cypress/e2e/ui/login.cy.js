@@ -31,16 +31,13 @@ describe("Login tests", () => {
         );
     };
 
-    // Add all user ids of registered user so we can delete them.
-    const userIds = [];
-
     beforeEach(() => {
         // Delete all db records
         cy.request({
             url: "http://localhost:9000/api/users/delete-test-users",
             failOnStatusCode: false,
-        }).then((response) => {
-            expect(response.body.message).to.eq("Users deleted!");
+        }).then((res) => {
+            expect(res.status).to.eq(204);
         });
 
         // Add cookiesAccepted: true so that cookies modal does not appear/
@@ -52,7 +49,7 @@ describe("Login tests", () => {
         const TEST_EMAIL = "testuser@gmail.com";
         const TEST_PASSWORD = "Testpass1!";
 
-        cy.visit("http://localhost:3000/");
+        cy.visit("/");
 
         submitUserData(TEST_USERNAME, TEST_EMAIL, TEST_PASSWORD);
 
@@ -67,7 +64,7 @@ describe("Login tests", () => {
         // Check we are on homepage (dashboard page)
         checkHomepage();
 
-        // Reload page and check homepag is still visible
+        // Reload page and check homepage is still visible
         cy.reload();
         checkHomepage();
     });
@@ -77,7 +74,7 @@ describe("Login tests", () => {
         const UNREGISTERED_EMAIL = "SomeEmail@mail.com";
         const UNREGISTERED_PASSWORD = "Somepassword123!";
 
-        cy.visit("http://localhost:3000/");
+        cy.visit("/");
 
         submitUserData(
             UNREGISTERED_USERNAME,
@@ -99,7 +96,7 @@ describe("Login tests", () => {
         const NEW_EMAIL = "newuser@gmail.com";
         const NEW_PASSWORD = "Test1234!";
 
-        cy.visit("http://localhost:3000/");
+        cy.visit("/");
 
         // Click on register here!
         cy.get("[data-testid=subscribe]").click();
@@ -126,7 +123,7 @@ describe("Login tests", () => {
         // Check we are on homepage (dashboard page)
         checkHomepage();
 
-        // Reload page and check homepag is still visible
+        // Reload page and check homepage is still visible
         cy.reload();
         checkHomepage();
     });
@@ -136,7 +133,7 @@ describe("Login tests", () => {
         const EXISTING_EMAIL = "testuser@gmail.com";
         const EXISTING_PASSWORD = "Testpass1!";
 
-        cy.visit("http://localhost:3000/").then(() => {
+        cy.visit("/").then(() => {
             // Add existing user localStorage users array
             const users = [];
             const existingUser = {
@@ -164,7 +161,7 @@ describe("Login tests", () => {
     });
 
     it("should display error labels when leaving required inputs empty or on validation errors", () => {
-        cy.visit("http://localhost:3000/");
+        cy.visit("/");
 
         // Click on submit
         cy.get('[data-testid="submit"]').click();
