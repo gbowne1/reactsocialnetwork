@@ -23,3 +23,37 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+const apiUrl = "http://localhost:9000";
+Cypress.Commands.add("deleteTestUsers", () => {
+    return cy
+        .request({
+            method: "GET",
+            url: `${apiUrl}/api/users/delete-test-users/`,
+        })
+        .then((res) => {
+            expect(res.status).to.eq(204);
+        });
+});
+
+Cypress.Commands.add("deleteTestPosts", () => {
+    return cy
+        .request({
+            url: `${apiUrl}/api/posts/delete-test-posts`,
+            failOnStatusCode: false,
+        })
+        .then((res) => {
+            expect(res.status).to.eq(204);
+        });
+});
+
+Cypress.Commands.add("deleteTestUsers", () => {
+    return cy
+        .request({
+            url: "http://localhost:9000/api/users/delete-test-users",
+            failOnStatusCode: false,
+        })
+        .then((res) => {
+            expect(res.status).to.eq(204);
+        });
+});
