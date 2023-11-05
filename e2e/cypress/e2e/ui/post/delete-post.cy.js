@@ -45,7 +45,7 @@ describe("Post Section - Delete Post", () => {
         cy.deleteTestPosts();
     });
 
-    it("should remove post when clicking on the post's close button", () => {
+    it("Verify a post is removed when clicking on the post's close button", () => {
         removeAllPosts();
         cy.get("[data-testid=post]").should("not.exist");
     });

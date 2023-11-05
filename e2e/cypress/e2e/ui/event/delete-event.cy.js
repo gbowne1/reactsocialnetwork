@@ -98,7 +98,7 @@ describe("Events Section - Delete Event", () => {
         cy.visit("/");
     });
 
-    it("should delete events when clicking event's delete button", () => {
+    it("Verify an event is deleted when clicking on the event's delete button", () => {
         // Load app again to dashboard screen
         cy.visit("/");
 

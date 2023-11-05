@@ -10,7 +10,7 @@ describe("Top Navigation Section - Top Nav", () => {
         });
     });
 
-    it("should display all elements and pages when clicking through navbar", () => {
+    it("Verify all elements are present in the navbar and clicking on them navigates to the correct pages", () => {
         // Load app again to dashboard screen
         cy.visit("/");
 

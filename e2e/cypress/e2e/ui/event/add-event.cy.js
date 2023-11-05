@@ -98,7 +98,7 @@ describe("Events Section - Add Event", () => {
         cy.visit("/");
     });
 
-    it("should create a new event when submitting valid data", () => {
+    it("Verify an event is created when submitting valid data", () => {
         // Load app again to dashboard screen
         cy.visit("/");
 
@@ -150,7 +150,7 @@ describe("Events Section - Add Event", () => {
         });
     });
 
-    it("should display error labels when leaving required inputs empty or on validation errors", () => {
+    it("Verify error labels are displayed when leaving required inputs empty or on validation errors", () => {
         // Click on burger menu
         cy.get("[data-testid=burger-menu-button]").click();
 

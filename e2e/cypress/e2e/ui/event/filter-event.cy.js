@@ -99,7 +99,7 @@ describe("Events Section - Filter Event", () => {
     });
 
     ctx.singleEvents = [];
-    it("should filter events by 'Going', 'Interested' and 'Not Going' when using the event filter", () => {
+    it("Verify events are filtered by 'Going', 'Interested' and 'Not Going' when using the event filter", () => {
         // Click on burger menu
         cy.get("[data-testid=burger-menu-button]").click();
 

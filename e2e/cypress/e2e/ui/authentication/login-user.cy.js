@@ -31,6 +31,14 @@ describe("Login User", () => {
         );
     };
 
+    const TEST_USERNAME = "testuser1";
+    const TEST_EMAIL = "testuser@gmail.com";
+    const TEST_PASSWORD = "Testpass1!";
+
+    const UNREGISTERED_USERNAME = "SomeUsername";
+    const UNREGISTERED_EMAIL = "SomeEmail@mail.com";
+    const UNREGISTERED_PASSWORD = "Somepassword123!";
+
     beforeEach(() => {
         // Delete all db records
         cy.request({
@@ -42,15 +50,26 @@ describe("Login User", () => {
 
         // Add cookiesAccepted: true so that cookies modal does not appear/
         window.localStorage.setItem("cookiesAccepted", JSON.stringify(true));
-    });
-
-    it("should login when entering hardcoded testuser credentials and stayed logged in after page reload", () => {
-        const TEST_USERNAME = "testuser1";
-        const TEST_EMAIL = "testuser@gmail.com";
-        const TEST_PASSWORD = "Testpass1!";
 
         cy.visit("/");
+    });
 
+    it("Verify user can login with hardcoded testuser credentials", () => {
+        submitUserData(TEST_USERNAME, TEST_EMAIL, TEST_PASSWORD);
+
+        // Check login successful snackbar appears
+        cy.get('[data-testid="alert-message"]')
+            .should("be.visible")
+            .and("have.text", "Login successful!");
+
+        // Check loading icon appears
+        cy.get('[data-testid="loading-spinner"]').should("be.visible");
+
+        // Check we are on homepage (dashboard page)
+        checkHomepage();
+    });
+
+    it("Verify user stays logged in after page reload", () => {
         submitUserData(TEST_USERNAME, TEST_EMAIL, TEST_PASSWORD);
 
         // Check login successful snackbar appears
@@ -69,13 +88,7 @@ describe("Login User", () => {
         checkHomepage();
     });
 
-    it("should NOT login when entering un-registered credentials", () => {
-        const UNREGISTERED_USERNAME = "SomeUsername";
-        const UNREGISTERED_EMAIL = "SomeEmail@mail.com";
-        const UNREGISTERED_PASSWORD = "Somepassword123!";
-
-        cy.visit("/");
-
+    it("Verify user cannot login with invalid credentials", () => {
         submitUserData(
             UNREGISTERED_USERNAME,
             UNREGISTERED_EMAIL,
@@ -91,9 +104,7 @@ describe("Login User", () => {
             );
     });
 
-    it("should display error labels when leaving required inputs empty or on validation errors", () => {
-        cy.visit("/");
-
+    it("Verify input error labels and validation error messages are displayed", () => {
         // Click on submit
         cy.get('[data-testid="submit"]').click();
 

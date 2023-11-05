@@ -45,7 +45,7 @@ describe("Post Section - Add Post", () => {
         cy.deleteTestPosts();
     });
 
-    it("should display posts, post elements and texts", () => {
+    it("Verify posts, post elements and texts are displayed", () => {
         cy.get("[data-testid=post]").each((post) => {
             cy.get(post).within(() => {
                 cy.get("[data-testid=account-image]").should("be.visible");
@@ -63,7 +63,7 @@ describe("Post Section - Add Post", () => {
         });
     });
 
-    it("should create a post when submitting post form", () => {
+    it("Verify a post is created when submitting post form", () => {
         createPost();
 
         cy.get("[data-testid=post]")
