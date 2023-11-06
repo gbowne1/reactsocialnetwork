@@ -1,8 +1,8 @@
 /// <reference types="cypress" />
 
-import { addLastLoginCredentialsToLocalStorage } from "../../utils/utils";
+import { addLastLoginCredentialsToLocalStorage } from "../../../utils/utils";
 
-describe("Top Nav tests", () => {
+describe("Top Navigation Section - Top Nav", () => {
     beforeEach(() => {
         // Load the app and seed localstorage with credentials
         cy.visit("/").then(() => {
@@ -10,7 +10,7 @@ describe("Top Nav tests", () => {
         });
     });
 
-    it("should display all elements and pages when clicking through navbar", () => {
+    it("Verify all elements are present in the navbar and clicking on them navigates to the correct pages", () => {
         // Load app again to dashboard screen
         cy.visit("/");
 

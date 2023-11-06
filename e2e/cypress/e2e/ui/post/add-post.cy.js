@@ -4,7 +4,7 @@ import {
     lastLoginCredentials,
     addLastLoginCredentialsToLocalStorage,
     addCookiesAcceptedToLocalStorage,
-} from "../../utils/utils";
+} from "../../../utils/utils";
 
 const createPost = () => {
     cy.get("[data-testid=create-post-form]").should("be.visible");
@@ -30,7 +30,7 @@ const removeAllPosts = () => {
         });
 };
 
-describe("Post tests", () => {
+describe("Post Section - Add Post", () => {
     beforeEach(() => {
         // Load the app and seed localstorage with cookiesAccepted key to true
         // and add credentials in order  to bypass login screen
@@ -45,7 +45,7 @@ describe("Post tests", () => {
         cy.deleteTestPosts();
     });
 
-    it("should display posts, post elements and texts", () => {
+    it("Verify posts, post elements and texts are displayed", () => {
         cy.get("[data-testid=post]").each((post) => {
             cy.get(post).within(() => {
                 cy.get("[data-testid=account-image]").should("be.visible");
@@ -63,12 +63,7 @@ describe("Post tests", () => {
         });
     });
 
-    it("should remove post when clicking on the post's close button", () => {
-        removeAllPosts();
-        cy.get("[data-testid=post]").should("not.exist");
-    });
-
-    it("should create a post when submitting post form", () => {
+    it("Verify a post is created when submitting post form", () => {
         createPost();
 
         cy.get("[data-testid=post]")
