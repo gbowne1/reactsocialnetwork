@@ -3,9 +3,9 @@
 import {
     addLastLoginCredentialsToLocalStorage,
     addCookiesAcceptedToLocalStorage,
-} from "../../utils/utils";
+} from "../../../utils/utils";
 
-describe("Event tests", () => {
+describe("Events Section - Add Event", () => {
     const apiUrl = "http://localhost:9000";
     const ctx = {};
 
@@ -53,7 +53,7 @@ describe("Event tests", () => {
     beforeEach(() => {
         // Load the app and seed localstorage with cookiesAccepted key to true
         // and add credentials in order  to bypass login screen
-        cy.visit("http://localhost:3000/").then(() => {
+        cy.visit("/").then(() => {
             addCookiesAcceptedToLocalStorage();
             addLastLoginCredentialsToLocalStorage();
         });
@@ -95,12 +95,12 @@ describe("Event tests", () => {
             }
         });
 
-        cy.visit("http://localhost:3000/");
+        cy.visit("/");
     });
 
-    it("should create a new event when submitting valid data", () => {
+    it("Verify an event is created when submitting valid data", () => {
         // Load app again to dashboard screen
-        cy.visit("http://localhost:3000/");
+        cy.visit("/");
 
         // Click on burger menu
         cy.get('[data-testid="burger-menu-button"]').click();
@@ -150,151 +150,7 @@ describe("Event tests", () => {
         });
     });
 
-    ctx.singleEvents = [];
-    it("should filter events by 'Going', 'Interested' and 'Not Going' when using the event filter", () => {
-        // Click on burger menu
-        cy.get("[data-testid=burger-menu-button]").click();
-
-        // Click on events
-        cy.get('[href="/events"]').click();
-
-        // Make sure 1st event is on 'Going' state
-        cy.get('[data-testid="attendance-select"] > #attendance-select')
-            .eq(0)
-            .then((attendanceElement) => {
-                attendanceElement = attendanceElement[0];
-                cy.get(attendanceElement).click({ force: true });
-                cy.get('[data-testid="attendance-going"]').click();
-            })
-            .should("have.text", "Going");
-
-        // Reload page as there were issues targeting the 2nd event element without this
-        cy.reload();
-
-        // Make sure 2nd event is on 'Interested' state
-        cy.get('[data-testid="attendance-select"] > #attendance-select')
-            .eq(1)
-            .then((attendanceElement) => {
-                attendanceElement = attendanceElement[0];
-                cy.get(attendanceElement).click({ force: true });
-                cy.get('[data-testid="attendance-interested"]').click();
-            })
-            .should("have.text", "Interested");
-
-        // Record the innerText of each event element to use for comparison later
-        cy.get("[data-testid=single-event-component]").each(
-            (singleEvent, index) => {
-                singleEvent = singleEvent[0];
-                ctx.singleEvents.push({
-                    singleEventText: singleEvent.innerText,
-                });
-            }
-        );
-
-        // Filter events by 'Going'
-        cy.get("#attendance-filter").click();
-        cy.get('[data-value="Going"]').click();
-        cy.get("#attendance-filter").should("have.text", "Going");
-
-        // Get 'Going' event and compare text with recorded text
-        cy.get("[data-testid=single-event-component]").then((singleEvent) => {
-            singleEvent = singleEvent[0];
-            expect(singleEvent.innerText).to.eq(
-                ctx.singleEvents[0].singleEventText
-            );
-        });
-
-        // Filter events by 'Interested'
-        cy.get("#attendance-filter").click();
-        cy.get('[data-value="Interested"]').click();
-        cy.get("#attendance-filter").should("have.text", "Interested");
-
-        // Get 'Interested' event and compare text with recorded text
-        cy.get("[data-testid=single-event-component]").then((singleEvent) => {
-            singleEvent = singleEvent[0];
-            expect(singleEvent.innerText).to.eq(
-                ctx.singleEvents[1].singleEventText
-            );
-        });
-
-        // Filter events by 'Not Going'
-        cy.get("#attendance-filter").click();
-        cy.get('[data-value="Not Going"]').click();
-        cy.get("#attendance-filter").should("have.text", "Not Going");
-
-        // Get 'Not Going' event and compare text with recorded text
-        cy.get("[data-testid=single-event-component]").then((singleEvent) => {
-            singleEvent = singleEvent[0];
-            expect(singleEvent.innerText).to.eq(
-                ctx.singleEvents[2].singleEventText
-            );
-        });
-    });
-
-    it("should delete events when clicking event's delete button", () => {
-        // Load app again to dashboard screen
-        cy.visit("http://localhost:3000/");
-
-        // Click on burger menu
-        cy.get('[data-testid="burger-menu-button"]').click();
-
-        // Click on events
-        cy.get('[href="/events"]').click();
-
-        // Check how many events are currently
-        cy.get("[data-testid=single-event-component]").then((singleEvents) => {
-            const currentNumberOfEvents = singleEvents.length;
-            cy.log(`Current number of events: ${currentNumberOfEvents}`);
-            ctx.currentNumberOfEvents = currentNumberOfEvents;
-        });
-
-        // Complete create event flow
-        cy.get('[data-testid="create-event-button"]').click();
-
-        cy.get('[data-testid="create-event-modal"]').should("be.visible");
-
-        cy.get('[data-testid="event-title-input"]').type(testEvent.title);
-        cy.get('[data-testid="event-location-input"]').type(testEvent.location);
-        cy.get('[data-testid="event-location-url-input"]').type(
-            testEvent.locationUrl
-        );
-        cy.get('[data-testid="event-image-url-input"]').type(
-            testEvent.imageUrl
-        );
-
-        // No need to add date as it's automatically added, just click create event
-        cy.get('[data-testid="create-event-modal-button"]').click();
-
-        // Check success message
-        cy.get('[data-testid="alert-message"]')
-            .should("be.visible")
-            .and("have.text", "Event successfully created!");
-
-        // Check that there new event's data is found on event's panel
-        cy.get("[data-testid=single-event-component]")
-            .first()
-            .should("contain.text", testEvent.title)
-            .and("contain.text", testEvent.location);
-
-        // Choose the first event element
-        cy.get("[data-testid=single-event-component]")
-            .first()
-            .then((singleEvent) => {
-                singleEvent = singleEvent[0];
-
-                // Confirm first element has the correct title and location
-                cy.get(singleEvent).should("contain.text", testEvent.title);
-                cy.get(singleEvent).should("contain.text", testEvent.location);
-
-                cy.get(singleEvent).within(() => {
-                    cy.get("[data-testid=delete-button]")
-                        .should("be.visible")
-                        .click();
-                });
-            });
-    });
-
-    it("should display error labels when leaving required inputs empty or on validation errors", () => {
+    it("Verify error labels are displayed when leaving required inputs empty or on validation errors", () => {
         // Click on burger menu
         cy.get("[data-testid=burger-menu-button]").click();
 

@@ -17,7 +17,7 @@ const fetchUserData = (email, setUserData) => {
                 (user) => user.email === currentEmail
             )[0];
 
-            setUserData(fetchedCurrentUserData);
+            if (fetchedCurrentUserData) setUserData(fetchedCurrentUserData);
         });
 };
 

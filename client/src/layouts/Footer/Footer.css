@@ -1,56 +1,56 @@
 @import url("../../variables.css");
 
 .Footer__body {
-  margin-top: auto;
-  height: 120px;
-  width: 100%;
-  color: black;
-  flex-wrap: wrap;
-  float: initial;
-  position: relative;
-  bottom: 0;
+    margin-top: auto;
+    height: 120px;
+    width: 100%;
+    color: black;
+    flex-wrap: wrap;
+    float: initial;
+    position: relative;
+    bottom: 0;
 }
 
 .Footer__body.light-mode {
-  background-color: var(--bg-light-500);
+    background-color: var(--bg-light-500);
 }
 
 .Footer__body.dark-mode {
-  background-color: var(--bg-dark-500);
+    background-color: var(--bg-dark-500);
 }
 
 .Footer__footer a {
-  text-decoration: none;
-  color: #eee;
-  float: left;
-  margin-top: 18px;
+    text-decoration: none;
+    color: #eee;
+    float: left;
+    margin-top: 18px;
 }
 
 .Footer__footer.light-mode a {
-  color: var(--text-dark-500);
+    color: var(--text-dark-500);
 }
 
 .Footer__footer.dark-mode a {
-  color: var(--text-light-500);
+    color: var(--text-light-500);
 }
 
 .Footer__footer ul {
-  display: flex;
-  justify-content: space-around;
+    display: flex;
+    justify-content: space-around;
 }
 
 .Footer__footer {
-  margin-top: 10px;
-  height: 60px;
-  width: 100%;
+    margin-top: 10px;
+    height: 60px;
+    width: 100%;
 }
 
 .Footer__footer.light-mode {
-  background-color: var(--bg-light-900);
-  color: var(--text-dark-500);
+    background-color: var(--bg-light-900);
+    color: var(--text-dark-500);
 }
 
 .Footer__footer.dark-mode {
-  background-color: var(--bg-dark-900);
-  color: var(--text-light-500);
+    background-color: var(--bg-dark-900);
+    color: var(--text-light-500);
 }
