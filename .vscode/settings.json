@@ -52,7 +52,7 @@
     "editor.defaultFormatter": "redhat.vscode-yaml"
   },
   "[javascriptreact]": {
-    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+    "editor.defaultFormatter": "vscode.typescript-language-features",
     "editor.formatOnSave": false
   },
   "liveServer.settings.port": 5500,

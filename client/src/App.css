@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
 @import url("./variables.css");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
 .App {
     display: block;
@@ -13,12 +14,14 @@
     min-height: 100vh;
 }
 
-.App.light-mode {
-    background-color: var(--bg-light-500);
+.App.dark-mode {
+    background: rgb(46, 46, 46);
+    background: linear-gradient(48deg, rgba(46, 46, 46, 1) 0%, rgba(1, 30, 76, 1) 100%);
 }
 
-.App.dark-mode {
-    background-color: var(--bg-dark-500);
+.App.light-mode {
+    background: rgb(255, 148, 0);
+    background: linear-gradient(48deg, rgba(255, 148, 0, 1) 0%, rgba(255, 203, 132, 1) 100%);
 }
 
 .Main-app-dark-mode {
@@ -84,7 +87,7 @@ h2 {
 
 * {
     box-sizing: border-box;
-    font-family: "Roboto", sans-serif;
+    font-family: "Poppins", sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -135,40 +138,30 @@ span .hamburger {
 
 /* 1884 x 905 */
 
-@media screen and (min-width: 1884px) {
-}
+@media screen and (min-width: 1884px) {}
 
-@media screen and (max-height: 905px) {
-}
+@media screen and (max-height: 905px) {}
 
 /* 1920 x 1080 */
 
-@media screen and (max-width: 1920px) {
-}
+@media screen and (max-width: 1920px) {}
 
-@media screen and (max-height: 1080px) {
-}
+@media screen and (max-height: 1080px) {}
 
 /* 1366 x 768 */
 
-@media screen and (max-width: 1366px) {
-}
+@media screen and (max-width: 1366px) {}
 
-@media screen and (max-height: 768px) {
-}
+@media screen and (max-height: 768px) {}
 
 /* 375 x 667*/
 
-@media screen and (max-width: 375px) {
-}
+@media screen and (max-width: 375px) {}
 
-@media screen and (max-height: 667px) {
-}
+@media screen and (max-height: 667px) {}
 
 /* 360 x 640 */
 
-@media screen and (max-width: 360px) {
-}
+@media screen and (max-width: 360px) {}
 
-@media screen and (max-height: 640px) {
-}
+@media screen and (max-height: 640px) {}
