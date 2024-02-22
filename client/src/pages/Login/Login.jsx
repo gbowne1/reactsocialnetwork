@@ -51,9 +51,10 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
         password: "",
     });
 
-    const inputChangeHandler = (value) => {
-        setUserData(value);
+    const handleInputChange = (key, value) => {
+        setUserData({ ...userData, [key]: value });
     };
+
     const showPasswordClickedHandler = () => setShowPassword((show) => !show);
 
     const themeModeViewClickedHandler = (bool) => {
@@ -61,90 +62,70 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
     };
 
     const loginButtonClickedHandler = async () => {
-        // Check if credentials match hardcoded test credentials
-        if (
-            userData.username === TEST_USERNAME &&
-            userData.email === TEST_EMAIL &&
-            userData.password === TEST_PASSWORD
-        ) {
-            // If so execute a succesful login
-            setSnackbarOptions({
-                severity: "success",
-                message: "Login successful!",
-            });
-            setOpenSnackbar(true);
-            return handleAuthentication();
-        } else {
-            // Call /api/login with userData
-            fetch("http://localhost:9000/api/login", {
+        try {
+            if (!userData.username || !userData.email || !userData.password) {
+                throw new Error("All fields are required");
+            }
+
+            const response = await fetch("http://localhost:9000/api/login", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify(userData),
-            })
-                .then((res) => res.json())
-                .then((res) => {
-                    if (res.error) {
-                        setSnackbarOptions({
-                            severity: "error",
-                            message:
-                                "Credentials are not valid. Register a new user first!",
-                        });
-                        return setOpenSnackbar(true);
-                    }
+            });
 
-                    setSnackbarOptions({
-                        severity: "success",
-                        message: "Login successful!",
-                    });
-                    setOpenSnackbar(true);
+            const data = await response.json();
 
-                    return handleAuthentication();
-                });
+            if (data.error) {
+                showSnackbar(
+                    "error",
+                    "Credentials are not valid. Register a new user first!"
+                );
+            } else {
+                showSnackbar("success", "Login successful!");
+                await handleAuthentication();
+            }
+        } catch (error) {
+            showSnackbar("error", "Network error. Please try again later.");
         }
     };
 
     const registerButtonClickedHandler = async () => {
-        // Make a request to createUser route and send the userData obj
-        fetch("http://localhost:9000/api/user/", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(userData),
-        })
-            .then((res) => res.json())
-            .then((res) => {
-                if (res.error) {
-                    setSnackbarOptions({
-                        severity: "warning",
-                        message:
-                            "A user with that email is already registered!",
-                    });
-                    return setOpenSnackbar(true);
-                }
+        try {
+            if (!userData.username || !userData.email || !userData.password) {
+                throw new Error("All fields are required");
+            }
 
-                setSnackbarOptions({
-                    severity: "success",
-                    message: "Registered user!",
-                });
-
-                setOpenSnackbar(true);
-                return handleAuthentication();
+            const response = await fetch("http://localhost:9000/api/user/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(userData),
             });
+
+            const data = await response.json();
+
+            if (data.error) {
+                showSnackbar(
+                    "warning",
+                    "A user with that email is already registered!"
+                );
+            } else {
+                showSnackbar("success", "Registered user!");
+                await handleAuthentication();
+            }
+        } catch (error) {
+            showSnackbar("error", "Network error. Please try again later.");
+        }
     };
 
     const handleAuthentication = () => {
-        // Save user's credentials on localStorage under "lastLoginCredentials".
-        // This will be used for Remember Me and logout features.
         rememberMe && saveToLocalStorage("lastLoginCredentials", userData);
-
-        // Show loading spinner for one second.
         setTimeout(() => {
             setShowLoadingSpinner(true);
             setTimeout(() => {
-                // Show the app.
                 setLoginToken && setLoginToken(true);
             }, 1000);
         }, 1000);
@@ -169,6 +150,11 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
     } = useForm({
         resolver: yupResolver(validationSchema),
     });
+
+    const showSnackbar = (severity, message) => {
+        setSnackbarOptions({ severity, message });
+        setOpenSnackbar(true);
+    };
 
     return (
         <>
@@ -211,10 +197,10 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
                                     error={errors.username ? true : false}
                                     helperText={errors.username?.message}
                                     onChange={(event) =>
-                                        inputChangeHandler({
-                                            ...userData,
-                                            username: event.target.value,
-                                        })
+                                        handleInputChange(
+                                            "username",
+                                            event.target.value
+                                        )
                                     }
                                     inputProps={{ "data-testid": "username" }}
                                 />
@@ -230,10 +216,10 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
                                     error={errors.email ? true : false}
                                     helperText={errors.email?.message}
                                     onChange={(event) =>
-                                        inputChangeHandler({
-                                            ...userData,
-                                            email: event.target.value,
-                                        })
+                                        handleInputChange(
+                                            "email",
+                                            event.target.value
+                                        )
                                     }
                                     inputProps={{ "data-testid": "email" }}
                                 />
@@ -275,10 +261,10 @@ const Login = ({ setLoginToken, themeMode, handleThemeModeChange }) => {
                                             </InputAdornment>
                                         }
                                         onChange={(event) =>
-                                            inputChangeHandler({
-                                                ...userData,
-                                                password: event.target.value,
-                                            })
+                                            handleInputChange(
+                                                "password",
+                                                event.target.value
+                                            )
                                         }
                                         inputProps={{
                                             "data-testid": "password",
