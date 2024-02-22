@@ -1,9 +1,10 @@
+import React from "react";
 import PropTypes from "prop-types";
 import Alert from "@mui/material/Alert";
 import Snackbar from "@mui/material/Snackbar";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
-
+import Slide from "@mui/material/Slide";
 /**
  *
  * @param {string} message to display
@@ -21,18 +22,15 @@ import CloseIcon from "@mui/icons-material/Close";
 
 const CustomSnackbar = ({
     message,
-    vertical,
-    horizontal,
+    vertical = "top",
+    horizontal = "left",
 
-    alert,
-    severity,
+    alert = false,
+    severity = "info",
 
     open,
     setOpen,
 }) => {
-    vertical = vertical || "top";
-    horizontal = horizontal || "left";
-
     return (
         <Snackbar
             anchorOrigin={{ vertical, horizontal }}
@@ -42,6 +40,7 @@ const CustomSnackbar = ({
             }}
             message={message}
             key={vertical + horizontal}
+            TransitionComponent={Slide}
         >
             {alert && (
                 <Alert
@@ -70,17 +69,20 @@ const CustomSnackbar = ({
 };
 
 CustomSnackbar.propTypes = {
-    children: PropTypes.array,
-
-    message: PropTypes.string,
-    vertical: PropTypes.string,
-    horizontal: PropTypes.string,
-
+    message: PropTypes.string.isRequired,
+    vertical: PropTypes.oneOf(["top", "bottom"]),
+    horizontal: PropTypes.oneOf(["left", "center", "right"]),
     alert: PropTypes.bool,
-    severity: PropTypes.string,
+    severity: PropTypes.oneOf(["success", "info", "warning", "error"]),
+    open: PropTypes.bool.isRequired,
+    setOpen: PropTypes.func.isRequired,
+};
 
-    open: PropTypes.bool,
-    setOpen: PropTypes.func,
+CustomSnackbar.defaultProps = {
+    vertical: "top",
+    horizontal: "left",
+    alert: false,
+    severity: "info",
 };
 
 export default CustomSnackbar;

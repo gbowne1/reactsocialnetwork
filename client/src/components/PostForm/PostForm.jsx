@@ -1,20 +1,36 @@
 import "./PostForm.css";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useReducer } from "react";
 import PropTypes from "prop-types";
 
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import InsertPhotoIcon from "@mui/icons-material/InsertPhoto";
-import VideoFileIcon from "@mui/icons-material/VideoFile";
-import MoodIcon from "@mui/icons-material/Mood";
 import SendIcon from "@mui/icons-material/Send";
 import { IconButton } from "@mui/material";
 
 import getFromLocalStorage from "../../utils/getFromLocalStorage";
 import fetchUserData from "../../utils/fetchUserData";
 
-const PostForm = ({ themeMode, posts, setPosts, userAvatar = null }) => {
-    const [postText, setPostText] = useState("");
+const formReducer = (state, action) => {
+    switch (action.type) {
+        case "SET_POST_TEXT":
+            return { ...state, postText: action.payload };
+        default:
+            return state;
+    }
+};
+
+const PostForm = ({
+    themeMode = "light",
+    posts = [],
+    setPosts,
+    userAvatar = null,
+    userName,
+}) => {
+    const [state, dispatch] = useReducer(formReducer, { postText: "" });
     const [userData, setUserData] = useState({});
+
+    useEffect(() => {
+        fetchUserData(userName, setUserData);
+    }, [userName]);
 
     useEffect(() => {
         const currentEmail = getFromLocalStorage("lastLoginCredentials").email;
@@ -35,7 +51,7 @@ const PostForm = ({ themeMode, posts, setPosts, userAvatar = null }) => {
             accountImage: userData.accountImageUrl || defaultUserImage,
             accountName: username,
             postDate: new Date().toDateString(),
-            postText: postText,
+            postText: state.postText,
             postImage:
                 "https://static.vecteezy.com/system/resources/previews/012/168/187/non_2x/beautiful-sunset-on-the-beach-with-palm-tree-for-travel-and-vacation-free-photo.JPG",
         };
@@ -51,19 +67,22 @@ const PostForm = ({ themeMode, posts, setPosts, userAvatar = null }) => {
             .then((res) => {
                 if (res.error) {
                     alert(res.error);
+                } else {
+                    // Fetch all posts from db
+                    fetch("http://localhost:9000/api/posts/")
+                        .then((res) => res.json())
+                        .then((res) => {
+                            // And then set those posts with setEvent
+                            setPosts(res.data);
+                        })
+                        .catch((error) => {
+                            console.error("Error fetching posts:", error);
+                        });
                 }
-
-                // Fetch all posts from db
-                fetch("http://localhost:9000/api/posts/")
-                    .then((res) => res.json())
-                    .then((res) => {
-                        // And then set those posts with setEvent
-                        setPosts(res.data);
-                    });
+            })
+            .catch((error) => {
+                console.error("Error creating post:", error);
             });
-
-        // Clear form
-        setPostText("");
     };
 
     return (
@@ -100,8 +119,13 @@ const PostForm = ({ themeMode, posts, setPosts, userAvatar = null }) => {
                         aria-label="Post text input"
                         className={`PostForm__input ${themeMode}`}
                         data-testid="create-post-input"
-                        value={postText}
-                        onChange={(e) => setPostText(e.target.value)}
+                        value={state.postText}
+                        onChange={(e) =>
+                            dispatch({
+                                type: "SET_POST_TEXT",
+                                payload: e.target.value,
+                            })
+                        }
                         type="text"
                         autoComplete="off"
                     />
