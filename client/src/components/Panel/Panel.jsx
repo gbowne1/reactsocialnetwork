@@ -1,3 +1,4 @@
+import React, { useEffect } from "react";
 import "./Panel.css";
 import PropTypes from "prop-types";
 import CloseButton from "../CloseButton/CloseButton";
@@ -17,38 +18,33 @@ import CloseButton from "../CloseButton/CloseButton";
  */
 
 const Panel = ({
-    themeMode,
-    width,
-    titleHeading,
-    contentHeading,
+    themeMode = "light",
+    width = 100,
+    titleHeading = "",
+    contentHeading = "",
     isOpen,
     setIsOpen,
-    dataTestId,
+    dataTestId = "",
     children,
 }) => {
     const handleClose = () => {
         setIsOpen(false);
     };
 
-    const getClassNameFromWidthProp = (width) => {
-        let widthClassName = "";
-        if (!width) return widthClassName;
-
-        if (width === 100) widthClassName = "w-100";
-        if (width === 75) widthClassName = "w-75";
-        if (width === 50) widthClassName = "w-50";
-        if (width === 25) widthClassName = "w-25";
-        return widthClassName;
-    };
+    useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "unset";
+        }
+    }, [isOpen]);
 
     return (
         <>
             {isOpen && (
                 <div
                     data-testid={dataTestId}
-                    className={`Panel ${themeMode}  ${getClassNameFromWidthProp(
-                        width
-                    )}`}
+                    className={`Panel ${themeMode} w-${width}`}
                 >
                     <div className={`Panel__header ${themeMode}`}>
                         {titleHeading && (
@@ -72,7 +68,7 @@ const Panel = ({
 
 Panel.propTypes = {
     themeMode: PropTypes.string,
-    width: PropTypes.number,
+    width: PropTypes.oneOf([25, 50, 75, 100]),
     titleHeading: PropTypes.string,
     contentHeading: PropTypes.string,
     isOpen: PropTypes.bool,

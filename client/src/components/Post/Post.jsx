@@ -4,12 +4,12 @@ import PropTypes from "prop-types";
 import CloseButton from "../CloseButton/CloseButton";
 
 const Post = ({
-    themeMode,
-    accountImage,
-    accountName,
-    postDate,
-    postText,
-    postImage,
+    themeMode = "light",
+    accountImage = "",
+    accountName = "",
+    postDate = "",
+    postText = "",
+    postImage = "",
 }) => {
     const [isOpen, setIsOpen] = useState(true);
 
@@ -43,6 +43,7 @@ const Post = ({
                         className={`Post__close-button ${themeMode}`}
                         dataTestid="post-close-button"
                         handleClose={handleClose}
+                        aria-label="Close post"
                     />
                 </div>
 
@@ -64,12 +65,16 @@ const Post = ({
 };
 
 Post.propTypes = {
-    themeMode: PropTypes.string,
+    themeMode: PropTypes.oneOf(["light", "dark"]),
     accountImage: PropTypes.string,
     accountName: PropTypes.string,
     postDate: PropTypes.string,
     postText: PropTypes.string,
     postImage: PropTypes.string,
+};
+
+Post.defaultProps = {
+    themeMode: "light",
 };
 
 export default Post;

@@ -1,3 +1,4 @@
+import React from "react";
 import "./CustomModal.css";
 import PropTypes from "prop-types";
 import {
@@ -24,8 +25,8 @@ import {
 const CustomModal = ({
     isOpen,
     setIsOpen,
-    title,
-    message,
+    title = "",
+    message = "",
     dataTestId,
     children,
 }) => {
@@ -39,8 +40,14 @@ const CustomModal = ({
                     }}
                     className="Modal"
                     data-testid={dataTestId}
+                    keepMounted
                 >
-                    <DialogTitle className="Modal__title">{title}</DialogTitle>
+                    <DialogTitle
+                        className="Modal__title"
+                        id={`dialog-title-${dataTestId}`}
+                    >
+                        {title}
+                    </DialogTitle>
                     <DialogContent className="Modal__content">
                         <DialogContentText>{message}</DialogContentText>
                     </DialogContent>
@@ -52,8 +59,12 @@ const CustomModal = ({
 };
 
 CustomModal.propTypes = {
+    isOpen: PropTypes.bool.isRequired,
+    setIsOpen: PropTypes.func.isRequired,
     title: PropTypes.string,
     message: PropTypes.string,
+    dataTestId: PropTypes.string,
+    children: PropTypes.node,
 };
 
 export default CustomModal;

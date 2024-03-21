@@ -20,13 +20,13 @@ const Alert = forwardRef(function Alert(props, ref) {
  * @returns CustomAlert component.
  */
 
-const CustomAlert = ({ severity, message, open, setOpen }) => {
+const CustomAlert = ({ severity = "info", message = "", open, setOpen }) => {
     return (
         <Collapse in={open}>
             <Alert
                 action={
                     <IconButton
-                        aria-label="close"
+                        aria-label="close alert"
                         color="inherit"
                         size="small"
                         onClick={() => {
@@ -46,10 +46,10 @@ const CustomAlert = ({ severity, message, open, setOpen }) => {
 };
 
 CustomAlert.propTypes = {
-    severity: PropTypes.string,
-    message: PropTypes.string,
-    open: PropTypes.bool,
-    setOpen: PropTypes.func,
+    severity: PropTypes.oneOf(["success", "info", "warning", "error"]),
+    message: PropTypes.string.isRequired,
+    open: PropTypes.bool.isRequired,
+    setOpen: PropTypes.func.isRequired,
 };
 
 export default CustomAlert;

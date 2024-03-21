@@ -1,5 +1,6 @@
 import React from "react";
-import { Box, Button, Tabs, Tab, Typography } from "@mui/material";
+import PropTypes from "prop-types";
+import { Box, Typography } from "@mui/material";
 
 const CustomTabPanel = (props) => {
     const { children, value, index, ...other } = props;
@@ -19,6 +20,12 @@ const CustomTabPanel = (props) => {
             )}
         </div>
     );
+};
+
+CustomTabPanel.propTypes = {
+    children: PropTypes.node,
+    value: PropTypes.number,
+    index: PropTypes.number,
 };
 
 export default CustomTabPanel;
