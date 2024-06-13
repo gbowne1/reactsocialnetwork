@@ -19,14 +19,14 @@ services:
     ports:
       - "15000:5000"
     environment:
-      - MONGODB_URI=mongodb://mongodb:127017/mydatabase
+      - MONGODB_URI=mongodb://mongodb:27020/mydatabase
     depends_on:
       - mongodb
 
   mongodb:
     image: mongo:latest
     ports:
-      - "127017:27017"
+      - "27020:27017"
     volumes:
       - mongodb_data:/data/db
 
