@@ -59,9 +59,9 @@ const renderSingleEvent = () => {
  *
  * Helper function to render the CreateEventModal component and pass mock params in order to comply with DRY
  * @returns  {
-    mockSetEvents, -> Mock function 
-    mockSetSnackbarOptions, -> Mock function 
-    mockSetOpenSnackbar, -> Mock function 
+    mockSetEvents, -> Mock function
+    mockSetSnackbarOptions, -> Mock function
+    mockSetOpenSnackbar, -> Mock function
   }
  */
 const renderCreateEventModal = () => {

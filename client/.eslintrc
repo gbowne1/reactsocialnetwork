@@ -5,6 +5,10 @@
     "parserOptions": {
         "requireConfigFile": true
     },
+    "rules": {
+      "linebreak-style": ["error", "unix"],
+      "indent": ["error", 4]
+    },
     "settings": {
         "react": {
             "version": "detect"

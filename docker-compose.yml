@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    environment:
+      - RSNBACKEND_URI=http://server:15000
+    ports:
+      - "13000:3000"
+    depends_on:
+      - server
+
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "15000:5000"
+    environment:
+      - MONGODB_URI=mongodb://mongodb:27020/mydatabase
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27020:27017"
+    volumes:
+      - mongodb_data:/data/db
+
+volumes:
+  mongodb_data:
+
