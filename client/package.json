@@ -67,7 +67,7 @@
         "eslint-plugin-react": "^7.37.5",
         "jest-watch-typeahead": "^2.2.2",
         "prettier": "^3.5.3",
-        "react-test-renderer": "^18.3.1",
+        "react-test-renderer": "^19.1.0",
         "webpack": "^5.99.5"
     }
 }
