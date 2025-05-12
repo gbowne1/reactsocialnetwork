@@ -1,4 +1,3 @@
-import "./TopNav.css";
 import { useState } from "react";
 import PropTypes from "prop-types";
 import {
@@ -12,7 +11,8 @@ import {
     Switch,
     Toolbar,
     Typography,
-} from "@mui/material/";
+} from "@mui/material";
+import "./TopNav.css";
 
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
