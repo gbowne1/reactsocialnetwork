@@ -1,35 +1,22 @@
 {
-  "parser": "@babel/eslint-parser",
-  "extends": [
-    "react-app",
-    "react-app/jest",
-    "plugin:prettier/recommended"
-  ],
-  "plugins": [
-    "react",
-    "prettier"
-  ],
-  "parserOptions": {
-    "requireConfigFile": false
-  },
-  "rules": {
-    "linebreak-style": [
-      "error",
-      "unix"
-    ],
-    "indent": [
-      "error",
-      4
-    ]
-  },
-  "settings": {
-    "react": {
-      "version": "detect"
+    "parser": "@babel/eslint-parser",
+    "extends": ["react-app", "react-app/jest", "plugin:prettier/recommended"],
+    "plugins": ["react", "prettier"],
+    "parserOptions": {
+        "requireConfigFile": true
+    },
+    "rules": {
+      "linebreak-style": ["error", "unix"],
+      "indent": ["error", 4]
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    },
+    "env": {
+        "browser": true,
+        "node": true,
+        "es6": true
     }
-  },
-  "env": {
-    "browser": true,
-    "node": true,
-    "es6": true
-  }
 }
