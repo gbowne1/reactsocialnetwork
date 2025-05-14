@@ -1,7 +1,7 @@
 import "./Admin.Dashboard.css";
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import { Button } from "@mui/material";
+import { Button, List, ListItem, ListItemText } from "@mui/material";
 import Panel from "../../components/Panel/Panel";
 
 function AdminDashboard({ themeMode }) {
@@ -9,7 +9,6 @@ function AdminDashboard({ themeMode }) {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
-        // Fetch users from db
         fetch("http://localhost:9000/api/users")
             .then((res) => res.json())
             .then((res) => {
@@ -37,11 +36,21 @@ function AdminDashboard({ themeMode }) {
                     >
                         New Button
                     </Button>
+
+                    {/* Render the users list */}
+                    <List>
+                        {users.map((user) => (
+                            <ListItem key={user.id}>
+                                <ListItemText primary={user.name} secondary={user.email} />
+                            </ListItem>
+                        ))}
+                    </List>
                 </Panel>
             )}
         </>
     );
 }
+
 AdminDashboard.propTypes = {
     themeMode: PropTypes.string,
 };
