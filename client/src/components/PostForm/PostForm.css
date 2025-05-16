@@ -2,13 +2,14 @@
 
 .PostForm__create {
     border-radius: 10px;
-    border: none;
     padding: 10px;
     margin: 50px auto;
     width: 100%;
     max-width: 600px;
-    gap: 15px;
     box-shadow: 0px 1px 2px #888888;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .PostForm__create.dark-mode {
@@ -20,43 +21,27 @@
 }
 
 .PostForm__basics {
-    width: 100%;
-    justify-content: space-between;
     display: flex;
-    flex-direction: row;
+    align-items: center;
     gap: 10px;
 }
 
 .PostForm__avatar {
-    margin: auto;
-    height: 100%;
-}
-
-.PostForm__avatar button {
-    font-size: 36px;
-    padding: 0;
-    line-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .PostForm__empty-avatar {
-    padding: 0;
-    margin: 0;
-    margin-block: auto;
     font-size: 36px;
-    line-height: 100%;
 }
 
 .PostForm__input {
-    background-color: #f0f2f5;
-    margin: 0;
+    flex: 1;
     padding: 10px 15px;
     border-radius: 50px;
     border: none;
-    flex: 1;
-}
-
-.PostForm__input.dark-mode::placeholder {
-    color: var(--text-light-100);
+    background-color: #f0f2f5;
 }
 
 .PostForm__input.dark-mode {
@@ -64,17 +49,15 @@
     background-color: var(--bg-dark-100);
 }
 
+.PostForm__input.dark-mode::placeholder {
+    color: var(--text-light-100);
+}
+
 .PostForm__input.light-mode::placeholder {
     color: var(--text-dark-100);
 }
 
-/* .PostForm__input.light-mode {
-  color: var(--text-dark-900);
-  background-color: var(--bg-light-100);
-} */
-
 .PostForm__submit {
-    margin: 0;
     padding: 10px 15px;
     border-radius: 50px;
     border: none;
@@ -86,40 +69,4 @@
 
 .PostForm__submit.light-mode {
     color: var(--clr-light-mode-accent-500);
-}
-
-.PorForm__hr {
-    margin: 10px auto;
-}
-
-.PorForm__uploads {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: space-around;
-    gap: 10px;
-    width: 100%;
-}
-
-.PorForm__uploads button {
-    padding: 0;
-}
-
-.PorForm__upload-btn:hover {
-    border-radius: 5px;
-}
-
-.PorForm__icon-label {
-    margin-left: 10px;
-    font-size: 14px;
-}
-
-.PorForm__icon-label.dark-mode {
-    background-color: transparent;
-    color: var(--text-light-500);
-}
-
-.PorForm__icon-label.light-mode {
-    background-color: transparent;
-    color: var(--text-dark-500);
 }

@@ -105,7 +105,7 @@ const CreateEventModal = ({
         const dateToday = new Date(today.format("MM/DD/YYYY"));
         const dateToCheck = new Date(dateToValidate.format("MM/DD/YYYY"));
 
-        if (dateToCheck == "Invalid Date") {
+        if (dateToCheck === "Invalid Date") {
             return {
                 result: false,
                 message: "Invalid Date",

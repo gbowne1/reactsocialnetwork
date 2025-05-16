@@ -15,7 +15,7 @@ const CookieModal = () => {
 
     useEffect(() => {
         setCookiesAccepted(getFromLocalStorage("cookiesAccepted"));
-    });
+    }, []);
 
     useEffect(() => {
         const timeout = setTimeout(() => {
