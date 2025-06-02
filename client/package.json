@@ -30,7 +30,7 @@
         "react-router": "^7.5.0",
         "react-router-dom": "^7.5.0",
         "react-scripts": "^5.0.1",
-        "web-vitals": "^4.2.4",
+        "web-vitals": "^5.0.2",
         "webpack-dev-server": "^5.2.1",
         "yup": "^1.6.1",
         "yup-password": "^0.4.0"
