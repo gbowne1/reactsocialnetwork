@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../../database");
-const md5 = require("md5");
+const bcrypt = require("bcrypt");
 
 // Create new user, fail if user credentials already exist
-router.post("/api/user/", (req, res, next) => {
+router.post("/api/user/", async(req, res, next) => {
     console.log("On /api/user/");
     const errors = [];
 
@@ -21,10 +21,15 @@ router.post("/api/user/", (req, res, next) => {
         return;
     }
 
+    const hashedPwd = await bcrypt.hash(req.body.password,10);
+    if(!hashedPwd){
+        return res.status(400).json({error: 'hashing of password using bcrypt failed!'});
+    }
+
     const data = {
         username: req.body.username,
         email: req.body.email,
-        password: md5(req.body.password),
+        password: hashedPwd,
         accountImageUrl:
             "https://icon-library.com/images/default-user-icon/default-user-icon-13.jpg",
     };
