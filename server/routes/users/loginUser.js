@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../../database");
-const md5 = require("md5");
+const bcrypt = require("bcrypt");
 
 // Login user, fail if user credentials do not exists
 router.post("/api/login", (req, res, next) => {
@@ -25,11 +25,11 @@ router.post("/api/login", (req, res, next) => {
     const data = {
         username: req.body.username,
         email: req.body.email,
-        password: md5(req.body.password),
+        password: req.body.password,
     };
 
     // Get all users
-    db.all(sql, params, (err, rows) => {
+    db.all(sql, params, async (err, rows) => {
         if (err) {
             res.status(400).json({ error: err.message });
             return;
@@ -42,11 +42,12 @@ router.post("/api/login", (req, res, next) => {
         const existingUser = users.find(
             (user) =>
                 user.username === data.username &&
-                user.email === data.email &&
-                user.password === data.password
+                user.email === data.email
         );
 
-        if (existingUser) {
+        const isMatch = await bcrypt.compare(data.password, existingUser.password);
+
+        if (existingUser && isMatch) {
             return res.json({
                 message: "User successfully logged in!",
                 data: rows,
