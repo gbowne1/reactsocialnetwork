@@ -19,21 +19,21 @@
 }
 
 .Login__form {
-    border: 1px solid;
-    border-radius: 10px;
-    margin: 0 auto;
-    max-width: 600px;
-    width: 100%;
-    padding: 20px;
+  border: 1px solid;
+  border-radius: 10px;
+  margin: 0 auto;
+  max-width: 600px;
+  width: 100%;
+  padding: 20px;
 }
 
 .Login__form.light-mode {
-    background: rgba(255, 255, 255, 0.21);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.21);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .Login__form.dark-mode {
@@ -43,6 +43,7 @@
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(0, 0, 0, 0.3);
+  color: #f87171 !important;
 }
 
 .Login__textfield.dark-mode label {
